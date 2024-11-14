@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/ga_solver.dir/src/main.cpp.o -o ga_solver  /usr/lib/x86_64-linux-gnu/libcudart_static.a -ldl /usr/lib/x86_64-linux-gnu/librt.so -lpthread
