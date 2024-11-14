@@ -1,6 +1,7 @@
 CMakeFiles/ga_solver.dir/src/main.cpp.o: \
  /home/harish/dev/GA_Solver/src/main.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/8/iostream \
+ /home/harish/dev/GA_Solver/include/genetic_kernels.cuh \
+ /usr/include/c++/8/cstdint \
  /usr/include/x86_64-linux-gnu/c++/8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/8/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -9,16 +10,23 @@ CMakeFiles/ga_solver.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/8/bits/cpu_defines.h \
- /usr/include/c++/8/ostream /usr/include/c++/8/ios \
- /usr/include/c++/8/iosfwd /usr/include/c++/8/bits/stringfwd.h \
- /usr/include/c++/8/bits/memoryfwd.h /usr/include/c++/8/bits/postypes.h \
- /usr/include/c++/8/cwchar /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/8/iostream /usr/include/c++/8/ostream \
+ /usr/include/c++/8/ios /usr/include/c++/8/iosfwd \
+ /usr/include/c++/8/bits/stringfwd.h /usr/include/c++/8/bits/memoryfwd.h \
+ /usr/include/c++/8/bits/postypes.h /usr/include/c++/8/cwchar \
+ /usr/include/wchar.h /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/8/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -45,14 +53,7 @@ CMakeFiles/ga_solver.dir/src/main.cpp.o: \
  /usr/include/c++/8/debug/assertions.h \
  /usr/include/c++/8/bits/stl_iterator.h \
  /usr/include/c++/8/bits/ptr_traits.h /usr/include/c++/8/debug/debug.h \
- /usr/include/c++/8/bits/predefined_ops.h /usr/include/c++/8/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/timesize.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/8/bits/predefined_ops.h \
  /usr/include/c++/8/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/8/bits/c++locale.h \
  /usr/include/c++/8/clocale /usr/include/locale.h \
@@ -136,4 +137,53 @@ CMakeFiles/ga_solver.dir/src/main.cpp.o: \
  /usr/include/c++/8/bits/locale_facets.tcc \
  /usr/include/c++/8/bits/basic_ios.tcc \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
- /usr/include/c++/8/bits/istream.tcc
+ /usr/include/c++/8/bits/istream.tcc /usr/include/c++/8/vector \
+ /usr/include/c++/8/bits/stl_construct.h \
+ /usr/include/c++/8/bits/stl_uninitialized.h /usr/include/c++/8/utility \
+ /usr/include/c++/8/bits/stl_relops.h \
+ /usr/include/c++/8/bits/stl_vector.h \
+ /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
+ /usr/include/c++/8/random /usr/include/c++/8/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/8/bits/specfun.h /usr/include/c++/8/tr1/gamma.tcc \
+ /usr/include/c++/8/tr1/special_function_util.h \
+ /usr/include/c++/8/tr1/bessel_function.tcc \
+ /usr/include/c++/8/tr1/special_function_util.h \
+ /usr/include/c++/8/tr1/beta_function.tcc \
+ /usr/include/c++/8/tr1/ell_integral.tcc \
+ /usr/include/c++/8/tr1/exp_integral.tcc \
+ /usr/include/c++/8/tr1/hypergeometric.tcc \
+ /usr/include/c++/8/tr1/legendre_function.tcc \
+ /usr/include/c++/8/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/8/tr1/poly_hermite.tcc \
+ /usr/include/c++/8/tr1/poly_laguerre.tcc \
+ /usr/include/c++/8/tr1/riemann_zeta.tcc /usr/include/c++/8/bits/random.h \
+ /usr/include/c++/8/bits/uniform_int_dist.h \
+ /usr/include/x86_64-linux-gnu/c++/8/bits/opt_random.h \
+ /usr/include/c++/8/bits/random.tcc /usr/include/c++/8/numeric \
+ /usr/include/c++/8/bits/stl_numeric.h /usr/include/c++/8/bitset \
+ /usr/include/cuda_runtime.h /usr/include/crt/host_config.h \
+ /usr/include/builtin_types.h /usr/include/device_types.h \
+ /usr/include/crt/host_defines.h /usr/include/driver_types.h \
+ /usr/include/vector_types.h \
+ /usr/lib/gcc/x86_64-linux-gnu/8/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/8/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/surface_types.h /usr/include/texture_types.h \
+ /usr/include/library_types.h /usr/include/channel_descriptor.h \
+ /usr/include/cuda_runtime_api.h /usr/include/cuda_device_runtime_api.h \
+ /usr/include/driver_functions.h /usr/include/vector_functions.h \
+ /usr/include/vector_functions.hpp

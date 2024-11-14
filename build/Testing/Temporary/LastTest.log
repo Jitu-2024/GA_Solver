@@ -1,0 +1,31 @@
+Start testing: Nov 14 12:30 EST
+----------------------------------------------------------
+1/1 Testing: MutationTests
+1/1 Test: MutationTests
+Command: "/home/harish/dev/GA_Solver/build/tests"
+Directory: /home/harish/dev/GA_Solver/build
+"MutationTests" start time: Nov 14 12:30 EST
+Output:
+----------------------------------------------------------
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from MutationTest
+[ RUN      ] MutationTest.MutationCorrectness
+[       OK ] MutationTest.MutationCorrectness (641 ms)
+[ RUN      ] MutationTest.PerformanceBenchmarking
+Time for mutation kernel: 3.07386 ms
+[       OK ] MutationTest.PerformanceBenchmarking (3 ms)
+[----------] 2 tests from MutationTest (644 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (644 ms total)
+[  PASSED  ] 2 tests.
+<end of output>
+Test time =   0.85 sec
+----------------------------------------------------------
+Test Passed.
+"MutationTests" end time: Nov 14 12:30 EST
+"MutationTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 14 12:30 EST

@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/harish/dev/GA_Solver/build
 
 # The main recursive "all" target.
 all: CMakeFiles/ga_solver.dir/all
+all: CMakeFiles/tests.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/ga_solver.dir/clean
+clean: CMakeFiles/tests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -81,12 +83,12 @@ clean: CMakeFiles/ga_solver.dir/clean
 CMakeFiles/ga_solver.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=1,2 "Built target ga_solver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target ga_solver"
 .PHONY : CMakeFiles/ga_solver.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ga_solver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev/GA_Solver/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev/GA_Solver/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ga_solver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev/GA_Solver/build/CMakeFiles 0
 .PHONY : CMakeFiles/ga_solver.dir/rule
@@ -99,6 +101,32 @@ ga_solver: CMakeFiles/ga_solver.dir/rule
 CMakeFiles/ga_solver.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/clean
 .PHONY : CMakeFiles/ga_solver.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tests.dir
+
+# All Build rule for target.
+CMakeFiles/tests.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=6,7,8 "Built target tests"
+.PHONY : CMakeFiles/tests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev/GA_Solver/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev/GA_Solver/build/CMakeFiles 0
+.PHONY : CMakeFiles/tests.dir/rule
+
+# Convenience name for target.
+tests: CMakeFiles/tests.dir/rule
+.PHONY : tests
+
+# clean rule for target.
+CMakeFiles/tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/clean
+.PHONY : CMakeFiles/tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/ga_solver.dir/src/main.cpp.o -o ga_solver  /usr/lib/x86_64-linux-gnu/libcudart_static.a -ldl /usr/lib/x86_64-linux-gnu/librt.so -lpthread
+/usr/bin/c++ CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o CMakeFiles/ga_solver.dir/src/main.cpp.o -o ga_solver   -L/usr/lib/x86_64-linux-gnu/stubs  /usr/lib/x86_64-linux-gnu/libcudart_static.a -ldl /usr/lib/x86_64-linux-gnu/librt.so -lpthread -lcudadevrt -lcudart_static -lrt -lpthread -ldl

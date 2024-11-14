@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/harish/dev/GA_Solver/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -129,6 +139,94 @@ ga_solver/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/build
 .PHONY : ga_solver/fast
 
+#=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
+src/ga_core/genome.o: src/ga_core/genome.cpp.o
+.PHONY : src/ga_core/genome.o
+
+# target to build an object file
+src/ga_core/genome.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o
+.PHONY : src/ga_core/genome.cpp.o
+
+src/ga_core/genome.i: src/ga_core/genome.cpp.i
+.PHONY : src/ga_core/genome.i
+
+# target to preprocess a source file
+src/ga_core/genome.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.i
+.PHONY : src/ga_core/genome.cpp.i
+
+src/ga_core/genome.s: src/ga_core/genome.cpp.s
+.PHONY : src/ga_core/genome.s
+
+# target to generate assembly for a file
+src/ga_core/genome.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.s
+.PHONY : src/ga_core/genome.cpp.s
+
+src/ga_core/population.o: src/ga_core/population.cpp.o
+.PHONY : src/ga_core/population.o
+
+# target to build an object file
+src/ga_core/population.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o
+.PHONY : src/ga_core/population.cpp.o
+
+src/ga_core/population.i: src/ga_core/population.cpp.i
+.PHONY : src/ga_core/population.i
+
+# target to preprocess a source file
+src/ga_core/population.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.i
+.PHONY : src/ga_core/population.cpp.i
+
+src/ga_core/population.s: src/ga_core/population.cpp.s
+.PHONY : src/ga_core/population.s
+
+# target to generate assembly for a file
+src/ga_core/population.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.s
+.PHONY : src/ga_core/population.cpp.s
+
+src/gpu/genetic_kernels.o: src/gpu/genetic_kernels.cu.o
+.PHONY : src/gpu/genetic_kernels.o
+
+# target to build an object file
+src/gpu/genetic_kernels.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/gpu/genetic_kernels.cu.o
+.PHONY : src/gpu/genetic_kernels.cu.o
+
+src/gpu/genetic_kernels.i: src/gpu/genetic_kernels.cu.i
+.PHONY : src/gpu/genetic_kernels.i
+
+# target to preprocess a source file
+src/gpu/genetic_kernels.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/gpu/genetic_kernels.cu.i
+.PHONY : src/gpu/genetic_kernels.cu.i
+
+src/gpu/genetic_kernels.s: src/gpu/genetic_kernels.cu.s
+.PHONY : src/gpu/genetic_kernels.s
+
+# target to generate assembly for a file
+src/gpu/genetic_kernels.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/gpu/genetic_kernels.cu.s
+.PHONY : src/gpu/genetic_kernels.cu.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -153,6 +251,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+tests/mutation_test.o: tests/mutation_test.cpp.o
+.PHONY : tests/mutation_test.o
+
+# target to build an object file
+tests/mutation_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/mutation_test.cpp.o
+.PHONY : tests/mutation_test.cpp.o
+
+tests/mutation_test.i: tests/mutation_test.cpp.i
+.PHONY : tests/mutation_test.i
+
+# target to preprocess a source file
+tests/mutation_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/mutation_test.cpp.i
+.PHONY : tests/mutation_test.cpp.i
+
+tests/mutation_test.s: tests/mutation_test.cpp.s
+.PHONY : tests/mutation_test.s
+
+# target to generate assembly for a file
+tests/mutation_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/mutation_test.cpp.s
+.PHONY : tests/mutation_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +283,24 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... ga_solver"
+	@echo "... tests"
+	@echo "... src/ga_core/genome.o"
+	@echo "... src/ga_core/genome.i"
+	@echo "... src/ga_core/genome.s"
+	@echo "... src/ga_core/population.o"
+	@echo "... src/ga_core/population.i"
+	@echo "... src/ga_core/population.s"
+	@echo "... src/gpu/genetic_kernels.o"
+	@echo "... src/gpu/genetic_kernels.i"
+	@echo "... src/gpu/genetic_kernels.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... tests/mutation_test.o"
+	@echo "... tests/mutation_test.i"
+	@echo "... tests/mutation_test.s"
 .PHONY : help
 
 

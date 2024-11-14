@@ -69,10 +69,53 @@ include CMakeFiles/ga_solver.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ga_solver.dir/flags.make
 
+CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o: CMakeFiles/ga_solver.dir/flags.make
+CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o: /home/harish/dev/GA_Solver/src/ga_core/genome.cpp
+CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o: CMakeFiles/ga_solver.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o -MF CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o.d -o CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o -c /home/harish/dev/GA_Solver/src/ga_core/genome.cpp
+
+CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/harish/dev/GA_Solver/src/ga_core/genome.cpp > CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.i
+
+CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/harish/dev/GA_Solver/src/ga_core/genome.cpp -o CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.s
+
+CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o: CMakeFiles/ga_solver.dir/flags.make
+CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o: /home/harish/dev/GA_Solver/src/ga_core/population.cpp
+CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o: CMakeFiles/ga_solver.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o -MF CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o.d -o CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o -c /home/harish/dev/GA_Solver/src/ga_core/population.cpp
+
+CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/harish/dev/GA_Solver/src/ga_core/population.cpp > CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.i
+
+CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/harish/dev/GA_Solver/src/ga_core/population.cpp -o CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.s
+
+CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o: CMakeFiles/ga_solver.dir/flags.make
+CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o: /home/harish/dev/GA_Solver/src/gpu/genetic_kernels.cu
+CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o: CMakeFiles/ga_solver.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CUDA object CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o"
+	/usr/bin/nvcc  $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -x cu -c /home/harish/dev/GA_Solver/src/gpu/genetic_kernels.cu -o CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o
+	/usr/bin/nvcc  $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -x cu -M /home/harish/dev/GA_Solver/src/gpu/genetic_kernels.cu -MT CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o -o CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o.d
+
+CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
+
+CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
+
 CMakeFiles/ga_solver.dir/src/main.cpp.o: CMakeFiles/ga_solver.dir/flags.make
 CMakeFiles/ga_solver.dir/src/main.cpp.o: /home/harish/dev/GA_Solver/src/main.cpp
 CMakeFiles/ga_solver.dir/src/main.cpp.o: CMakeFiles/ga_solver.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ga_solver.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ga_solver.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ga_solver.dir/src/main.cpp.o -MF CMakeFiles/ga_solver.dir/src/main.cpp.o.d -o CMakeFiles/ga_solver.dir/src/main.cpp.o -c /home/harish/dev/GA_Solver/src/main.cpp
 
 CMakeFiles/ga_solver.dir/src/main.cpp.i: cmake_force
@@ -85,17 +128,23 @@ CMakeFiles/ga_solver.dir/src/main.cpp.s: cmake_force
 
 # Object files for target ga_solver
 ga_solver_OBJECTS = \
+"CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o" \
+"CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o" \
+"CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o" \
 "CMakeFiles/ga_solver.dir/src/main.cpp.o"
 
 # External object files for target ga_solver
 ga_solver_EXTERNAL_OBJECTS =
 
+ga_solver: CMakeFiles/ga_solver.dir/src/ga_core/genome.cpp.o
+ga_solver: CMakeFiles/ga_solver.dir/src/ga_core/population.cpp.o
+ga_solver: CMakeFiles/ga_solver.dir/src/gpu/genetic_kernels.cu.o
 ga_solver: CMakeFiles/ga_solver.dir/src/main.cpp.o
 ga_solver: CMakeFiles/ga_solver.dir/build.make
 ga_solver: /usr/lib/x86_64-linux-gnu/libcudart_static.a
 ga_solver: /usr/lib/x86_64-linux-gnu/librt.so
 ga_solver: CMakeFiles/ga_solver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ga_solver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/harish/dev/GA_Solver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ga_solver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ga_solver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
