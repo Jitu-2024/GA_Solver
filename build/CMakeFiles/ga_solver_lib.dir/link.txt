@@ -1,0 +1,2 @@
+/usr/bin/ar qc libga_solver_lib.a CMakeFiles/ga_solver_lib.dir/src/genome.cu.o CMakeFiles/ga_solver_lib.dir/src/population.cu.o CMakeFiles/ga_solver_lib.dir/src/cost_matrix.cu.o CMakeFiles/ga_solver_lib.dir/src/fitness_evaluator.cu.o CMakeFiles/ga_solver_lib.dir/src/ga_solver_main.cu.o CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o CMakeFiles/ga_solver_lib.dir/src/crossover.cu.o CMakeFiles/ga_solver_lib.dir/src/mutation.cu.o
+/usr/bin/ranlib libga_solver_lib.a

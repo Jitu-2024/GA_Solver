@@ -1,46 +1,87 @@
+# Minimum CMake version required
 cmake_minimum_required(VERSION 3.18)
 
-# Project name and languages
-project(GA_Solver LANGUAGES CXX CUDA)
+project(GA_solver LANGUAGES CXX CUDA)
 
-# Specify C++ and CUDA standards
+# Find CUDA
+find_package(CUDAToolkit REQUIRED)
+
+# Project name and version
+project(GA_SOLVER LANGUAGES CXX CUDA)
+
+# Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CUDA_STANDARD 11)
+set(CMAKE_CUDA_STANDARD 17)
 
-# Find CUDA package
-find_package(CUDA REQUIRED)
+# Enable CUDA
+enable_language(CUDA)
 
-# Include directories
-include_directories(${PROJECT_SOURCE_DIR}/include)
+# Enable debug flags for host and device code
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CUDA_FLAGS_DEBUG "-G -g")
 
-# Source files
-file(GLOB_RECURSE SOURCE_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/*.cu)
+configure_file(${CMAKE_SOURCE_DIR}/data/dsj1000.tsp ${CMAKE_BINARY_DIR}/data/dsj1000.tsp COPYONLY)
 
-# Add executable
-add_executable(ga_solver ${SOURCE_FILES})
+# Add source files
+set(SRC_FILES
+    src/genome.cu
+    src/population.cu
+    src/cost_matrix.cu
+    src/fitness_evaluator.cu
+    src/ga_solver_main.cu
+    src/parent_selection.cu
+    src/crossover.cu
+    src/mutation.cu
+    # Add other source files as needed
+)
 
-# Link CUDA libraries
-target_link_libraries(ga_solver ${CUDA_LIBRARIES})
+# Include header files
+include_directories(include)
 
-# Enable warnings for development
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(ga_solver PRIVATE -Wall -Wextra -Wpedantic)
-endif()
+# Create a library for shared logic
+add_library(ga_solver_lib ${SRC_FILES})
+target_include_directories(ga_solver_lib PRIVATE include)
+target_link_libraries(ga_solver_lib PRIVATE ${CMAKE_CUDA_LIBRARIES})
 
+# Add executable for the main application
+add_executable(ga_solver src/ga_solver_main.cu)
+target_link_libraries(ga_solver PUBLIC ga_solver_lib)
+
+# Enable testing
 enable_testing()
 
-# Add source files for GPU kernels
-set(GPU_KERNELS ${PROJECT_SOURCE_DIR}/src/gpu/genetic_kernels.cu)
+# Add test for Genome
+add_executable(test_genome tests/test_genome.cu)
+target_link_libraries(test_genome PRIVATE ga_solver_lib)
+add_test(NAME GenomeTest COMMAND test_genome)
 
-# Add test executable
-file(GLOB TEST_SOURCES ${PROJECT_SOURCE_DIR}/tests/*.cpp)
-add_executable(tests ${TEST_SOURCES} ${GPU_KERNELS})
 
-# Link with Google Test and CUDA
-target_link_libraries(tests gtest gtest_main pthread ${CUDA_LIBRARIES})
+# Add test for Population
+add_executable(test_population tests/test_population.cu)
+target_link_libraries(test_population PRIVATE ga_solver_lib)
+add_test(NAME PopulationTest COMMAND test_population)
 
-# Add test command
-add_test(NAME MutationTests COMMAND tests)
+# Add test for Cost_Matrix
+add_executable(test_cost_matrix tests/test_cost_matrix.cu)
+target_link_libraries(test_cost_matrix PRIVATE ga_solver_lib)
+add_test(NAME CostMatrix COMMAND test_cost_matrix)
 
-set(CMAKE_CUDA_STANDARD 11)
-set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+# Add test for FitnessEvaluator
+add_executable(test_fitness_evaluator tests/test_fitness_evaluator.cu)
+target_link_libraries(test_fitness_evaluator PRIVATE ga_solver_lib)
+add_test(NAME FitnessEvaluatorTest COMMAND test_fitness_evaluator)
+
+# Add test for Parent Selection
+add_executable(test_parent_selection tests/test_parent_selection.cu)
+target_link_libraries(test_parent_selection PRIVATE ga_solver_lib)
+add_test(NAME ParentSelectionTest COMMAND test_parent_selection)
+
+# Add test for Crossover
+add_executable(test_crossover tests/test_crossover.cu)
+target_link_libraries(test_crossover PRIVATE ga_solver_lib)
+add_test(NAME CrossoverTest COMMAND test_crossover)
+
+# Add test for Mutation
+add_executable(test_mutation tests/test_mutation.cu)
+target_link_libraries(test_mutation PRIVATE ga_solver_lib)
+add_test(NAME MutationTest COMMAND test_mutation)
