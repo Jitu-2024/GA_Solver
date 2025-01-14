@@ -1,4 +1,4 @@
-CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/GA_solver/src/parent_selection.cu \
+CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/dev4/GA_Solver/src/parent_selection.cu \
     /usr/include/stdc-predef.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/host_config.h \
@@ -183,7 +183,8 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/include/c++/8/utility \
     /usr/include/c++/8/bits/stl_relops.h \
     /usr/include/c++/8/initializer_list \
-    /home/harish/Downloads/GA_solver/include/parent_selection.h \
+    /home/harish/dev4/GA_Solver/include/parent_selection.h \
+    /home/harish/dev4/GA_Solver/include/genome.h \
     /usr/include/c++/8/vector \
     /usr/include/c++/8/bits/allocator.h \
     /usr/include/x86_64-linux-gnu/c++/8/bits/c++allocator.h \
@@ -198,7 +199,6 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/include/c++/8/bits/functional_hash.h \
     /usr/include/c++/8/bits/range_access.h \
     /usr/include/c++/8/bits/vector.tcc \
-    /home/harish/Downloads/GA_solver/include/genome.h \
     /usr/include/c++/8/iostream \
     /usr/include/c++/8/ostream \
     /usr/include/c++/8/ios \
@@ -271,7 +271,7 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/include/c++/8/bits/ostream.tcc \
     /usr/include/c++/8/istream \
     /usr/include/c++/8/bits/istream.tcc \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/device_vector.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/config.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/config/config.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/__cccl_config \
@@ -323,28 +323,20 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/config/namespace.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/version.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/version \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/vector_base.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/contiguous_storage.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/allocator/allocator_traits.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/memory_wrapper.h \
-    /usr/include/c++/8/memory \
-    /usr/include/c++/8/bits/stl_tempbuf.h \
-    /usr/include/c++/8/bits/stl_raw_storage_iter.h \
-    /usr/include/c++/8/ext/concurrence.h \
-    /usr/include/c++/8/bits/uses_allocator.h \
-    /usr/include/c++/8/bits/unique_ptr.h \
-    /usr/include/c++/8/tuple \
-    /usr/include/c++/8/array \
-    /usr/include/c++/8/bits/invoke.h \
-    /usr/include/c++/8/bits/shared_ptr.h \
-    /usr/include/c++/8/bits/shared_ptr_base.h \
-    /usr/include/c++/8/bits/allocated_ptr.h \
-    /usr/include/c++/8/bits/refwrap.h \
-    /usr/include/c++/8/ext/aligned_buffer.h \
-    /usr/include/c++/8/bits/shared_ptr_atomic.h \
-    /usr/include/c++/8/bits/atomic_base.h \
-    /usr/include/c++/8/bits/atomic_lockfree_defines.h \
-    /usr/include/c++/8/backward/auto_ptr.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/cstdint.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/discard_block_engine.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/random_core_access.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/discard_block_engine.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/linear_congruential_engine.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/linear_congruential_engine_discard.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/mod.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/linear_congruential_engine.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/linear_feedback_shift_engine.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/linear_feedback_shift_engine_wordmask.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/linear_feedback_shift_engine.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/subtract_with_carry_engine.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/subtract_with_carry_engine.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/xor_combine_engine.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/type_traits \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/type_traits \
@@ -489,28 +481,11 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/result_of.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/type_identity.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__utility/convert_to_integral.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/has_member_function.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/has_nested_type.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/pointer_traits.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/is_metafunction_defined.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/iterator_traits.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/type_traits/void_t.h \
-    /usr/include/c++/8/iterator \
-    /usr/include/c++/8/bits/stream_iterator.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/any_system_tag.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/execution_policy.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/device_system_tag.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/detail/execution_policy.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/config.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/detail/detect_cuda_runtime.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_debug.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/config.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_arch.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_cpp_dialect.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_compiler.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_macro.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_namespace.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/version.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/xor_combine_engine_max.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/mpl/math.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/xor_combine_engine.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/normal_distribution.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/pair.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/utility \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/utility \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__functional/hash.h \
@@ -547,6 +522,8 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__iterator/iter_move.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__iterator/iterator_traits.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__iterator/readable_traits.h \
+    /usr/include/c++/8/iterator \
+    /usr/include/c++/8/bits/stream_iterator.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__memory/pointer_traits.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__fwd/tuple.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_element.h \
@@ -589,6 +566,57 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/__concepts/different_from.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/initializer_list \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/initializer_list \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/normal_distribution_base.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/uniform_real_distribution.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/uniform_real_distribution.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/normal_distribution.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/integer_traits.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/math_constants.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/uniform_int_distribution.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/random/detail/uniform_int_distribution.inl \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/device_vector.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/vector_base.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/contiguous_storage.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/allocator/allocator_traits.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/memory_wrapper.h \
+    /usr/include/c++/8/memory \
+    /usr/include/c++/8/bits/stl_tempbuf.h \
+    /usr/include/c++/8/bits/stl_raw_storage_iter.h \
+    /usr/include/c++/8/ext/concurrence.h \
+    /usr/include/c++/8/bits/uses_allocator.h \
+    /usr/include/c++/8/bits/unique_ptr.h \
+    /usr/include/c++/8/tuple \
+    /usr/include/c++/8/array \
+    /usr/include/c++/8/bits/invoke.h \
+    /usr/include/c++/8/bits/shared_ptr.h \
+    /usr/include/c++/8/bits/shared_ptr_base.h \
+    /usr/include/c++/8/bits/allocated_ptr.h \
+    /usr/include/c++/8/bits/refwrap.h \
+    /usr/include/c++/8/ext/aligned_buffer.h \
+    /usr/include/c++/8/bits/shared_ptr_atomic.h \
+    /usr/include/c++/8/bits/atomic_base.h \
+    /usr/include/c++/8/bits/atomic_lockfree_defines.h \
+    /usr/include/c++/8/backward/auto_ptr.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/has_member_function.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/has_nested_type.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/pointer_traits.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/is_metafunction_defined.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/iterator_traits.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/type_traits/void_t.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/any_system_tag.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/execution_policy.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/device_system_tag.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/detail/execution_policy.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/config.h \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/detail/detect_cuda_runtime.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_debug.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/config.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_arch.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_cpp_dialect.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_compiler.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_macro.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_namespace.cuh \
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/version.cuh \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/util_deprecated.cuh \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/detail/type_traits.cuh \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda/std/functional \
@@ -655,7 +683,6 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/iterator_category_with_system_and_traversal.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/universal_categories.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/allocator/allocator_traits.inl \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/integer_traits.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/is_call_possible.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/normal_iterator.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/iterator_adaptor.h \
@@ -852,7 +879,6 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/generic/swap_ranges.inl \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/internal_functional.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/tuple_of_iterator_references.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/pair.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/for_each.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/for_each.inl \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/adl/for_each.h \
@@ -1002,7 +1028,6 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/grid/grid_queue.cuh \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/device/dispatch/tuning/tuning_scan.cuh \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/cub/device/dispatch/tuning/tuning_reduce_by_key.cuh \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/cstdint.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/type_traits/iterator/is_output_iterator.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/iterator/detail/any_assign.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/detail/core/agent_launcher.h \
@@ -1017,7 +1042,6 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/sequential/reduce_by_key.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cpp/detail/reduce_by_key.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/detail/reduce_by_key.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/detail/mpl/math.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/generic/reduce.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/generic/reduce.inl \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/detail/generic/reduce_by_key.h \
@@ -1094,22 +1118,4 @@ CMakeFiles/ga_solver_lib.dir/src/parent_selection.cu.o : /home/harish/Downloads/
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/mr/fancy_pointer_resource.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/mr/new.h \
     /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cpp/pointer.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/pointer.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/host_vector.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_kernel.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_discrete.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_precalc.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_mrg32k3a.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_mtgp32_kernel.h \
-    /usr/include/memory.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_mtgp32.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_philox4x32_x.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_globals.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_uniform.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_normal.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_normal_static.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_lognormal.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_poisson.h \
-    /usr/local/cuda/bin/../targets/x86_64-linux/include/curand_discrete2.h \
-    /usr/include/c++/8/algorithm
+    /usr/local/cuda/bin/../targets/x86_64-linux/include/thrust/system/cuda/pointer.h

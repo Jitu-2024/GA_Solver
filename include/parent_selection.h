@@ -1,24 +1,13 @@
+// parent_selection.h: Header file for GPU-based parent selection in TSPJ
+
 #ifndef PARENT_SELECTION_H
 #define PARENT_SELECTION_H
 
-#include <vector>
 #include "genome.h"
+#include <vector>
 
-class ParentSelection {
-public:
-    // Constructor: Initializes with the fitness values of the population
-    ParentSelection(const std::vector<Genome>& population);
-
-    // Destructor: Frees GPU memory
-    ~ParentSelection();
-
-    // Select parents using tournament selection
-    void tournamentSelection(const std::vector<Genome>& population, std::vector<Genome>& parents, int numParents, int tournamentSize);
-
-
-private:
-    float* d_fitness; // Device fitness array
-    int populationSize;
-};
+// Host function for GPU-based parent selection
+std::vector<Genome> selectParents(const std::vector<Genome>& population,
+                                  size_t numParents, size_t tournamentSize);
 
 #endif // PARENT_SELECTION_H

@@ -1,156 +1,90 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <utility>
-#include <cstdlib>
-#include <ctime>
-#include <algorithm>
-#include <chrono> // For timing
+// ga_solver_main.cu: Main solver for TSPJ genetic algorithm
+
+#include "genome.h"
 #include "population.h"
 #include "fitness_evaluator.h"
-
-std::vector<std::pair<int, int>> createRandomCrossoverPoints(int numParents, int numCities) {
-    // Number of pairs to create
-    int numPairs = numParents / 2;
-    
-    // Vector to store the pairs of crossover points
-    std::vector<std::pair<int, int>> crossoverPoints;
-    
-    // Seed the random number generator
-    std::srand(std::time(0));
-    
-    for (int i = 0; i < numPairs; ++i) {
-        // Generate two random cutpoints in the range [1, numCities - 1]
-        int cutPoint1 = std::rand() % (numCities - 1) + 1; // Random between 1 and numCities-1
-        int cutPoint2 = std::rand() % (numCities - 1) + 1;
-        
-        // Ensure cutPoint1 <= cutPoint2
-        if (cutPoint1 > cutPoint2) {
-            std::swap(cutPoint1, cutPoint2);
-        }
-        
-        // Add the pair to the vector
-        crossoverPoints.emplace_back(cutPoint1, cutPoint2);
-    }
-    
-    return crossoverPoints;
-}
-
-std::vector<std::pair<float, float>> loadTSPData(const std::string& fileName) {
-    std::ifstream file(fileName);
-    if (!file.is_open()) {
-        std::cerr << "Error: Could not open file " << fileName << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
-    std::vector<std::pair<float, float>> coordinates;
-    std::string line;
-
-    // Skip the header lines
-    while (std::getline(file, line)) {
-        if (line.find("NODE_COORD_SECTION") != std::string::npos) break;
-    }
-
-    // Read coordinates
-    while (std::getline(file, line)) {
-        if (line.find("EOF") != std::string::npos) break;
-
-        std::istringstream iss(line);
-        int id;
-        float x, y;
-        iss >> id >> x >> y;
-        coordinates.emplace_back(x, y);
-    }
-
-    file.close();
-    return coordinates;
-}
+#include "parent_selection.h"
+#include "crossover.h"
+#include "mutation.h"
+#include <iostream>
+#include <vector>
 
 int main() {
-    const int populationSize = 1000;   // Number of genomes in the population
-    const int numGenerations = 50000;  // Number of iterations
-    const int tournamentSize = 10;    // Tournament size for parent selection
-    const float mutationRate = 0.1f; // Mutation rate
-    const float elitismRate = 0.05f;  // Percentage of elite individuals to preserve
+    // Example from TSP-J paper
+    const std::vector<std::vector<float>> travelTimes = {
+        {0, 5, 9, 12, 10, 6},
+        {5, 0, 7, 9, 12, 10},
+        {9, 7, 0, 5, 10, 12},
+        {12, 9, 5, 0, 6, 10},
+        {10, 12, 10, 6, 0, 7},
+        {6, 10, 12, 10, 7, 0}};
 
-    const std::string tspFileName = "data/dsj1000.tsp";
+    const std::vector<std::vector<float>> jobTimes = {
+        {0, 0, 0, 0, 0},
+        {20, 22, 32, 25, 33},
+        {21, 20, 34, 23, 32},
+        {20, 22, 30, 22, 34},
+        {22, 24, 31, 22, 32},
+        {21, 20, 32, 24, 34}};
 
-    // Load TSP data
-    std::cout << "Loading TSP data from " << tspFileName << "..." << std::endl;
-    auto coordinates = loadTSPData(tspFileName);
-    int numCities = coordinates.size();
-    std::cout << "Number of cities: " << numCities << std::endl;
+    // Parameters
+    size_t numCities = 5;
+    size_t numJobs = 5;
+    size_t populationSize = 50;
+    size_t generations = 100;
+    float mutationRate = 0.9f;
+    size_t tournamentSize = 10;
 
-    // Create and initialize population
-    Population population(populationSize, numCities);
-    population.initialize();
+    // Initialize population
+    std::vector<Genome> population;
+    initializePopulation(population, populationSize, numCities, numJobs);
 
-    // Initialize the cost matrix
-    std::cout << "Initializing cost matrix..." << std::endl;
-    population.initializeCostMatrix(coordinates);
-    
-    // Create fitness evaluator
-    FitnessEvaluator evaluator;
+    // Main GA loop
+    for (size_t generation = 0; generation < generations; ++generation) {
+        std::cout << "\nGeneration " << generation << ":\n";
 
-    // Start timing the main loop
-    auto startTime = std::chrono::high_resolution_clock::now();
-
-    // Run genetic algorithm
-    for (int generation = 0; generation < numGenerations; ++generation) {
         // Evaluate fitness
-        population.evaluateFitness(evaluator);
+        evaluatePopulation(population, travelTimes, jobTimes);
 
-        // Select elite individuals
-        int numElites = static_cast<int>(populationSize * elitismRate);
-        std::vector<Genome> elites = population.getTopGenomes(numElites);
+        // Sort by fitness
+        sortPopulationByFitness(population);
 
-        // Calculate number of offspring needed
-        int numOffspring = populationSize - numElites;
+        // Select parents
+        std::vector<Genome> parents = selectParents(population, populationSize / 2, tournamentSize);
 
-        // Adjust the number of parents dynamically
-        int numParents = (numOffspring %2 == 0) ? numOffspring : numOffspring + 1; // Each pair produces 2 offspring
+        // Debug selected parents
+        std::cout << "Selected Parents:\n";
+        for (size_t i = 0; i < parents.size(); ++i) {
+            std::cout << "Parent " << i << ":\n";
+            parents[i].print();
+        }
 
-        // Select parents for crossover
-        std::vector<Genome> parents;
-        population.selectParentsTournamentGPU(parents, numParents, tournamentSize);
-
-        // Perform crossover
+        // Generate offspring via crossover and mutation
         std::vector<Genome> offspring;
-        std::vector<std::pair<int, int>> crossoverPoints = createRandomCrossoverPoints(numParents, numCities);
-        population.performCrossoverGPU(parents, offspring, crossoverPoints);
+        for (size_t i = 0; i < parents.size(); i += 2) {
+            Genome parent1 = parents[i];
+            Genome parent2 = parents[(i + 1) % parents.size()];
 
-        // Perform mutation on offspring
-        population.performMutationGPU(offspring, mutationRate);
+            auto [child1, child2] = performCrossover(parent1, parent2);
+            performMutation(child1, mutationRate);
+            performMutation(child2, mutationRate);
 
-        // Combine elites and offspring to form new population
-        offspring.insert(offspring.end(), elites.begin(), elites.end());
+            offspring.push_back(child1);
+            offspring.push_back(child2);
+        }
 
-        // Replace old population with new one
-        population.setGenomes(offspring);
+        // Replace worst genomes with offspring
+        replaceWorst(population, offspring);
 
-        // Output the best genome of the generation
-        const Genome& bestGenome = population.getFittest();
-        std::cout << "Generation " << generation << ": Best Fitness = " << bestGenome.getFitness() << std::endl;
+        // Output best fitness of current generation
+        Genome bestGenome = getBestGenome(population);
+        std::cout << "Best Fitness of Generation " << generation << ": " << bestGenome.fitness << "\n";
     }
 
-    // Stop timing the main loop
-    auto endTime = std::chrono::high_resolution_clock::now();
-
-    // Calculate elapsed time
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
-    double avgTimePerGen = static_cast<double>(duration.count()) / numGenerations;
-
-    // Output statistics
-    std::cout << "\nStatistics:\n";
-    std::cout << "Total time taken: " << duration.count() << " ms\n";
-    std::cout << "Average time per generation: " << avgTimePerGen << " ms\n";
-
-    // Output the final result
-    const Genome& bestGenome = population.getFittest();
-    std::cout << "Final Best Fitness = " << bestGenome.getFitness() << std::endl;
-    std::cout << "Best Route:" << std::endl;
-    bestGenome.printChromosome();
+    // Final result
+    Genome bestGenome = getBestGenome(population);
+    std::cout << "\nBest Solution:\n";
+    bestGenome.print();
 
     return 0;
 }

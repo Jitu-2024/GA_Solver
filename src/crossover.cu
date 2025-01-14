@@ -1,147 +1,133 @@
+// crossover.cu: Order crossover for TSPJ problem
+
 #include "crossover.h"
+#include "genome.h"
+#include <vector>
 #include <cuda_runtime.h>
-#include <iostream>
-#include <algorithm>
-#include <stdexcept>
+#include <thrust/device_vector.h>
+#include <thrust/sequence.h>
+#include <thrust/copy.h>
+#include <thrust/random.h>
 
-#define CUDA_CHECK(call)                                                       \
-    do {                                                                       \
-        cudaError_t err = call;                                                \
-        if (err != cudaSuccess) {                                              \
-            std::cerr << "CUDA Error in " << __FILE__ << " at line "           \
-                      << __LINE__ << ": " << cudaGetErrorString(err) << "\n";  \
-            exit(EXIT_FAILURE);                                                \
-        }                                                                      \
-    } while (0)
-
-// GPU Kernel for Order Crossover
-__global__ void orderCrossoverKernel(const int* parents, int* offspring, const int* crossoverPoints, int numParents, int numCities) {
+// Kernel for order crossover on GPU
+__global__ void orderCrossoverKernel(const size_t* parent1, const size_t* parent2,
+                                     size_t* child, size_t chromosomeLength,
+                                     unsigned long seed) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (idx < numParents / 2) { // Each pair of parents produces two offspring
-        int parent1Idx = idx * 2;
-        int parent2Idx = parent1Idx + 1;
+    if (idx == 0) { // Single thread selects crossover points
+        thrust::default_random_engine rng(seed);
+        thrust::uniform_int_distribution<size_t> dist(0, chromosomeLength - 1);
 
-        const int* parent1 = &parents[parent1Idx * numCities];
-        const int* parent2 = &parents[parent2Idx * numCities];
-        int* child1 = &offspring[parent1Idx * numCities];
-        int* child2 = &offspring[parent2Idx * numCities];
+        size_t start = dist(rng);
+        size_t end = dist(rng);
 
-        int start = crossoverPoints[idx * 2];
-        int end = crossoverPoints[idx * 2 + 1];
-
-        // Initialize offspring with -1
-        for (int i = 0; i < numCities; ++i) {
-            child1[i] = -1;
-            child2[i] = -1;
+        if (start > end) {
+            size_t temp = start;
+            start = end;
+            end = temp;
         }
 
-        // Copy subsequence from parent1 to child1 and parent2 to child2
-        for (int i = start; i <= end; ++i) {
-            child1[i] = parent1[i];
-            child2[i] = parent2[i];
+        // Copy segment from parent1 to child
+        for (size_t i = start; i <= end; ++i) {
+            child[i] = parent1[i];
         }
 
-        // Fill remaining cities for child1
-        int child1Idx = (end + 1) % numCities;
-        for (int i = 0; i < numCities; ++i) {
-            int city = parent2[(end + 1 + i) % numCities];
-            bool isDuplicate = false;
-            for (int j = start; j <= end; ++j) {
-                if (child1[j] == city) {
-                    isDuplicate = true;
+        // Fill the rest from parent2, preserving order
+        size_t childIdx = (end + 1) % chromosomeLength;
+        for (size_t i = 0; i < chromosomeLength; ++i) {
+            size_t candidate = parent2[(end + 1 + i) % chromosomeLength];
+
+            // Check if candidate is already in the child
+            bool exists = false;
+            for (size_t j = start; j <= end; ++j) {
+                if (child[j] == candidate) {
+                    exists = true;
                     break;
                 }
             }
-            if (!isDuplicate) {
-                child1[child1Idx] = city;
-                child1Idx = (child1Idx + 1) % numCities;
-            }
-        }
 
-        // Fill remaining cities for child2
-        int child2Idx = (end + 1) % numCities;
-        for (int i = 0; i < numCities; ++i) {
-            int city = parent1[(end + 1 + i) % numCities];
-            bool isDuplicate = false;
-            for (int j = start; j <= end; ++j) {
-                if (child2[j] == city) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {
-                child2[child2Idx] = city;
-                child2Idx = (child2Idx + 1) % numCities;
+            if (!exists) {
+                child[childIdx] = candidate;
+                childIdx = (childIdx + 1) % chromosomeLength;
             }
         }
     }
 }
 
-// Crossover Constructor
-Crossover::Crossover(int numCities)
-    : numCities(numCities), d_parents(nullptr), d_offspring(nullptr), d_crossoverPoints(nullptr) {}
+// Host function for order crossover
+std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& parent2) {
+    size_t chromosomeLength = parent1.citySequence.size();
 
-// Crossover Destructor
-Crossover::~Crossover() {
-    cudaFree(d_parents);
-    cudaFree(d_offspring);
-    cudaFree(d_crossoverPoints);
-}
+    // Prepare device memory
+    thrust::device_vector<size_t> d_parent1City(parent1.citySequence);
+    thrust::device_vector<size_t> d_parent2City(parent2.citySequence);
+    thrust::device_vector<size_t> d_childCity1(chromosomeLength);
+    thrust::device_vector<size_t> d_childCity2(chromosomeLength);
 
-// Perform Order Crossover
-void Crossover::orderCrossover(const std::vector<std::vector<int>>& parents,
-                               std::vector<std::vector<int>>& offspring,
-                               const std::vector<std::pair<int, int>>& crossoverPoints) {
-    int numParents = parents.size();
-    if (numParents % 2 != 0) {
-        throw std::invalid_argument("Number of parents must be even.");
-    }
+    thrust::device_vector<size_t> d_parent1Job(parent1.jobSequence);
+    thrust::device_vector<size_t> d_parent2Job(parent2.jobSequence);
+    thrust::device_vector<size_t> d_childJob1(chromosomeLength);
+    thrust::device_vector<size_t> d_childJob2(chromosomeLength);
 
-    size_t parentSize = numParents * numCities;
-    size_t crossoverPointsSize = crossoverPoints.size() * 2;
+    thrust::device_vector<size_t> d_parent1Pickup(parent1.pickupSequence);
+    thrust::device_vector<size_t> d_parent2Pickup(parent2.pickupSequence);
+    thrust::device_vector<size_t> d_childPickup1(chromosomeLength);
+    thrust::device_vector<size_t> d_childPickup2(chromosomeLength);
 
-    // Flatten parent chromosomes
-    std::vector<int> flattenedParents(parentSize);
-    for (int i = 0; i < numParents; ++i) {
-        std::copy(parents[i].begin(), parents[i].end(), &flattenedParents[i * numCities]);
-    }
+    // Launch kernels for cities, jobs, and pickups
+    int threadsPerBlock = 1; // Single thread selects crossover points
+    int blocksPerGrid = 1;
+    unsigned long seed = time(nullptr);
 
-    // Flatten crossover points
-    std::vector<int> flattenedCrossoverPoints(crossoverPointsSize);
-    for (size_t i = 0; i < crossoverPoints.size(); ++i) {
-        flattenedCrossoverPoints[i * 2] = crossoverPoints[i].first;
-        flattenedCrossoverPoints[i * 2 + 1] = crossoverPoints[i].second;
-    }
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent1City.data()),
+        thrust::raw_pointer_cast(d_parent2City.data()),
+        thrust::raw_pointer_cast(d_childCity1.data()),
+        chromosomeLength, seed);
 
-    // Allocate GPU memory
-    CUDA_CHECK(cudaMalloc((void**)&d_parents, parentSize * sizeof(int)));
-    CUDA_CHECK(cudaMalloc((void**)&d_offspring, parentSize * sizeof(int)));
-    CUDA_CHECK(cudaMalloc((void**)&d_crossoverPoints, crossoverPointsSize * sizeof(int)));
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent2City.data()),
+        thrust::raw_pointer_cast(d_parent1City.data()),
+        thrust::raw_pointer_cast(d_childCity2.data()),
+        chromosomeLength, seed);
 
-    // Copy data to GPU
-    CUDA_CHECK(cudaMemcpy(d_parents, flattenedParents.data(), parentSize * sizeof(int), cudaMemcpyHostToDevice));
-    CUDA_CHECK(cudaMemcpy(d_crossoverPoints, flattenedCrossoverPoints.data(), crossoverPointsSize * sizeof(int), cudaMemcpyHostToDevice));
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent1Job.data()),
+        thrust::raw_pointer_cast(d_parent2Job.data()),
+        thrust::raw_pointer_cast(d_childJob1.data()),
+        chromosomeLength, seed);
 
-    // Launch kernel
-    int threadsPerBlock = 256;
-    int blocks = (numParents / 2 + threadsPerBlock - 1) / threadsPerBlock;
-    orderCrossoverKernel<<<blocks, threadsPerBlock>>>(d_parents, d_offspring, d_crossoverPoints, numParents, numCities);
-    CUDA_CHECK(cudaDeviceSynchronize());
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent2Job.data()),
+        thrust::raw_pointer_cast(d_parent1Job.data()),
+        thrust::raw_pointer_cast(d_childJob2.data()),
+        chromosomeLength, seed);
 
-    // Copy offspring back to host
-    std::vector<int> flattenedOffspring(parentSize);
-    CUDA_CHECK(cudaMemcpy(flattenedOffspring.data(), d_offspring, parentSize * sizeof(int), cudaMemcpyDeviceToHost));
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent1Pickup.data()),
+        thrust::raw_pointer_cast(d_parent2Pickup.data()),
+        thrust::raw_pointer_cast(d_childPickup1.data()),
+        chromosomeLength, seed);
 
-    // Reshape offspring into 2D chromosomes
-    offspring.clear();
-    for (int i = 0; i < numParents; ++i) {
-        offspring.emplace_back(flattenedOffspring.begin() + i * numCities,
-                               flattenedOffspring.begin() + (i + 1) * numCities);
-    }
+    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+        thrust::raw_pointer_cast(d_parent2Pickup.data()),
+        thrust::raw_pointer_cast(d_parent1Pickup.data()),
+        thrust::raw_pointer_cast(d_childPickup2.data()),
+        chromosomeLength, seed);
 
-    // Free GPU memory
-    cudaFree(d_parents);
-    cudaFree(d_offspring);
-    cudaFree(d_crossoverPoints);
+    // Copy results back to host
+    Genome child1(chromosomeLength, chromosomeLength);
+    Genome child2(chromosomeLength, chromosomeLength);
+
+    thrust::copy(d_childCity1.begin(), d_childCity1.end(), child1.citySequence.begin());
+    thrust::copy(d_childCity2.begin(), d_childCity2.end(), child2.citySequence.begin());
+
+    thrust::copy(d_childJob1.begin(), d_childJob1.end(), child1.jobSequence.begin());
+    thrust::copy(d_childJob2.begin(), d_childJob2.end(), child2.jobSequence.begin());
+
+    thrust::copy(d_childPickup1.begin(), d_childPickup1.end(), child1.pickupSequence.begin());
+    thrust::copy(d_childPickup2.begin(), d_childPickup2.end(), child2.pickupSequence.begin());
+
+    return {child1, child2};
 }

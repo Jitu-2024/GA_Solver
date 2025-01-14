@@ -1,4 +1,4 @@
-# Install script for directory: /home/harish/Downloads/GA_solver
+# Install script for directory: /home/harish/dev4/GA_Solver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/harish/Downloads/GA_solver/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/harish/dev4/GA_Solver/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

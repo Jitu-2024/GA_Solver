@@ -1,88 +1,100 @@
-#include "mutation.h"
-#include <cuda_runtime.h>
-#include <curand_kernel.h>
-#include <vector>
-#include <stdexcept>
+// mutation.cu: Mutation for TSPJ problem
 
-// CUDA kernel for performing swap mutation
-__global__ void swapMutationKernel(int* d_population, int numGenomes, int numCities, float mutationRate, curandState* states) {
+#include "mutation.h"
+#include "genome.h"
+#include <vector>
+#include <random>
+#include <cuda_runtime.h>
+#include <thrust/random.h>
+#include <thrust/device_vector.h>
+#include <thrust/copy.h>
+
+// Kernel for mutation using swap on GPU
+__global__ void mutationKernel(size_t* sequence, size_t chromosomeLength, float mutationRate, unsigned long seed) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (idx < numGenomes) {
-        curandState localState = states[idx];
-        float randomValue = curand_uniform(&localState);
+    if (idx < chromosomeLength) {
+        thrust::default_random_engine rng(seed + idx);
+        thrust::uniform_real_distribution<float> probDist(0.0f, 1.0f);
+        thrust::uniform_int_distribution<size_t> indexDist(0, chromosomeLength - 1);
 
-        // Perform mutation based on mutationRate
-        if (randomValue < mutationRate) {
-            // Randomly select two indices in the chromosome to swap
-            int city1 = curand(&localState) % numCities;
-            int city2 = curand(&localState) % numCities;
+        if (probDist(rng) < mutationRate) {
+            size_t start = indexDist(rng);
+            size_t end = indexDist(rng);
 
-            // Ensure city1 and city2 are different
-            while (city1 == city2) {
-                city2 = curand(&localState) % numCities;
+            if (start > end) {
+                size_t temp = start;
+                start = end;
+                end = temp;
             }
 
-            // Swap cities in the chromosome
-            int temp = d_population[idx * numCities + city1];
-            d_population[idx * numCities + city1] = d_population[idx * numCities + city2];
-            d_population[idx * numCities + city2] = temp;
+            // Reverse the subsequence
+            while (start < end) {
+                size_t temp = sequence[start];
+                sequence[start] = sequence[end];
+                sequence[end] = temp;
+                start++;
+                end--;
+            }
         }
-
-        states[idx] = localState; // Save back the state
     }
 }
 
-// Initialize CUDA random states
-__global__ void initializeRandomStates(curandState* states, unsigned long seed, int size) {
-    int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    if (idx < size) {
-        curand_init(seed, idx, 0, &states[idx]);
-    }
-}
+// Host function for mutation
+void performMutation(Genome& genome, float mutationRate) {
+    size_t chromosomeLength = genome.citySequence.size();
 
-// Constructor
-Mutation::Mutation(int numCities, float mutationRate)
-    : numCities(numCities), mutationRate(mutationRate), d_population(nullptr), d_mutatedPopulation(nullptr) {}
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> probDist(0.0f, 1.0f);
+    std::uniform_int_distribution<size_t> indexDist(0, chromosomeLength - 1);
 
-// Destructor
-Mutation::~Mutation() {
-    if (d_population) cudaFree(d_population);
-}
+    // Mutate city sequence
+    if (probDist(gen) < mutationRate) {
+        size_t start = indexDist(gen);
+        size_t end = indexDist(gen);
 
-// Apply mutation using GPU
-void Mutation::applyMutation(std::vector<std::vector<int>>& population) {
-    int numGenomes = population.size();
+        if (start > end) std::swap(start, end);
 
-    // Flatten the population into a 1D array for GPU processing
-    std::vector<int> flatPopulation(numGenomes * numCities);
-    for (int i = 0; i < numGenomes; ++i) {
-        std::copy(population[i].begin(), population[i].end(), flatPopulation.begin() + i * numCities);
+        // Reverse subsequence in city sequence
+        while (start < end) {
+            std::swap(genome.citySequence[start], genome.citySequence[end]);
+            start++;
+            end--;
+        }
     }
 
-    // Allocate memory on GPU
-    cudaMalloc(&d_population, flatPopulation.size() * sizeof(int));
-    cudaMemcpy(d_population, flatPopulation.data(), flatPopulation.size() * sizeof(int), cudaMemcpyHostToDevice);
+    // Mutate job sequence
+    if (probDist(gen) < mutationRate) {
+        size_t start = indexDist(gen);
+        size_t end = indexDist(gen);
 
-    // Allocate random states for each genome
-    curandState* d_states;
-    cudaMalloc(&d_states, numGenomes * sizeof(curandState));
-    initializeRandomStates<<<(numGenomes + 255) / 256, 256>>>(d_states, time(nullptr), numGenomes);
+        if (start > end) std::swap(start, end);
 
-    // Launch kernel to perform swap mutation
-    swapMutationKernel<<<(numGenomes + 255) / 256, 256>>>(d_population, numGenomes, numCities, mutationRate, d_states);
-
-    // Copy back mutated population to host
-    cudaMemcpy(flatPopulation.data(), d_population, flatPopulation.size() * sizeof(int), cudaMemcpyDeviceToHost);
-
-    // Reshape flattened population back to 2D vector
-    for (int i = 0; i < numGenomes; ++i) {
-        std::copy(flatPopulation.begin() + i * numCities,
-                  flatPopulation.begin() + (i + 1) * numCities,
-                  population[i].begin());
+        // Reverse subsequence in job sequence
+        while (start < end) {
+            std::swap(genome.jobSequence[start], genome.jobSequence[end]);
+            start++;
+            end--;
+        }
     }
 
-    // Free GPU memory
-    cudaFree(d_population);
-    cudaFree(d_states);
+    // Mutate pickup sequence
+    if (probDist(gen) < mutationRate) {
+        size_t start = indexDist(gen);
+        size_t end = indexDist(gen);
+
+        if (start > end) std::swap(start, end);
+
+        // Reverse subsequence in pickup sequence
+        while (start < end) {
+            std::swap(genome.pickupSequence[start], genome.pickupSequence[end]);
+            start++;
+            end--;
+        }
+    }
+
+    // Debugging output for mutation
+    std::cout << "Genome after mutation:\n";
+    genome.print();
 }

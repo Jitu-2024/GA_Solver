@@ -1,107 +1,81 @@
-#include <cuda_runtime.h>
+// parent_selection.cu: Parent selection for TSPJ problem using GPU
+
 #include "parent_selection.h"
 #include "genome.h"
+#include <vector>
+#include <cuda_runtime.h>
+#include <thrust/random.h>
 #include <thrust/device_vector.h>
-#include <thrust/host_vector.h>
-#include <curand_kernel.h>
-#include <algorithm>
-#include <stdexcept>
+#include <iostream>
 
-__global__ void setupRandStates(curandState* states, unsigned int seed, int n) {
+// Kernel for GPU-based tournament selection
+__global__ void tournamentSelectionKernel(const float* fitness, size_t populationSize,
+                                          size_t numParents, size_t tournamentSize,
+                                          size_t* selectedIndices, unsigned long seed) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    if (idx < n) {
-        curand_init(seed, idx, 0, &states[idx]);
-    }
-}
 
-__global__ void performTournament(
-    const float* fitness,
-    int* selectedIndices,
-    curandState* randStates,
-    int populationSize,
-    int tournamentSize,
-    int numParents
-) {
-    int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < numParents) {
-        int bestIndex = -1;
-        float bestFitness = 1e9f;
-        
-        for (int i = 0; i < tournamentSize; ++i) {
-            int competitor = curand(&randStates[idx]) % populationSize;
-            if (fitness[competitor] < bestFitness) { // Select competitor with lower fitness
-                bestFitness = fitness[competitor];
-                bestIndex = competitor;
+        thrust::default_random_engine rng(seed + idx);
+        thrust::uniform_int_distribution<size_t> dist(0, populationSize - 1);
+
+        size_t bestIndex = dist(rng);
+        float bestFitness = fitness[bestIndex];
+
+        for (size_t i = 1; i < tournamentSize; ++i) {
+            size_t candidateIndex = dist(rng);
+            float candidateFitness = fitness[candidateIndex];
+
+            if (candidateFitness < bestFitness) {
+                bestIndex = candidateIndex;
+                bestFitness = candidateFitness;
             }
         }
+
         selectedIndices[idx] = bestIndex;
     }
 }
 
-ParentSelection::ParentSelection(const std::vector<Genome>& population)
-    : populationSize(population.size()) {
-    if (populationSize == 0) {
-        throw std::invalid_argument("Population cannot be empty");
+// Host function for GPU-based parent selection
+std::vector<Genome> selectParents(const std::vector<Genome>& population,
+                                  size_t numParents, size_t tournamentSize) {
+    size_t populationSize = population.size();
+
+    // Extract fitness values
+    std::vector<float> fitness(populationSize);
+    for (size_t i = 0; i < populationSize; ++i) {
+        fitness[i] = population[i].fitness;
     }
 
-    // Allocate memory for device fitness array
-    cudaMalloc(&d_fitness, populationSize * sizeof(float));
+    // Allocate device memory
+    float* d_fitness;
+    size_t* d_selectedIndices;
+    cudaMalloc(&d_fitness, sizeof(float) * populationSize);
+    cudaMalloc(&d_selectedIndices, sizeof(size_t) * numParents);
 
     // Copy fitness values to device
-    std::vector<float> fitness;
-    for (const auto& genome : population) {
-        fitness.push_back(genome.getFitness());
-    }
-    cudaMemcpy(d_fitness, fitness.data(), populationSize * sizeof(float), cudaMemcpyHostToDevice);
-}
+    cudaMemcpy(d_fitness, fitness.data(), sizeof(float) * populationSize, cudaMemcpyHostToDevice);
 
-ParentSelection::~ParentSelection() {
-    cudaFree(d_fitness);
-}
-
-void ParentSelection::tournamentSelection(
-    const std::vector<Genome>& population,
-    std::vector<Genome>& parents,
-    int numParents,
-    int tournamentSize
-) {
-    if (numParents <= 0 || tournamentSize <= 0) {
-        throw std::invalid_argument("Number of parents and tournament size must be positive");
-    }
-
-    curandState* d_randStates;
-    int* d_selectedIndices;
-
-    // Allocate device memory for random states and selected indices
-    cudaMalloc(&d_randStates, numParents * sizeof(curandState));
-    cudaMalloc(&d_selectedIndices, numParents * sizeof(int));
-
-    // Setup random states
+    // Launch kernel
     int threadsPerBlock = 256;
     int blocksPerGrid = (numParents + threadsPerBlock - 1) / threadsPerBlock;
-    setupRandStates<<<blocksPerGrid, threadsPerBlock>>>(d_randStates, time(NULL), numParents);
+    size_t* h_selectedIndices = new size_t[numParents];
 
-    // Perform tournament selection on GPU
-    performTournament<<<blocksPerGrid, threadsPerBlock>>>(
-        d_fitness,
-        d_selectedIndices,
-        d_randStates,
-        populationSize,
-        tournamentSize,
-        numParents
-    );
+    tournamentSelectionKernel<<<blocksPerGrid, threadsPerBlock>>>(d_fitness, populationSize, numParents, tournamentSize, d_selectedIndices, time(NULL));
 
     // Copy selected indices back to host
-    std::vector<int> selectedIndices(numParents);
-    cudaMemcpy(selectedIndices.data(), d_selectedIndices, numParents * sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_selectedIndices, d_selectedIndices, sizeof(size_t) * numParents, cudaMemcpyDeviceToHost);
 
-    // Populate parents vector
-    parents.clear();
-    for (int idx : selectedIndices) {
-        parents.push_back(population[idx]);
+    // Collect selected parents
+    std::vector<Genome> selectedParents;
+    selectedParents.reserve(numParents);
+    for (size_t i = 0; i < numParents; ++i) {
+        selectedParents.push_back(population[h_selectedIndices[i]]);
     }
 
     // Free device memory
-    cudaFree(d_randStates);
+    cudaFree(d_fitness);
     cudaFree(d_selectedIndices);
+    delete[] h_selectedIndices;
+
+    return selectedParents;
 }

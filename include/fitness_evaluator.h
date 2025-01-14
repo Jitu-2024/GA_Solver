@@ -1,22 +1,21 @@
+// fitness_evaluator.h: Header file for fitness evaluation in TSPJ using flattened arrays
+
 #ifndef FITNESS_EVALUATOR_H
 #define FITNESS_EVALUATOR_H
 
-#include <vector>
 #include "genome.h"
+#include <vector>
 
-class FitnessEvaluator {
-public:
-    /**
-     * Evaluate the fitness of a population using a cost matrix on the GPU.
-     * @param population Vector of genomes to evaluate.
-     * @param deviceCostMatrix Pointer to the GPU cost matrix.
-     * @param numCities Number of cities in the TSP problem.
-     */
-    void evaluatePopulation(
-        std::vector<Genome>& genomes, 
-        const float* deviceCostMatrix, 
-        int numCities
-        );
-};
+// Flatten the population into a single array for GPU processing
+void flattenPopulation(const std::vector<Genome>& population, std::vector<size_t>& flatArray,
+                       std::vector<float>& fitnessArray);
+
+// Unflatten the fitness results back into the population
+void unflattenFitness(const std::vector<float>& fitnessArray, std::vector<Genome>& population);
+
+// Evaluate fitness for the entire population
+void evaluatePopulationFitness(std::vector<Genome>& population,
+                                const std::vector<std::vector<float>>& travelTimes,
+                                const std::vector<std::vector<float>>& jobTimes);
 
 #endif // FITNESS_EVALUATOR_H

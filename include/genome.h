@@ -1,3 +1,5 @@
+// genome.h: Header file for TSPJ Genome representation
+
 #ifndef GENOME_H
 #define GENOME_H
 
@@ -6,31 +8,26 @@
 
 class Genome {
 public:
-    std::vector<int> chromosome; // Chromosome (city indices)
+    // Sequences representing cities and jobs
+    std::vector<size_t> citySequence;
+    std::vector<size_t> jobSequence;
+    std::vector<size_t> pickupSequence;
+
+    // Fitness value of the genome
+    float fitness;
 
     // Constructor
-    Genome(int numCities);
+    Genome() : fitness(std::numeric_limits<float>::max()) {}
+    Genome(size_t numCities, size_t numJobs);
 
-   // Constructor: Initialize with a given chromosome
-    Genome(const std::vector<int>& chromosome);
+    // Evaluate fitness of the genome
+    void evaluateFitness(const std::vector<std::vector<float>>& travelTimes,
+                         const std::vector<std::vector<float>>& jobTimes);
 
-    // Randomize the chromosome
-    void shuffleChromosome();
+    float getFitness();
 
-    // Print chromosome (debugging)
-    void printChromosome() const;
-
-    // Getter and setter for fitness
-    float getFitness() const;
-    void setFitness(float fitnessValue);
-
-    // Getter for chromosome
-    std::vector<int> getChromosome() const;
-
-    ~Genome() = default;
-
-private:
-    float fitness; // Fitness score
+    // Debugging utility to print the genome
+    void print() const;
 };
 
 #endif // GENOME_H
