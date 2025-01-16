@@ -8,7 +8,7 @@
 
 // Flatten the population into a single array for GPU processing
 void flattenPopulation(const std::vector<Genome>& population, std::vector<size_t>& flatArray,
-                       std::vector<float>& fitnessArray);
+                       std::vector<float>& fitnessArray, int mode);
 
 // Unflatten the fitness results back into the population
 void unflattenFitness(const std::vector<float>& fitnessArray, std::vector<Genome>& population);
@@ -16,6 +16,6 @@ void unflattenFitness(const std::vector<float>& fitnessArray, std::vector<Genome
 // Evaluate fitness for the entire population
 void evaluatePopulationFitness(std::vector<Genome>& population,
                                 const std::vector<std::vector<float>>& travelTimes,
-                                const std::vector<std::vector<float>>& jobTimes);
+                                const std::vector<std::vector<float>>& jobTimes, int mode);
 
 #endif // FITNESS_EVALUATOR_H

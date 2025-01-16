@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <iostream>
+#include <limits>
 
 class Genome {
 public:
@@ -18,7 +19,7 @@ public:
 
     // Constructor
     Genome() : fitness(std::numeric_limits<float>::max()) {}
-    Genome(size_t numCities, size_t numJobs);
+    Genome(size_t numCities, size_t numJobs, int mode);
 
     // Evaluate fitness of the genome
     void evaluateFitness(const std::vector<std::vector<float>>& travelTimes,
@@ -27,7 +28,7 @@ public:
     float getFitness();
 
     // Debugging utility to print the genome
-    void print() const;
+    void print(int mode) const;
 };
 
 #endif // GENOME_H

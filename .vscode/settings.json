@@ -61,6 +61,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "condition_variable": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "unordered_set": "cpp"
     }
 }

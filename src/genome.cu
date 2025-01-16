@@ -6,12 +6,16 @@
 #include <random>
 
 // Constructor for Genome
-Genome::Genome(size_t numCities, size_t numJobs)
-    : citySequence(numCities), jobSequence(numJobs), pickupSequence(numCities) {
+Genome::Genome(size_t numCities, size_t numJobs, int mode)
+    : citySequence(numCities), jobSequence(numJobs)  {
     // Initialize city sequence as a permutation of [1, numCities]
     std::iota(citySequence.begin(), citySequence.end(), 1); // City indices [1, numCities]
     std::iota(jobSequence.begin(), jobSequence.end(), 1);   // Job indices [1, numJobs]
-    std::iota(pickupSequence.begin(), pickupSequence.end(), 1); // Pickup sequence [1, numCities]
+    if(mode == 1){
+        pickupSequence.resize(numCities);
+        std::iota(pickupSequence.begin(), pickupSequence.end(), 1); // Pickup sequence [1, numCities]
+    }
+    
 
     // Randomize city and job sequences
     std::random_device rd;
@@ -19,6 +23,9 @@ Genome::Genome(size_t numCities, size_t numJobs)
     std::shuffle(citySequence.begin(), citySequence.end(), g);
     std::shuffle(jobSequence.begin(), jobSequence.end(), g);
     std::shuffle(pickupSequence.begin(), pickupSequence.end(), g);
+    if(mode == 1){
+        std::shuffle(pickupSequence.begin(), pickupSequence.end(), g);
+    }
 
     fitness = std::numeric_limits<float>::max(); // Default high fitness
 }
@@ -56,7 +63,7 @@ float Genome::getFitness(){
 }
 
 // Print genome for debugging
-void Genome::print() const {
+void Genome::print(int mode) const {
     std::cout << "City Sequence: ";
     for (const auto& city : citySequence) {
         std::cout << city << " ";
@@ -65,9 +72,11 @@ void Genome::print() const {
     for (const auto& job : jobSequence) {
         std::cout << job << " ";
     }
-    std::cout << "\nPickup Sequence: ";
-    for (const auto& pickup : pickupSequence) {
-        std::cout << pickup << " ";
+    if (mode == 1) { // Only print pickup sequence in TSP-J with Pickup
+        std::cout << "\nPickup Sequence: ";
+        for (const auto& pickup : pickupSequence) {
+            std::cout << pickup << " ";
+        }
     }
     std::cout << "\nFitness: " << fitness << "\n";
 }

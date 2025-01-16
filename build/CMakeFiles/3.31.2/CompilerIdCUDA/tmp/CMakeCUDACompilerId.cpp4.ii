@@ -21858,11 +21858,11 @@ static __inline__ __attribute__((host)) cudaError_t cudaGetKernel(
 #pragma GCC diagnostic pop
 # 1 "<command-line>" 2
 # 1 "CMakeCUDACompilerId.cu"
-# 64 "CMakeCUDACompilerId.cu"
+# 476 "CMakeCUDACompilerId.cu"
 char const* info_compiler = "INFO" ":" "compiler[" "NVIDIA" "]";
 
 char const* info_simulate = "INFO" ":" "simulate[" "GNU" "]";
-# 377 "CMakeCUDACompilerId.cu"
+# 789 "CMakeCUDACompilerId.cu"
 char const info_version[] = {
   'I', 'N', 'F', 'O', ':',
   'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
@@ -21877,7 +21877,7 @@ char const info_version[] = {
 
 
   ']','\0'};
-# 406 "CMakeCUDACompilerId.cu"
+# 818 "CMakeCUDACompilerId.cu"
 char const info_simulate_version[] = {
   'I', 'N', 'F', 'O', ':',
   's','i','m','u','l','a','t','e','_','v','e','r','s','i','o','n','[',
@@ -21900,9 +21900,32 @@ char const info_simulate_version[] = {
 
 char const* info_platform = "INFO" ":" "platform[" "Linux" "]";
 char const* info_arch = "INFO" ":" "arch[" "]";
-# 447 "CMakeCUDACompilerId.cu"
+
+
+
+
+char const* info_host_compiler = "INFO" ":" "host_compiler[" "GNU" "]";
+
+
+
+
+char const info_host_compiler_version[] = {
+  'I', 'N', 'F', 'O', ':','h','o','s','t','_',
+  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
+  ('0' + (((8) / 10000000)%10)), ('0' + (((8) / 1000000)%10)), ('0' + (((8) / 100000)%10)), ('0' + (((8) / 10000)%10)), ('0' + (((8) / 1000)%10)), ('0' + (((8) / 100)%10)), ('0' + (((8) / 10)%10)), ('0' + ((8) % 10)),
+
+  '.', ('0' + (((4) / 10000000)%10)), ('0' + (((4) / 1000000)%10)), ('0' + (((4) / 100000)%10)), ('0' + (((4) / 10000)%10)), ('0' + (((4) / 1000)%10)), ('0' + (((4) / 100)%10)), ('0' + (((4) / 10)%10)), ('0' + ((4) % 10)),
+
+   '.', ('0' + (((0) / 10000000)%10)), ('0' + (((0) / 1000000)%10)), ('0' + (((0) / 100000)%10)), ('0' + (((0) / 10000)%10)), ('0' + (((0) / 1000)%10)), ('0' + (((0) / 100)%10)), ('0' + (((0) / 10)%10)), ('0' + ((0) % 10)),
+
+
+
+
+
+  ']','\0'};
+# 881 "CMakeCUDACompilerId.cu"
 const char* info_language_standard_default = "INFO" ":" "standard_default["
-# 457 "CMakeCUDACompilerId.cu"
+# 891 "CMakeCUDACompilerId.cu"
   "14"
 
 
@@ -21935,6 +21958,12 @@ int main(int argc, char* argv[])
 
 
   require += info_simulate_version[argc];
+
+
+  require += info_host_compiler[argc];
+
+
+  require += info_host_compiler_version[argc];
 
   require += info_language_standard_default[argc];
   require += info_language_extensions_default[argc];

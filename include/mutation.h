@@ -6,6 +6,6 @@
 #include "genome.h"
 
 // Host function to perform mutation for TSPJ
-void performMutation(Genome& genome, float mutationRate);
+void performMutation(Genome& genome, float mutationRate, int mode);
 
 #endif // MUTATION_H

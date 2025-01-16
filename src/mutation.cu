@@ -40,8 +40,8 @@ __global__ void mutationKernel(size_t* sequence, size_t chromosomeLength, float 
     }
 }
 
-// Host function for mutation
-void performMutation(Genome& genome, float mutationRate) {
+/// Host function for mutation
+void performMutation(Genome& genome, float mutationRate, int mode) {
     size_t chromosomeLength = genome.citySequence.size();
 
     std::random_device rd;
@@ -79,8 +79,8 @@ void performMutation(Genome& genome, float mutationRate) {
         }
     }
 
-    // Mutate pickup sequence
-    if (probDist(gen) < mutationRate) {
+    // Mutate pickup sequence (only if mode == 1)
+    if (mode == 1 && probDist(gen) < mutationRate) {
         size_t start = indexDist(gen);
         size_t end = indexDist(gen);
 
@@ -93,8 +93,4 @@ void performMutation(Genome& genome, float mutationRate) {
             end--;
         }
     }
-
-    // Debugging output for mutation
-    std::cout << "Genome after mutation:\n";
-    genome.print();
 }

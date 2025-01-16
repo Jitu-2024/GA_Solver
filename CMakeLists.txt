@@ -21,6 +21,14 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CUDA_FLAGS_DEBUG "-G -g")
 
 configure_file(${CMAKE_SOURCE_DIR}/data/dsj1000.tsp ${CMAKE_BINARY_DIR}/data/dsj1000.tsp COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/bays29_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/bays29_TSPJ_TT.csv COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/bays29_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/bays29_TSPJ_JT.csv COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/gr17_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/gr17_TSPJ_TT.csv COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/gr17_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/gr17_TSPJ_JT.csv COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/gr21_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/gr21_TSPJ_TT.csv COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/data/gr21_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/gr21_TSPJ_JT.csv COPYONLY)
+
+add_compile_definitions(DATA_DIR="${CMAKE_BINARY_DIR}/data")
 
 # Add source files
 set(SRC_FILES

@@ -10,20 +10,20 @@
 
 // Initialize a population with random genomes
 void initializePopulation(std::vector<Genome>& population, size_t populationSize,
-                          size_t numCities, size_t numJobs) {
+                          size_t numCities, size_t numJobs, int mode) {
     population.clear();
     population.reserve(populationSize);
 
     for (size_t i = 0; i < populationSize; ++i) {
-        population.emplace_back(numCities, numJobs);
+        population.emplace_back(numCities, numJobs, mode);
     }
 }
 
 // Evaluate fitness of the entire population using fitness_evaluator
 void evaluatePopulation(std::vector<Genome>& population,
                         const std::vector<std::vector<float>>& travelTimes,
-                        const std::vector<std::vector<float>>& jobTimes) {
-    evaluatePopulationFitness(population, travelTimes, jobTimes);
+                        const std::vector<std::vector<float>>& jobTimes, int mode) {
+    evaluatePopulationFitness(population, travelTimes, jobTimes, mode); // Pass mode to fitness evaluator
 }
 
 // Sort population by fitness (ascending order)
@@ -55,10 +55,10 @@ void replaceWorst(std::vector<Genome>& population, const std::vector<Genome>& of
 }
 
 // Print the population for debugging
-void printPopulation(const std::vector<Genome>& population) {
+void printPopulation(const std::vector<Genome>& population, int mode) {
     std::cout << "Population:\n";
     for (size_t i = 0; i < population.size(); ++i) {
         std::cout << "Genome " << i << ":\n";
-        population[i].print();
+        population[i].print(mode); // Pass mode to Genome's print function
     }
 }

@@ -409,6 +409,9 @@ CUDA_nvjpeg_static_LIBRARY:FILEPATH=/usr/local/cuda-12.6/targets/x86_64-linux/li
 CUDA_nvml_LIBRARY:FILEPATH=/usr/local/cuda/targets/x86_64-linux/lib/stubs/libnvidia-ml.so
 
 //Path to a library.
+CUDA_nvml_static_LIBRARY:FILEPATH=/usr/local/cuda/targets/x86_64-linux/lib/stubs/libnvidia-ml.a
+
+//Path to a library.
 CUDA_nvperf_host_LIBRARY:FILEPATH=/usr/local/cuda-12.6/targets/x86_64-linux/lib/libnvperf_host.so
 
 //Path to a library.
@@ -453,6 +456,9 @@ GA_solver_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 GA_solver_SOURCE_DIR:STATIC=/home/harish/dev4/GA_Solver
 
+//The directory containing a CMake configuration file for xlnt.
+xlnt_DIR:PATH=xlnt_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
@@ -467,7 +473,7 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/harish/dev4/GA_Solver/build
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=30
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=31
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
@@ -572,7 +578,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.30
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.31
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -737,6 +743,8 @@ CUDA_nvjpeg_LIBRARY-ADVANCED:INTERNAL=1
 CUDA_nvjpeg_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nvml_LIBRARY
 CUDA_nvml_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nvml_static_LIBRARY
+CUDA_nvml_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nvperf_host_LIBRARY
 CUDA_nvperf_host_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nvperf_host_static_LIBRARY
@@ -759,6 +767,10 @@ CUDA_pcsamplingutil_LIBRARY-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/local/cuda/targets/x86_64-linux/include][/usr/local/cuda/lib64/libcudart.so][/usr/local/cuda/bin][v12.6.85()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//linker supports push/pop state
+_CMAKE_CUDA_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//linker supports push/pop state
+_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

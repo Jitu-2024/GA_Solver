@@ -8,12 +8,12 @@
 
 // Initialize a population with random genomes
 void initializePopulation(std::vector<Genome>& population, size_t populationSize,
-                          size_t numCities, size_t numJobs);
+                          size_t numCities, size_t numJobs, int mode);
 
 // Evaluate fitness of the entire population
 void evaluatePopulation(std::vector<Genome>& population,
                         const std::vector<std::vector<float>>& travelTimes,
-                        const std::vector<std::vector<float>>& jobTimes);
+                        const std::vector<std::vector<float>>& jobTimes, int mode);
 
 // Sort population by fitness (ascending order)
 void sortPopulationByFitness(std::vector<Genome>& population);

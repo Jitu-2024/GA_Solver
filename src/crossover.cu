@@ -1,4 +1,4 @@
-// crossover.cu: Order crossover for TSPJ problem
+// crossover.cu: Order crossover for TSPJ problem with optional pickup sequence
 
 #include "crossover.h"
 #include "genome.h"
@@ -56,7 +56,7 @@ __global__ void orderCrossoverKernel(const size_t* parent1, const size_t* parent
 }
 
 // Host function for order crossover
-std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& parent2) {
+std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& parent2, int mode) {
     size_t chromosomeLength = parent1.citySequence.size();
 
     // Prepare device memory
@@ -70,12 +70,15 @@ std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& 
     thrust::device_vector<size_t> d_childJob1(chromosomeLength);
     thrust::device_vector<size_t> d_childJob2(chromosomeLength);
 
-    thrust::device_vector<size_t> d_parent1Pickup(parent1.pickupSequence);
-    thrust::device_vector<size_t> d_parent2Pickup(parent2.pickupSequence);
-    thrust::device_vector<size_t> d_childPickup1(chromosomeLength);
-    thrust::device_vector<size_t> d_childPickup2(chromosomeLength);
+    thrust::device_vector<size_t> d_parent1Pickup, d_parent2Pickup, d_childPickup1, d_childPickup2;
+    if (mode == 1) { // Only initialize pickup sequences for TSP-J with Pickup
+        d_parent1Pickup = thrust::device_vector<size_t>(parent1.pickupSequence);
+        d_parent2Pickup = thrust::device_vector<size_t>(parent2.pickupSequence);
+        d_childPickup1 = thrust::device_vector<size_t>(chromosomeLength);
+        d_childPickup2 = thrust::device_vector<size_t>(chromosomeLength);
+    }
 
-    // Launch kernels for cities, jobs, and pickups
+    // Launch kernels for cities and jobs
     int threadsPerBlock = 1; // Single thread selects crossover points
     int blocksPerGrid = 1;
     unsigned long seed = time(nullptr);
@@ -104,21 +107,24 @@ std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& 
         thrust::raw_pointer_cast(d_childJob2.data()),
         chromosomeLength, seed);
 
-    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
-        thrust::raw_pointer_cast(d_parent1Pickup.data()),
-        thrust::raw_pointer_cast(d_parent2Pickup.data()),
-        thrust::raw_pointer_cast(d_childPickup1.data()),
-        chromosomeLength, seed);
+    // Launch kernels for pickups (only if mode == 1)
+    if (mode == 1) {
+        orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+            thrust::raw_pointer_cast(d_parent1Pickup.data()),
+            thrust::raw_pointer_cast(d_parent2Pickup.data()),
+            thrust::raw_pointer_cast(d_childPickup1.data()),
+            chromosomeLength, seed);
 
-    orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
-        thrust::raw_pointer_cast(d_parent2Pickup.data()),
-        thrust::raw_pointer_cast(d_parent1Pickup.data()),
-        thrust::raw_pointer_cast(d_childPickup2.data()),
-        chromosomeLength, seed);
+        orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
+            thrust::raw_pointer_cast(d_parent2Pickup.data()),
+            thrust::raw_pointer_cast(d_parent1Pickup.data()),
+            thrust::raw_pointer_cast(d_childPickup2.data()),
+            chromosomeLength, seed);
+    }
 
     // Copy results back to host
-    Genome child1(chromosomeLength, chromosomeLength);
-    Genome child2(chromosomeLength, chromosomeLength);
+    Genome child1(chromosomeLength, chromosomeLength, mode);
+    Genome child2(chromosomeLength, chromosomeLength, mode);
 
     thrust::copy(d_childCity1.begin(), d_childCity1.end(), child1.citySequence.begin());
     thrust::copy(d_childCity2.begin(), d_childCity2.end(), child2.citySequence.begin());
@@ -126,8 +132,10 @@ std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& 
     thrust::copy(d_childJob1.begin(), d_childJob1.end(), child1.jobSequence.begin());
     thrust::copy(d_childJob2.begin(), d_childJob2.end(), child2.jobSequence.begin());
 
-    thrust::copy(d_childPickup1.begin(), d_childPickup1.end(), child1.pickupSequence.begin());
-    thrust::copy(d_childPickup2.begin(), d_childPickup2.end(), child2.pickupSequence.begin());
+    if (mode == 1) { // Only copy pickup sequences for TSP-J with Pickup
+        thrust::copy(d_childPickup1.begin(), d_childPickup1.end(), child1.pickupSequence.begin());
+        thrust::copy(d_childPickup2.begin(), d_childPickup2.end(), child2.pickupSequence.begin());
+    }
 
     return {child1, child2};
 }

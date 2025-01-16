@@ -8,6 +8,6 @@
 
 // Host function to perform order crossover for TSPJ
 std::pair<Genome, Genome> performCrossover(const Genome& parent1,
-                                           const Genome& parent2);
+                                           const Genome& parent2, int mode);
 
 #endif // CROSSOVER_H
