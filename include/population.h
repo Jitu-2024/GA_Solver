@@ -25,6 +25,6 @@ Genome getBestGenome(const std::vector<Genome>& population);
 void replaceWorst(std::vector<Genome>& population, const std::vector<Genome>& offspring);
 
 // Print the population
-void printPopulation(const std::vector<Genome>& population);
+void printPopulation(const std::vector<Genome>& population, int mode);
 
 #endif // POPULATION_H

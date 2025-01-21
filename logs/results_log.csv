@@ -1,0 +1,121 @@
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4227,425,500,69.1743,0.138349
+gr21,10026,404,500,79.4248,0.15885
+gr24,2748,429,500,88.4779,0.176956
+fri26,1934,494,500,94.1262,0.188252
+bays29,4440,489,500,103.408,0.206816
+gr48,11514,487,500,168.825,0.33765
+berlin52,17579.5,498,500,185.907,0.371814
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4141,236,500,69.265,0.13853
+gr21,10408,467,500,79.5395,0.159079
+gr24,2709,351,500,88.2727,0.176545
+fri26,1959,191,500,94.5489,0.189098
+bays29,4569,307,500,103.449,0.206898
+gr48,12170,460,500,168.835,0.33767
+eil51,1050.36,493,500,182.778,0.365556
+berlin52,19883.4,495,500,185.764,0.371527
+eil76,1757.59,494,500,296.726,0.593453
+eil101,2547.68,499,500,433.026,0.866051
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4085,104,1000,139.078,0.139078
+gr21,10413,882,1000,160.286,0.160286
+gr24,2673,976,1000,177.949,0.177949
+fri26,2083,680,1000,189.019,0.189019
+bays29,4462,719,1000,207.169,0.207169
+gr48,10728,947,1000,343.259,0.343259
+eil51,986.65,931,1000,369.731,0.369731
+berlin52,16757.1,997,1000,377.574,0.377574
+eil76,1449.58,989,1000,602.402,0.602402
+eil101,1852.63,998,1000,888.63,0.88863
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4075,545,2000,279.664,0.139832
+gr21,9479,1210,2000,323.333,0.161667
+gr24,2594,386,2000,359.038,0.179519
+fri26,1957,806,2000,383.94,0.19197
+bays29,4309,442,2000,421.143,0.210572
+gr48,11353,1480,2000,710.251,0.355125
+eil51,925.78,1448,2000,766.152,0.383076
+berlin52,16544.6,1369,2000,790.175,0.395088
+eil76,1270.88,1648,2000,1289.24,0.644622
+eil101,1547.39,1756,2000,1971,0.985498
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+bays29,4309,442,2000,421.143,0.210572
+berlin52,16544.6,1369,2000,790.175,0.395088
+eil51,925.78,1448,2000,766.152,0.383076
+eil76,1270.88,1648,2000,1289.24,0.644622
+eil101,1547.39,1756,2000,1971,0.985498
+fri26,1957,806,2000,383.94,0.19197
+gr17,4075,545,2000,279.664,0.139832
+gr21,9479,1210,2000,323.333,0.161667
+gr24,2594,386,2000,359.038,0.179519
+gr48,11353,1480,2000,710.251,0.355125Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,3.40282e+38,0,500,28.1405,0.0562809
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,3.40282e+38,0,500,28.1219,0.0562437
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4099,212,500,15.4087,0.0308175
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4465,406,500,11.0152,0.0220303
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4207,128,1000,21.547,0.021547
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4518,569,1000,21.8808,0.0218808
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4093,172,1000,66.3794,0.0663794
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,4085,54,1000,218.541,0.218541
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,0,100,14.6238,0.146238
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,0,100,82.5775,0.825775
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,17,100,8.33838,0.0833838
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,11,100,8.38129,0.0838129
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,50,3,100,4.99349,0.0499349
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,1,100,4.62364,0.0462364
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,5,100,4.51443,0.0451443
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,0,500,177.99,0.355981
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,11,100,4.45409,0.0445409
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,24,100,4.47618,0.0447618
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,14,100,4.49683,0.0449683
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,71,3,100,4.86783,0.0486783
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,7777,830,1000,271.714,0.271714
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+berlin52,90882.8,928,1000,173.07,0.17307
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+berlin52,71,3,500,60.7321,0.121464
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+berlin52,71,23,100,4.59972,0.0459972
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+berlin52,71,20,100,1.98856,0.0198856
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,7035,1942,2000,208.625,0.104313
+gr21,23416,1536,2000,240.712,0.120356
+gr24,6422,1824,2000,267.399,0.1337
+fri26,5061,648,2000,285.562,0.142781
+bays29,12953,1980,2000,313.372,0.156686
+gr48,57191,843,2000,525.08,0.26254
+eil51,4842.84,996,2000,564.925,0.282462
+berlin52,84771.9,183,2000,577.961,0.288981
+eil76,9036.77,1928,2000,933.926,0.466963
+eil101,13629.5,1589,2000,1402.44,0.701218
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s)
+gr17,7022,537,10000,215.48,0.021548
+gr21,28024,104,10000,198.636,0.0198636
+gr24,6621,522,10000,279.847,0.0279847
+fri26,4981,1668,10000,470.071,0.0470071
+bays29,11964,1339,10000,465.976,0.0465976
+gr48,55570,652,10000,609.968,0.0609968
+eil51,4596.37,1044,10000,786.138,0.0786138
+berlin52,85533.5,267,10000,565.576,0.0565576

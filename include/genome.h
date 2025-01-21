@@ -13,6 +13,7 @@ public:
     std::vector<size_t> citySequence;
     std::vector<size_t> jobSequence;
     std::vector<size_t> pickupSequence;
+    std::vector<size_t> pickupOffset; // For interleaved pickups
 
     // Fitness value of the genome
     float fitness;
@@ -26,6 +27,8 @@ public:
                          const std::vector<std::vector<float>>& jobTimes);
 
     float getFitness();
+
+    std::vector<size_t> constructCombinedSequence()const;
 
     // Debugging utility to print the genome
     void print(int mode) const;

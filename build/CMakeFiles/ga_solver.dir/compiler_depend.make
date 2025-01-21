@@ -44,6 +44,7 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
   /usr/include/c++/8/bits/nested_exception.h \
   /usr/include/c++/8/bits/ostream.tcc \
   /usr/include/c++/8/bits/ostream_insert.h \
+  /usr/include/c++/8/bits/parse_numbers.h \
   /usr/include/c++/8/bits/postypes.h \
   /usr/include/c++/8/bits/predefined_ops.h \
   /usr/include/c++/8/bits/ptr_traits.h \
@@ -69,11 +70,13 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
   /usr/include/c++/8/bits/vector.tcc \
   /usr/include/c++/8/cctype \
   /usr/include/c++/8/cerrno \
+  /usr/include/c++/8/chrono \
   /usr/include/c++/8/clocale \
   /usr/include/c++/8/cmath \
   /usr/include/c++/8/cstdint \
   /usr/include/c++/8/cstdio \
   /usr/include/c++/8/cstdlib \
+  /usr/include/c++/8/ctime \
   /usr/include/c++/8/cwchar \
   /usr/include/c++/8/cwctype \
   /usr/include/c++/8/debug/assertions.h \
@@ -95,6 +98,7 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
   /usr/include/c++/8/math.h \
   /usr/include/c++/8/new \
   /usr/include/c++/8/ostream \
+  /usr/include/c++/8/ratio \
   /usr/include/c++/8/sstream \
   /usr/include/c++/8/stdexcept \
   /usr/include/c++/8/stdlib.h \
@@ -325,27 +329,15 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/local/cuda/targets/x86_64-linux/include/device_types.h:
 
-/usr/include/pthread.h:
+/usr/local/cuda/targets/x86_64-linux/include/device_launch_parameters.h:
 
-/usr/include/locale.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+/usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.hpp:
 
 /usr/include/c++/8/tr1/poly_hermite.tcc:
 
 /usr/include/alloca.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/c++/8/tr1/hypergeometric.tcc:
-
-/home/harish/dev4/GA_Solver/include/mutation.h:
-
-/usr/include/c++/8/backward/binders.h:
 
 /usr/local/cuda/targets/x86_64-linux/include/crt/sm_70_rt.h:
 
@@ -357,13 +349,15 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+/usr/include/c++/8/tr1/hypergeometric.tcc:
+
+/home/harish/dev4/GA_Solver/include/mutation.h:
+
+/usr/include/c++/8/backward/binders.h:
+
+/usr/include/c++/8/ratio:
+
 /usr/include/c++/8/new:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
-/usr/include/c++/8/iosfwd:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -403,6 +397,10 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/c++/8/debug/debug.h:
 
+/usr/include/c++/8/ctime:
+
+/usr/include/c++/8/bits/sstream.tcc:
+
 /usr/include/c++/8/cstdlib:
 
 /usr/include/c++/8/tr1/riemann_zeta.tcc:
@@ -418,6 +416,18 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 /usr/include/c++/8/cstdint:
 
 /usr/include/c++/8/clocale:
+
+/usr/include/c++/8/chrono:
+
+/usr/include/linux/limits.h:
+
+/usr/include/endian.h:
+
+/usr/include/c++/8/iosfwd:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/c++/8/bits/move.h:
 
@@ -438,6 +448,14 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 /usr/include/c++/8/tr1/beta_function.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/c++/8/bits/stl_relops.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/c++/8/bits/functexcept.h:
+
+/usr/include/c++/8/cmath:
 
 /usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h:
 
@@ -487,6 +505,10 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/local/cuda/targets/x86_64-linux/include/cuda_runtime_api.h:
+
+/usr/include/c++/8/ext/string_conversions.h:
+
 /home/harish/dev4/GA_Solver/src/ga_solver_main.cu:
 
 /usr/local/cuda/targets/x86_64-linux/include/cuda_runtime.h:
@@ -533,12 +555,6 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/c++/8/limits:
 
-/usr/include/c++/8/cmath:
-
-/usr/include/c++/8/bits/functexcept.h:
-
-/usr/include/c++/8/bits/sstream.tcc:
-
 /usr/include/c++/8/cwchar:
 
 /usr/include/assert.h:
@@ -553,10 +569,6 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/local/cuda/targets/x86_64-linux/include/crt/sm_90_rt.hpp:
 
-/usr/include/c++/8/bits/stl_relops.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
 /usr/include/c++/8/tr1/gamma.tcc:
 
 /usr/include/c++/8/bits/std_abs.h:
@@ -568,10 +580,6 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 /usr/include/c++/8/bits/cpp_type_traits.h:
 
 /usr/include/c++/8/bits/functional_hash.h:
-
-/usr/local/cuda/targets/x86_64-linux/include/crt/host_defines.h:
-
-/usr/include/c++/8/bits/hash_bytes.h:
 
 /usr/include/c++/8/bits/istream.tcc:
 
@@ -613,11 +621,11 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/c++/8/bits/range_access.h:
 
-/usr/local/cuda/targets/x86_64-linux/include/device_launch_parameters.h:
-
 /usr/include/c++/8/bits/stl_uninitialized.h:
 
 /usr/include/c++/8/bits/ostream.tcc:
+
+/usr/include/c++/8/bits/parse_numbers.h:
 
 /usr/include/c++/8/bits/predefined_ops.h:
 
@@ -659,6 +667,16 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 
 /usr/include/c++/8/bits/stl_construct.h:
 
+/usr/include/locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/8/bits/hash_bytes.h:
+
+/usr/local/cuda/targets/x86_64-linux/include/crt/host_defines.h:
+
+/usr/include/pthread.h:
+
 /usr/local/cuda/targets/x86_64-linux/include/driver_types.h:
 
 /usr/include/stdc-predef.h:
@@ -684,6 +702,10 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 /usr/include/sched.h:
 
 /usr/include/wctype.h:
+
+/usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/c++/8/ext/atomicity.h:
 
@@ -844,13 +866,3 @@ CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o: /home/harish/dev4/GA_Solver/sr
 /usr/local/cuda/targets/x86_64-linux/include/crt/sm_80_rt.hpp:
 
 /usr/local/cuda/targets/x86_64-linux/include/cuda_device_runtime_api.h:
-
-/usr/include/c++/8/ext/string_conversions.h:
-
-/usr/local/cuda/targets/x86_64-linux/include/cuda_runtime_api.h:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.h:
-
-/usr/local/cuda/targets/x86_64-linux/include/device_atomic_functions.hpp:

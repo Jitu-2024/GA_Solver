@@ -77,7 +77,13 @@ std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& 
         d_childPickup1 = thrust::device_vector<size_t>(chromosomeLength);
         d_childPickup2 = thrust::device_vector<size_t>(chromosomeLength);
     }
-
+    
+    if (mode == 2) { // Only initialize pickup offsets for TSP-J with Interleaved Pickup
+        d_parent1Pickup = thrust::device_vector<size_t>(parent1.pickupOffset);
+        d_parent2Pickup = thrust::device_vector<size_t>(parent2.pickupOffset);
+        d_childPickup1 = thrust::device_vector<size_t>(chromosomeLength);
+        d_childPickup2 = thrust::device_vector<size_t>(chromosomeLength);
+    }
     // Launch kernels for cities and jobs
     int threadsPerBlock = 1; // Single thread selects crossover points
     int blocksPerGrid = 1;
@@ -108,7 +114,7 @@ std::pair<Genome, Genome> performCrossover(const Genome& parent1, const Genome& 
         chromosomeLength, seed);
 
     // Launch kernels for pickups (only if mode == 1)
-    if (mode == 1) {
+    if (mode == 1 || mode == 2) {
         orderCrossoverKernel<<<blocksPerGrid, threadsPerBlock>>>(
             thrust::raw_pointer_cast(d_parent1Pickup.data()),
             thrust::raw_pointer_cast(d_parent2Pickup.data()),

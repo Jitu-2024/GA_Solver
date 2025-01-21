@@ -7,8 +7,7 @@
 #include <vector>
 
 // Flatten the population into a single array for GPU processing
-void flattenPopulation(const std::vector<Genome>& population, std::vector<size_t>& flatArray,
-                       std::vector<float>& fitnessArray, int mode);
+void flattenPopulation(const std::vector<Genome>& population, std::vector<size_t>& flatArray, int mode);
 
 // Unflatten the fitness results back into the population
 void unflattenFitness(const std::vector<float>& fitnessArray, std::vector<Genome>& population);

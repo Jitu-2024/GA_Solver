@@ -93,4 +93,19 @@ void performMutation(Genome& genome, float mutationRate, int mode) {
             end--;
         }
     }
+
+    // Mutate pickup sequence (only if mode == 2)
+    else if (mode == 2 && probDist(gen) < mutationRate) {
+        size_t start = indexDist(gen);
+        size_t end = indexDist(gen);
+
+        if (start > end) std::swap(start, end);
+
+        // Reverse subsequence in pickup sequence
+        while (start < end) {
+            std::swap(genome.pickupOffset[start], genome.pickupOffset[end]);
+            start++;
+            end--;
+        }
+    }
 }

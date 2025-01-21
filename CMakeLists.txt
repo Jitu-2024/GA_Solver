@@ -1,6 +1,9 @@
 # Minimum CMake version required
 cmake_minimum_required(VERSION 3.18)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project(GA_solver LANGUAGES CXX CUDA)
 
 # Find CUDA
@@ -20,15 +23,28 @@ enable_language(CUDA)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CUDA_FLAGS_DEBUG "-G -g")
 
-configure_file(${CMAKE_SOURCE_DIR}/data/dsj1000.tsp ${CMAKE_BINARY_DIR}/data/dsj1000.tsp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/bays29_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/bays29_TSPJ_TT.csv COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/bays29_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/bays29_TSPJ_JT.csv COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/gr17_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/gr17_TSPJ_TT.csv COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/gr17_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/gr17_TSPJ_JT.csv COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/gr21_TSPJ_TT.csv ${CMAKE_BINARY_DIR}/data/gr21_TSPJ_TT.csv COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/data/gr21_TSPJ_JT.csv ${CMAKE_BINARY_DIR}/data/gr21_TSPJ_JT.csv COPYONLY)
+# Define data directories
+set(DATA_SOURCE_DIR "${CMAKE_SOURCE_DIR}/data")
+set(DATA_BINARY_DIR "${CMAKE_BINARY_DIR}/data")
+
+# Create binary data directory
+file(MAKE_DIRECTORY ${DATA_BINARY_DIR})
+
+# Find all CSV files in the data directory
+file(GLOB DATA_FILES "${DATA_SOURCE_DIR}/*.csv")
+
+# Copy each data file to the binary directory
+foreach(DATA_FILE ${DATA_FILES})
+    get_filename_component(FILENAME ${DATA_FILE} NAME)
+    configure_file(${DATA_FILE} ${DATA_BINARY_DIR}/${FILENAME} COPYONLY)
+endforeach()
+
+# Define DATA_DIR for the source code
+add_compile_definitions(DATA_DIR="${DATA_BINARY_DIR}")
 
 add_compile_definitions(DATA_DIR="${CMAKE_BINARY_DIR}/data")
+
+add_compile_definitions(LOGS_DIR="${CMAKE_SOURCE_DIR}/logs")
 
 # Add source files
 set(SRC_FILES

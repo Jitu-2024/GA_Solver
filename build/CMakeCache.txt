@@ -456,9 +456,6 @@ GA_solver_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 GA_solver_SOURCE_DIR:STATIC=/home/harish/dev4/GA_Solver
 
-//The directory containing a CMake configuration file for xlnt.
-xlnt_DIR:PATH=xlnt_DIR-NOTFOUND
-
 
 ########################
 # INTERNAL cache entries
