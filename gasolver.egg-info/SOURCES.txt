@@ -1,0 +1,8 @@
+pyproject.toml
+setup.py
+gasolver.egg-info/PKG-INFO
+gasolver.egg-info/SOURCES.txt
+gasolver.egg-info/dependency_links.txt
+gasolver.egg-info/not-zip-safe
+gasolver.egg-info/requires.txt
+gasolver.egg-info/top_level.txt

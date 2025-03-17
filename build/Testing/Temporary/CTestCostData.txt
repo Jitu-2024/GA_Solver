@@ -1,9 +1,0 @@
-GenomeTest 2 0.404459
-PopulationTest 2 0.355788
-CostMatrix 2 0.363077
-FitnessEvaluatorTest 2 0.34915
-ParentSelectionTest 2 0.363451
-CrossoverTest 0 0
-MutationTest 2 0.367133
----
-CrossoverTest

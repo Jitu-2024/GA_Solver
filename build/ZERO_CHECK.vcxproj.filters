@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\justi\Documents\ELE-CPE Research\Gen_AI_Consultancy\GA-tool\GA_Solver\build\CMakeFiles\ced97b2e67b3a6eca824de6ec8c51d9f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{869B5CF2-6159-3BB7-A15F-0135047A36E1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

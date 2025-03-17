@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: gasolver
+Version: 0.1
+Summary: CUDA-accelerated GA Solver for TSP
+Author: Harishjitu Saseendran
+Requires-Python: >=3.6
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: pybind11>=2.10.0
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
