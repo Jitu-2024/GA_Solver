@@ -1,0 +1,1 @@
+ -Wl,-rpath,/u/ugrads/justin_watkins/Documents/ELE-CPE-Research/genetic_algorithms/GA_Solver/build/lib lib/libga_solver_lib.so -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

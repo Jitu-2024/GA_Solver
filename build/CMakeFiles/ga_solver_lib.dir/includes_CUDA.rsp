@@ -1,0 +1,1 @@
+-I"/u/ugrads/justin_watkins/Documents/ELE-CPE-Research/genetic_algorithms/GA_Solver/include" -I"/u/ugrads/justin_watkins/Documents/ELE-CPE-Research/genetic_algorithms/GA_Solver/src" -I/usr/include/python3.11 -I"/tmp/pip-build-env-sjkn61ni/overlay/lib/python3.11/site-packages/pybind11/include"

@@ -1,6 +1,7 @@
+#cmake_minimum_required(VERSION 3.18)
+#project(GA_solver LANGUAGES CXX CUDA)
 
-# cmake_minimum_required(VERSION 3.18)
-# project(GA_solver LANGUAGES CXX CUDA)
+
 
 # # Set C++ and CUDA standards first
 # set(CMAKE_CXX_STANDARD 17)
@@ -275,21 +276,71 @@
 #################################################################################################
 #ROUND 3
 #################################################################################################
+set(CMAKE_CUDA_FLAGS "-allow-unsupported-compiler")
+
+set(ENV{CC} "/usr/bin/x86_64-pc-linux-gnu-gcc-12")
+set(ENV{CXX} "/usr/bin/x86_64-pc-linux-gnu-g++-12")
+
+message(STATUS "C compiler: ${CMAKE_C_COMPILER}")
+message(STATUS "CXX compiler: ${CMAKE_CXX_COMPILER}")
 
 cmake_minimum_required(VERSION 3.18)
 project(GA_solver LANGUAGES CXX CUDA)
 
-# Set runtime flags for MSVC early
-if(MSVC)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
-    set(CMAKE_CUDA_FLAGS_RELEASE "${CMAKE_CUDA_FLAGS_RELEASE} -Xcompiler=/MD")
-    set(CMAKE_CUDA_FLAGS_DEBUG "${CMAKE_CUDA_FLAGS_DEBUG} -Xcompiler=/MDd")
+if(UNIX)
+    # Linux-specific settings
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+    set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Xcompiler -fPIC")
 endif()
 
-# Set the C++ and CUDA standards
+# Platform-specific compiler settings
+# Ensure CMake uses GCC 12 if available
+if(UNIX AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    execute_process(
+        COMMAND bash -c "which x86_64-pc-linux-gnu-gcc-12 || which gcc-12 || which gcc-11 || which gcc-10"
+        OUTPUT_VARIABLE GCC_PATH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    execute_process(
+        COMMAND bash -c "which x86_64-pc-linux-gnu-g++-12 || which g++-12 || which g++-11 || which g++-10"
+        OUTPUT_VARIABLE GXX_PATH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    
+    if(GCC_PATH AND GXX_PATH)
+        message(STATUS "Using GCC: ${GCC_PATH}, GXX: ${GXX_PATH}")
+        set(CMAKE_C_COMPILER ${GCC_PATH} CACHE FILEPATH "GCC 12 Compiler" FORCE)
+        set(CMAKE_CXX_COMPILER ${GXX_PATH} CACHE FILEPATH "G++ 12 Compiler" FORCE)
+
+        # Ensure NVCC uses GCC for compilation
+        set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -allow-unsupported-compiler --compiler-bindir=${GXX_PATH}")
+        # Set environment variables to ensure NVCC uses the correct compiler
+#        set(ENV{CC} ${GCC_PATH})
+#        set(ENV{CXX} ${GXX_PATH})
+    else()
+        message(FATAL_ERROR "No compatible GCC version (≤12) found. Install GCC 12 manually.")
+    endif()
+elseif(WIN32)
+    # Windows-specific settings
+    if(MSVC)
+        message(STATUS "Configuring CUDA for Windows with MSVC")
+        # Ensure consistent runtime libraries
+        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+        set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
+        set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
+        set(CMAKE_CUDA_FLAGS_RELEASE "${CMAKE_CUDA_FLAGS_RELEASE} -Xcompiler=/MD")
+        set(CMAKE_CUDA_FLAGS_DEBUG "${CMAKE_CUDA_FLAGS_DEBUG} -Xcompiler=/MDd")
+    else()
+        message(FATAL_ERROR "Windows builds require MSVC for CUDA compatibility.")
+    endif()
+endif()
+
+# Set consistent standards across platforms
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+
 enable_language(CUDA)
 
 # Set build type and append debug flags for CUDA
@@ -315,7 +366,7 @@ set(SRC_FILES
 
 # Find required packages
 find_package(CUDAToolkit REQUIRED)
-find_package(Python 3.12 REQUIRED COMPONENTS Interpreter Development)
+find_package(Python 3.11 REQUIRED COMPONENTS Interpreter Development)
 
 # Get pybind11's CMake directory from Python and find pybind11
 execute_process(
@@ -336,8 +387,24 @@ include_directories(
 )
 
 # Create the shared library with common CUDA sources
-add_library(ga_solver_lib ${SRC_FILES})
-target_include_directories(ga_solver_lib PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src)
+if(UNIX)
+    add_library(ga_solver_lib SHARED ${SRC_FILES})
+    target_compile_options(ga_solver_lib PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler -fPIC>)
+else()
+#    add_library(ga_solver_lib SHARED ${SRC_FILES})
+#    if(MSVC)
+#        set_property(TARGET ga_solver_lib PROPERTY
+#            MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+#    endif()
+    add_library(ga_solver_lib ${SRC_FILES})
+    target_include_directories(ga_solver_lib PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src)
+endif()
+
+# Common settings remain the same
+target_include_directories(ga_solver_lib PRIVATE 
+    ${CMAKE_SOURCE_DIR}/include 
+    ${CMAKE_SOURCE_DIR}/src
+)
 target_link_libraries(ga_solver_lib PRIVATE ${CMAKE_CUDA_LIBRARIES})
 
 # Create the Python module.

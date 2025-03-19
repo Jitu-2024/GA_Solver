@@ -22,6 +22,11 @@ __global__ void orderCrossoverKernel(const int* parents, int* offspring, const i
         int parent1Idx = idx * 2;
         int parent2Idx = parent1Idx + 1;
 
+        // Add bounds check
+        if (idx >= numParents / 2) {
+            return;
+        }
+
         const int* parent1 = &parents[parent1Idx * numCities];
         const int* parent2 = &parents[parent2Idx * numCities];
         int* child1 = &offspring[parent1Idx * numCities];
@@ -84,9 +89,9 @@ Crossover::Crossover(int numCities)
 
 // Crossover Destructor
 Crossover::~Crossover() {
-    cudaFree(d_parents);
-    cudaFree(d_offspring);
-    cudaFree(d_crossoverPoints);
+    if (d_parents) cudaFree(d_parents);
+    if (d_offspring) cudaFree(d_offspring);
+    if (d_crossoverPoints) cudaFree(d_crossoverPoints);
 }
 
 // Perform Order Crossover

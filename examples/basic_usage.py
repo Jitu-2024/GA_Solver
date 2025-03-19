@@ -14,8 +14,8 @@ def main():
 
     # Generate random problem
     # If anything needs to be setup, it's purely the coordinates only?
-    coords = np.random.rand(50, 2) * 1000
-
+    coords = np.random.rand(50, 2) * 100
+    print(f"+++++++++++++++++++++++++++++++++++++++Coords: {coords.shape}")
     # Solve TSP
     result = solver.solve(coords)
     print(f"Best fitness: {result['best_fitness']}")

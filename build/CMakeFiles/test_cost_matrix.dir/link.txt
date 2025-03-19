@@ -1,0 +1,1 @@
+/usr/bin/g++ -Wl,--dependency-file=CMakeFiles/test_cost_matrix.dir/link.d @CMakeFiles/test_cost_matrix.dir/objects1.rsp -o test_cost_matrix @CMakeFiles/test_cost_matrix.dir/linkLibs.rsp -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib"

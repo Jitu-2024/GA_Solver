@@ -1,0 +1,1 @@
+/usr/bin/g++ -Wl,--dependency-file=CMakeFiles/test_parent_selection.dir/link.d @CMakeFiles/test_parent_selection.dir/objects1.rsp -o test_parent_selection @CMakeFiles/test_parent_selection.dir/linkLibs.rsp -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib"

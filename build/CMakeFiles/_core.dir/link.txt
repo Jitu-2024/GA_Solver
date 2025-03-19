@@ -1,0 +1,1 @@
+/usr/bin/x86_64-pc-linux-gnu-g++-12 -fPIC -DVERSION_INFO=\"0.1\" -g -Wl,--dependency-file=CMakeFiles/_core.dir/link.d -shared  -o lib/gasolver/_core.cpython-311-x86_64-linux-gnu.so CMakeFiles/_core.dir/gasolver/python_bindings.cpp.o  -Wl,-rpath,/u/ugrads/justin_watkins/Documents/ELE-CPE-Research/genetic_algorithms/GA_Solver/build/lib lib/libga_solver_lib.so

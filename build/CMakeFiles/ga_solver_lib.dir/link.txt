@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC -Wl,--dependency-file=CMakeFiles/ga_solver_lib.dir/link.d -shared -Wl,-soname,libga_solver_lib.so -o lib/libga_solver_lib.so @CMakeFiles/ga_solver_lib.dir/objects1.rsp @CMakeFiles/ga_solver_lib.dir/linkLibs.rsp -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib"

@@ -23,6 +23,13 @@ class CMakeExtension(Extension):
 class CMakeBuild(build_ext):
     """Handles building with CMake"""
     def build_extension(self, ext):
+        # Check system and compiler requirements
+        self._check_compiler_compatibility()
+        
+        # Set environment variables for compiler
+        os.environ['CC'] = '/usr/bin/x86_64-pc-linux-gnu-gcc-12'
+        os.environ['CXX'] = '/usr/bin/x86_64-pc-linux-gnu-g++-12'
+        
         # Ensure pybind11 is installed before running CMake
         try:
             import pybind11
@@ -50,13 +57,14 @@ class CMakeBuild(build_ext):
         print(f"+++++++++++++++++++++++++++++++++++++++sys.executable: {sys.executable}")
         print(f"+++++++++++++++++++++++++++++++++++++++os.path.abspath(self.build_lib): {os.path.abspath(self.build_lib)}")
         print(f"+++++++++++++++++++++++++++++++++++++++os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name))): {os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))}")
-
-        # cmake_args = [
-        #     f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))}",
-        #     f"-DPYTHON_EXECUTABLE={sys.executable}",
-        #     "-DCMAKE_BUILD_TYPE=Release",
-        #     f"-Dpybind11_DIR={pybind11_cmake_dir}",
-        # ]
+        
+        print(f"+++++++++++++++++++++++++++++++++++++++Python version: {sys.version}")
+        print(f"+++++++++++++++++++++++++++++++++++++++Python executable path: {sys.executable}")
+        try:
+            import platform
+            print(f"+++++++++++++++++++++++++++++++++++++++Platform Python version: {platform.python_version()}")
+        except ImportError:
+            pass
         
         cmake_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={os.path.abspath(self.build_lib)}", #C:\Users\justi\Documents\ELE-CPE Research\Gen_AI_Consultancy\GA-tool\GA_Solver
@@ -64,10 +72,35 @@ class CMakeBuild(build_ext):
             f"-DPYTHON_EXECUTABLE={sys.executable}",
             "-DCMAKE_BUILD_TYPE=Release",
             f"-Dpybind11_DIR={pybind11.get_cmake_dir()}",
-            "-DPYTHON_MODULE_NAME=_core"
+            "-DPYTHON_MODULE_NAME=_core",
+            # "-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler"
         ]
+        
+        # Add platform-specific configurations
+        if sys.platform.startswith('linux'):
+            # On Linux, explicitly specify the C and C++ compiler
+            gcc_path = self._find_compatible_gcc()
+            print(f"+++++++++++++++++++++++++++++++++++++++gcc_path: {gcc_path}")
+            gxx_path = self._find_compatible_gxx()
+            print(f"+++++++++++++++++++++++++++++++++++++++gxx_path: {gxx_path}")
+            
+            cmake_args.extend([
+                f"-DCMAKE_C_COMPILER={gcc_path}",
+                f"-DCMAKE_CXX_COMPILER={gxx_path}",
+                "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                "-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler -Xcompiler -fPIC",
+            ])
+        
+        # # Platform-specific CMake arguments
+        # if sys.platform.startswith('linux'):
+        #     cmake_args.extend([
+        #         "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+        #         "-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler -Xcompiler -fPIC",
+        #         f"-DCMAKE_C_COMPILER=/usr/bin/x86_64-pc-linux-gnu-gcc-12",
+        #         f"-DCMAKE_CXX_COMPILER=/usr/bin/x86_64-pc-linux-gnu-g++-12"
+        #     ])
 
-        build_args = ['--config', 'Release']
+        build_args = ['--config', 'Release', ]
         
         env = os.environ.copy()
         env['CXXFLAGS'] = f"{env.get('CXXFLAGS', '')} -DVERSION_INFO=\\\"{self.distribution.get_version()}\\\""
@@ -88,16 +121,79 @@ class CMakeBuild(build_ext):
         )
 
         print(f"+++++++++++++++++++++++++++++++++++++++check_call completion")
-        # subprocess.check_call(
-        #     ["cmake", ext.sourcedir] + cmake_args,
-        #     cwd=self.build_temp
-        # )
-        # subprocess.check_call(
-        #     ["cmake", "--build", "."] + build_args,
-        #     cwd=self.build_temp
-        # )
+
+    def _check_compiler_compatibility(self):
+        """Check if the system has compatible compiler versions"""
+        if sys.platform.startswith('linux'):
+            try:
+                gcc_version = subprocess.check_output(['gcc', '-dumpversion']).decode().strip()
+                if int(gcc_version.split('.')[0]) > 12:
+                    print("Warning: Detected GCC version > 12, which is not officially supported by CUDA")
+                    print("Attempting to find compatible GCC version...")
+            except:
+                print("Warning: Could not determine GCC version")
+                
+    def _find_compatible_gcc(self):
+        """Find a compatible version of GCC (<=12) on the system"""
+        # Try common paths and versions
+        gcc_candidates = [
+            # Gentoo-style paths
+            '/usr/bin/x86_64-pc-linux-gnu-gcc-12',
+            '/usr/bin/x86_64-pc-linux-gnu-gcc-11',
+            '/usr/bin/x86_64-pc-linux-gnu-gcc-10',
+            # Standard Linux paths
+            '/usr/bin/gcc-12',
+            '/usr/bin/gcc-11',
+            '/usr/bin/gcc-10',
+        ]
         
+        for gcc in gcc_candidates:
+            if os.path.exists(gcc):
+                try:
+                    version = subprocess.check_output([gcc, '-dumpversion']).decode().strip()
+                    if int(version.split('.')[0]) <= 12:
+                        return gcc
+                except:
+                    continue
         
+        raise RuntimeError(
+            "Could not find a compatible GCC version (<=12). "
+            "Please install GCC-12 or earlier using:\n"
+            "Ubuntu/Debian: sudo apt install gcc-12\n"
+            "RHEL/CentOS: sudo yum install gcc-12\n"
+            "Or follow your distribution's instructions."
+        )
+        
+    def _find_compatible_gxx(self):
+        """Find a compatible version of G++ (<=12) on the system"""
+        # Similar to _find_compatible_gcc but for g++
+        gxx_candidates = [
+            # Gentoo-style paths
+            '/usr/bin/x86_64-pc-linux-gnu-g++-12',
+            '/usr/bin/x86_64-pc-linux-gnu-g++-11',
+            '/usr/bin/x86_64-pc-linux-gnu-g++-10',
+            # Standard Linux paths
+            '/usr/bin/g++-12',
+            '/usr/bin/g++-11',
+            '/usr/bin/g++-10',
+        ]
+        
+        for gxx in gxx_candidates:
+            if os.path.exists(gxx):
+                try:
+                    version = subprocess.check_output([gxx, '-dumpversion']).decode().strip()
+                    if int(version.split('.')[0]) <= 12:
+                        return gxx
+                except:
+                    continue
+        
+        raise RuntimeError(
+            "Could not find a compatible G++ version (<=12). "
+            "Please install G++-12 or earlier using:\n"
+            "Ubuntu/Debian: sudo apt install g++-12\n"
+            "RHEL/CentOS: sudo yum install gcc-c++-12\n"
+            "Or follow your distribution's instructions."
+        )
 # ext_modules = [
 #     Pybind11Extension("gasolver._core", ["gasolver/python_bindings.cpp"])
 # ]
