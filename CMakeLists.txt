@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.18)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(GA_solver LANGUAGES CXX CUDA)
+# project(GA_solver LANGUAGES CXX CUDA)
 
 # Find CUDA
 find_package(CUDAToolkit REQUIRED)
@@ -18,6 +18,8 @@ set(CMAKE_CUDA_STANDARD 17)
 
 # Enable CUDA
 enable_language(CUDA)
+
+set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -gencode arch=compute_70,code=sm_70")
 
 # Enable debug flags for host and device code
 set(CMAKE_BUILD_TYPE Debug)
