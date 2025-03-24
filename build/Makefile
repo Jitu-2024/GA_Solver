@@ -57,23 +57,13 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/harish/dev4/GA_Solver
+CMAKE_SOURCE_DIR = /home/harish/GRA_development/GA_Solver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/harish/dev4/GA_Solver/build
+CMAKE_BINARY_DIR = /home/harish/GRA_development/GA_Solver/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -97,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev4/GA_Solver/build/CMakeFiles /home/harish/dev4/GA_Solver/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/GRA_development/GA_Solver/build/CMakeFiles /home/harish/GRA_development/GA_Solver/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/dev4/GA_Solver/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/GRA_development/GA_Solver/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -151,97 +141,6 @@ ga_solver: cmake_check_build_system
 ga_solver/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/build
 .PHONY : ga_solver/fast
-
-#=============================================================================
-# Target rules for targets named test_genome
-
-# Build rule for target.
-test_genome: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_genome
-.PHONY : test_genome
-
-# fast build rule for target.
-test_genome/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_genome.dir/build.make CMakeFiles/test_genome.dir/build
-.PHONY : test_genome/fast
-
-#=============================================================================
-# Target rules for targets named test_population
-
-# Build rule for target.
-test_population: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_population
-.PHONY : test_population
-
-# fast build rule for target.
-test_population/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_population.dir/build.make CMakeFiles/test_population.dir/build
-.PHONY : test_population/fast
-
-#=============================================================================
-# Target rules for targets named test_cost_matrix
-
-# Build rule for target.
-test_cost_matrix: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_cost_matrix
-.PHONY : test_cost_matrix
-
-# fast build rule for target.
-test_cost_matrix/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cost_matrix.dir/build.make CMakeFiles/test_cost_matrix.dir/build
-.PHONY : test_cost_matrix/fast
-
-#=============================================================================
-# Target rules for targets named test_fitness_evaluator
-
-# Build rule for target.
-test_fitness_evaluator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_fitness_evaluator
-.PHONY : test_fitness_evaluator
-
-# fast build rule for target.
-test_fitness_evaluator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fitness_evaluator.dir/build.make CMakeFiles/test_fitness_evaluator.dir/build
-.PHONY : test_fitness_evaluator/fast
-
-#=============================================================================
-# Target rules for targets named test_parent_selection
-
-# Build rule for target.
-test_parent_selection: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_parent_selection
-.PHONY : test_parent_selection
-
-# fast build rule for target.
-test_parent_selection/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parent_selection.dir/build.make CMakeFiles/test_parent_selection.dir/build
-.PHONY : test_parent_selection/fast
-
-#=============================================================================
-# Target rules for targets named test_crossover
-
-# Build rule for target.
-test_crossover: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_crossover
-.PHONY : test_crossover
-
-# fast build rule for target.
-test_crossover/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_crossover.dir/build.make CMakeFiles/test_crossover.dir/build
-.PHONY : test_crossover/fast
-
-#=============================================================================
-# Target rules for targets named test_mutation
-
-# Build rule for target.
-test_mutation: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_mutation
-.PHONY : test_mutation
-
-# fast build rule for target.
-test_mutation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mutation.dir/build.make CMakeFiles/test_mutation.dir/build
-.PHONY : test_mutation/fast
 
 src/cost_matrix.o: src/cost_matrix.cu.o
 .PHONY : src/cost_matrix.o
@@ -320,7 +219,6 @@ src/ga_solver_main.o: src/ga_solver_main.cu.o
 
 # target to build an object file
 src/ga_solver_main.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_lib.dir/build.make CMakeFiles/ga_solver_lib.dir/src/ga_solver_main.cu.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.o
 .PHONY : src/ga_solver_main.cu.o
 
@@ -329,7 +227,6 @@ src/ga_solver_main.i: src/ga_solver_main.cu.i
 
 # target to preprocess a source file
 src/ga_solver_main.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_lib.dir/build.make CMakeFiles/ga_solver_lib.dir/src/ga_solver_main.cu.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.i
 .PHONY : src/ga_solver_main.cu.i
 
@@ -338,7 +235,6 @@ src/ga_solver_main.s: src/ga_solver_main.cu.s
 
 # target to generate assembly for a file
 src/ga_solver_main.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_lib.dir/build.make CMakeFiles/ga_solver_lib.dir/src/ga_solver_main.cu.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/src/ga_solver_main.cu.s
 .PHONY : src/ga_solver_main.cu.s
 
@@ -438,174 +334,6 @@ src/population.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_lib.dir/build.make CMakeFiles/ga_solver_lib.dir/src/population.cu.s
 .PHONY : src/population.cu.s
 
-tests/test_cost_matrix.o: tests/test_cost_matrix.cu.o
-.PHONY : tests/test_cost_matrix.o
-
-# target to build an object file
-tests/test_cost_matrix.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cost_matrix.dir/build.make CMakeFiles/test_cost_matrix.dir/tests/test_cost_matrix.cu.o
-.PHONY : tests/test_cost_matrix.cu.o
-
-tests/test_cost_matrix.i: tests/test_cost_matrix.cu.i
-.PHONY : tests/test_cost_matrix.i
-
-# target to preprocess a source file
-tests/test_cost_matrix.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cost_matrix.dir/build.make CMakeFiles/test_cost_matrix.dir/tests/test_cost_matrix.cu.i
-.PHONY : tests/test_cost_matrix.cu.i
-
-tests/test_cost_matrix.s: tests/test_cost_matrix.cu.s
-.PHONY : tests/test_cost_matrix.s
-
-# target to generate assembly for a file
-tests/test_cost_matrix.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cost_matrix.dir/build.make CMakeFiles/test_cost_matrix.dir/tests/test_cost_matrix.cu.s
-.PHONY : tests/test_cost_matrix.cu.s
-
-tests/test_crossover.o: tests/test_crossover.cu.o
-.PHONY : tests/test_crossover.o
-
-# target to build an object file
-tests/test_crossover.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_crossover.dir/build.make CMakeFiles/test_crossover.dir/tests/test_crossover.cu.o
-.PHONY : tests/test_crossover.cu.o
-
-tests/test_crossover.i: tests/test_crossover.cu.i
-.PHONY : tests/test_crossover.i
-
-# target to preprocess a source file
-tests/test_crossover.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_crossover.dir/build.make CMakeFiles/test_crossover.dir/tests/test_crossover.cu.i
-.PHONY : tests/test_crossover.cu.i
-
-tests/test_crossover.s: tests/test_crossover.cu.s
-.PHONY : tests/test_crossover.s
-
-# target to generate assembly for a file
-tests/test_crossover.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_crossover.dir/build.make CMakeFiles/test_crossover.dir/tests/test_crossover.cu.s
-.PHONY : tests/test_crossover.cu.s
-
-tests/test_fitness_evaluator.o: tests/test_fitness_evaluator.cu.o
-.PHONY : tests/test_fitness_evaluator.o
-
-# target to build an object file
-tests/test_fitness_evaluator.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fitness_evaluator.dir/build.make CMakeFiles/test_fitness_evaluator.dir/tests/test_fitness_evaluator.cu.o
-.PHONY : tests/test_fitness_evaluator.cu.o
-
-tests/test_fitness_evaluator.i: tests/test_fitness_evaluator.cu.i
-.PHONY : tests/test_fitness_evaluator.i
-
-# target to preprocess a source file
-tests/test_fitness_evaluator.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fitness_evaluator.dir/build.make CMakeFiles/test_fitness_evaluator.dir/tests/test_fitness_evaluator.cu.i
-.PHONY : tests/test_fitness_evaluator.cu.i
-
-tests/test_fitness_evaluator.s: tests/test_fitness_evaluator.cu.s
-.PHONY : tests/test_fitness_evaluator.s
-
-# target to generate assembly for a file
-tests/test_fitness_evaluator.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fitness_evaluator.dir/build.make CMakeFiles/test_fitness_evaluator.dir/tests/test_fitness_evaluator.cu.s
-.PHONY : tests/test_fitness_evaluator.cu.s
-
-tests/test_genome.o: tests/test_genome.cu.o
-.PHONY : tests/test_genome.o
-
-# target to build an object file
-tests/test_genome.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_genome.dir/build.make CMakeFiles/test_genome.dir/tests/test_genome.cu.o
-.PHONY : tests/test_genome.cu.o
-
-tests/test_genome.i: tests/test_genome.cu.i
-.PHONY : tests/test_genome.i
-
-# target to preprocess a source file
-tests/test_genome.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_genome.dir/build.make CMakeFiles/test_genome.dir/tests/test_genome.cu.i
-.PHONY : tests/test_genome.cu.i
-
-tests/test_genome.s: tests/test_genome.cu.s
-.PHONY : tests/test_genome.s
-
-# target to generate assembly for a file
-tests/test_genome.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_genome.dir/build.make CMakeFiles/test_genome.dir/tests/test_genome.cu.s
-.PHONY : tests/test_genome.cu.s
-
-tests/test_mutation.o: tests/test_mutation.cu.o
-.PHONY : tests/test_mutation.o
-
-# target to build an object file
-tests/test_mutation.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mutation.dir/build.make CMakeFiles/test_mutation.dir/tests/test_mutation.cu.o
-.PHONY : tests/test_mutation.cu.o
-
-tests/test_mutation.i: tests/test_mutation.cu.i
-.PHONY : tests/test_mutation.i
-
-# target to preprocess a source file
-tests/test_mutation.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mutation.dir/build.make CMakeFiles/test_mutation.dir/tests/test_mutation.cu.i
-.PHONY : tests/test_mutation.cu.i
-
-tests/test_mutation.s: tests/test_mutation.cu.s
-.PHONY : tests/test_mutation.s
-
-# target to generate assembly for a file
-tests/test_mutation.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_mutation.dir/build.make CMakeFiles/test_mutation.dir/tests/test_mutation.cu.s
-.PHONY : tests/test_mutation.cu.s
-
-tests/test_parent_selection.o: tests/test_parent_selection.cu.o
-.PHONY : tests/test_parent_selection.o
-
-# target to build an object file
-tests/test_parent_selection.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parent_selection.dir/build.make CMakeFiles/test_parent_selection.dir/tests/test_parent_selection.cu.o
-.PHONY : tests/test_parent_selection.cu.o
-
-tests/test_parent_selection.i: tests/test_parent_selection.cu.i
-.PHONY : tests/test_parent_selection.i
-
-# target to preprocess a source file
-tests/test_parent_selection.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parent_selection.dir/build.make CMakeFiles/test_parent_selection.dir/tests/test_parent_selection.cu.i
-.PHONY : tests/test_parent_selection.cu.i
-
-tests/test_parent_selection.s: tests/test_parent_selection.cu.s
-.PHONY : tests/test_parent_selection.s
-
-# target to generate assembly for a file
-tests/test_parent_selection.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parent_selection.dir/build.make CMakeFiles/test_parent_selection.dir/tests/test_parent_selection.cu.s
-.PHONY : tests/test_parent_selection.cu.s
-
-tests/test_population.o: tests/test_population.cu.o
-.PHONY : tests/test_population.o
-
-# target to build an object file
-tests/test_population.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_population.dir/build.make CMakeFiles/test_population.dir/tests/test_population.cu.o
-.PHONY : tests/test_population.cu.o
-
-tests/test_population.i: tests/test_population.cu.i
-.PHONY : tests/test_population.i
-
-# target to preprocess a source file
-tests/test_population.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_population.dir/build.make CMakeFiles/test_population.dir/tests/test_population.cu.i
-.PHONY : tests/test_population.cu.i
-
-tests/test_population.s: tests/test_population.cu.s
-.PHONY : tests/test_population.s
-
-# target to generate assembly for a file
-tests/test_population.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_population.dir/build.make CMakeFiles/test_population.dir/tests/test_population.cu.s
-.PHONY : tests/test_population.cu.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -614,16 +342,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... ga_solver"
 	@echo "... ga_solver_lib"
-	@echo "... test_cost_matrix"
-	@echo "... test_crossover"
-	@echo "... test_fitness_evaluator"
-	@echo "... test_genome"
-	@echo "... test_mutation"
-	@echo "... test_parent_selection"
-	@echo "... test_population"
 	@echo "... src/cost_matrix.o"
 	@echo "... src/cost_matrix.i"
 	@echo "... src/cost_matrix.s"
@@ -648,27 +368,6 @@ help:
 	@echo "... src/population.o"
 	@echo "... src/population.i"
 	@echo "... src/population.s"
-	@echo "... tests/test_cost_matrix.o"
-	@echo "... tests/test_cost_matrix.i"
-	@echo "... tests/test_cost_matrix.s"
-	@echo "... tests/test_crossover.o"
-	@echo "... tests/test_crossover.i"
-	@echo "... tests/test_crossover.s"
-	@echo "... tests/test_fitness_evaluator.o"
-	@echo "... tests/test_fitness_evaluator.i"
-	@echo "... tests/test_fitness_evaluator.s"
-	@echo "... tests/test_genome.o"
-	@echo "... tests/test_genome.i"
-	@echo "... tests/test_genome.s"
-	@echo "... tests/test_mutation.o"
-	@echo "... tests/test_mutation.i"
-	@echo "... tests/test_mutation.s"
-	@echo "... tests/test_parent_selection.o"
-	@echo "... tests/test_parent_selection.i"
-	@echo "... tests/test_parent_selection.s"
-	@echo "... tests/test_population.o"
-	@echo "... tests/test_population.i"
-	@echo "... tests/test_population.s"
 .PHONY : help
 
 

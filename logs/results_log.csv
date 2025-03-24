@@ -1,0 +1,4 @@
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,4497,78,10000,62.3822,0.00623822,1,pop=500,mut=0.3,tour=5,div=20%
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,4146,688,1000,106.943,0.106943,1,pop=500,mut=0.3,tour=5,div=20%
