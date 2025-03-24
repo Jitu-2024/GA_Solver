@@ -23,6 +23,15 @@ enable_language(CUDA)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CUDA_FLAGS_DEBUG "-G -g")
 
+# Set A100 CUDA architecture (compute capability 8.0)
+set(CMAKE_CUDA_ARCHITECTURES 80)
+
+# Add additional CUDA flags for compatibility with Colab
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Wno-deprecated-gpu-targets")
+
+# Force PTX JIT compilation
+add_compile_definitions(CUDA_FORCE_PTX_JIT=1)
+
 # Define data directories
 set(DATA_SOURCE_DIR "${CMAKE_SOURCE_DIR}/data")
 set(DATA_BINARY_DIR "${CMAKE_BINARY_DIR}/data")
