@@ -1,4 +1,0 @@
-/content/GA_Solver/build/CMakeFiles/ga_solver_lib.dir
-/content/GA_Solver/build/CMakeFiles/ga_solver.dir
-/content/GA_Solver/build/CMakeFiles/edit_cache.dir
-/content/GA_Solver/build/CMakeFiles/rebuild_cache.dir
