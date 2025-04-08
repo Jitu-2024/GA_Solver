@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_crossover.dir/link.d"
   "CMakeFiles/test_crossover.dir/tests/test_crossover.cu.o"
   "CMakeFiles/test_crossover.dir/tests/test_crossover.cu.o.d"
   "test_crossover"

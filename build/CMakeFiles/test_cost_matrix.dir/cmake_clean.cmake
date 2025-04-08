@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_cost_matrix.dir/link.d"
   "CMakeFiles/test_cost_matrix.dir/tests/test_cost_matrix.cu.o"
   "CMakeFiles/test_cost_matrix.dir/tests/test_cost_matrix.cu.o.d"
   "test_cost_matrix"

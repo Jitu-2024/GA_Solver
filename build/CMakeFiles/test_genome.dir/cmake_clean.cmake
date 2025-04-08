@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_genome.dir/link.d"
   "CMakeFiles/test_genome.dir/tests/test_genome.cu.o"
   "CMakeFiles/test_genome.dir/tests/test_genome.cu.o.d"
   "test_genome"

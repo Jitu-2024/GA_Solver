@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_fitness_evaluator.dir/link.d"
   "CMakeFiles/test_fitness_evaluator.dir/tests/test_fitness_evaluator.cu.o"
   "CMakeFiles/test_fitness_evaluator.dir/tests/test_fitness_evaluator.cu.o.d"
   "test_fitness_evaluator"

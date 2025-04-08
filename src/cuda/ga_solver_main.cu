@@ -11,6 +11,9 @@
 #include "fitness_evaluator.h"
 
 std::vector<std::pair<int, int>> createRandomCrossoverPoints(int numParents, int numCities) {
+    std::cout << "+++++++++++++++++++++++++++++++++++++++Creating random crossover points" << std::endl;
+    std::cout << "+++++++++++++++++++++++++++++++++++++++Number of parents: " << numParents << std::endl;
+    std::cout << "+++++++++++++++++++++++++++++++++++++++Number of cities: " << numCities << std::endl;
     // Number of pairs to create
     int numPairs = numParents / 2;
     

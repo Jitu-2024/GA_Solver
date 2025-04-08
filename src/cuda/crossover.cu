@@ -131,7 +131,12 @@ void Crossover::orderCrossover(const std::vector<std::vector<int>>& parents,
     // Launch kernel
     int threadsPerBlock = 256;
     int blocks = (numParents / 2 + threadsPerBlock - 1) / threadsPerBlock;
+        //Size of crossOverPoints
+    std::cout << "+++++++++++++++++++++++++++++++++++++++Size of crossOverPoints: " << crossoverPointsSize << std::endl;
+    std::cout << "+++++++++++++++++++++++++++++++++++++++Order Crossover kernel launched" << std::endl;
     orderCrossoverKernel<<<blocks, threadsPerBlock>>>(d_parents, d_offspring, d_crossoverPoints, numParents, numCities);
+    
+
     CUDA_CHECK(cudaDeviceSynchronize());
 
     // Copy offspring back to host
