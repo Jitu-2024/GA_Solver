@@ -30,34 +30,6 @@ Genome::Genome(size_t numCities, size_t numJobs, int mode)
     fitness = std::numeric_limits<float>::max(); // Default high fitness
 }
 
-// // Evaluate fitness of the genome
-// void Genome::evaluateFitness(const std::vector<std::vector<float>>& travelTimes,
-//                               const std::vector<std::vector<float>>& jobTimes) {
-//     float completionTime = 0.0f;
-//     float currentTime = 0.0f;
-//     size_t prevCity = 0; // Start from depot
-
-//     for (size_t i = 0; i < citySequence.size(); ++i) {
-//         size_t city = citySequence[i];
-//         size_t job = jobSequence[i];
-
-//         // Travel to the next city
-//         currentTime += travelTimes[prevCity][city];
-        
-//         // Start the job at the city
-//         completionTime = std::max(completionTime, currentTime + jobTimes[city][job]);
-        
-//         // Move to the next city
-//         prevCity = city;
-//     }
-
-//     // Return to depot
-//     currentTime += travelTimes[prevCity][0];
-
-//     // Update fitness to reflect makespan
-//     fitness = std::max(completionTime, currentTime);
-// }
-
 float Genome::getFitness(){
     return fitness;
 }
