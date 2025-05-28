@@ -16,6 +16,39 @@ void Population::initialize() {
     }
 }
 
+// Initialize population from a given set of chromosomes
+void Population::initializeFromChromosomes(const std::vector<std::vector<int>>& initialChromosomes) {
+    genomes.clear();
+    if (initialChromosomes.size() > populationSize) {
+        std::cerr << "Warning: Number of initial chromosomes provided (" << initialChromosomes.size()
+                  << ") is greater than population size (" << populationSize
+                  << "). Using the first " << populationSize << " chromosomes." << std::endl;
+        for (int i = 0; i < populationSize; ++i) {
+            if (initialChromosomes[i].size() != numCities) {
+                std::cerr << "Error: Chromosome " << i << " has incorrect number of cities. Expected " << numCities << ", got " << initialChromosomes[i].size() << std::endl;
+                // Handle error appropriately, e.g., skip this chromosome or exit
+                genomes.emplace_back(numCities); // Fallback to random
+            } else {
+                genomes.emplace_back(initialChromosomes[i]);
+            }
+        }
+    } else {
+        for (const auto& chromo : initialChromosomes) {
+            if (chromo.size() != numCities) {
+                std::cerr << "Error: A provided chromosome has incorrect number of cities. Expected " << numCities << ", got " << chromo.size() << std::endl;
+                 // Handle error appropriately
+                genomes.emplace_back(numCities); // Fallback to random
+            } else {
+                genomes.emplace_back(chromo);
+            }
+        }
+        // If not enough initial chromosomes, fill the rest randomly
+        for (int i = initialChromosomes.size(); i < populationSize; ++i) {
+            genomes.emplace_back(numCities);
+        }
+    }
+}
+
 // Initialize the cost matrix
 void Population::initializeCostMatrix(const std::vector<std::pair<float, float>>& coordinates) {\
     costMatrix.initialize(coordinates);

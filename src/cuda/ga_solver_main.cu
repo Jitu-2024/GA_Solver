@@ -9,6 +9,7 @@
 #include <chrono> // For timing
 #include "population.h"
 #include "fitness_evaluator.h"
+#include <string> // Required for std::string and std::stof, std::stoi
 
 std::vector<std::pair<int, int>> createRandomCrossoverPoints(int numParents, int numCities) {
     // Number of pairs to create
@@ -67,14 +68,80 @@ std::vector<std::pair<float, float>> loadTSPData(const std::string& fileName) {
     return coordinates;
 }
 
-int main() {
-    const int populationSize = 1000;   // Number of genomes in the population
-    const int numGenerations = 50000;  // Number of iterations
-    const int tournamentSize = 10;    // Tournament size for parent selection
-    const float mutationRate = 0.1f; // Mutation rate
-    const float elitismRate = 0.05f;  // Percentage of elite individuals to preserve
+// Function to load initial genomes from a file
+std::vector<std::vector<int>> loadInitialGenomes(const std::string& fileName, int numCities) {
+    std::vector<std::vector<int>> initialGenomes;
+    std::ifstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Warning: Could not open initial genomes file " << fileName << ". Using random initialization." << std::endl;
+        return initialGenomes; // Return empty vector, will trigger random initialization
+    }
 
-    const std::string tspFileName = "data/dsj1000.tsp";
+    std::string line;
+    while (std::getline(file, line)) {
+        std::vector<int> chromosome;
+        std::istringstream iss(line);
+        int city;
+        while (iss >> city) {
+            chromosome.push_back(city);
+        }
+        if (!chromosome.empty()) {
+            if (chromosome.size() != numCities) {
+                 std::cerr << "Warning: Chromosome in " << fileName << " has incorrect length (" << chromosome.size() << " vs " << numCities << "). Skipping." << std::endl;
+            } else {
+                initialGenomes.push_back(chromosome);
+            }
+        }
+    }
+    file.close();
+    std::cout << "Loaded " << initialGenomes.size() << " initial genomes from " << fileName << std::endl;
+    return initialGenomes;
+}
+
+int main(int argc, char* argv[]) { // Add argc and argv for command-line arguments
+    // Default values
+    int populationSize = 1000;   // Number of genomes in the population
+    int numGenerations = 50000;  // Number of iterations
+    int tournamentSize = 10;    // Tournament size for parent selection
+    float mutationRate = 0.1f; // Mutation rate
+    float elitismRate = 0.05f;  // Percentage of elite individuals to preserve
+    std::string tspFileName = "data/dsj1000.tsp";
+    std::string initialGenomesFile = ""; // Empty means no file provided
+
+    // Parse command-line arguments
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        if (arg == "--populationSize" && i + 1 < argc) {
+            populationSize = std::stoi(argv[++i]);
+        } else if (arg == "--numGenerations" && i + 1 < argc) {
+            numGenerations = std::stoi(argv[++i]);
+        } else if (arg == "--tournamentSize" && i + 1 < argc) {
+            tournamentSize = std::stoi(argv[++i]);
+        } else if (arg == "--mutationRate" && i + 1 < argc) {
+            mutationRate = std::stof(argv[++i]);
+        } else if (arg == "--elitismRate" && i + 1 < argc) {
+            elitismRate = std::stof(argv[++i]);
+        } else if (arg == "--tspFileName" && i + 1 < argc) {
+            tspFileName = argv[++i];
+        } else if (arg == "--initialGenomesFile" && i + 1 < argc) {
+            initialGenomesFile = argv[++i];
+        } else {
+            std::cerr << "Warning: Unknown or incomplete argument '" << arg << "'" << std::endl;
+        }
+    }
+
+    // Output parameters being used
+    std::cout << "Parameters:" << std::endl;
+    std::cout << "  Population Size: " << populationSize << std::endl;
+    std::cout << "  Number of Generations: " << numGenerations << std::endl;
+    std::cout << "  Tournament Size: " << tournamentSize << std::endl;
+    std::cout << "  Mutation Rate: " << mutationRate << std::endl;
+    std::cout << "  Elitism Rate: " << elitismRate << std::endl;
+    std::cout << "  TSP File Name: " << tspFileName << std::endl;
+    if (!initialGenomesFile.empty()) {
+        std::cout << "  Initial Genomes File: " << initialGenomesFile << std::endl;
+    }
+    std::cout << std::endl;
 
     // Load TSP data
     std::cout << "Loading TSP data from " << tspFileName << "..." << std::endl;
@@ -84,7 +151,17 @@ int main() {
 
     // Create and initialize population
     Population population(populationSize, numCities);
-    population.initialize();
+    if (!initialGenomesFile.empty()) {
+        std::vector<std::vector<int>> initialGenomes = loadInitialGenomes(initialGenomesFile, numCities);
+        if (!initialGenomes.empty()) {
+            population.initializeFromChromosomes(initialGenomes);
+        } else {
+            std::cout << "No valid initial genomes loaded or file not found. Using random initialization." << std::endl;
+            population.initialize(); // Fallback to random
+        }
+    } else {
+        population.initialize(); // Default random initialization
+    }
 
     // Initialize the cost matrix
     std::cout << "Initializing cost matrix..." << std::endl;
