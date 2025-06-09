@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build CUDA Executable",
+            "type": "shell",
+            // This command is for PowerShell. It first runs the VS environment script,
+            // and if that succeeds, it runs 'make'.
+            // IMPORTANT: Verify this path matches your VS Build Tools installation.
+            "command": "& 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\Build\\vcvarsall.bat' x64; make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+} 

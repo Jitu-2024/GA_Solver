@@ -1,2 +1,19 @@
 .env
 .venv
+
+# VS Code
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Build directory
+/build/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# vcpkg
+/vcpkg/

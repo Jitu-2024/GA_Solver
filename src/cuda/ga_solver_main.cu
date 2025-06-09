@@ -101,7 +101,7 @@ std::vector<std::vector<int>> loadInitialGenomes(const std::string& fileName, in
 int main(int argc, char* argv[]) { // Add argc and argv for command-line arguments
     // Default values
     int populationSize = 1000;   // Number of genomes in the population
-    int numGenerations = 50000;  // Number of iterations
+    int numGenerations = 5000;  // Number of iterations
     int tournamentSize = 10;    // Tournament size for parent selection
     float mutationRate = 0.1f; // Mutation rate
     float elitismRate = 0.05f;  // Percentage of elite individuals to preserve

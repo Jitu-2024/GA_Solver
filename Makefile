@@ -17,7 +17,7 @@ TARGET = ga_solver_executable
 # IMPORTANT: Replace sm_XX with the compute capability of your target GPU
 # e.g., sm_70, sm_75, sm_80, sm_86. You can list multiple if needed.
 # Use -std=c++11 or higher if your code requires it (e.g., c++14, c++17)
-CXXFLAGS = -std=c++11 -arch=sm_75 # <-- MODIFY sm_XX HERE
+CXXFLAGS = -std=c++11 -arch=sm_86 # <-- MODIFY sm_XX HERE
 
 # Linker flags (if any)
 LDFLAGS = 
