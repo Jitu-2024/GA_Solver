@@ -3,7 +3,63 @@ import tempfile
 import os
 from typing import List, Tuple, Optional, Dict, Any
 
-def run_gpu_ga_tsp_solver(
+# --- Robust Path to Executable ---
+# Assumes this script is in ga-solver-simple/backend/tools
+# and the executable is in a 'build' directory in the project root.
+try:
+    # This constructs an absolute path to the project's root directory
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+    BUILD_DIR = os.path.join(PROJECT_ROOT, "build")
+except NameError:
+    # Fallback for environments where __file__ is not defined
+    PROJECT_ROOT = os.getcwd()
+    BUILD_DIR = os.path.join(PROJECT_ROOT, "build")
+
+def find_default_solver_path() -> Optional[str]:
+    """
+    Searches for the GA solver executable. It prioritizes an environment
+    variable and then falls back to searching common build directories.
+    Returns the path if found, otherwise None.
+    """
+    # 1. Prioritize Environment Variable for explicit path setting
+    env_path = os.environ.get("GA_SOLVER_EXECUTABLE_PATH")
+    if env_path:
+        if os.path.exists(env_path):
+            print(f"Found solver executable from environment variable 'GA_SOLVER_EXECUTABLE_PATH': {env_path}")
+            return env_path
+        else:
+            print(f"Warning: Environment variable 'GA_SOLVER_EXECUTABLE_PATH' is set to '{env_path}', but the file does not exist.")
+            # Continue to search default paths in case the env var is stale.
+
+    # 2. Fallback to searching the build directory
+    if not os.path.isdir(BUILD_DIR):
+        # This is not a warning anymore, because if the env var failed, this is the last resort.
+        print(f"Error: Build directory not found at '{BUILD_DIR}'. Please build the project or set the GA_SOLVER_EXECUTABLE_PATH environment variable.")
+        return None # Build directory doesn't exist.
+
+    # Common locations for executables in CMake/VS projects on Windows.
+    # Order matters: prefer Release over Debug.
+    search_paths = [
+        os.path.join(BUILD_DIR, "Release", "ga_solver_executable.exe"),
+        os.path.join(BUILD_DIR, "Debug", "ga_solver_executable.exe"),
+        os.path.join(BUILD_DIR, "ga_solver_executable.exe"),
+        os.path.join(BUILD_DIR, "ga_solver_executable"), # For non-windows builds
+    ]
+    for path in search_paths:
+        if os.path.exists(path):
+            print(f"Found solver executable at: {path}")
+            return path
+            
+    return None # Not found in any default location
+
+# Get the default path once at startup
+DEFAULT_SOLVER_PATH = find_default_solver_path()
+
+
+def run_gpu_ga_solver_background(
+    task_store: Dict, # A shared dictionary to store status
+    task_id: str,
+    # The rest of the parameters are the same
     tsp_data_file: Optional[str] = None,
     coordinates: Optional[List[Tuple[float, float]]] = None,
     predefined_cost_matrix: Optional[List[List[float]]] = None,
@@ -13,8 +69,8 @@ def run_gpu_ga_tsp_solver(
     mutation_rate: float = 0.1,
     elitism_rate: float = 0.05,
     initial_genomes_file: Optional[str] = None,
-    cuda_solver_executable_path: str = "./ga_solver_executable" # Path to the compiled CUDA solver
-) -> Dict[str, Any]:
+    cuda_solver_executable_path: Optional[str] = None
+):
     """
     Executes a GPU-accelerated Genetic Algorithm to solve the Traveling Salesperson Problem (TSP).
 
@@ -87,8 +143,9 @@ def run_gpu_ga_tsp_solver(
         - User Guidance: Useful if the user has prior knowledge or wants to start from specific
           solutions. If not provided or invalid, random initialization occurs.
 
-    cuda_solver_executable_path : str, default="./ga_solver_executable"
-        The path to the compiled CUDA GA solver executable.
+    cuda_solver_executable_path : Optional[str]
+        The path to the compiled CUDA GA solver executable. If None, it defaults to
+        searching within the project's 'build' directory.
 
     Underlying CUDA Solver Details & Constraints:
     ---------------------------------------------
@@ -124,24 +181,47 @@ def run_gpu_ga_tsp_solver(
             "avg_time_per_gen_ms": Optional[float],
             "solver_log": Optional[str] // Raw output from the CUDA executable.
         }
+        
+        This function is designed to be run in a background task.
+        It executes the GA solver and continuously updates a shared dictionary
+        (task_store) with the progress and final result.
     """
-    cmd = [cuda_solver_executable_path]
+    # Use the user-provided path if available, otherwise use the found default path.
+    solver_path = cuda_solver_executable_path if cuda_solver_executable_path is not None else DEFAULT_SOLVER_PATH
+
+    def update_status(status: str, message: str, details: Any = None):
+        task_store[task_id] = {"status": status, "message": message, "details": details}
+    
+    # Verify the executable path was found or provided
+    if not solver_path or not os.path.exists(solver_path):
+        error_message = (f"CUDA solver executable not found at the specified path: {cuda_solver_executable_path}. "
+                         if cuda_solver_executable_path else
+                         f"Could not find CUDA solver executable in the default search locations within '{BUILD_DIR}'. "
+                         "Please ensure the project is built successfully first.")
+        # return {
+        #     "status": "error", "message": error_message,
+        #     "best_fitness": None, "best_route": None, "total_generations_run": None,
+        #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
+        # }
+        update_status("failed", error_message)
+        return
+
+    
+    # if predefined_cost_matrix:
+    #     # Current ga_solver_main.cu does not directly support passing a matrix via Python argument.
+    #     # It expects a file. For this to work, one would need to either:
+    #     # 1. Modify ga_solver_main.cu to take matrix data via CLI (complex).
+    #     # 2. Create a temporary TSPLIB file with EDGE_WEIGHT_TYPE: EXPLICIT and an EDGE_WEIGHT_SECTION.
+    #     # This is a complex formatting task for TSPLIB and is deferred here.
+    #     # For now, we'll return an error if this is the primary data source without a file.
+    #     return {
+    #         "status": "error",
+    #         "message": "Direct input of predefined_cost_matrix is not yet fully supported by the Python wrapper to ga_solver_main. Please provide data via tsp_data_file or coordinates, or format your matrix into a TSPLIB file with an explicit edge weight section.",
+    #         "best_fitness": None, "best_route": None, "total_generations_run": None,
+    #         "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
+    #     }
+    # Create a temporary file for coordinates if needed
     temp_tsp_file = None
-
-    if predefined_cost_matrix:
-        # Current ga_solver_main.cu does not directly support passing a matrix via Python argument.
-        # It expects a file. For this to work, one would need to either:
-        # 1. Modify ga_solver_main.cu to take matrix data via CLI (complex).
-        # 2. Create a temporary TSPLIB file with EDGE_WEIGHT_TYPE: EXPLICIT and an EDGE_WEIGHT_SECTION.
-        # This is a complex formatting task for TSPLIB and is deferred here.
-        # For now, we'll return an error if this is the primary data source without a file.
-        return {
-            "status": "error",
-            "message": "Direct input of predefined_cost_matrix is not yet fully supported by the Python wrapper to ga_solver_main. Please provide data via tsp_data_file or coordinates, or format your matrix into a TSPLIB file with an explicit edge weight section.",
-            "best_fitness": None, "best_route": None, "total_generations_run": None,
-            "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-        }
-
     if coordinates:
         if tsp_data_file:
             print("Warning: Both tsp_data_file and coordinates provided. Using tsp_data_file.")
@@ -163,67 +243,74 @@ def run_gpu_ga_tsp_solver(
                     tsp_data_file = temp_tsp_file
                     print(f"Generated temporary TSP file from coordinates: {temp_tsp_file}")
             except Exception as e:
-                return {
-                    "status": "error", "message": f"Failed to create temporary TSP file from coordinates: {e}",
-                    "best_fitness": None, "best_route": None, "total_generations_run": None,
-                    "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-                }
+                # return {
+                #     "status": "error", "message": f"Failed to create temporary TSP file from coordinates: {e}",
+                #     "best_fitness": None, "best_route": None, "total_generations_run": None,
+                #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
+                # }
+                update_status("failed", f"Failed to create temporary TSP file from coordinates: {e}")
+                return
 
     if not tsp_data_file:
-        return {
-            "status": "error",
-            "message": "No TSP data source provided. Please specify tsp_data_file or coordinates.",
-            "best_fitness": None, "best_route": None, "total_generations_run": None,
-            "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-        }
+        # return {
+        #     "status": "error",
+        #     "message": "No TSP data source provided. Please specify tsp_data_file or coordinates.",
+        #     "best_fitness": None, "best_route": None, "total_generations_run": None,
+        #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
+        # }
+        update_status("failed", "No TSP data source provided. Please specify tsp_data_file or coordinates.")
+        return
 
-    cmd.extend(["--tspFileName", tsp_data_file])
-    cmd.extend(["--populationSize", str(population_size)])
-    cmd.extend(["--numGenerations", str(num_generations)])
-    cmd.extend(["--tournamentSize", str(tournament_size)])
-    cmd.extend(["--mutationRate", str(mutation_rate)])
-    cmd.extend(["--elitismRate", str(elitism_rate)])
-
+    cmd = [
+        solver_path,
+        "--tspFileName", tsp_data_file,
+        "--populationSize", str(population_size),
+        "--numGenerations", str(num_generations),
+        "--tournamentSize", str(tournament_size),
+        "--mutationRate", str(mutation_rate),
+        "--elitismRate", str(elitism_rate),
+    ]
     if initial_genomes_file:
         cmd.extend(["--initialGenomesFile", initial_genomes_file])
-
+    
     solver_log_lines = []
     try:
-        print(f"Executing GA solver with command: {' '.join(cmd)}")
-        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        update_status("running", f"Starting GA solver with command: {' '.join(cmd)}")
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, universal_newlines=True)
         
-        # Stream stdout and print it, also collecting it
+        # Stream stdout and update progress
         if process.stdout:
             for line in iter(process.stdout.readline, ''):
                 line = line.strip()
-                print(line) 
+                print(f"Task [{task_id}] log: {line}")
                 solver_log_lines.append(line)
+                # Provide real-time progress update
+                if "Generation" in line and "Best Fitness" in line:
+                    update_status("running", "Solver is running.", details={"progress": line})
             process.stdout.close()
 
-        stderr_output = ""
-        if process.stderr:
-            stderr_output = process.stderr.read()
-            process.stderr.close()
+        # stderr_output = ""
+        # if process.stderr:
+        #     stderr_output = process.stderr.read()
+        #     process.stderr.close()
 
         process.wait()
         solver_log = "\n".join(solver_log_lines)
 
         if process.returncode != 0:
-            error_message = f"CUDA Solver Error (Return Code {process.returncode}):\n{stderr_output}\nStdout Log:\n{solver_log}"
-            print(error_message)
-            return {
-                "status": "error", "message": error_message,
-                "best_fitness": None, "best_route": None, "total_generations_run": None,
-                "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": solver_log
-            }
+            # error_message = f"CUDA Solver Error (Return Code {process.returncode}):\n{stderr_output}\nStdout Log:\n{solver_log}"
+            # print(error_message)
+            # return {
+            #     "status": "error", "message": error_message,
+            #     "best_fitness": None, "best_route": None, "total_generations_run": None,
+            #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": solver_log
+            # }
+            error_message = f"CUDA Solver Error (Return Code {process.returncode}):\n{solver_log}"
+            update_status("failed", error_message)
+            return
 
-        # Parse output from solver_log
-        # This is highly dependent on the exact format of your ga_solver_main's stdout
-        best_fitness = None
-        best_route_str = None
-        total_time_ms = None
-        avg_time_per_gen_ms = None
-
+        # Parse final output from solver_log
+        best_fitness, best_route_str, total_time_ms, avg_time_per_gen_ms = None, None, None, None
         for line in reversed(solver_log_lines):
             if "Final Best Fitness =" in line and best_fitness is None:
                 try:
@@ -258,10 +345,8 @@ def run_gpu_ga_tsp_solver(
         
         if best_fitness is None:
              print("Warning: Could not parse final best fitness from solver output.")
-
-        return {
-            "status": "success",
-            "message": "GA run completed.",
+        
+        final_result = {
             "best_fitness": best_fitness,
             "best_route": best_route_str,
             "total_generations_run": num_generations, # ga_solver_main runs for the specified numGenerations
@@ -269,19 +354,10 @@ def run_gpu_ga_tsp_solver(
             "avg_time_per_gen_ms": avg_time_per_gen_ms,
             "solver_log": solver_log
         }
+        update_status("completed", "GA run completed successfully.", details=final_result)
 
-    except FileNotFoundError:
-        return {
-            "status": "error", "message": f"CUDA solver executable not found at {cuda_solver_executable_path}",
-            "best_fitness": None, "best_route": None, "total_generations_run": None,
-            "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-        }
     except Exception as e:
-        return {
-            "status": "error", "message": f"An unexpected error occurred: {str(e)}",
-            "best_fitness": None, "best_route": None, "total_generations_run": None,
-            "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": "\n".join(solver_log_lines) # Include any partial log
-        }
+        update_status("failed", f"An unexpected error occurred: {str(e)}")
     finally:
         if temp_tsp_file and os.path.exists(temp_tsp_file):
             try:
@@ -291,84 +367,85 @@ def run_gpu_ga_tsp_solver(
                 print(f"Error removing temporary file {temp_tsp_file}: {e}")
 
 
-if __name__ == '__main__':
-    # Example Usage (assuming ga_solver_main is compiled and in the same directory or path):
+# if __name__ == '__main__':
+#     # Example Usage (assuming ga_solver_main is compiled and in the same directory or path):
     
-    # 1. Test with a dummy TSP file (create a dummy 'data/dummy.tsp' for this to run)
-    # Create a dummy TSP file for testing
-    # This assumes the script is run from ga-solver-simple/backend/
-    # So, 'data' directory needs to be relative to that or an absolute path.
-    # For simplicity, let's assume 'data' is one level up from 'backend', i.e., in 'ga-solver-simple/data'
+#     # 1. Test with a dummy TSP file (create a dummy 'data/dummy.tsp' for this to run)
+#     # Create a dummy TSP file for testing
+#     # This assumes the script is run from ga-solver-simple/backend/
+#     # So, 'data' directory needs to be relative to that or an absolute path.
+#     # For simplicity, let's assume 'data' is one level up from 'backend', i.e., in 'ga-solver-simple/data'
     
-    example_base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..") #  ga-solver-simple/backend/ -> ga-solver-simple/
-    data_dir = os.path.join(example_base_dir, "data")
-    dummy_tsp_path = os.path.join(data_dir, "dummy.tsp")
-    initial_routes_path = os.path.join(data_dir, "initial_routes.txt")
+#     example_base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..") #  ga-solver-simple/backend/ -> ga-solver-simple/
+#     data_dir = os.path.join(example_base_dir, "data")
+#     dummy_tsp_path = os.path.join(data_dir, "dummy.tsp")
+#     initial_routes_path = os.path.join(data_dir, "initial_routes.txt")
 
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-    with open(dummy_tsp_path, "w") as f:
-        f.write("NAME: dummy\n")
-        f.write("TYPE: TSP\n")
-        f.write("DIMENSION: 3\n")
-        f.write("EDGE_WEIGHT_TYPE: EUC_2D\n")
-        f.write("NODE_COORD_SECTION\n")
-        f.write("1 10 10\n")
-        f.write("2 20 20\n")
-        f.write("3 30 10\n")
-        f.write("EOF\n")
+#     if not os.path.exists(data_dir):
+#         os.makedirs(data_dir)
+#     with open(dummy_tsp_path, "w") as f:
+#         f.write("NAME: dummy\n")
+#         f.write("TYPE: TSP\n")
+#         f.write("DIMENSION: 3\n")
+#         f.write("EDGE_WEIGHT_TYPE: EUC_2D\n")
+#         f.write("NODE_COORD_SECTION\n")
+#         f.write("1 10 10\n")
+#         f.write("2 20 20\n")
+#         f.write("3 30 10\n")
+#         f.write("EOF\n")
 
-    print(f"--- Test 1: Using a TSP file ({dummy_tsp_path}) ---")
-    results_file = run_gpu_ga_tsp_solver(
-        tsp_data_file=dummy_tsp_path,
-        population_size=50, # Smaller for quick test
-        num_generations=100 # Smaller for quick test
-    )
-    print("Results (File):", results_file)
-    print("\n")
+#     print(f"--- Test 1: Using a TSP file ({dummy_tsp_path}) ---")
+#     results_file = run_gpu_ga_tsp_solver(
+#         tsp_data_file=dummy_tsp_path,
+#         population_size=50, # Smaller for quick test
+#         num_generations=100 # Smaller for quick test
+#     )
+#     print("Results (File):", results_file)
+#     print("\n")
 
-    # 2. Test with coordinates
-    print("--- Test 2: Using coordinates ---")
-    coords = [(10.0, 10.0), (20.0, 20.0), (30.0, 10.0), (40.0, 20.0)]
-    results_coords = run_gpu_ga_tsp_solver(
-        coordinates=coords,
-        population_size=60,
-        num_generations=120
-    )
-    print("Results (Coords):", results_coords)
-    print("\n")
+#     # 2. Test with coordinates
+#     print("--- Test 2: Using coordinates ---")
+#     coords = [(10.0, 10.0), (20.0, 20.0), (30.0, 10.0), (40.0, 20.0)]
+#     results_coords = run_gpu_ga_tsp_solver(
+#         coordinates=coords,
+#         population_size=60,
+#         num_generations=120
+#     )
+#     print("Results (Coords):", results_coords)
+#     print("\n")
 
-    # 3. Test with initial genomes file (create a dummy 'data/initial_routes.txt')
-    with open(initial_routes_path, "w") as f:
-        f.write("0 1 2\n") # For dummy.tsp (3 cities)
-        f.write("2 1 0\n")
+#     # 3. Test with initial genomes file (create a dummy 'data/initial_routes.txt')
+#     with open(initial_routes_path, "w") as f:
+#         f.write("0 1 2\n") # For dummy.tsp (3 cities)
+#         f.write("2 1 0\n")
     
-    print(f"--- Test 3: Using initial genomes file ({initial_routes_path}) ---")
-    results_initial_genomes = run_gpu_ga_tsp_solver(
-        tsp_data_file=dummy_tsp_path,
-        population_size=50,
-        num_generations=100,
-        initial_genomes_file=initial_routes_path
-    )
-    print("Results (Initial Genomes):", results_initial_genomes)
-    print("\n")
+#     print(f"--- Test 3: Using initial genomes file ({initial_routes_path}) ---")
+#     results_initial_genomes = run_gpu_ga_tsp_solver(
+#         tsp_data_file=dummy_tsp_path,
+#         population_size=50,
+#         num_generations=100,
+#         initial_genomes_file=initial_routes_path
+#     )
+#     print("Results (Initial Genomes):", results_initial_genomes)
+#     print("\n")
 
-    # 4. Test with missing data (should error)
-    print("--- Test 4: Missing TSP data (expect error) ---")
-    results_error = run_gpu_ga_tsp_solver(population_size=10, num_generations=10)
-    print("Results (Error):", results_error)
-    print("\n")
+#     # 4. Test with missing data (should error)
+#     print("--- Test 4: Missing TSP data (expect error) ---")
+#     results_error = run_gpu_ga_tsp_solver(population_size=10, num_generations=10)
+#     print("Results (Error):", results_error)
+#     print("\n")
 
-    # 5. Test with non-existent executable path (should error)
-    print("--- Test 5: Non-existent solver path (expect error) ---")
-    results_path_error = run_gpu_ga_tsp_solver(
-        tsp_data_file=dummy_tsp_path,
-        cuda_solver_executable_path="./non_existent_solver"
-    )
-    print("Results (Path Error):", results_path_error)
+#     # 5. Test with non-existent executable path (should error)
+#     print("--- Test 5: Non-existent solver path (expect error) ---")
+#     results_path_error = run_gpu_ga_tsp_solver(
+#         tsp_data_file=dummy_tsp_path,
+#         cuda_solver_executable_path="./non_existent_solver"
+#     )
+#     print("Results (Path Error):", results_path_error)
 
-    # Clean up dummy files
-    # os.remove(dummy_tsp_path)
-    # os.remove(initial_routes_path)
-    # if os.path.exists(data_dir) and not os.listdir(data_dir):
-    #     os.rmdir(data_dir)
+#     # Clean up dummy files
+#     # os.remove(dummy_tsp_path)
+#     # os.remove(initial_routes_path)
+#     # if os.path.exists(data_dir) and not os.listdir(data_dir):
+#     #     os.rmdir(data_dir)
+
