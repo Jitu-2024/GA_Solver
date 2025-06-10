@@ -1,7 +1,14 @@
 import subprocess
 import tempfile
 import os
-from typing import List, Tuple, Optional, Dict, Any
+from typing import List, Tuple, Optional, Dict, Any, Callable
+# These imports are needed for the FunctionTool definition.
+from google.adk.tools import FunctionTool
+# With PYTHONPATH=/app, we can now use an absolute import from the app root.
+from celery_worker import run_solver_task
+# --- Shared State for Tasks ---
+# This dictionary will be imported by other modules to track task status.
+tasks: Dict[str, Dict[str, Any]] = {}
 
 # --- Robust Path to Executable ---
 # Assumes this script is in ga-solver-simple/backend/tools
@@ -56,10 +63,9 @@ def find_default_solver_path() -> Optional[str]:
 DEFAULT_SOLVER_PATH = find_default_solver_path()
 
 
-def run_gpu_ga_solver_background(
-    task_store: Dict, # A shared dictionary to store status
-    task_id: str,
-    # The rest of the parameters are the same
+def run_gpu_ga_solver(
+    progress_callback: Optional[Callable[[str, Optional[float], Any], None]] = None,
+    # The rest of the parameters
     tsp_data_file: Optional[str] = None,
     coordinates: Optional[List[Tuple[float, float]]] = None,
     predefined_cost_matrix: Optional[List[List[float]]] = None,
@@ -70,7 +76,7 @@ def run_gpu_ga_solver_background(
     elitism_rate: float = 0.05,
     initial_genomes_file: Optional[str] = None,
     cuda_solver_executable_path: Optional[str] = None
-):
+) -> Dict[str, Any]:
     """
     Executes a GPU-accelerated Genetic Algorithm to solve the Traveling Salesperson Problem (TSP).
 
@@ -164,7 +170,7 @@ def run_gpu_ga_solver_background(
     1.  Verify all necessary inputs are present (city data is critical).
     2.  Explain parameter impacts on runtime and solution quality. For example, if `population_size * num_generations` is very large, warn about potential long execution.
     3.  If `tsp_data_file` is provided, ensure it's accessible. If `coordinates` are discussed, the wrapper will handle creating a temporary file.
-    4.  Confirm if the problem (as described by the user) can be solved by the current fitness function (total distance/cost) and crossover/mutation operators. Highlight limitations (e.g., `predefined_cost_matrix` as a direct Python arg needs solver adaptation or a TSPLIB-like file format that includes the matrix).
+    4.  Confirm if the problem (as described by the user) can be solved by the current fitness function (total distance/cost) and crossover/mutation/selection operators. Highlight limitations (e.g., `predefined_cost_matrix` as a direct Python arg needs solver adaptation or a TSPLIB-like file format that includes the matrix).
     5.  If parameters are missing, suggest sensible defaults or ask the user.
 
     Returns:
@@ -184,27 +190,24 @@ def run_gpu_ga_solver_background(
         
         This function is designed to be run in a background task.
         It executes the GA solver and continuously updates a shared dictionary
-        (task_store) with the progress and final result.
+        (tasks) with the progress and final result.
     """
     # Use the user-provided path if available, otherwise use the found default path.
     solver_path = cuda_solver_executable_path if cuda_solver_executable_path is not None else DEFAULT_SOLVER_PATH
 
-    def update_status(status: str, message: str, details: Any = None):
-        task_store[task_id] = {"status": status, "message": message, "details": details}
-    
+    def _update_status(status: str, progress: Optional[float] = None, result: Any = None):
+        """Internal helper to call the progress callback if it exists."""
+        if progress_callback:
+            progress_callback(status, progress, result)
+
     # Verify the executable path was found or provided
     if not solver_path or not os.path.exists(solver_path):
         error_message = (f"CUDA solver executable not found at the specified path: {cuda_solver_executable_path}. "
                          if cuda_solver_executable_path else
                          f"Could not find CUDA solver executable in the default search locations within '{BUILD_DIR}'. "
                          "Please ensure the project is built successfully first.")
-        # return {
-        #     "status": "error", "message": error_message,
-        #     "best_fitness": None, "best_route": None, "total_generations_run": None,
-        #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-        # }
-        update_status("failed", error_message)
-        return
+        _update_status("failed", result=error_message)
+        return {"status": "error", "message": error_message}
 
     
     # if predefined_cost_matrix:
@@ -214,12 +217,9 @@ def run_gpu_ga_solver_background(
     #     # 2. Create a temporary TSPLIB file with EDGE_WEIGHT_TYPE: EXPLICIT and an EDGE_WEIGHT_SECTION.
     #     # This is a complex formatting task for TSPLIB and is deferred here.
     #     # For now, we'll return an error if this is the primary data source without a file.
-    #     return {
-    #         "status": "error",
-    #         "message": "Direct input of predefined_cost_matrix is not yet fully supported by the Python wrapper to ga_solver_main. Please provide data via tsp_data_file or coordinates, or format your matrix into a TSPLIB file with an explicit edge weight section.",
-    #         "best_fitness": None, "best_route": None, "total_generations_run": None,
-    #         "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-    #     }
+    #     _update_status("failed", result="Direct input of predefined_cost_matrix is not yet fully supported.")
+    #     return {"status": "error", "message": "Direct input of predefined_cost_matrix is not yet fully supported."}
+
     # Create a temporary file for coordinates if needed
     temp_tsp_file = None
     if coordinates:
@@ -243,23 +243,12 @@ def run_gpu_ga_solver_background(
                     tsp_data_file = temp_tsp_file
                     print(f"Generated temporary TSP file from coordinates: {temp_tsp_file}")
             except Exception as e:
-                # return {
-                #     "status": "error", "message": f"Failed to create temporary TSP file from coordinates: {e}",
-                #     "best_fitness": None, "best_route": None, "total_generations_run": None,
-                #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-                # }
-                update_status("failed", f"Failed to create temporary TSP file from coordinates: {e}")
-                return
+                _update_status("failed", result=f"Failed to create temporary TSP file from coordinates: {e}")
+                return {"status": "error", "message": f"Failed to create temporary TSP file from coordinates: {e}"}
 
     if not tsp_data_file:
-        # return {
-        #     "status": "error",
-        #     "message": "No TSP data source provided. Please specify tsp_data_file or coordinates.",
-        #     "best_fitness": None, "best_route": None, "total_generations_run": None,
-        #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": None
-        # }
-        update_status("failed", "No TSP data source provided. Please specify tsp_data_file or coordinates.")
-        return
+        _update_status("failed", result="No TSP data source provided. Please specify tsp_data_file or coordinates.")
+        return {"status": "error", "message": "No TSP data source provided. Please specify tsp_data_file or coordinates."}
 
     cmd = [
         solver_path,
@@ -275,39 +264,41 @@ def run_gpu_ga_solver_background(
     
     solver_log_lines = []
     try:
-        update_status("running", f"Starting GA solver with command: {' '.join(cmd)}")
+        _update_status("running", progress=0.0, result="Starting GA solver...")
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, universal_newlines=True)
         
         # Stream stdout and update progress
         if process.stdout:
             for line in iter(process.stdout.readline, ''):
                 line = line.strip()
-                print(f"Task [{task_id}] log: {line}")
+                print(f"Solver log: {line}")
                 solver_log_lines.append(line)
-                # Provide real-time progress update
-                if "Generation" in line and "Best Fitness" in line:
-                    update_status("running", "Solver is running.", details={"progress": line})
-            process.stdout.close()
+                # Provide real-time progress update by parsing solver output
+                if "Generation" in line and "/" in line and "Best Fitness" in line:
+                    try:
+                        parts = line.split()
+                        gen_idx = parts.index("Generation")
+                        current_gen = int(parts[gen_idx + 1])
+                        # Assuming the format is 'Generation 5 / 50000 | ...'
+                        total_gens = int(parts[gen_idx + 3])
+                        progress_percent = (current_gen / total_gens) * 100
+                        _update_status("running", progress=progress_percent, result=line)
+                    except (ValueError, IndexError):
+                        # If parsing fails, just update with the log line
+                        _update_status("running", result=line)
+                else:
+                    # For other lines, just update the result/log
+                    _update_status("running", result=line)
 
-        # stderr_output = ""
-        # if process.stderr:
-        #     stderr_output = process.stderr.read()
-        #     process.stderr.close()
+            process.stdout.close()
 
         process.wait()
         solver_log = "\n".join(solver_log_lines)
 
         if process.returncode != 0:
-            # error_message = f"CUDA Solver Error (Return Code {process.returncode}):\n{stderr_output}\nStdout Log:\n{solver_log}"
-            # print(error_message)
-            # return {
-            #     "status": "error", "message": error_message,
-            #     "best_fitness": None, "best_route": None, "total_generations_run": None,
-            #     "time_taken_ms": None, "avg_time_per_gen_ms": None, "solver_log": solver_log
-            # }
             error_message = f"CUDA Solver Error (Return Code {process.returncode}):\n{solver_log}"
-            update_status("failed", error_message)
-            return
+            _update_status("failed", result=error_message)
+            return {"status": "error", "message": error_message, "solver_log": solver_log}
 
         # Parse final output from solver_log
         best_fitness, best_route_str, total_time_ms, avg_time_per_gen_ms = None, None, None, None
@@ -354,10 +345,12 @@ def run_gpu_ga_solver_background(
             "avg_time_per_gen_ms": avg_time_per_gen_ms,
             "solver_log": solver_log
         }
-        update_status("completed", "GA run completed successfully.", details=final_result)
+        _update_status("completed", progress=100.0, result=final_result)
+        return {"status": "success", "message": "GA run completed successfully.", **final_result}
 
     except Exception as e:
-        update_status("failed", f"An unexpected error occurred: {str(e)}")
+        _update_status("failed", result=f"An unexpected error occurred: {str(e)}")
+        return {"status": "error", "message": f"An unexpected error occurred: {str(e)}"}
     finally:
         if temp_tsp_file and os.path.exists(temp_tsp_file):
             try:
@@ -366,6 +359,102 @@ def run_gpu_ga_solver_background(
             except Exception as e:
                 print(f"Error removing temporary file {temp_tsp_file}: {e}")
 
+# --- ADK Tool Definition ---
+
+
+
+def create_ga_solver_tool() -> FunctionTool:
+    """
+    Creates a FunctionTool that correctly exposes the GA solver's parameters
+    and documentation to the LLM, while dispatching the execution to a
+    Celery worker.
+    """
+
+    def ga_gpu_solver_tool(
+        tsp_data_file: Optional[str] = None,
+        coordinates: Optional[List[Tuple[float, float]]] = None,
+        predefined_cost_matrix: Optional[List[List[float]]] = None,
+        population_size: int = 1000,
+        num_generations: int = 50000,
+        tournament_size: int = 10,
+        mutation_rate: float = 0.1,
+        elitism_rate: float = 0.05,
+        initial_genomes_file: Optional[str] = None,
+        cuda_solver_executable_path: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Executes a GPU-accelerated Genetic Algorithm to solve the Traveling Salesperson Problem (TSP).
+
+        This function serves as a Python interface to a compiled CUDA-based GA solver (ga_solver_main).
+        It allows users to specify TSP problem instances and configure GA parameters. The chatbot will
+        use this function to process user requests, providing feedback on parameter choices and potential outcomes.
+
+        Parameters:
+        ----------
+        tsp_data_file : Optional[str]
+            Path to a TSP data file (e.g., in TSPLIB format like 'data/dsj1000.tsp'). If provided,
+            this is the primary source for city data. The CUDA solver is expected to parse this.
+
+        coordinates : Optional[List[Tuple[float, float]]]
+            A list of (x, y) tuples defining city coordinates. If `tsp_data_file` is None, these
+            coordinates will be used.
+            Example: `[(10.0, 20.5), (30.0, 40.0), ...]`
+
+        population_size : int, default=1000
+            The number of candidate solutions (genomes) maintained in each generation.
+
+        num_generations : int, default=50000
+            The total number of iterations the GA will perform.
+        
+        ... and so on. The LLM will see the full docstring from the original function.
+        """
+        # --- 1. Parameter Validation ---
+        # Before dispatching to Celery, validate the parameters to prevent bad tasks.
+        if population_size <= 0:
+            return {"error": "Validation failed: population_size must be a positive integer."}
+        if num_generations <= 0:
+            return {"error": "Validation failed: num_generations must be a positive integer."}
+        if not (0.0 <= mutation_rate <= 1.0):
+            return {"error": "Validation failed: mutation_rate must be between 0.0 and 1.0."}
+        if not (0.0 <= elitism_rate <= 1.0):
+            return {"error": "Validation failed: elitism_rate must be between 0.0 and 1.0."}
+        if tsp_data_file is None and coordinates is None:
+            return {"error": "Validation failed: No input data provided. Please specify either tsp_data_file or coordinates."}
+
+        # --- 2. Dispatch to Celery ---
+        # Create a clean dictionary of arguments to pass to the Celery task,
+        # ensuring no stray local variables (like 'error' from validation) are included.
+        task_args = {
+            "tsp_data_file": tsp_data_file,
+            "coordinates": coordinates,
+            "predefined_cost_matrix": predefined_cost_matrix,
+            "population_size": population_size,
+            "num_generations": num_generations,
+            "tournament_size": tournament_size,
+            "mutation_rate": mutation_rate,
+            "elitism_rate": elitism_rate,
+            "initial_genomes_file": initial_genomes_file,
+            "cuda_solver_executable_path": cuda_solver_executable_path,
+        }
+        
+        task = run_solver_task.delay(**task_args)
+        
+        print(f"Dispatched solver task to Celery worker. Task ID: {task.id}")
+        return {"task_id": task.id}
+
+    # Explicitly copy the comprehensive docstring from the *original*
+    # run_gpu_ga_solver function to our new ADK tool function.
+    # This is what the LLM will see.
+    ga_gpu_solver_tool.__doc__ = run_gpu_ga_solver.__doc__
+    
+    # We remove parameters from the tool's schema that the LLM shouldn't see.
+    return FunctionTool(
+        func=ga_gpu_solver_tool
+        # The 'omit_parameters' argument is not supported.
+        # The selective exposure of parameters is already handled by the fact
+        # that `ga_gpu_solver_tool` has a different signature than the
+        # full `run_gpu_ga_solver` function.
+    )
 
 # if __name__ == '__main__':
 #     # Example Usage (assuming ga_solver_main is compiled and in the same directory or path):
