@@ -32,3 +32,6 @@ Remove-Item -Recurse -Force *.egg-info -ErrorAction SilentlyContinue
 
 # Reinstall in development mode
 pip install -e .
+
+
+

@@ -1,3 +1,5 @@
 fastapi>=0.100.0
 uvicorn[standard]>=0.20.0
-requests>=2.28.0 # For the API test script 
+requests>=2.28.0 # For the API test script
+matplotlib>=3.5.0
+openai>=1.0.0 
