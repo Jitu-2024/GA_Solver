@@ -39,14 +39,15 @@ foreach(DATA_FILE ${DATA_FILES})
     configure_file(${DATA_FILE} ${DATA_BINARY_DIR}/${FILENAME} COPYONLY)
 endforeach()
 
-# Create logs directory if it doesn't exist
+# Create logs, plots, and reports directories if they don't exist
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/logs")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/plots")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/reports")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/experiments")
 
 # Define DATA_DIR for the source code
 add_compile_definitions(DATA_DIR="${DATA_BINARY_DIR}")
-
 add_compile_definitions(DATA_DIR="${CMAKE_BINARY_DIR}/data")
-
 add_compile_definitions(LOGS_DIR="${CMAKE_SOURCE_DIR}/logs")
 
 # Add source files
@@ -58,7 +59,6 @@ set(SRC_FILES
     src/parent_selection.cu
     src/crossover.cu
     src/mutation.cu
-    # Add other source files as needed
 )
 
 # Include header files
@@ -69,45 +69,74 @@ add_library(ga_solver_lib ${SRC_FILES})
 target_include_directories(ga_solver_lib PRIVATE include)
 target_link_libraries(ga_solver_lib PRIVATE ${CMAKE_CUDA_LIBRARIES})
 
-# Add executable for the main application
+# Add executable for the main application (original)
 add_executable(ga_solver src/ga_solver_main.cu)
 target_link_libraries(ga_solver PUBLIC ga_solver_lib)
 
-# # Enable testing
-# enable_testing()
+# Add executable for the enhanced application with logging
+add_executable(ga_solver_enhanced src/enhanced_ga_solver_main.cu)
+target_link_libraries(ga_solver_enhanced PUBLIC ga_solver_lib)
 
-# # Add test for Genome
-# add_executable(test_genome tests/test_genome.cu)
-# target_link_libraries(test_genome PRIVATE ga_solver_lib)
-# add_test(NAME GenomeTest COMMAND test_genome)
+# Add a custom target to run quick experiments
+add_custom_target(quick_experiment
+    COMMAND python3 ${CMAKE_SOURCE_DIR}/quick_experiment_runner.py --quick
+    DEPENDS ga_solver_enhanced
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Running quick experiments with enhanced GA solver"
+)
 
+# Add a custom target to run full experiments
+add_custom_target(full_experiment
+    COMMAND python3 ${CMAKE_SOURCE_DIR}/quick_experiment_runner.py
+    DEPENDS ga_solver_enhanced
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Running full experiments with enhanced GA solver"
+)
 
-# # Add test for Population
-# add_executable(test_population tests/test_population.cu)
-# target_link_libraries(test_population PRIVATE ga_solver_lib)
-# add_test(NAME PopulationTest COMMAND test_population)
+# Add a custom target to clean experiment data
+add_custom_target(clean_experiments
+    COMMAND ${CMAKE_COMMAND} -E remove_directory logs
+    COMMAND ${CMAKE_COMMAND} -E remove_directory plots
+    COMMAND ${CMAKE_COMMAND} -E remove_directory reports
+    COMMAND ${CMAKE_COMMAND} -E remove_directory experiments
+    COMMAND ${CMAKE_COMMAND} -E make_directory logs
+    COMMAND ${CMAKE_COMMAND} -E make_directory plots
+    COMMAND ${CMAKE_COMMAND} -E make_directory reports
+    COMMAND ${CMAKE_COMMAND} -E make_directory experiments
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Cleaning experiment data directories"
+)
 
-# # Add test for Cost_Matrix
-# add_executable(test_cost_matrix tests/test_cost_matrix.cu)
-# target_link_libraries(test_cost_matrix PRIVATE ga_solver_lib)
-# add_test(NAME CostMatrix COMMAND test_cost_matrix)
+# Copy Python scripts to build directory
+configure_file(
+    ${CMAKE_SOURCE_DIR}/quick_experiment_runner.py
+    ${CMAKE_BINARY_DIR}/quick_experiment_runner.py
+    COPYONLY
+)
 
-# # Add test for FitnessEvaluator
-# add_executable(test_fitness_evaluator tests/test_fitness_evaluator.cu)
-# target_link_libraries(test_fitness_evaluator PRIVATE ga_solver_lib)
-# add_test(NAME FitnessEvaluatorTest COMMAND test_fitness_evaluator)
+# Enable testing
+enable_testing()
 
-# # Add test for Parent Selection
-# add_executable(test_parent_selection tests/test_parent_selection.cu)
-# target_link_libraries(test_parent_selection PRIVATE ga_solver_lib)
-# add_test(NAME ParentSelectionTest COMMAND test_parent_selection)
+# Add test for quick experiment
+add_test(NAME QuickExperimentTest 
+         COMMAND python3 quick_experiment_runner.py --quick --datasets gr17 --runs 2
+         WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-# # Add test for Crossover
-# add_executable(test_crossover tests/test_crossover.cu)
-# target_link_libraries(test_crossover PRIVATE ga_solver_lib)
-# add_test(NAME CrossoverTest COMMAND test_crossover)
+# Print build information
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "CUDA compiler: ${CMAKE_CUDA_COMPILER}")
+message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
+message(STATUS "Data directory: ${DATA_BINARY_DIR}")
+message(STATUS "Logs directory: ${CMAKE_SOURCE_DIR}/logs")
 
-# # Add test for Mutation
-# add_executable(test_mutation tests/test_mutation.cu)
-# target_link_libraries(test_mutation PRIVATE ga_solver_lib)
-# add_test(NAME MutationTest COMMAND test_mutation)
+# Add install targets
+install(TARGETS ga_solver ga_solver_enhanced
+        RUNTIME DESTINATION bin)
+
+install(FILES quick_experiment_runner.py
+        DESTINATION bin
+        PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+
+install(DIRECTORY ${DATA_SOURCE_DIR}/
+        DESTINATION share/ga_solver/data
+        FILES_MATCHING PATTERN "*.csv")

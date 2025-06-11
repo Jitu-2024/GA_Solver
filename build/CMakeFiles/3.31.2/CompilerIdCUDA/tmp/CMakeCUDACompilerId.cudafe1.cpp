@@ -1011,25 +1011,25 @@ typedef dim3
 # 442
 dim3; 
 #endif
-# 149 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h" 3
+# 143 "/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h" 3
 typedef long ptrdiff_t; 
-# 216 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h" 3
+# 209 "/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h" 3
 typedef unsigned long size_t; 
 #if !defined(__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__)
 #define __CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__
 #endif
 #include "crt/host_runtime.h"
-# 437 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h" 3
+# 426 "/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h" 3
 typedef 
-# 426 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h" 3
+# 415 "/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h" 3
 struct { 
-# 427
+# 416
 long long __max_align_ll __attribute((__aligned__(__alignof__(long long)))); 
-# 428
+# 417
 long double __max_align_ld __attribute((__aligned__(__alignof__(long double)))); 
-# 437 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h" 3
+# 426 "/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h" 3
 } max_align_t; 
-# 444
+# 433
 typedef __decltype((nullptr)) nullptr_t; 
 # 205 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
@@ -4159,27 +4159,27 @@ MINOR_VERSION,
 PATCH_LEVEL
 # 97
 } libraryPropertyType; 
-# 236 "/usr/include/x86_64-linux-gnu/c++/8/bits/c++config.h" 3
+# 262 "/usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h" 3
 namespace std { 
-# 238
-typedef unsigned long size_t; 
-# 239
-typedef long ptrdiff_t; 
-# 242
-typedef __decltype((nullptr)) nullptr_t; 
-# 244
-}
-# 258 "/usr/include/x86_64-linux-gnu/c++/8/bits/c++config.h" 3
-namespace std { 
-# 260
-inline namespace __cxx11 __attribute((__abi_tag__("cxx11"))) { }
-# 261
-}
-# 262
-namespace __gnu_cxx { 
 # 264
-inline namespace __cxx11 __attribute((__abi_tag__("cxx11"))) { }
+typedef unsigned long size_t; 
 # 265
+typedef long ptrdiff_t; 
+# 268
+typedef __decltype((nullptr)) nullptr_t; 
+# 270
+}
+# 284 "/usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h" 3
+namespace std { 
+# 286
+inline namespace __cxx11 __attribute((__abi_tag__("cxx11"))) { }
+# 287
+}
+# 288
+namespace __gnu_cxx { 
+# 290
+inline namespace __cxx11 __attribute((__abi_tag__("cxx11"))) { }
+# 291
 }
 # 33 "/usr/include/stdlib.h" 3
 extern "C" {
@@ -5131,7 +5131,7 @@ extern int getloadavg(double  __loadavg[], int __nelem) throw()
  __attribute((__nonnull__(1))); 
 # 1023 "/usr/include/stdlib.h" 3
 }
-# 46 "/usr/include/c++/8/bits/std_abs.h" 3
+# 46 "/usr/include/c++/10/bits/std_abs.h" 3
 extern "C++" {
 # 48
 namespace std __attribute((__visibility__("default"))) { 
@@ -5141,25 +5141,25 @@ using ::abs;
 inline long abs(long __i) { return __builtin_labs(__i); } 
 # 61
 inline long long abs(long long __x) { return __builtin_llabs(__x); } 
-# 70
+# 71 "/usr/include/c++/10/bits/std_abs.h" 3
 constexpr double abs(double __x) 
-# 71
+# 72
 { return __builtin_fabs(__x); } 
-# 74
-constexpr float abs(float __x) 
 # 75
+constexpr float abs(float __x) 
+# 76
 { return __builtin_fabsf(__x); } 
-# 78
-constexpr long double abs(long double __x) 
 # 79
+constexpr long double abs(long double __x) 
+# 80
 { return __builtin_fabsl(__x); } 
-# 84
+# 85
 constexpr __int128 abs(__int128 __x) { return (__x >= (0)) ? __x : (-__x); } 
-# 107 "/usr/include/c++/8/bits/std_abs.h" 3
+# 108 "/usr/include/c++/10/bits/std_abs.h" 3
 }
-# 108
+# 109
 }
-# 121 "/usr/include/c++/8/cstdlib" 3
+# 121 "/usr/include/c++/10/cstdlib" 3
 extern "C++" {
 # 123
 namespace std __attribute((__visibility__("default"))) { 
@@ -5229,7 +5229,7 @@ using ::wctomb;
 inline ldiv_t div(long __i, long __j) { return ldiv(__i, __j); } 
 # 182
 }
-# 195 "/usr/include/c++/8/cstdlib" 3
+# 195 "/usr/include/c++/10/cstdlib" 3
 namespace __gnu_cxx __attribute((__visibility__("default"))) { 
 # 200
 using ::lldiv_t;
@@ -5243,7 +5243,7 @@ inline lldiv_t div(long long __n, long long __d)
 { lldiv_t __q; (__q.quot) = (__n / __d); (__q.rem) = (__n % __d); return __q; } 
 # 216
 using ::lldiv;
-# 227 "/usr/include/c++/8/cstdlib" 3
+# 227 "/usr/include/c++/10/cstdlib" 3
 using ::atoll;
 # 228
 using ::strtoll;
@@ -5281,7 +5281,7 @@ using __gnu_cxx::strtold;
 }
 # 257
 }
-# 38 "/usr/include/c++/8/stdlib.h" 3
+# 38 "/usr/include/c++/10/stdlib.h" 3
 using std::abort;
 # 39
 using std::atexit;
@@ -8173,7 +8173,7 @@ extern float floorf(float x) throw();
 extern float fmodf(float x, float y) throw(); 
 # 4568 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h"
 }
-# 67 "/usr/include/c++/8/bits/cpp_type_traits.h" 3
+# 67 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
 extern "C++" {
 # 69
 namespace std __attribute((__visibility__("default"))) { 
@@ -8289,235 +8289,331 @@ enum { __value = 1};
 typedef __true_type __type; 
 # 171
 }; 
-# 176
+# 185 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
 template<> struct __is_integer< char16_t>  { 
-# 178
-enum { __value = 1}; 
-# 179
-typedef __true_type __type; 
-# 180
-}; 
-# 183
-template<> struct __is_integer< char32_t>  { 
-# 185
-enum { __value = 1}; 
-# 186
-typedef __true_type __type; 
 # 187
-}; 
-# 191
-template<> struct __is_integer< short>  { 
-# 193
 enum { __value = 1}; 
+# 188
+typedef __true_type __type; 
+# 189
+}; 
+# 192
+template<> struct __is_integer< char32_t>  { 
 # 194
-typedef __true_type __type; 
+enum { __value = 1}; 
 # 195
+typedef __true_type __type; 
+# 196
 }; 
-# 198
-template<> struct __is_integer< unsigned short>  { 
 # 200
-enum { __value = 1}; 
-# 201
-typedef __true_type __type; 
+template<> struct __is_integer< short>  { 
 # 202
+enum { __value = 1}; 
+# 203
+typedef __true_type __type; 
+# 204
 }; 
-# 205
-template<> struct __is_integer< int>  { 
 # 207
-enum { __value = 1}; 
-# 208
-typedef __true_type __type; 
+template<> struct __is_integer< unsigned short>  { 
 # 209
+enum { __value = 1}; 
+# 210
+typedef __true_type __type; 
+# 211
 }; 
-# 212
-template<> struct __is_integer< unsigned>  { 
 # 214
-enum { __value = 1}; 
-# 215
-typedef __true_type __type; 
+template<> struct __is_integer< int>  { 
 # 216
+enum { __value = 1}; 
+# 217
+typedef __true_type __type; 
+# 218
 }; 
-# 219
-template<> struct __is_integer< long>  { 
 # 221
-enum { __value = 1}; 
-# 222
-typedef __true_type __type; 
+template<> struct __is_integer< unsigned>  { 
 # 223
+enum { __value = 1}; 
+# 224
+typedef __true_type __type; 
+# 225
 }; 
-# 226
-template<> struct __is_integer< unsigned long>  { 
 # 228
-enum { __value = 1}; 
-# 229
-typedef __true_type __type; 
+template<> struct __is_integer< long>  { 
 # 230
+enum { __value = 1}; 
+# 231
+typedef __true_type __type; 
+# 232
 }; 
-# 233
-template<> struct __is_integer< long long>  { 
 # 235
-enum { __value = 1}; 
-# 236
-typedef __true_type __type; 
+template<> struct __is_integer< unsigned long>  { 
 # 237
+enum { __value = 1}; 
+# 238
+typedef __true_type __type; 
+# 239
 }; 
-# 240
-template<> struct __is_integer< unsigned long long>  { 
 # 242
-enum { __value = 1}; 
-# 243
-typedef __true_type __type; 
+template<> struct __is_integer< long long>  { 
 # 244
+enum { __value = 1}; 
+# 245
+typedef __true_type __type; 
+# 246
 }; 
-# 261 "/usr/include/c++/8/bits/cpp_type_traits.h" 3
+# 249
+template<> struct __is_integer< unsigned long long>  { 
+# 251
+enum { __value = 1}; 
+# 252
+typedef __true_type __type; 
+# 253
+}; 
+# 270 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
 template<> struct __is_integer< __int128>  { enum { __value = 1}; typedef __true_type __type; }; template<> struct __is_integer< unsigned __int128>  { enum { __value = 1}; typedef __true_type __type; }; 
-# 278 "/usr/include/c++/8/bits/cpp_type_traits.h" 3
+# 287 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
 template< class _Tp> 
-# 279
+# 288
 struct __is_floating { 
-# 281
-enum { __value}; 
-# 282
-typedef __false_type __type; 
-# 283
-}; 
-# 287
-template<> struct __is_floating< float>  { 
-# 289
-enum { __value = 1}; 
 # 290
-typedef __true_type __type; 
+enum { __value}; 
 # 291
+typedef __false_type __type; 
+# 292
 }; 
-# 294
-template<> struct __is_floating< double>  { 
 # 296
-enum { __value = 1}; 
-# 297
-typedef __true_type __type; 
+template<> struct __is_floating< float>  { 
 # 298
-}; 
-# 301
-template<> struct __is_floating< long double>  { 
-# 303
 enum { __value = 1}; 
-# 304
+# 299
 typedef __true_type __type; 
+# 300
+}; 
+# 303
+template<> struct __is_floating< double>  { 
 # 305
+enum { __value = 1}; 
+# 306
+typedef __true_type __type; 
+# 307
 }; 
 # 310
-template< class _Tp> 
-# 311
-struct __is_pointer { 
+template<> struct __is_floating< long double>  { 
+# 312
+enum { __value = 1}; 
 # 313
-enum { __value}; 
+typedef __true_type __type; 
 # 314
-typedef __false_type __type; 
-# 315
 }; 
-# 317
+# 319
 template< class _Tp> 
-# 318
-struct __is_pointer< _Tp *>  { 
 # 320
-enum { __value = 1}; 
-# 321
-typedef __true_type __type; 
+struct __is_pointer { 
 # 322
+enum { __value}; 
+# 323
+typedef __false_type __type; 
+# 324
 }; 
+# 326
+template< class _Tp> 
 # 327
-template< class _Tp> 
-# 328
-struct __is_arithmetic : public __traitor< __is_integer< _Tp> , __is_floating< _Tp> >  { 
+struct __is_pointer< _Tp *>  { 
+# 329
+enum { __value = 1}; 
 # 330
+typedef __true_type __type; 
+# 331
 }; 
-# 335
-template< class _Tp> 
 # 336
-struct __is_scalar : public __traitor< __is_arithmetic< _Tp> , __is_pointer< _Tp> >  { 
-# 338
-}; 
-# 343
 template< class _Tp> 
+# 337
+struct __is_arithmetic : public __traitor< __is_integer< _Tp> , __is_floating< _Tp> >  { 
+# 339
+}; 
 # 344
-struct __is_char { 
-# 346
-enum { __value}; 
+template< class _Tp> 
+# 345
+struct __is_scalar : public __traitor< __is_arithmetic< _Tp> , __is_pointer< _Tp> >  { 
 # 347
-typedef __false_type __type; 
-# 348
 }; 
-# 351
-template<> struct __is_char< char>  { 
+# 352
+template< class _Tp> 
 # 353
-enum { __value = 1}; 
-# 354
-typedef __true_type __type; 
+struct __is_char { 
 # 355
+enum { __value}; 
+# 356
+typedef __false_type __type; 
+# 357
 }; 
-# 359
-template<> struct __is_char< wchar_t>  { 
-# 361
-enum { __value = 1}; 
+# 360
+template<> struct __is_char< char>  { 
 # 362
-typedef __true_type __type; 
+enum { __value = 1}; 
 # 363
+typedef __true_type __type; 
+# 364
 }; 
-# 366
-template< class _Tp> 
-# 367
-struct __is_byte { 
-# 369
-enum { __value}; 
+# 368
+template<> struct __is_char< wchar_t>  { 
 # 370
-typedef __false_type __type; 
+enum { __value = 1}; 
 # 371
-}; 
-# 374
-template<> struct __is_byte< char>  { 
-# 376
-enum { __value = 1}; 
-# 377
 typedef __true_type __type; 
-# 378
+# 372
 }; 
-# 381
-template<> struct __is_byte< signed char>  { 
-# 383
-enum { __value = 1}; 
-# 384
-typedef __true_type __type; 
-# 385
-}; 
-# 388
-template<> struct __is_byte< unsigned char>  { 
-# 390
-enum { __value = 1}; 
-# 391
-typedef __true_type __type; 
-# 392
-}; 
-# 408 "/usr/include/c++/8/bits/cpp_type_traits.h" 3
+# 375
 template< class _Tp> 
-# 409
-struct __is_move_iterator { 
-# 411
+# 376
+struct __is_byte { 
+# 378
 enum { __value}; 
-# 412
+# 379
 typedef __false_type __type; 
-# 413
+# 380
 }; 
-# 417
+# 383
+template<> struct __is_byte< char>  { 
+# 385
+enum { __value = 1}; 
+# 386
+typedef __true_type __type; 
+# 387
+}; 
+# 390
+template<> struct __is_byte< signed char>  { 
+# 392
+enum { __value = 1}; 
+# 393
+typedef __true_type __type; 
+# 394
+}; 
+# 397
+template<> struct __is_byte< unsigned char>  { 
+# 399
+enum { __value = 1}; 
+# 400
+typedef __true_type __type; 
+# 401
+}; 
+# 423 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
+template< class > struct iterator_traits; 
+# 426
+template< class _Tp> 
+# 427
+struct __is_nonvolatile_trivially_copyable { 
+# 429
+enum { __value = __is_trivially_copyable(_Tp)}; 
+# 430
+}; 
+# 435
+template< class _Tp> 
+# 436
+struct __is_nonvolatile_trivially_copyable< volatile _Tp>  { 
+# 438
+enum { __value}; 
+# 439
+}; 
+# 442
+template< class _OutputIter, class _InputIter> 
+# 443
+struct __memcpyable { 
+# 445
+enum { __value}; 
+# 446
+}; 
+# 448
+template< class _Tp> 
+# 449
+struct __memcpyable< _Tp *, _Tp *>  : public __is_nonvolatile_trivially_copyable< _Tp>  { 
+# 451
+}; 
+# 453
+template< class _Tp> 
+# 454
+struct __memcpyable< _Tp *, const _Tp *>  : public __is_nonvolatile_trivially_copyable< _Tp>  { 
+# 456
+}; 
+# 463
+template< class _Iter1, class _Iter2> 
+# 464
+struct __memcmpable { 
+# 466
+enum { __value}; 
+# 467
+}; 
+# 470
+template< class _Tp> 
+# 471
+struct __memcmpable< _Tp *, _Tp *>  : public __is_nonvolatile_trivially_copyable< _Tp>  { 
+# 473
+}; 
+# 475
+template< class _Tp> 
+# 476
+struct __memcmpable< const _Tp *, _Tp *>  : public __is_nonvolatile_trivially_copyable< _Tp>  { 
+# 478
+}; 
+# 480
+template< class _Tp> 
+# 481
+struct __memcmpable< _Tp *, const _Tp *>  : public __is_nonvolatile_trivially_copyable< _Tp>  { 
+# 483
+}; 
+# 488
+template< class _Tp, bool _TreatAsBytes = __is_byte< _Tp> ::__value> 
+# 489
+struct __is_memcmp_ordered { 
+# 491
+static const bool __value = (((_Tp)(-1)) > ((_Tp)1)); 
+# 492
+}; 
+# 494
+template< class _Tp> 
+# 495
+struct __is_memcmp_ordered< _Tp, false>  { 
+# 497
+static const bool __value = false; 
+# 498
+}; 
+# 501
+template< class _Tp, class _Up, bool  = sizeof(_Tp) == sizeof(_Up)> 
+# 502
+struct __is_memcmp_ordered_with { 
+# 504
+static const bool __value = (__is_memcmp_ordered< _Tp> ::__value && __is_memcmp_ordered< _Up> ::__value); 
+# 506
+}; 
+# 508
+template< class _Tp, class _Up> 
+# 509
+struct __is_memcmp_ordered_with< _Tp, _Up, false>  { 
+# 511
+static const bool __value = false; 
+# 512
+}; 
+# 532 "/usr/include/c++/10/bits/cpp_type_traits.h" 3
+template< class _Tp> 
+# 533
+struct __is_move_iterator { 
+# 535
+enum { __value}; 
+# 536
+typedef __false_type __type; 
+# 537
+}; 
+# 541
 template< class _Iterator> inline _Iterator 
-# 419
+# 544
 __miter_base(_Iterator __it) 
-# 420
+# 545
 { return __it; } 
-# 423
+# 548
 }
-# 424
+# 549
 }
-# 37 "/usr/include/c++/8/ext/type_traits.h" 3
+# 37 "/usr/include/c++/10/ext/type_traits.h" 3
 extern "C++" {
 # 39
 namespace __gnu_cxx __attribute((__visibility__("default"))) { 
@@ -8637,75 +8733,75 @@ __is_null_pointer(_Type)
 inline bool __is_null_pointer(std::nullptr_t) 
 # 163
 { return true; } 
-# 167
-template< class _Tp, bool  = std::template __is_integer< _Tp> ::__value> 
 # 168
-struct __promote { 
+template< class _Tp, bool  = std::template __is_integer< _Tp> ::__value> 
 # 169
+struct __promote { 
+# 170
 typedef double __type; }; 
-# 174
-template< class _Tp> 
 # 175
-struct __promote< _Tp, false>  { 
+template< class _Tp> 
 # 176
+struct __promote< _Tp, false>  { 
+# 177
 }; 
-# 179
-template<> struct __promote< long double>  { 
 # 180
+template<> struct __promote< long double>  { 
+# 181
 typedef long double __type; }; 
-# 183
-template<> struct __promote< double>  { 
 # 184
+template<> struct __promote< double>  { 
+# 185
 typedef double __type; }; 
-# 187
-template<> struct __promote< float>  { 
 # 188
+template<> struct __promote< float>  { 
+# 189
 typedef float __type; }; 
-# 190
-template< class _Tp, class _Up, class 
-# 191
-_Tp2 = typename __promote< _Tp> ::__type, class 
-# 192
-_Up2 = typename __promote< _Up> ::__type> 
-# 193
-struct __promote_2 { 
-# 195
-typedef __typeof__(_Tp2() + _Up2()) __type; 
 # 196
-}; 
+template< class _Tp, class _Up, class 
+# 197
+_Tp2 = typename __promote< _Tp> ::__type, class 
 # 198
-template< class _Tp, class _Up, class _Vp, class 
+_Up2 = typename __promote< _Up> ::__type> 
 # 199
-_Tp2 = typename __promote< _Tp> ::__type, class 
-# 200
-_Up2 = typename __promote< _Up> ::__type, class 
+struct __promote_2 { 
 # 201
-_Vp2 = typename __promote< _Vp> ::__type> 
+typedef __typeof__(_Tp2() + _Up2()) __type; 
 # 202
-struct __promote_3 { 
+}; 
 # 204
-typedef __typeof__((_Tp2() + _Up2()) + _Vp2()) __type; 
+template< class _Tp, class _Up, class _Vp, class 
 # 205
-}; 
-# 207
-template< class _Tp, class _Up, class _Vp, class _Wp, class 
-# 208
 _Tp2 = typename __promote< _Tp> ::__type, class 
-# 209
+# 206
 _Up2 = typename __promote< _Up> ::__type, class 
+# 207
+_Vp2 = typename __promote< _Vp> ::__type> 
+# 208
+struct __promote_3 { 
 # 210
-_Vp2 = typename __promote< _Vp> ::__type, class 
+typedef __typeof__((_Tp2() + _Up2()) + _Vp2()) __type; 
 # 211
-_Wp2 = typename __promote< _Wp> ::__type> 
-# 212
-struct __promote_4 { 
-# 214
-typedef __typeof__(((_Tp2() + _Up2()) + _Vp2()) + _Wp2()) __type; 
-# 215
 }; 
+# 213
+template< class _Tp, class _Up, class _Vp, class _Wp, class 
+# 214
+_Tp2 = typename __promote< _Tp> ::__type, class 
+# 215
+_Up2 = typename __promote< _Up> ::__type, class 
+# 216
+_Vp2 = typename __promote< _Vp> ::__type, class 
+# 217
+_Wp2 = typename __promote< _Wp> ::__type> 
 # 218
+struct __promote_4 { 
+# 220
+typedef __typeof__(((_Tp2() + _Up2()) + _Vp2()) + _Wp2()) __type; 
+# 221
+}; 
+# 224
 }
-# 219
+# 225
 }
 # 34 "/usr/include/math.h" 3
 extern "C" {
@@ -10181,7 +10277,7 @@ return __iseqsig_type< __decltype(((__x + __y) + (0.0F)))> ::__call(__x, __y);
 }
 # 1338
 }
-# 77 "/usr/include/c++/8/cmath" 3
+# 77 "/usr/include/c++/10/cmath" 3
 extern "C++" {
 # 79
 namespace std __attribute((__visibility__("default"))) { 
@@ -10457,7 +10553,7 @@ constexpr float pow(float __x, float __y)
 constexpr long double pow(long double __x, long double __y) 
 # 393
 { return __builtin_powl(__x, __y); } 
-# 412 "/usr/include/c++/8/cmath" 3
+# 412 "/usr/include/c++/10/cmath" 3
 template< class _Tp, class _Up> constexpr typename __gnu_cxx::__promote_2< _Tp, _Up> ::__type 
 # 415
 pow(_Tp __x, _Up __y) 
@@ -10549,7 +10645,7 @@ template< class _Tp> constexpr typename __gnu_cxx::__enable_if< __is_integer< _T
 tanh(_Tp __x) 
 # 514
 { return __builtin_tanh(__x); } 
-# 537 "/usr/include/c++/8/cmath" 3
+# 537 "/usr/include/c++/10/cmath" 3
 constexpr int fpclassify(float __x) 
 # 538
 { return __builtin_fpclassify(0, 1, 4, 3, 2, __x); 
@@ -10807,7 +10903,7 @@ typedef typename __gnu_cxx::__promote_2< _Tp, _Up> ::__type __type;
 return __builtin_isunordered((__type)__x, (__type)__y); 
 # 834
 } 
-# 1065 "/usr/include/c++/8/cmath" 3
+# 1065 "/usr/include/c++/10/cmath" 3
 using ::double_t;
 # 1066
 using ::float_t;
@@ -11551,11 +11647,11 @@ template< class _Tp> constexpr typename __gnu_cxx::__enable_if< __is_integer< _T
 trunc(_Tp __x) 
 # 1841
 { return __builtin_trunc(__x); } 
-# 1889 "/usr/include/c++/8/cmath" 3
+# 1932 "/usr/include/c++/10/cmath" 3
 }
-# 1895
+# 1938
 }
-# 38 "/usr/include/c++/8/math.h" 3
+# 38 "/usr/include/c++/10/math.h" 3
 using std::abs;
 # 39
 using std::acos;
@@ -19055,29 +19151,29 @@ extern const dim3 __device_builtin_variable_gridDim;
 extern const int __device_builtin_variable_warpSize; 
 # 80
 }
-# 67 "/usr/include/c++/8/bits/stl_relops.h" 3
+# 67 "/usr/include/c++/10/bits/stl_relops.h" 3
 namespace std __attribute((__visibility__("default"))) { 
 # 71
 namespace rel_ops { 
-# 85 "/usr/include/c++/8/bits/stl_relops.h" 3
+# 85 "/usr/include/c++/10/bits/stl_relops.h" 3
 template< class _Tp> inline bool 
 # 87
 operator!=(const _Tp &__x, const _Tp &__y) 
 # 88
 { return !(__x == __y); } 
-# 98 "/usr/include/c++/8/bits/stl_relops.h" 3
+# 98 "/usr/include/c++/10/bits/stl_relops.h" 3
 template< class _Tp> inline bool 
 # 100
 operator>(const _Tp &__x, const _Tp &__y) 
 # 101
 { return __y < __x; } 
-# 111 "/usr/include/c++/8/bits/stl_relops.h" 3
+# 111 "/usr/include/c++/10/bits/stl_relops.h" 3
 template< class _Tp> inline bool 
 # 113
 operator<=(const _Tp &__x, const _Tp &__y) 
 # 114
 { return !(__y < __x); } 
-# 124 "/usr/include/c++/8/bits/stl_relops.h" 3
+# 124 "/usr/include/c++/10/bits/stl_relops.h" 3
 template< class _Tp> inline bool 
 # 126
 operator>=(const _Tp &__x, const _Tp &__y) 
@@ -19087,19 +19183,19 @@ operator>=(const _Tp &__x, const _Tp &__y)
 }
 # 131
 }
-# 36 "/usr/include/c++/8/bits/move.h" 3
+# 38 "/usr/include/c++/10/bits/move.h" 3
 namespace std __attribute((__visibility__("default"))) { 
-# 45
-template< class _Tp> constexpr _Tp *
 # 47
+template< class _Tp> constexpr _Tp *
+# 49
 __addressof(_Tp &__r) noexcept 
-# 48
+# 50
 { return __builtin_addressof(__r); } 
-# 53
+# 55
 }
-# 40 "/usr/include/c++/8/type_traits" 3
+# 40 "/usr/include/c++/10/type_traits" 3
 namespace std __attribute((__visibility__("default"))) { 
-# 56 "/usr/include/c++/8/type_traits" 3
+# 56 "/usr/include/c++/10/type_traits" 3
 template< class _Tp, _Tp __v> 
 # 57
 struct integral_constant { 
@@ -19123,2647 +19219,2696 @@ typedef integral_constant< bool, true>  true_type;
 typedef integral_constant< bool, false>  false_type; 
 # 80
 template< bool __v> using __bool_constant = integral_constant< bool, __v> ; 
-# 91 "/usr/include/c++/8/type_traits" 3
+# 91 "/usr/include/c++/10/type_traits" 3
 template< bool , class , class > struct conditional; 
 # 94
-template< class ...> struct __or_; 
+template< class _Type> 
+# 95
+struct __type_identity { 
+# 96
+using type = _Type; }; 
 # 98
-template<> struct __or_< >  : public false_type { 
-# 100
-}; 
-# 102
-template< class _B1> 
-# 103
-struct __or_< _B1>  : public _B1 { 
+template< class _Tp> using __type_identity_t = typename __type_identity< _Tp> ::type; 
+# 101
+template< class ...> struct __or_; 
 # 105
-}; 
+template<> struct __or_< >  : public false_type { 
 # 107
-template< class _B1, class _B2> 
-# 108
-struct __or_< _B1, _B2>  : public conditional< _B1::value, _B1, _B2> ::type { 
-# 110
 }; 
-# 112
-template< class _B1, class _B2, class _B3, class ..._Bn> 
-# 113
-struct __or_< _B1, _B2, _B3, _Bn...>  : public conditional< _B1::value, _B1, std::__or_< _B2, _B3, _Bn...> > ::type { 
-# 115
-}; 
-# 117
-template< class ...> struct __and_; 
-# 121
-template<> struct __and_< >  : public true_type { 
-# 123
-}; 
-# 125
+# 109
 template< class _B1> 
-# 126
-struct __and_< _B1>  : public _B1 { 
-# 128
+# 110
+struct __or_< _B1>  : public _B1 { 
+# 112
 }; 
-# 130
+# 114
 template< class _B1, class _B2> 
-# 131
-struct __and_< _B1, _B2>  : public conditional< _B1::value, _B2, _B1> ::type { 
-# 133
+# 115
+struct __or_< _B1, _B2>  : public conditional< _B1::value, _B1, _B2> ::type { 
+# 117
 }; 
-# 135
+# 119
 template< class _B1, class _B2, class _B3, class ..._Bn> 
-# 136
-struct __and_< _B1, _B2, _B3, _Bn...>  : public conditional< _B1::value, std::__and_< _B2, _B3, _Bn...> , _B1> ::type { 
+# 120
+struct __or_< _B1, _B2, _B3, _Bn...>  : public conditional< _B1::value, _B1, std::__or_< _B2, _B3, _Bn...> > ::type { 
+# 122
+}; 
+# 124
+template< class ...> struct __and_; 
+# 128
+template<> struct __and_< >  : public true_type { 
+# 130
+}; 
+# 132
+template< class _B1> 
+# 133
+struct __and_< _B1>  : public _B1 { 
+# 135
+}; 
+# 137
+template< class _B1, class _B2> 
 # 138
-}; 
+struct __and_< _B1, _B2>  : public conditional< _B1::value, _B2, _B1> ::type { 
 # 140
-template< class _Pp> 
-# 141
-struct __not_ : public __bool_constant< !((bool)_Pp::value)>  { 
+}; 
+# 142
+template< class _B1, class _B2, class _B3, class ..._Bn> 
 # 143
+struct __and_< _B1, _B2, _B3, _Bn...>  : public conditional< _B1::value, std::__and_< _B2, _B3, _Bn...> , _B1> ::type { 
+# 145
 }; 
-# 180 "/usr/include/c++/8/type_traits" 3
-template< class _Tp> 
-# 181
-struct __success_type { 
-# 182
-typedef _Tp type; }; 
-# 184
-struct __failure_type { 
-# 185
+# 147
+template< class _Pp> 
+# 148
+struct __not_ : public __bool_constant< !((bool)_Pp::value)>  { 
+# 150
 }; 
-# 189
-template< class > struct remove_cv; 
+# 188 "/usr/include/c++/10/type_traits" 3
+template< class > struct is_reference; 
+# 190
+template< class > struct is_function; 
 # 192
-template< class > 
-# 193
-struct __is_void_helper : public false_type { 
+template< class > struct is_void; 
 # 194
-}; 
-# 197
-template<> struct __is_void_helper< void>  : public true_type { 
-# 198
-}; 
+template< class > struct __is_array_unknown_bounds; 
+# 200
+template< class _Tp, size_t  = sizeof(_Tp)> constexpr true_type 
 # 201
-template< class _Tp> 
+__is_complete_or_unbounded(__type_identity< _Tp> ) 
 # 202
-struct is_void : public __is_void_helper< typename remove_cv< _Tp> ::type> ::type { 
+{ return {}; } 
 # 204
-}; 
-# 206
-template< class > 
-# 207
-struct __is_integral_helper : public false_type { 
-# 208
-}; 
+template< class _TypeIdentity, class 
+# 205
+_NestedType = typename _TypeIdentity::type> constexpr typename __or_< is_reference< _NestedType> , is_function< _NestedType> , is_void< _NestedType> , __is_array_unknown_bounds< _NestedType> > ::type 
 # 211
-template<> struct __is_integral_helper< bool>  : public true_type { 
+__is_complete_or_unbounded(_TypeIdentity) 
 # 212
-}; 
-# 215
-template<> struct __is_integral_helper< char>  : public true_type { 
-# 216
-}; 
+{ return {}; } 
 # 219
-template<> struct __is_integral_helper< signed char>  : public true_type { 
+template< class _Tp> 
 # 220
-}; 
+struct __success_type { 
+# 221
+typedef _Tp type; }; 
 # 223
-template<> struct __is_integral_helper< unsigned char>  : public true_type { 
+struct __failure_type { 
 # 224
 }; 
-# 228
-template<> struct __is_integral_helper< wchar_t>  : public true_type { 
-# 229
-}; 
+# 226
+template< class > struct remove_cv; 
+# 230
+template< class _Tp> using __remove_cv_t = typename remove_cv< _Tp> ::type; 
 # 233
-template<> struct __is_integral_helper< char16_t>  : public true_type { 
-# 234
-}; 
-# 237
-template<> struct __is_integral_helper< char32_t>  : public true_type { 
+template< class > struct is_const; 
 # 238
+template< class > 
+# 239
+struct __is_void_helper : public false_type { 
+# 240
 }; 
-# 241
-template<> struct __is_integral_helper< short>  : public true_type { 
-# 242
+# 243
+template<> struct __is_void_helper< void>  : public true_type { 
+# 244
 }; 
-# 245
-template<> struct __is_integral_helper< unsigned short>  : public true_type { 
-# 246
-}; 
-# 249
-template<> struct __is_integral_helper< int>  : public true_type { 
+# 247
+template< class _Tp> 
+# 248
+struct is_void : public __is_void_helper< __remove_cv_t< _Tp> > ::type { 
 # 250
 }; 
+# 252
+template< class > 
 # 253
-template<> struct __is_integral_helper< unsigned>  : public true_type { 
+struct __is_integral_helper : public false_type { 
 # 254
 }; 
 # 257
-template<> struct __is_integral_helper< long>  : public true_type { 
+template<> struct __is_integral_helper< bool>  : public true_type { 
 # 258
 }; 
 # 261
-template<> struct __is_integral_helper< unsigned long>  : public true_type { 
+template<> struct __is_integral_helper< char>  : public true_type { 
 # 262
 }; 
 # 265
-template<> struct __is_integral_helper< long long>  : public true_type { 
+template<> struct __is_integral_helper< signed char>  : public true_type { 
 # 266
 }; 
 # 269
-template<> struct __is_integral_helper< unsigned long long>  : public true_type { 
+template<> struct __is_integral_helper< unsigned char>  : public true_type { 
 # 270
 }; 
-# 276
-template<> struct __is_integral_helper< __int128>  : public true_type { 
-# 277
+# 274
+template<> struct __is_integral_helper< wchar_t>  : public true_type { 
+# 275
 }; 
-# 280
-template<> struct __is_integral_helper< unsigned __int128>  : public true_type { 
-# 281
+# 285 "/usr/include/c++/10/type_traits" 3
+template<> struct __is_integral_helper< char16_t>  : public true_type { 
+# 286
 }; 
-# 312 "/usr/include/c++/8/type_traits" 3
-template< class _Tp> 
+# 289
+template<> struct __is_integral_helper< char32_t>  : public true_type { 
+# 290
+}; 
+# 293
+template<> struct __is_integral_helper< short>  : public true_type { 
+# 294
+}; 
+# 297
+template<> struct __is_integral_helper< unsigned short>  : public true_type { 
+# 298
+}; 
+# 301
+template<> struct __is_integral_helper< int>  : public true_type { 
+# 302
+}; 
+# 305
+template<> struct __is_integral_helper< unsigned>  : public true_type { 
+# 306
+}; 
+# 309
+template<> struct __is_integral_helper< long>  : public true_type { 
+# 310
+}; 
 # 313
-struct is_integral : public __is_integral_helper< typename remove_cv< _Tp> ::type> ::type { 
-# 315
+template<> struct __is_integral_helper< unsigned long>  : public true_type { 
+# 314
 }; 
 # 317
-template< class > 
+template<> struct __is_integral_helper< long long>  : public true_type { 
 # 318
-struct __is_floating_point_helper : public false_type { 
-# 319
 }; 
+# 321
+template<> struct __is_integral_helper< unsigned long long>  : public true_type { 
 # 322
-template<> struct __is_floating_point_helper< float>  : public true_type { 
-# 323
 }; 
-# 326
-template<> struct __is_floating_point_helper< double>  : public true_type { 
-# 327
+# 328
+template<> struct __is_integral_helper< __int128>  : public true_type { 
+# 329
 }; 
-# 330
-template<> struct __is_floating_point_helper< long double>  : public true_type { 
-# 331
+# 332
+template<> struct __is_integral_helper< unsigned __int128>  : public true_type { 
+# 333
 }; 
-# 340 "/usr/include/c++/8/type_traits" 3
+# 364 "/usr/include/c++/10/type_traits" 3
 template< class _Tp> 
-# 341
-struct is_floating_point : public __is_floating_point_helper< typename remove_cv< _Tp> ::type> ::type { 
-# 343
-}; 
-# 346
-template< class > 
-# 347
-struct is_array : public false_type { 
-# 348
-}; 
-# 350
-template< class _Tp, size_t _Size> 
-# 351
-struct is_array< _Tp [_Size]>  : public true_type { 
-# 352
-}; 
-# 354
-template< class _Tp> 
-# 355
-struct is_array< _Tp []>  : public true_type { 
-# 356
-}; 
-# 358
-template< class > 
-# 359
-struct __is_pointer_helper : public false_type { 
-# 360
-}; 
-# 362
-template< class _Tp> 
-# 363
-struct __is_pointer_helper< _Tp *>  : public true_type { 
-# 364
-}; 
+# 365
+struct is_integral : public __is_integral_helper< __remove_cv_t< _Tp> > ::type { 
 # 367
-template< class _Tp> 
-# 368
-struct is_pointer : public __is_pointer_helper< typename remove_cv< _Tp> ::type> ::type { 
-# 370
 }; 
-# 373
+# 369
 template< class > 
+# 370
+struct __is_floating_point_helper : public false_type { 
+# 371
+}; 
 # 374
-struct is_lvalue_reference : public false_type { 
+template<> struct __is_floating_point_helper< float>  : public true_type { 
 # 375
 }; 
-# 377
-template< class _Tp> 
 # 378
-struct is_lvalue_reference< _Tp &>  : public true_type { 
+template<> struct __is_floating_point_helper< double>  : public true_type { 
 # 379
 }; 
 # 382
-template< class > 
+template<> struct __is_floating_point_helper< long double>  : public true_type { 
 # 383
-struct is_rvalue_reference : public false_type { 
-# 384
 }; 
-# 386
+# 392 "/usr/include/c++/10/type_traits" 3
 template< class _Tp> 
-# 387
-struct is_rvalue_reference< _Tp &&>  : public true_type { 
-# 388
-}; 
-# 390
-template< class > struct is_function; 
 # 393
-template< class > 
-# 394
-struct __is_member_object_pointer_helper : public false_type { 
+struct is_floating_point : public __is_floating_point_helper< __remove_cv_t< _Tp> > ::type { 
 # 395
 }; 
-# 397
-template< class _Tp, class _Cp> 
 # 398
-struct __is_member_object_pointer_helper< _Tp (_Cp::*)>  : public integral_constant< bool, !is_function< _Tp> ::value>  { 
+template< class > 
 # 399
+struct is_array : public false_type { 
+# 400
 }; 
 # 402
-template< class _Tp> 
+template< class _Tp, size_t _Size> 
 # 403
-struct is_member_object_pointer : public __is_member_object_pointer_helper< typename remove_cv< _Tp> ::type> ::type { 
+struct is_array< _Tp [_Size]>  : public true_type { 
+# 404
+}; 
 # 406
-}; 
+template< class _Tp> 
+# 407
+struct is_array< _Tp []>  : public true_type { 
 # 408
-template< class > 
-# 409
-struct __is_member_function_pointer_helper : public false_type { 
+}; 
 # 410
-}; 
+template< class > 
+# 411
+struct __is_pointer_helper : public false_type { 
 # 412
-template< class _Tp, class _Cp> 
-# 413
-struct __is_member_function_pointer_helper< _Tp (_Cp::*)>  : public integral_constant< bool, is_function< _Tp> ::value>  { 
+}; 
 # 414
-}; 
-# 417
 template< class _Tp> 
-# 418
-struct is_member_function_pointer : public __is_member_function_pointer_helper< typename remove_cv< _Tp> ::type> ::type { 
-# 421
+# 415
+struct __is_pointer_helper< _Tp *>  : public true_type { 
+# 416
 }; 
-# 424
+# 419
 template< class _Tp> 
+# 420
+struct is_pointer : public __is_pointer_helper< __remove_cv_t< _Tp> > ::type { 
+# 422
+}; 
 # 425
-struct is_enum : public integral_constant< bool, __is_enum(_Tp)>  { 
+template< class > 
+# 426
+struct is_lvalue_reference : public false_type { 
 # 427
 }; 
+# 429
+template< class _Tp> 
 # 430
-template< class _Tp> 
+struct is_lvalue_reference< _Tp &>  : public true_type { 
 # 431
-struct is_union : public integral_constant< bool, __is_union(_Tp)>  { 
-# 433
 }; 
+# 434
+template< class > 
+# 435
+struct is_rvalue_reference : public false_type { 
 # 436
+}; 
+# 438
 template< class _Tp> 
-# 437
-struct is_class : public integral_constant< bool, __is_class(_Tp)>  { 
 # 439
+struct is_rvalue_reference< _Tp &&>  : public true_type { 
+# 440
 }; 
 # 442
 template< class > 
 # 443
-struct is_function : public false_type { 
+struct __is_member_object_pointer_helper : public false_type { 
 # 444
 }; 
 # 446
-template< class _Res, class ..._ArgTypes> 
+template< class _Tp, class _Cp> 
 # 447
-struct is_function< _Res (_ArgTypes ...)>  : public true_type { 
+struct __is_member_object_pointer_helper< _Tp (_Cp::*)>  : public __not_< is_function< _Tp> > ::type { 
 # 448
 }; 
-# 450
-template< class _Res, class ..._ArgTypes> 
 # 451
-struct is_function< _Res (_ArgTypes ...) &>  : public true_type { 
+template< class _Tp> 
 # 452
-}; 
+struct is_member_object_pointer : public __is_member_object_pointer_helper< __remove_cv_t< _Tp> > ::type { 
 # 454
-template< class _Res, class ..._ArgTypes> 
-# 455
-struct is_function< _Res (_ArgTypes ...) &&>  : public true_type { 
+}; 
 # 456
-}; 
+template< class > 
+# 457
+struct __is_member_function_pointer_helper : public false_type { 
 # 458
-template< class _Res, class ..._ArgTypes> 
-# 459
-struct is_function< _Res (_ArgTypes ..., ...)>  : public true_type { 
+}; 
 # 460
-}; 
+template< class _Tp, class _Cp> 
+# 461
+struct __is_member_function_pointer_helper< _Tp (_Cp::*)>  : public is_function< _Tp> ::type { 
 # 462
-template< class _Res, class ..._ArgTypes> 
-# 463
-struct is_function< _Res (_ArgTypes ..., ...) &>  : public true_type { 
-# 464
 }; 
+# 465
+template< class _Tp> 
 # 466
-template< class _Res, class ..._ArgTypes> 
-# 467
-struct is_function< _Res (_ArgTypes ..., ...) &&>  : public true_type { 
+struct is_member_function_pointer : public __is_member_function_pointer_helper< __remove_cv_t< _Tp> > ::type { 
 # 468
 }; 
-# 470
-template< class _Res, class ..._ArgTypes> 
 # 471
-struct is_function< _Res (_ArgTypes ...) const>  : public true_type { 
+template< class _Tp> 
 # 472
-}; 
+struct is_enum : public integral_constant< bool, __is_enum(_Tp)>  { 
 # 474
-template< class _Res, class ..._ArgTypes> 
-# 475
-struct is_function< _Res (_ArgTypes ...) const &>  : public true_type { 
-# 476
 }; 
+# 477
+template< class _Tp> 
 # 478
-template< class _Res, class ..._ArgTypes> 
-# 479
-struct is_function< _Res (_ArgTypes ...) const &&>  : public true_type { 
+struct is_union : public integral_constant< bool, __is_union(_Tp)>  { 
 # 480
 }; 
-# 482
-template< class _Res, class ..._ArgTypes> 
 # 483
-struct is_function< _Res (_ArgTypes ..., ...) const>  : public true_type { 
+template< class _Tp> 
 # 484
-}; 
+struct is_class : public integral_constant< bool, __is_class(_Tp)>  { 
 # 486
-template< class _Res, class ..._ArgTypes> 
-# 487
-struct is_function< _Res (_ArgTypes ..., ...) const &>  : public true_type { 
-# 488
 }; 
+# 489
+template< class _Tp> 
 # 490
-template< class _Res, class ..._ArgTypes> 
+struct is_function : public __bool_constant< !is_const< const _Tp> ::value>  { 
 # 491
-struct is_function< _Res (_ArgTypes ..., ...) const &&>  : public true_type { 
-# 492
 }; 
+# 493
+template< class _Tp> 
 # 494
-template< class _Res, class ..._ArgTypes> 
+struct is_function< _Tp &>  : public false_type { 
 # 495
-struct is_function< _Res (_ArgTypes ...) volatile>  : public true_type { 
-# 496
 }; 
+# 497
+template< class _Tp> 
 # 498
-template< class _Res, class ..._ArgTypes> 
+struct is_function< _Tp &&>  : public false_type { 
 # 499
-struct is_function< _Res (_ArgTypes ...) volatile &>  : public true_type { 
-# 500
 }; 
-# 502
-template< class _Res, class ..._ArgTypes> 
 # 503
-struct is_function< _Res (_ArgTypes ...) volatile &&>  : public true_type { 
+template< class > 
 # 504
+struct __is_null_pointer_helper : public false_type { 
+# 505
 }; 
-# 506
-template< class _Res, class ..._ArgTypes> 
-# 507
-struct is_function< _Res (_ArgTypes ..., ...) volatile>  : public true_type { 
 # 508
+template<> struct __is_null_pointer_helper< __decltype((nullptr))>  : public true_type { 
+# 509
 }; 
-# 510
-template< class _Res, class ..._ArgTypes> 
-# 511
-struct is_function< _Res (_ArgTypes ..., ...) volatile &>  : public true_type { 
 # 512
-}; 
-# 514
-template< class _Res, class ..._ArgTypes> 
+template< class _Tp> 
+# 513
+struct is_null_pointer : public __is_null_pointer_helper< __remove_cv_t< _Tp> > ::type { 
 # 515
-struct is_function< _Res (_ArgTypes ..., ...) volatile &&>  : public true_type { 
-# 516
 }; 
 # 518
-template< class _Res, class ..._ArgTypes> 
+template< class _Tp> 
 # 519
-struct is_function< _Res (_ArgTypes ...) const volatile>  : public true_type { 
-# 520
-}; 
-# 522
-template< class _Res, class ..._ArgTypes> 
-# 523
-struct is_function< _Res (_ArgTypes ...) const volatile &>  : public true_type { 
-# 524
-}; 
+struct __is_nullptr_t : public is_null_pointer< _Tp>  { 
+# 521
+} __attribute((__deprecated__("use \'std::is_null_pointer\' instead"))); 
 # 526
-template< class _Res, class ..._ArgTypes> 
+template< class _Tp> 
 # 527
-struct is_function< _Res (_ArgTypes ...) const volatile &&>  : public true_type { 
-# 528
-}; 
+struct is_reference : public __or_< is_lvalue_reference< _Tp> , is_rvalue_reference< _Tp> > ::type { 
 # 530
-template< class _Res, class ..._ArgTypes> 
-# 531
-struct is_function< _Res (_ArgTypes ..., ...) const volatile>  : public true_type { 
-# 532
 }; 
+# 533
+template< class _Tp> 
 # 534
-template< class _Res, class ..._ArgTypes> 
-# 535
-struct is_function< _Res (_ArgTypes ..., ...) const volatile &>  : public true_type { 
+struct is_arithmetic : public __or_< is_integral< _Tp> , is_floating_point< _Tp> > ::type { 
 # 536
 }; 
-# 538
-template< class _Res, class ..._ArgTypes> 
 # 539
-struct is_function< _Res (_ArgTypes ..., ...) const volatile &&>  : public true_type { 
+template< class _Tp> 
 # 540
+struct is_fundamental : public __or_< is_arithmetic< _Tp> , is_void< _Tp> , is_null_pointer< _Tp> > ::type { 
+# 543
 }; 
-# 544
-template< class > 
-# 545
-struct __is_null_pointer_helper : public false_type { 
 # 546
-}; 
-# 549
-template<> struct __is_null_pointer_helper< __decltype((nullptr))>  : public true_type { 
+template< class _Tp> 
+# 547
+struct is_object : public __not_< __or_< is_function< _Tp> , is_reference< _Tp> , is_void< _Tp> > > ::type { 
 # 550
 }; 
-# 553
-template< class _Tp> 
-# 554
-struct is_null_pointer : public __is_null_pointer_helper< typename remove_cv< _Tp> ::type> ::type { 
+# 552
+template< class > struct is_member_pointer; 
 # 556
-}; 
-# 559
 template< class _Tp> 
+# 557
+struct is_scalar : public __or_< is_arithmetic< _Tp> , is_enum< _Tp> , is_pointer< _Tp> , is_member_pointer< _Tp> , is_null_pointer< _Tp> > ::type { 
 # 560
-struct __is_nullptr_t : public is_null_pointer< _Tp>  { 
-# 562
+}; 
+# 563
+template< class _Tp> 
+# 564
+struct is_compound : public __not_< is_fundamental< _Tp> > ::type { 
+# 565
 }; 
 # 567
 template< class _Tp> 
 # 568
-struct is_reference : public __or_< is_lvalue_reference< _Tp> , is_rvalue_reference< _Tp> > ::type { 
-# 571
-}; 
-# 574
-template< class _Tp> 
-# 575
-struct is_arithmetic : public __or_< is_integral< _Tp> , is_floating_point< _Tp> > ::type { 
-# 577
-}; 
-# 580
-template< class _Tp> 
-# 581
-struct is_fundamental : public __or_< is_arithmetic< _Tp> , is_void< _Tp> , is_null_pointer< _Tp> > ::type { 
-# 584
-}; 
-# 587
-template< class _Tp> 
-# 588
-struct is_object : public __not_< __or_< is_function< _Tp> , is_reference< _Tp> , is_void< _Tp> > > ::type { 
-# 591
-}; 
-# 593
-template< class > struct is_member_pointer; 
-# 597
-template< class _Tp> 
-# 598
-struct is_scalar : public __or_< is_arithmetic< _Tp> , is_enum< _Tp> , is_pointer< _Tp> , is_member_pointer< _Tp> , is_null_pointer< _Tp> > ::type { 
-# 601
-}; 
-# 604
-template< class _Tp> 
-# 605
-struct is_compound : public integral_constant< bool, !is_fundamental< _Tp> ::value>  { 
-# 606
-}; 
-# 608
-template< class _Tp> 
-# 609
 struct __is_member_pointer_helper : public false_type { 
-# 610
+# 569
 }; 
-# 612
+# 571
 template< class _Tp, class _Cp> 
-# 613
+# 572
 struct __is_member_pointer_helper< _Tp (_Cp::*)>  : public true_type { 
-# 614
+# 573
 }; 
-# 617
+# 576
 template< class _Tp> 
-# 618
-struct is_member_pointer : public __is_member_pointer_helper< typename remove_cv< _Tp> ::type> ::type { 
-# 620
+# 577
+struct is_member_pointer : public __is_member_pointer_helper< __remove_cv_t< _Tp> > ::type { 
+# 579
 }; 
-# 624
-template< class _Tp> 
-# 625
-struct __is_referenceable : public __or_< is_object< _Tp> , is_reference< _Tp> > ::type { 
-# 627
-}; 
-# 629
-template< class _Res, class ..._Args> 
-# 630
-struct __is_referenceable< _Res (_Args ...)>  : public true_type { 
-# 632
-}; 
-# 634
-template< class _Res, class ..._Args> 
+# 581
+template< class , class > struct is_same; 
+# 584
+template< class _Tp, class ..._Types> using __is_one_of = __or_< is_same< _Tp, _Types> ...> ; 
+# 588
+template< class _Tp> using __is_signed_integer = __is_one_of< __remove_cv_t< _Tp> , signed char, signed short, signed int, signed long, signed long long, signed __int128> ; 
+# 607 "/usr/include/c++/10/type_traits" 3
+template< class _Tp> using __is_unsigned_integer = __is_one_of< __remove_cv_t< _Tp> , unsigned char, unsigned short, unsigned, unsigned long, unsigned long long, unsigned __int128> ; 
+# 626 "/usr/include/c++/10/type_traits" 3
+template< class _Tp> using __is_standard_integer = __or_< __is_signed_integer< _Tp> , __is_unsigned_integer< _Tp> > ; 
+# 631
+template< class ...> using __void_t = void; 
 # 635
-struct __is_referenceable< _Res (_Args ..., ...)>  : public true_type { 
-# 637
+template< class _Tp, class  = void> 
+# 636
+struct __is_referenceable : public false_type { 
+# 638
 }; 
-# 642
-template< class > 
+# 640
+template< class _Tp> 
+# 641
+struct __is_referenceable< _Tp, __void_t< _Tp &> >  : public true_type { 
 # 643
-struct is_const : public false_type { 
-# 644
 }; 
-# 646
-template< class _Tp> 
-# 647
-struct is_const< const _Tp>  : public true_type { 
 # 648
-}; 
-# 651
 template< class > 
+# 649
+struct is_const : public false_type { 
+# 650
+}; 
 # 652
-struct is_volatile : public false_type { 
+template< class _Tp> 
 # 653
+struct is_const< const _Tp>  : public true_type { 
+# 654
 }; 
-# 655
-template< class _Tp> 
-# 656
-struct is_volatile< volatile _Tp>  : public true_type { 
 # 657
+template< class > 
+# 658
+struct is_volatile : public false_type { 
+# 659
 }; 
-# 660
-template< class _Tp> 
 # 661
-struct is_trivial : public integral_constant< bool, __is_trivial(_Tp)>  { 
+template< class _Tp> 
+# 662
+struct is_volatile< volatile _Tp>  : public true_type { 
 # 663
 }; 
 # 666
 template< class _Tp> 
 # 667
-struct is_trivially_copyable : public integral_constant< bool, __is_trivially_copyable(_Tp)>  { 
-# 669
-}; 
+struct is_trivial : public integral_constant< bool, __is_trivial(_Tp)>  { 
+# 670
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 672
-template< class _Tp> 
-# 673
-struct is_standard_layout : public integral_constant< bool, __is_standard_layout(_Tp)>  { 
+}; 
 # 675
-}; 
+template< class _Tp> 
+# 676
+struct is_trivially_copyable : public integral_constant< bool, __is_trivially_copyable(_Tp)>  { 
 # 679
-template< class _Tp> 
-# 680
-struct is_pod : public integral_constant< bool, __is_pod(_Tp)>  { 
-# 682
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 681
 }; 
+# 684
+template< class _Tp> 
 # 685
-template< class _Tp> 
-# 686
-struct is_literal_type : public integral_constant< bool, __is_literal_type(_Tp)>  { 
+struct is_standard_layout : public integral_constant< bool, __is_standard_layout(_Tp)>  { 
 # 688
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 690
 }; 
-# 691
-template< class _Tp> 
-# 692
-struct is_empty : public integral_constant< bool, __is_empty(_Tp)>  { 
 # 694
-}; 
-# 697
 template< class _Tp> 
-# 698
-struct is_polymorphic : public integral_constant< bool, __is_polymorphic(_Tp)>  { 
+# 697
+struct is_pod : public integral_constant< bool, __is_pod(_Tp)>  { 
 # 700
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 702
 }; 
 # 705
 template< class _Tp> 
 # 706
-struct is_final : public integral_constant< bool, __is_final(_Tp)>  { 
-# 708
+struct is_literal_type : public integral_constant< bool, __is_literal_type(_Tp)>  { 
+# 709
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 711
 }; 
-# 712
+# 714
 template< class _Tp> 
-# 713
-struct is_abstract : public integral_constant< bool, __is_abstract(_Tp)>  { 
 # 715
-}; 
+struct is_empty : public integral_constant< bool, __is_empty(_Tp)>  { 
 # 717
-template< class _Tp, bool 
-# 718
- = is_arithmetic< _Tp> ::value> 
-# 719
-struct __is_signed_helper : public false_type { 
-# 720
 }; 
-# 722
+# 720
 template< class _Tp> 
+# 721
+struct is_polymorphic : public integral_constant< bool, __is_polymorphic(_Tp)>  { 
 # 723
-struct __is_signed_helper< _Tp, true>  : public integral_constant< bool, ((_Tp)(-1)) < ((_Tp)0)>  { 
-# 725
 }; 
 # 728
 template< class _Tp> 
 # 729
-struct is_signed : public __is_signed_helper< _Tp> ::type { 
+struct is_final : public integral_constant< bool, __is_final(_Tp)>  { 
 # 731
 }; 
-# 734
-template< class _Tp> 
 # 735
-struct is_unsigned : public __and_< is_arithmetic< _Tp> , __not_< is_signed< _Tp> > >  { 
-# 737
+template< class _Tp> 
+# 736
+struct is_abstract : public integral_constant< bool, __is_abstract(_Tp)>  { 
+# 738
 }; 
-# 747 "/usr/include/c++/8/type_traits" 3
-template< class _Tp, class _Up = _Tp &&> _Up __declval(int); 
+# 740
+template< class _Tp, bool 
+# 741
+ = is_arithmetic< _Tp> ::value> 
+# 742
+struct __is_signed_helper : public false_type { 
+# 743
+}; 
+# 745
+template< class _Tp> 
+# 746
+struct __is_signed_helper< _Tp, true>  : public integral_constant< bool, ((_Tp)(-1)) < ((_Tp)0)>  { 
+# 748
+}; 
 # 751
-template< class _Tp> _Tp __declval(long); 
-# 755
-template< class _Tp> auto declval() noexcept->__decltype((__declval< _Tp> (0))); 
+template< class _Tp> 
+# 752
+struct is_signed : public __is_signed_helper< _Tp> ::type { 
+# 754
+}; 
+# 757
+template< class _Tp> 
 # 758
-template< class , unsigned  = 0U> struct extent; 
-# 761
-template< class > struct remove_all_extents; 
-# 764
-template< class _Tp> 
-# 765
-struct __is_array_known_bounds : public integral_constant< bool, (extent< _Tp> ::value > 0)>  { 
-# 767
+struct is_unsigned : public __and_< is_arithmetic< _Tp> , __not_< is_signed< _Tp> > >  { 
+# 760
 }; 
-# 769
-template< class _Tp> 
-# 770
-struct __is_array_unknown_bounds : public __and_< is_array< _Tp> , __not_< extent< _Tp> > >  { 
-# 772
-}; 
-# 779
-struct __do_is_destructible_impl { 
+# 770 "/usr/include/c++/10/type_traits" 3
+template< class _Tp, class _Up = _Tp &&> _Up __declval(int); 
+# 774
+template< class _Tp> _Tp __declval(long); 
+# 778
+template< class _Tp> auto declval() noexcept->__decltype((__declval< _Tp> (0))); 
 # 781
-template< class _Tp, class  = __decltype((declval< _Tp &> ().~_Tp()))> static true_type __test(int); 
+template< class , unsigned  = 0U> struct extent; 
 # 784
-template< class > static false_type __test(...); 
-# 786
-}; 
+template< class > struct remove_all_extents; 
+# 787
+template< class _Tp> 
 # 788
-template< class _Tp> 
-# 789
-struct __is_destructible_impl : public __do_is_destructible_impl { 
+struct __is_array_known_bounds : public integral_constant< bool, (extent< _Tp> ::value > 0)>  { 
+# 790
+}; 
 # 792
-typedef __decltype((__test< _Tp> (0))) type; 
+template< class _Tp> 
 # 793
-}; 
+struct __is_array_unknown_bounds : public __and_< is_array< _Tp> , __not_< extent< _Tp> > >  { 
 # 795
-template< class _Tp, bool 
-# 796
- = __or_< is_void< _Tp> , __is_array_unknown_bounds< _Tp> , is_function< _Tp> > ::value, bool 
-# 799
- = __or_< is_reference< _Tp> , is_scalar< _Tp> > ::value> struct __is_destructible_safe; 
+}; 
 # 802
-template< class _Tp> 
-# 803
-struct __is_destructible_safe< _Tp, false, false>  : public __is_destructible_impl< typename remove_all_extents< _Tp> ::type> ::type { 
-# 806
-}; 
-# 808
-template< class _Tp> 
-# 809
-struct __is_destructible_safe< _Tp, true, false>  : public false_type { 
-# 810
-}; 
-# 812
-template< class _Tp> 
-# 813
-struct __is_destructible_safe< _Tp, false, true>  : public true_type { 
-# 814
-}; 
-# 817
-template< class _Tp> 
-# 818
-struct is_destructible : public __is_destructible_safe< _Tp> ::type { 
-# 820
-}; 
-# 826
-struct __do_is_nt_destructible_impl { 
-# 828
-template< class _Tp> static integral_constant< bool, noexcept(declval< _Tp &> ().~_Tp())>  __test(int); 
-# 832
+struct __do_is_destructible_impl { 
+# 804
+template< class _Tp, class  = __decltype((declval< _Tp &> ().~_Tp()))> static true_type __test(int); 
+# 807
 template< class > static false_type __test(...); 
-# 834
+# 809
 }; 
-# 836
+# 811
 template< class _Tp> 
-# 837
-struct __is_nt_destructible_impl : public __do_is_nt_destructible_impl { 
-# 840
+# 812
+struct __is_destructible_impl : public __do_is_destructible_impl { 
+# 815
 typedef __decltype((__test< _Tp> (0))) type; 
-# 841
+# 816
 }; 
-# 843
+# 818
 template< class _Tp, bool 
-# 844
+# 819
  = __or_< is_void< _Tp> , __is_array_unknown_bounds< _Tp> , is_function< _Tp> > ::value, bool 
-# 847
- = __or_< is_reference< _Tp> , is_scalar< _Tp> > ::value> struct __is_nt_destructible_safe; 
-# 850
+# 822
+ = __or_< is_reference< _Tp> , is_scalar< _Tp> > ::value> struct __is_destructible_safe; 
+# 825
 template< class _Tp> 
-# 851
-struct __is_nt_destructible_safe< _Tp, false, false>  : public __is_nt_destructible_impl< typename remove_all_extents< _Tp> ::type> ::type { 
+# 826
+struct __is_destructible_safe< _Tp, false, false>  : public __is_destructible_impl< typename remove_all_extents< _Tp> ::type> ::type { 
+# 829
+}; 
+# 831
+template< class _Tp> 
+# 832
+struct __is_destructible_safe< _Tp, true, false>  : public false_type { 
+# 833
+}; 
+# 835
+template< class _Tp> 
+# 836
+struct __is_destructible_safe< _Tp, false, true>  : public true_type { 
+# 837
+}; 
+# 840
+template< class _Tp> 
+# 841
+struct is_destructible : public __is_destructible_safe< _Tp> ::type { 
+# 844
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 846
+}; 
+# 852
+struct __do_is_nt_destructible_impl { 
 # 854
-}; 
-# 856
-template< class _Tp> 
-# 857
-struct __is_nt_destructible_safe< _Tp, true, false>  : public false_type { 
+template< class _Tp> static __bool_constant< noexcept(declval< _Tp &> ().~_Tp())>  __test(int); 
 # 858
-}; 
+template< class > static false_type __test(...); 
 # 860
-template< class _Tp> 
-# 861
-struct __is_nt_destructible_safe< _Tp, false, true>  : public true_type { 
+}; 
 # 862
-}; 
-# 865
 template< class _Tp> 
+# 863
+struct __is_nt_destructible_impl : public __do_is_nt_destructible_impl { 
 # 866
-struct is_nothrow_destructible : public __is_nt_destructible_safe< _Tp> ::type { 
-# 868
+typedef __decltype((__test< _Tp> (0))) type; 
+# 867
 }; 
-# 871
-template< class _Tp, class ..._Args> 
-# 872
-struct is_constructible : public __bool_constant< __is_constructible(_Tp, _Args...)>  { 
-# 874
-}; 
-# 877
+# 869
+template< class _Tp, bool 
+# 870
+ = __or_< is_void< _Tp> , __is_array_unknown_bounds< _Tp> , is_function< _Tp> > ::value, bool 
+# 873
+ = __or_< is_reference< _Tp> , is_scalar< _Tp> > ::value> struct __is_nt_destructible_safe; 
+# 876
 template< class _Tp> 
-# 878
-struct is_default_constructible : public is_constructible< _Tp> ::type { 
+# 877
+struct __is_nt_destructible_safe< _Tp, false, false>  : public __is_nt_destructible_impl< typename remove_all_extents< _Tp> ::type> ::type { 
 # 880
 }; 
 # 882
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_copy_constructible_impl; 
-# 885
 template< class _Tp> 
+# 883
+struct __is_nt_destructible_safe< _Tp, true, false>  : public false_type { 
+# 884
+}; 
 # 886
-struct __is_copy_constructible_impl< _Tp, false>  : public false_type { 
+template< class _Tp> 
 # 887
+struct __is_nt_destructible_safe< _Tp, false, true>  : public true_type { 
+# 888
 }; 
-# 889
+# 891
 template< class _Tp> 
-# 890
-struct __is_copy_constructible_impl< _Tp, true>  : public is_constructible< _Tp, const _Tp &>  { 
 # 892
-}; 
+struct is_nothrow_destructible : public __is_nt_destructible_safe< _Tp> ::type { 
 # 895
-template< class _Tp> 
-# 896
-struct is_copy_constructible : public __is_copy_constructible_impl< _Tp>  { 
-# 898
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 897
 }; 
-# 900
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_move_constructible_impl; 
-# 903
-template< class _Tp> 
-# 904
-struct __is_move_constructible_impl< _Tp, false>  : public false_type { 
-# 905
-}; 
-# 907
-template< class _Tp> 
-# 908
-struct __is_move_constructible_impl< _Tp, true>  : public is_constructible< _Tp, _Tp &&>  { 
-# 910
-}; 
-# 913
-template< class _Tp> 
-# 914
-struct is_move_constructible : public __is_move_constructible_impl< _Tp>  { 
-# 916
-}; 
-# 918
-template< class _Tp> 
-# 919
-struct __is_nt_default_constructible_atom : public integral_constant< bool, noexcept((_Tp()))>  { 
-# 921
-}; 
-# 923
-template< class _Tp, bool  = is_array< _Tp> ::value> struct __is_nt_default_constructible_impl; 
-# 926
-template< class _Tp> 
-# 927
-struct __is_nt_default_constructible_impl< _Tp, true>  : public __and_< __is_array_known_bounds< _Tp> , __is_nt_default_constructible_atom< typename remove_all_extents< _Tp> ::type> >  { 
-# 931
-}; 
-# 933
-template< class _Tp> 
-# 934
-struct __is_nt_default_constructible_impl< _Tp, false>  : public __is_nt_default_constructible_atom< _Tp>  { 
-# 936
-}; 
-# 939
-template< class _Tp> 
-# 940
-struct is_nothrow_default_constructible : public __and_< is_default_constructible< _Tp> , __is_nt_default_constructible_impl< _Tp> >  { 
-# 943
-}; 
-# 945
+# 899
 template< class _Tp, class ..._Args> 
+# 900
+struct __is_constructible_impl : public __bool_constant< __is_constructible(_Tp, _Args...)>  { 
+# 902
+}; 
+# 905
+template< class _Tp, class ..._Args> 
+# 906
+struct is_constructible : public __is_constructible_impl< _Tp, _Args...>  { 
+# 909
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 911
+}; 
+# 914
+template< class _Tp> 
+# 915
+struct is_default_constructible : public __is_constructible_impl< _Tp> ::type { 
+# 918
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 920
+}; 
+# 922
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_copy_constructible_impl; 
+# 925
+template< class _Tp> 
+# 926
+struct __is_copy_constructible_impl< _Tp, false>  : public false_type { 
+# 927
+}; 
+# 929
+template< class _Tp> 
+# 930
+struct __is_copy_constructible_impl< _Tp, true>  : public __is_constructible_impl< _Tp, const _Tp &>  { 
+# 932
+}; 
+# 935
+template< class _Tp> 
+# 936
+struct is_copy_constructible : public __is_copy_constructible_impl< _Tp>  { 
+# 939
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 941
+}; 
+# 943
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_move_constructible_impl; 
 # 946
-struct __is_nt_constructible_impl : public integral_constant< bool, noexcept((_Tp(declval< _Args> ()...)))>  { 
+template< class _Tp> 
+# 947
+struct __is_move_constructible_impl< _Tp, false>  : public false_type { 
 # 948
 }; 
 # 950
-template< class _Tp, class _Arg> 
+template< class _Tp> 
 # 951
-struct __is_nt_constructible_impl< _Tp, _Arg>  : public integral_constant< bool, noexcept((static_cast< _Tp>(declval< _Arg> ())))>  { 
-# 954
+struct __is_move_constructible_impl< _Tp, true>  : public __is_constructible_impl< _Tp, _Tp &&>  { 
+# 953
 }; 
 # 956
 template< class _Tp> 
 # 957
-struct __is_nt_constructible_impl< _Tp>  : public is_nothrow_default_constructible< _Tp>  { 
-# 959
-}; 
+struct is_move_constructible : public __is_move_constructible_impl< _Tp>  { 
+# 960
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 962
+}; 
+# 964
+template< bool , class _Tp, class ..._Args> 
+# 965
+struct __is_nt_constructible_impl : public false_type { 
+# 967
+}; 
+# 969
 template< class _Tp, class ..._Args> 
-# 963
-struct is_nothrow_constructible : public __and_< is_constructible< _Tp, _Args...> , __is_nt_constructible_impl< _Tp, _Args...> >  { 
-# 966
-}; 
-# 968
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nothrow_copy_constructible_impl; 
-# 971
-template< class _Tp> 
+# 970
+struct __is_nt_constructible_impl< true, _Tp, _Args...>  : public __bool_constant< noexcept((_Tp(std::declval< _Args> ()...)))>  { 
 # 972
-struct __is_nothrow_copy_constructible_impl< _Tp, false>  : public false_type { 
-# 973
 }; 
+# 974
+template< class _Tp, class _Arg> 
 # 975
-template< class _Tp> 
-# 976
-struct __is_nothrow_copy_constructible_impl< _Tp, true>  : public is_nothrow_constructible< _Tp, const _Tp &>  { 
-# 978
+struct __is_nt_constructible_impl< true, _Tp, _Arg>  : public __bool_constant< noexcept((static_cast< _Tp>(std::declval< _Arg> ())))>  { 
+# 977
 }; 
-# 981
+# 979
 template< class _Tp> 
+# 980
+struct __is_nt_constructible_impl< true, _Tp>  : public __bool_constant< noexcept((_Tp()))>  { 
 # 982
-struct is_nothrow_copy_constructible : public __is_nothrow_copy_constructible_impl< _Tp>  { 
+}; 
 # 984
+template< class _Tp, size_t _Num> 
+# 985
+struct __is_nt_constructible_impl< true, _Tp [_Num]>  : public __bool_constant< noexcept((typename remove_all_extents< _Tp> ::type()))>  { 
+# 987
 }; 
-# 986
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nothrow_move_constructible_impl; 
-# 989
-template< class _Tp> 
-# 990
-struct __is_nothrow_move_constructible_impl< _Tp, false>  : public false_type { 
-# 991
-}; 
-# 993
-template< class _Tp> 
-# 994
-struct __is_nothrow_move_constructible_impl< _Tp, true>  : public is_nothrow_constructible< _Tp, _Tp &&>  { 
-# 996
-}; 
-# 999
-template< class _Tp> 
-# 1000
-struct is_nothrow_move_constructible : public __is_nothrow_move_constructible_impl< _Tp>  { 
-# 1002
-}; 
-# 1005
-template< class _Tp, class _Up> 
-# 1006
-struct is_assignable : public __bool_constant< __is_assignable(_Tp, _Up)>  { 
+# 1001 "/usr/include/c++/10/type_traits" 3
+template< class _Tp, class ..._Args> using __is_nothrow_constructible_impl = __is_nt_constructible_impl< __is_constructible(_Tp, _Args...), _Tp, _Args...> ; 
+# 1007
+template< class _Tp, class ..._Args> 
 # 1008
-}; 
-# 1010
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_copy_assignable_impl; 
+struct is_nothrow_constructible : public __is_nothrow_constructible_impl< _Tp, _Args...> ::type { 
+# 1011
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1013
-template< class _Tp> 
-# 1014
-struct __is_copy_assignable_impl< _Tp, false>  : public false_type { 
-# 1015
 }; 
+# 1016
+template< class _Tp> 
 # 1017
-template< class _Tp> 
-# 1018
-struct __is_copy_assignable_impl< _Tp, true>  : public is_assignable< _Tp &, const _Tp &>  { 
+struct is_nothrow_default_constructible : public __is_nothrow_constructible_impl< _Tp> ::type { 
 # 1020
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1022
 }; 
-# 1023
-template< class _Tp> 
-# 1024
-struct is_copy_assignable : public __is_copy_assignable_impl< _Tp>  { 
-# 1026
-}; 
+# 1025
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nothrow_copy_constructible_impl; 
 # 1028
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_move_assignable_impl; 
-# 1031
 template< class _Tp> 
+# 1029
+struct __is_nothrow_copy_constructible_impl< _Tp, false>  : public false_type { 
+# 1030
+}; 
 # 1032
-struct __is_move_assignable_impl< _Tp, false>  : public false_type { 
+template< class _Tp> 
 # 1033
-}; 
+struct __is_nothrow_copy_constructible_impl< _Tp, true>  : public __is_nothrow_constructible_impl< _Tp, const _Tp &>  { 
 # 1035
-template< class _Tp> 
-# 1036
-struct __is_move_assignable_impl< _Tp, true>  : public is_assignable< _Tp &, _Tp &&>  { 
-# 1038
 }; 
-# 1041
+# 1038
 template< class _Tp> 
+# 1039
+struct is_nothrow_copy_constructible : public __is_nothrow_copy_constructible_impl< _Tp> ::type { 
 # 1042
-struct is_move_assignable : public __is_move_assignable_impl< _Tp>  { 
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1044
 }; 
 # 1046
-template< class _Tp, class _Up> 
-# 1047
-struct __is_nt_assignable_impl : public integral_constant< bool, noexcept((declval< _Tp> () = declval< _Up> ()))>  { 
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nothrow_move_constructible_impl; 
 # 1049
+template< class _Tp> 
+# 1050
+struct __is_nothrow_move_constructible_impl< _Tp, false>  : public false_type { 
+# 1051
 }; 
-# 1052
-template< class _Tp, class _Up> 
 # 1053
-struct is_nothrow_assignable : public __and_< is_assignable< _Tp, _Up> , __is_nt_assignable_impl< _Tp, _Up> >  { 
+template< class _Tp> 
+# 1054
+struct __is_nothrow_move_constructible_impl< _Tp, true>  : public __is_nothrow_constructible_impl< _Tp, _Tp &&>  { 
 # 1056
 }; 
-# 1058
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nt_copy_assignable_impl; 
-# 1061
+# 1059
 template< class _Tp> 
-# 1062
-struct __is_nt_copy_assignable_impl< _Tp, false>  : public false_type { 
+# 1060
+struct is_nothrow_move_constructible : public __is_nothrow_move_constructible_impl< _Tp> ::type { 
 # 1063
-}; 
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1065
-template< class _Tp> 
-# 1066
-struct __is_nt_copy_assignable_impl< _Tp, true>  : public is_nothrow_assignable< _Tp &, const _Tp &>  { 
-# 1068
 }; 
-# 1071
-template< class _Tp> 
+# 1068
+template< class _Tp, class _Up> 
+# 1069
+struct is_assignable : public __bool_constant< __is_assignable(_Tp, _Up)>  { 
 # 1072
-struct is_nothrow_copy_assignable : public __is_nt_copy_assignable_impl< _Tp>  { 
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1074
 }; 
 # 1076
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nt_move_assignable_impl; 
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_copy_assignable_impl; 
 # 1079
 template< class _Tp> 
 # 1080
-struct __is_nt_move_assignable_impl< _Tp, false>  : public false_type { 
+struct __is_copy_assignable_impl< _Tp, false>  : public false_type { 
 # 1081
 }; 
 # 1083
 template< class _Tp> 
 # 1084
-struct __is_nt_move_assignable_impl< _Tp, true>  : public is_nothrow_assignable< _Tp &, _Tp &&>  { 
+struct __is_copy_assignable_impl< _Tp, true>  : public __bool_constant< __is_assignable(_Tp &, const _Tp &)>  { 
 # 1086
 }; 
 # 1089
 template< class _Tp> 
 # 1090
-struct is_nothrow_move_assignable : public __is_nt_move_assignable_impl< _Tp>  { 
-# 1092
-}; 
+struct is_copy_assignable : public __is_copy_assignable_impl< _Tp> ::type { 
+# 1093
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1095
-template< class _Tp, class ..._Args> 
-# 1096
-struct is_trivially_constructible : public __and_< is_constructible< _Tp, _Args...> , __bool_constant< __is_trivially_constructible(_Tp, _Args...)> > ::type { 
-# 1099
 }; 
+# 1097
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_move_assignable_impl; 
+# 1100
+template< class _Tp> 
+# 1101
+struct __is_move_assignable_impl< _Tp, false>  : public false_type { 
 # 1102
+}; 
+# 1104
 template< class _Tp> 
-# 1103
-struct is_trivially_default_constructible : public is_trivially_constructible< _Tp> ::type { 
 # 1105
-}; 
+struct __is_move_assignable_impl< _Tp, true>  : public __bool_constant< __is_assignable(_Tp &, _Tp &&)>  { 
 # 1107
-struct __do_is_implicitly_default_constructible_impl { 
-# 1109
-template< class _Tp> static void __helper(const _Tp &); 
-# 1112
-template< class _Tp> static true_type __test(const _Tp &, __decltype((__helper< const _Tp &> ({}))) * = 0); 
+}; 
+# 1110
+template< class _Tp> 
+# 1111
+struct is_move_assignable : public __is_move_assignable_impl< _Tp> ::type { 
+# 1114
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1116
-static false_type __test(...); 
-# 1117
 }; 
-# 1119
-template< class _Tp> 
-# 1120
-struct __is_implicitly_default_constructible_impl : public __do_is_implicitly_default_constructible_impl { 
-# 1123
-typedef __decltype((__test(declval< _Tp> ()))) type; 
-# 1124
-}; 
-# 1126
-template< class _Tp> 
-# 1127
-struct __is_implicitly_default_constructible_safe : public __is_implicitly_default_constructible_impl< _Tp> ::type { 
-# 1129
-}; 
-# 1131
-template< class _Tp> 
-# 1132
-struct __is_implicitly_default_constructible : public __and_< is_default_constructible< _Tp> , __is_implicitly_default_constructible_safe< _Tp> >  { 
-# 1135
-}; 
-# 1139
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_copy_constructible_impl; 
-# 1142
-template< class _Tp> 
-# 1143
-struct __is_trivially_copy_constructible_impl< _Tp, false>  : public false_type { 
-# 1144
-}; 
-# 1146
-template< class _Tp> 
-# 1147
-struct __is_trivially_copy_constructible_impl< _Tp, true>  : public __and_< is_copy_constructible< _Tp> , integral_constant< bool, __is_trivially_constructible(_Tp, const _Tp &)> >  { 
-# 1151
-}; 
-# 1153
-template< class _Tp> 
-# 1154
-struct is_trivially_copy_constructible : public __is_trivially_copy_constructible_impl< _Tp>  { 
-# 1156
-}; 
-# 1160
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_move_constructible_impl; 
-# 1163
-template< class _Tp> 
-# 1164
-struct __is_trivially_move_constructible_impl< _Tp, false>  : public false_type { 
-# 1165
-}; 
-# 1167
-template< class _Tp> 
-# 1168
-struct __is_trivially_move_constructible_impl< _Tp, true>  : public __and_< is_move_constructible< _Tp> , integral_constant< bool, __is_trivially_constructible(_Tp, _Tp &&)> >  { 
-# 1172
-}; 
-# 1174
-template< class _Tp> 
-# 1175
-struct is_trivially_move_constructible : public __is_trivially_move_constructible_impl< _Tp>  { 
-# 1177
-}; 
-# 1180
+# 1118
 template< class _Tp, class _Up> 
-# 1181
-struct is_trivially_assignable : public __bool_constant< __is_trivially_assignable(_Tp, _Up)>  { 
-# 1183
+# 1119
+struct __is_nt_assignable_impl : public integral_constant< bool, noexcept((declval< _Tp> () = declval< _Up> ()))>  { 
+# 1121
 }; 
+# 1123
+template< class _Tp, class _Up> 
+# 1124
+struct __is_nothrow_assignable_impl : public __and_< __bool_constant< __is_assignable(_Tp, _Up)> , __is_nt_assignable_impl< _Tp, _Up> >  { 
+# 1127
+}; 
+# 1130
+template< class _Tp, class _Up> 
+# 1131
+struct is_nothrow_assignable : public __is_nothrow_assignable_impl< _Tp, _Up>  { 
+# 1134
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1136
+}; 
+# 1138
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nt_copy_assignable_impl; 
+# 1141
+template< class _Tp> 
+# 1142
+struct __is_nt_copy_assignable_impl< _Tp, false>  : public false_type { 
+# 1143
+}; 
+# 1145
+template< class _Tp> 
+# 1146
+struct __is_nt_copy_assignable_impl< _Tp, true>  : public __is_nothrow_assignable_impl< _Tp &, const _Tp &>  { 
+# 1148
+}; 
+# 1151
+template< class _Tp> 
+# 1152
+struct is_nothrow_copy_assignable : public __is_nt_copy_assignable_impl< _Tp>  { 
+# 1155
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1157
+}; 
+# 1159
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_nt_move_assignable_impl; 
+# 1162
+template< class _Tp> 
+# 1163
+struct __is_nt_move_assignable_impl< _Tp, false>  : public false_type { 
+# 1164
+}; 
+# 1166
+template< class _Tp> 
+# 1167
+struct __is_nt_move_assignable_impl< _Tp, true>  : public __is_nothrow_assignable_impl< _Tp &, _Tp &&>  { 
+# 1169
+}; 
+# 1172
+template< class _Tp> 
+# 1173
+struct is_nothrow_move_assignable : public __is_nt_move_assignable_impl< _Tp>  { 
+# 1176
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1178
+}; 
+# 1181
+template< class _Tp, class ..._Args> 
+# 1182
+struct is_trivially_constructible : public __bool_constant< __is_trivially_constructible(_Tp, _Args...)>  { 
+# 1185
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1187
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_copy_assignable_impl; 
+}; 
 # 1190
 template< class _Tp> 
 # 1191
-struct __is_trivially_copy_assignable_impl< _Tp, false>  : public false_type { 
-# 1192
-}; 
+struct is_trivially_default_constructible : public __bool_constant< __is_trivially_constructible(_Tp)>  { 
 # 1194
-template< class _Tp> 
-# 1195
-struct __is_trivially_copy_assignable_impl< _Tp, true>  : public __and_< is_copy_assignable< _Tp> , integral_constant< bool, __is_trivially_assignable(_Tp &, const _Tp &)> >  { 
-# 1199
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1196
 }; 
-# 1201
-template< class _Tp> 
-# 1202
-struct is_trivially_copy_assignable : public __is_trivially_copy_assignable_impl< _Tp>  { 
-# 1204
-}; 
+# 1198
+struct __do_is_implicitly_default_constructible_impl { 
+# 1200
+template< class _Tp> static void __helper(const _Tp &); 
+# 1203
+template< class _Tp> static true_type __test(const _Tp &, __decltype((__helper< const _Tp &> ({}))) * = 0); 
+# 1207
+static false_type __test(...); 
 # 1208
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_move_assignable_impl; 
-# 1211
-template< class _Tp> 
-# 1212
-struct __is_trivially_move_assignable_impl< _Tp, false>  : public false_type { 
-# 1213
 }; 
-# 1215
+# 1210
 template< class _Tp> 
-# 1216
-struct __is_trivially_move_assignable_impl< _Tp, true>  : public __and_< is_move_assignable< _Tp> , integral_constant< bool, __is_trivially_assignable(_Tp &, _Tp &&)> >  { 
+# 1211
+struct __is_implicitly_default_constructible_impl : public __do_is_implicitly_default_constructible_impl { 
+# 1214
+typedef __decltype((__test(declval< _Tp> ()))) type; 
+# 1215
+}; 
+# 1217
+template< class _Tp> 
+# 1218
+struct __is_implicitly_default_constructible_safe : public __is_implicitly_default_constructible_impl< _Tp> ::type { 
 # 1220
 }; 
 # 1222
 template< class _Tp> 
 # 1223
-struct is_trivially_move_assignable : public __is_trivially_move_assignable_impl< _Tp>  { 
-# 1225
+struct __is_implicitly_default_constructible : public __and_< __is_constructible_impl< _Tp> , __is_implicitly_default_constructible_safe< _Tp> >  { 
+# 1226
 }; 
 # 1228
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_copy_constructible_impl; 
+# 1231
 template< class _Tp> 
-# 1229
-struct is_trivially_destructible : public __and_< is_destructible< _Tp> , integral_constant< bool, __has_trivial_destructor(_Tp)> >  { 
 # 1232
+struct __is_trivially_copy_constructible_impl< _Tp, false>  : public false_type { 
+# 1233
 }; 
+# 1235
+template< class _Tp> 
 # 1236
-template< class _Tp> 
-# 1237
-struct has_virtual_destructor : public integral_constant< bool, __has_virtual_destructor(_Tp)>  { 
-# 1239
+struct __is_trivially_copy_constructible_impl< _Tp, true>  : public __and_< __is_copy_constructible_impl< _Tp> , integral_constant< bool, __is_trivially_constructible(_Tp, const _Tp &)> >  { 
+# 1240
 }; 
-# 1245
+# 1243
 template< class _Tp> 
-# 1246
-struct alignment_of : public integral_constant< unsigned long, __alignof__(_Tp)>  { 
+# 1244
+struct is_trivially_copy_constructible : public __is_trivially_copy_constructible_impl< _Tp>  { 
 # 1247
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1249
 }; 
-# 1250
-template< class > 
 # 1251
-struct rank : public integral_constant< unsigned long, 0UL>  { 
-# 1252
-}; 
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_move_constructible_impl; 
 # 1254
-template< class _Tp, size_t _Size> 
+template< class _Tp> 
 # 1255
-struct rank< _Tp [_Size]>  : public integral_constant< unsigned long, 1 + std::rank< _Tp> ::value>  { 
+struct __is_trivially_move_constructible_impl< _Tp, false>  : public false_type { 
 # 1256
 }; 
 # 1258
 template< class _Tp> 
 # 1259
-struct rank< _Tp []>  : public integral_constant< unsigned long, 1 + std::rank< _Tp> ::value>  { 
-# 1260
-}; 
+struct __is_trivially_move_constructible_impl< _Tp, true>  : public __and_< __is_move_constructible_impl< _Tp> , integral_constant< bool, __is_trivially_constructible(_Tp, _Tp &&)> >  { 
 # 1263
-template< class , unsigned _Uint> 
-# 1264
-struct extent : public integral_constant< unsigned long, 0UL>  { 
-# 1265
 }; 
+# 1266
+template< class _Tp> 
 # 1267
-template< class _Tp, unsigned _Uint, size_t _Size> 
-# 1268
-struct extent< _Tp [_Size], _Uint>  : public integral_constant< unsigned long, (_Uint == (0)) ? _Size : std::extent< _Tp, _Uint - (1)> ::value>  { 
+struct is_trivially_move_constructible : public __is_trivially_move_constructible_impl< _Tp>  { 
+# 1270
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1272
 }; 
-# 1274
-template< class _Tp, unsigned _Uint> 
 # 1275
-struct extent< _Tp [], _Uint>  : public integral_constant< unsigned long, (_Uint == (0)) ? 0 : std::extent< _Tp, _Uint - (1)> ::value>  { 
+template< class _Tp, class _Up> 
+# 1276
+struct is_trivially_assignable : public __bool_constant< __is_trivially_assignable(_Tp, _Up)>  { 
 # 1279
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1281
 }; 
-# 1285
-template< class , class > 
+# 1283
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_copy_assignable_impl; 
 # 1286
-struct is_same : public false_type { 
-# 1287
-}; 
-# 1289
 template< class _Tp> 
+# 1287
+struct __is_trivially_copy_assignable_impl< _Tp, false>  : public false_type { 
+# 1288
+}; 
 # 1290
-struct is_same< _Tp, _Tp>  : public true_type { 
+template< class _Tp> 
 # 1291
+struct __is_trivially_copy_assignable_impl< _Tp, true>  : public __bool_constant< __is_trivially_assignable(_Tp &, const _Tp &)>  { 
+# 1293
 }; 
-# 1294
-template< class _Base, class _Derived> 
-# 1295
-struct is_base_of : public integral_constant< bool, __is_base_of(_Base, _Derived)>  { 
+# 1296
+template< class _Tp> 
 # 1297
-}; 
-# 1299
-template< class _From, class _To, bool 
+struct is_trivially_copy_assignable : public __is_trivially_copy_assignable_impl< _Tp>  { 
 # 1300
- = __or_< is_void< _From> , is_function< _To> , is_array< _To> > ::value> 
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
 # 1302
-struct __is_convertible_helper { 
-# 1303
-typedef typename is_void< _To> ::type type; }; 
-# 1305
-template< class _From, class _To> 
-# 1306
-class __is_convertible_helper< _From, _To, false>  { 
+}; 
+# 1304
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> struct __is_trivially_move_assignable_impl; 
+# 1307
+template< class _Tp> 
 # 1308
-template< class _To1> static void __test_aux(_To1); 
+struct __is_trivially_move_assignable_impl< _Tp, false>  : public false_type { 
+# 1309
+}; 
 # 1311
-template< class _From1, class _To1, class 
+template< class _Tp> 
 # 1312
- = __decltype((__test_aux< _To1> (std::declval< _From1> ())))> static true_type 
-# 1311
-__test(int); 
-# 1316
-template< class , class > static false_type __test(...); 
+struct __is_trivially_move_assignable_impl< _Tp, true>  : public __bool_constant< __is_trivially_assignable(_Tp &, _Tp &&)>  { 
+# 1314
+}; 
+# 1317
+template< class _Tp> 
+# 1318
+struct is_trivially_move_assignable : public __is_trivially_move_assignable_impl< _Tp>  { 
 # 1321
-public: typedef __decltype((__test< _From, _To> (0))) type; 
-# 1322
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1323
 }; 
 # 1326
-template< class _From, class _To> 
+template< class _Tp> 
 # 1327
-struct is_convertible : public __is_convertible_helper< _From, _To> ::type { 
-# 1329
+struct is_trivially_destructible : public __and_< __is_destructible_safe< _Tp> , __bool_constant< __has_trivial_destructor(_Tp)> >  { 
+# 1331
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1333
 }; 
-# 1335
-template< class _Tp> 
-# 1336
-struct remove_const { 
 # 1337
-typedef _Tp type; }; 
-# 1339
 template< class _Tp> 
-# 1340
-struct remove_const< const _Tp>  { 
+# 1338
+struct has_virtual_destructor : public integral_constant< bool, __has_virtual_destructor(_Tp)>  { 
 # 1341
-typedef _Tp type; }; 
-# 1344
-template< class _Tp> 
-# 1345
-struct remove_volatile { 
-# 1346
-typedef _Tp type; }; 
-# 1348
-template< class _Tp> 
-# 1349
-struct remove_volatile< volatile _Tp>  { 
-# 1350
-typedef _Tp type; }; 
-# 1353
-template< class _Tp> 
-# 1354
-struct remove_cv { 
-# 1357
-typedef typename remove_const< typename remove_volatile< _Tp> ::type> ::type type; 
-# 1358
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1343
 }; 
-# 1361
+# 1349
 template< class _Tp> 
+# 1350
+struct alignment_of : public integral_constant< unsigned long, __alignof__(_Tp)>  { 
+# 1353
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 1355
+}; 
+# 1358
+template< class > 
+# 1359
+struct rank : public integral_constant< unsigned long, 0UL>  { 
+# 1360
+}; 
 # 1362
-struct add_const { 
+template< class _Tp, size_t _Size> 
 # 1363
-typedef const _Tp type; }; 
+struct rank< _Tp [_Size]>  : public integral_constant< unsigned long, 1 + std::rank< _Tp> ::value>  { 
+# 1364
+}; 
 # 1366
 template< class _Tp> 
 # 1367
-struct add_volatile { 
+struct rank< _Tp []>  : public integral_constant< unsigned long, 1 + std::rank< _Tp> ::value>  { 
 # 1368
-typedef volatile _Tp type; }; 
+}; 
 # 1371
-template< class _Tp> 
+template< class , unsigned _Uint> 
 # 1372
-struct add_cv { 
+struct extent : public integral_constant< unsigned long, 0UL>  { 
+# 1373
+}; 
 # 1375
-typedef typename add_const< typename add_volatile< _Tp> ::type> ::type type; 
+template< class _Tp, unsigned _Uint, size_t _Size> 
 # 1376
+struct extent< _Tp [_Size], _Uint>  : public integral_constant< unsigned long, (_Uint == (0)) ? _Size : std::extent< _Tp, _Uint - (1)> ::value>  { 
+# 1380
 }; 
+# 1382
+template< class _Tp, unsigned _Uint> 
 # 1383
-template< class _Tp> using remove_const_t = typename remove_const< _Tp> ::type; 
+struct extent< _Tp [], _Uint>  : public integral_constant< unsigned long, (_Uint == (0)) ? 0 : std::extent< _Tp, _Uint - (1)> ::value>  { 
 # 1387
-template< class _Tp> using remove_volatile_t = typename remove_volatile< _Tp> ::type; 
-# 1391
-template< class _Tp> using remove_cv_t = typename remove_cv< _Tp> ::type; 
-# 1395
-template< class _Tp> using add_const_t = typename add_const< _Tp> ::type; 
-# 1399
-template< class _Tp> using add_volatile_t = typename add_volatile< _Tp> ::type; 
-# 1403
-template< class _Tp> using add_cv_t = typename add_cv< _Tp> ::type; 
-# 1410
-template< class _Tp> 
-# 1411
-struct remove_reference { 
-# 1412
-typedef _Tp type; }; 
-# 1414
-template< class _Tp> 
-# 1415
-struct remove_reference< _Tp &>  { 
-# 1416
-typedef _Tp type; }; 
-# 1418
-template< class _Tp> 
-# 1419
-struct remove_reference< _Tp &&>  { 
-# 1420
-typedef _Tp type; }; 
-# 1422
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> 
-# 1423
-struct __add_lvalue_reference_helper { 
-# 1424
-typedef _Tp type; }; 
-# 1426
-template< class _Tp> 
-# 1427
-struct __add_lvalue_reference_helper< _Tp, true>  { 
-# 1428
-typedef _Tp &type; }; 
-# 1431
-template< class _Tp> 
-# 1432
-struct add_lvalue_reference : public __add_lvalue_reference_helper< _Tp>  { 
-# 1434
 }; 
+# 1393
+template< class _Tp, class _Up> 
+# 1394
+struct is_same : public integral_constant< bool, __is_same_as(_Tp, _Up)>  { 
+# 1400
+}; 
+# 1410 "/usr/include/c++/10/type_traits" 3
+template< class _Base, class _Derived> 
+# 1411
+struct is_base_of : public integral_constant< bool, __is_base_of(_Base, _Derived)>  { 
+# 1413
+}; 
+# 1415
+template< class _From, class _To, bool 
+# 1416
+ = __or_< is_void< _From> , is_function< _To> , is_array< _To> > ::value> 
+# 1418
+struct __is_convertible_helper { 
+# 1420
+typedef typename is_void< _To> ::type type; 
+# 1421
+}; 
+# 1423
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wctor-dtor-privacy"
+template< class _From, class _To> 
+# 1426
+class __is_convertible_helper< _From, _To, false>  { 
+# 1428
+template< class _To1> static void __test_aux(_To1) noexcept; 
+# 1431
+template< class _From1, class _To1, class 
+# 1432
+ = __decltype((__test_aux< _To1> (std::declval< _From1> ())))> static true_type 
+# 1431
+__test(int); 
 # 1436
-template< class _Tp, bool  = __is_referenceable< _Tp> ::value> 
-# 1437
-struct __add_rvalue_reference_helper { 
-# 1438
-typedef _Tp type; }; 
-# 1440
-template< class _Tp> 
+template< class , class > static false_type __test(...); 
 # 1441
-struct __add_rvalue_reference_helper< _Tp, true>  { 
+public: typedef __decltype((__test< _From, _To> (0))) type; 
 # 1442
-typedef _Tp &&type; }; 
-# 1445
-template< class _Tp> 
+}; 
+#pragma GCC diagnostic pop
 # 1446
-struct add_rvalue_reference : public __add_rvalue_reference_helper< _Tp>  { 
-# 1448
+template< class _From, class _To> 
+# 1447
+struct is_convertible : public __is_convertible_helper< _From, _To> ::type { 
+# 1449
 }; 
 # 1452
-template< class _Tp> using remove_reference_t = typename remove_reference< _Tp> ::type; 
+template< class _ToElementType, class _FromElementType> using __is_array_convertible = is_convertible< _FromElementType (*)[], _ToElementType (*)[]> ; 
 # 1456
-template< class _Tp> using add_lvalue_reference_t = typename add_lvalue_reference< _Tp> ::type; 
-# 1460
-template< class _Tp> using add_rvalue_reference_t = typename add_rvalue_reference< _Tp> ::type; 
-# 1467
-template< class _Unqualified, bool _IsConst, bool _IsVol> struct __cv_selector; 
-# 1470
-template< class _Unqualified> 
-# 1471
-struct __cv_selector< _Unqualified, false, false>  { 
-# 1472
-typedef _Unqualified __type; }; 
-# 1474
-template< class _Unqualified> 
-# 1475
-struct __cv_selector< _Unqualified, false, true>  { 
-# 1476
-typedef volatile _Unqualified __type; }; 
-# 1478
-template< class _Unqualified> 
-# 1479
-struct __cv_selector< _Unqualified, true, false>  { 
-# 1480
-typedef const _Unqualified __type; }; 
-# 1482
-template< class _Unqualified> 
-# 1483
-struct __cv_selector< _Unqualified, true, true>  { 
-# 1484
-typedef const volatile _Unqualified __type; }; 
-# 1486
-template< class _Qualified, class _Unqualified, bool 
-# 1487
-_IsConst = is_const< _Qualified> ::value, bool 
-# 1488
-_IsVol = is_volatile< _Qualified> ::value> 
-# 1489
-class __match_cv_qualifiers { 
-# 1491
-typedef __cv_selector< _Unqualified, _IsConst, _IsVol>  __match; 
-# 1494
-public: typedef typename __cv_selector< _Unqualified, _IsConst, _IsVol> ::__type __type; 
-# 1495
+template< class _From, class _To, bool 
+# 1457
+ = __or_< is_void< _From> , is_function< _To> , is_array< _To> > ::value> 
+# 1459
+struct __is_nt_convertible_helper : public is_void< _To>  { 
+# 1461
 }; 
-# 1498
+# 1463
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wctor-dtor-privacy"
+template< class _From, class _To> 
+# 1466
+class __is_nt_convertible_helper< _From, _To, false>  { 
+# 1468
+template< class _To1> static void __test_aux(_To1) noexcept; 
+# 1471
+template< class _From1, class _To1> static __bool_constant< noexcept(__test_aux< _To1> (std::declval< _From1> ()))>  __test(int); 
+# 1476
+template< class , class > static false_type __test(...); 
+# 1481
+public: using type = __decltype((__test< _From, _To> (0))); 
+# 1482
+}; 
+#pragma GCC diagnostic pop
+# 1486
+template< class _From, class _To> 
+# 1487
+struct __is_nothrow_convertible : public __is_nt_convertible_helper< _From, _To> ::type { 
+# 1489
+}; 
+# 1508 "/usr/include/c++/10/type_traits" 3
 template< class _Tp> 
-# 1499
-struct __make_unsigned { 
-# 1500
-typedef _Tp __type; }; 
-# 1503
-template<> struct __make_unsigned< char>  { 
-# 1504
-typedef unsigned char __type; }; 
-# 1507
-template<> struct __make_unsigned< signed char>  { 
-# 1508
-typedef unsigned char __type; }; 
-# 1511
-template<> struct __make_unsigned< short>  { 
+# 1509
+struct remove_const { 
+# 1510
+typedef _Tp type; }; 
 # 1512
-typedef unsigned short __type; }; 
-# 1515
-template<> struct __make_unsigned< int>  { 
-# 1516
-typedef unsigned __type; }; 
+template< class _Tp> 
+# 1513
+struct remove_const< const _Tp>  { 
+# 1514
+typedef _Tp type; }; 
+# 1517
+template< class _Tp> 
+# 1518
+struct remove_volatile { 
 # 1519
-template<> struct __make_unsigned< long>  { 
-# 1520
-typedef unsigned long __type; }; 
+typedef _Tp type; }; 
+# 1521
+template< class _Tp> 
+# 1522
+struct remove_volatile< volatile _Tp>  { 
 # 1523
-template<> struct __make_unsigned< long long>  { 
-# 1524
-typedef unsigned long long __type; }; 
+typedef _Tp type; }; 
+# 1526
+template< class _Tp> 
+# 1527
+struct remove_cv { 
 # 1528
-template<> struct __make_unsigned< __int128>  { 
-# 1529
-typedef unsigned __int128 __type; }; 
-# 1548 "/usr/include/c++/8/type_traits" 3
-template< class _Tp, bool 
+using type = _Tp; }; 
+# 1530
+template< class _Tp> 
+# 1531
+struct remove_cv< const _Tp>  { 
+# 1532
+using type = _Tp; }; 
+# 1534
+template< class _Tp> 
+# 1535
+struct remove_cv< volatile _Tp>  { 
+# 1536
+using type = _Tp; }; 
+# 1538
+template< class _Tp> 
+# 1539
+struct remove_cv< const volatile _Tp>  { 
+# 1540
+using type = _Tp; }; 
+# 1543
+template< class _Tp> 
+# 1544
+struct add_const { 
+# 1545
+typedef const _Tp type; }; 
+# 1548
+template< class _Tp> 
 # 1549
-_IsInt = is_integral< _Tp> ::value, bool 
+struct add_volatile { 
 # 1550
-_IsEnum = is_enum< _Tp> ::value> class __make_unsigned_selector; 
+typedef volatile _Tp type; }; 
 # 1553
 template< class _Tp> 
 # 1554
-class __make_unsigned_selector< _Tp, true, false>  { 
-# 1556
-typedef __make_unsigned< typename remove_cv< _Tp> ::type>  __unsignedt; 
+struct add_cv { 
 # 1557
-typedef typename __make_unsigned< typename remove_cv< _Tp> ::type> ::__type __unsigned_type; 
+typedef typename add_const< typename add_volatile< _Tp> ::type> ::type type; 
 # 1558
-typedef __match_cv_qualifiers< _Tp, __unsigned_type>  __cv_unsigned; 
-# 1561
-public: typedef typename __match_cv_qualifiers< _Tp, __unsigned_type> ::__type __type; 
-# 1562
 }; 
-# 1564
-template< class _Tp> 
 # 1565
-class __make_unsigned_selector< _Tp, false, true>  { 
-# 1568
-typedef unsigned char __smallest; 
+template< class _Tp> using remove_const_t = typename remove_const< _Tp> ::type; 
 # 1569
-static const bool __b0 = (sizeof(_Tp) <= sizeof(__smallest)); 
-# 1570
-static const bool __b1 = (sizeof(_Tp) <= sizeof(unsigned short)); 
-# 1571
-static const bool __b2 = (sizeof(_Tp) <= sizeof(unsigned)); 
-# 1572
-static const bool __b3 = (sizeof(_Tp) <= sizeof(unsigned long)); 
+template< class _Tp> using remove_volatile_t = typename remove_volatile< _Tp> ::type; 
 # 1573
-typedef conditional< __b3, unsigned long, unsigned long long>  __cond3; 
-# 1574
-typedef typename conditional< __b3, unsigned long, unsigned long long> ::type __cond3_type; 
-# 1575
-typedef conditional< __b2, unsigned, __cond3_type>  __cond2; 
-# 1576
-typedef typename conditional< __b2, unsigned, __cond3_type> ::type __cond2_type; 
+template< class _Tp> using remove_cv_t = typename remove_cv< _Tp> ::type; 
 # 1577
-typedef conditional< __b1, unsigned short, __cond2_type>  __cond1; 
-# 1578
-typedef typename conditional< __b1, unsigned short, __cond2_type> ::type __cond1_type; 
+template< class _Tp> using add_const_t = typename add_const< _Tp> ::type; 
 # 1581
-typedef typename conditional< __b0, unsigned char, __cond1_type> ::type __unsigned_type; 
-# 1582
-typedef __match_cv_qualifiers< _Tp, __unsigned_type>  __cv_unsigned; 
+template< class _Tp> using add_volatile_t = typename add_volatile< _Tp> ::type; 
 # 1585
-public: typedef typename __match_cv_qualifiers< _Tp, __unsigned_type> ::__type __type; 
-# 1586
-}; 
+template< class _Tp> using add_cv_t = typename add_cv< _Tp> ::type; 
 # 1592
 template< class _Tp> 
 # 1593
-struct make_unsigned { 
+struct remove_reference { 
 # 1594
-typedef typename __make_unsigned_selector< _Tp> ::__type type; }; 
+typedef _Tp type; }; 
+# 1596
+template< class _Tp> 
+# 1597
+struct remove_reference< _Tp &>  { 
 # 1598
-template<> struct make_unsigned< bool> ; 
+typedef _Tp type; }; 
+# 1600
+template< class _Tp> 
+# 1601
+struct remove_reference< _Tp &&>  { 
 # 1602
-template< class _Tp> 
-# 1603
-struct __make_signed { 
+typedef _Tp type; }; 
 # 1604
-typedef _Tp __type; }; 
-# 1607
-template<> struct __make_signed< char>  { 
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> 
+# 1605
+struct __add_lvalue_reference_helper { 
+# 1606
+typedef _Tp type; }; 
 # 1608
-typedef signed char __type; }; 
-# 1611
-template<> struct __make_signed< unsigned char>  { 
-# 1612
-typedef signed char __type; }; 
-# 1615
-template<> struct __make_signed< unsigned short>  { 
+template< class _Tp> 
+# 1609
+struct __add_lvalue_reference_helper< _Tp, true>  { 
+# 1610
+typedef _Tp &type; }; 
+# 1613
+template< class _Tp> 
+# 1614
+struct add_lvalue_reference : public __add_lvalue_reference_helper< _Tp>  { 
 # 1616
-typedef signed short __type; }; 
+}; 
+# 1618
+template< class _Tp, bool  = __is_referenceable< _Tp> ::value> 
 # 1619
-template<> struct __make_signed< unsigned>  { 
+struct __add_rvalue_reference_helper { 
 # 1620
-typedef signed int __type; }; 
+typedef _Tp type; }; 
+# 1622
+template< class _Tp> 
 # 1623
-template<> struct __make_signed< unsigned long>  { 
+struct __add_rvalue_reference_helper< _Tp, true>  { 
 # 1624
-typedef signed long __type; }; 
+typedef _Tp &&type; }; 
 # 1627
-template<> struct __make_signed< unsigned long long>  { 
+template< class _Tp> 
 # 1628
-typedef signed long long __type; }; 
-# 1632
-template<> struct __make_signed< unsigned __int128>  { 
-# 1633
-typedef __int128 __type; }; 
-# 1652 "/usr/include/c++/8/type_traits" 3
-template< class _Tp, bool 
+struct add_rvalue_reference : public __add_rvalue_reference_helper< _Tp>  { 
+# 1630
+}; 
+# 1634
+template< class _Tp> using remove_reference_t = typename remove_reference< _Tp> ::type; 
+# 1638
+template< class _Tp> using add_lvalue_reference_t = typename add_lvalue_reference< _Tp> ::type; 
+# 1642
+template< class _Tp> using add_rvalue_reference_t = typename add_rvalue_reference< _Tp> ::type; 
+# 1649
+template< class _Unqualified, bool _IsConst, bool _IsVol> struct __cv_selector; 
+# 1652
+template< class _Unqualified> 
 # 1653
-_IsInt = is_integral< _Tp> ::value, bool 
+struct __cv_selector< _Unqualified, false, false>  { 
 # 1654
-_IsEnum = is_enum< _Tp> ::value> class __make_signed_selector; 
+typedef _Unqualified __type; }; 
+# 1656
+template< class _Unqualified> 
 # 1657
-template< class _Tp> 
+struct __cv_selector< _Unqualified, false, true>  { 
 # 1658
-class __make_signed_selector< _Tp, true, false>  { 
+typedef volatile _Unqualified __type; }; 
 # 1660
-typedef __make_signed< typename remove_cv< _Tp> ::type>  __signedt; 
+template< class _Unqualified> 
 # 1661
-typedef typename __make_signed< typename remove_cv< _Tp> ::type> ::__type __signed_type; 
+struct __cv_selector< _Unqualified, true, false>  { 
 # 1662
-typedef __match_cv_qualifiers< _Tp, __signed_type>  __cv_signed; 
+typedef const _Unqualified __type; }; 
+# 1664
+template< class _Unqualified> 
 # 1665
-public: typedef typename __match_cv_qualifiers< _Tp, __signed_type> ::__type __type; 
+struct __cv_selector< _Unqualified, true, true>  { 
 # 1666
-}; 
+typedef const volatile _Unqualified __type; }; 
 # 1668
-template< class _Tp> 
+template< class _Qualified, class _Unqualified, bool 
 # 1669
-class __make_signed_selector< _Tp, false, true>  { 
+_IsConst = is_const< _Qualified> ::value, bool 
+# 1670
+_IsVol = is_volatile< _Qualified> ::value> 
 # 1671
-typedef typename __make_unsigned_selector< _Tp> ::__type __unsigned_type; 
-# 1674
-public: typedef typename std::__make_signed_selector< __unsigned_type> ::__type __type; 
-# 1675
+class __match_cv_qualifiers { 
+# 1673
+typedef __cv_selector< _Unqualified, _IsConst, _IsVol>  __match; 
+# 1676
+public: typedef typename __cv_selector< _Unqualified, _IsConst, _IsVol> ::__type __type; 
+# 1677
 }; 
+# 1680
+template< class _Tp> 
 # 1681
-template< class _Tp> 
+struct __make_unsigned { 
 # 1682
-struct make_signed { 
-# 1683
-typedef typename __make_signed_selector< _Tp> ::__type type; }; 
-# 1687
-template<> struct make_signed< bool> ; 
-# 1691
-template< class _Tp> using make_signed_t = typename make_signed< _Tp> ::type; 
-# 1695
-template< class _Tp> using make_unsigned_t = typename make_unsigned< _Tp> ::type; 
+typedef _Tp __type; }; 
+# 1685
+template<> struct __make_unsigned< char>  { 
+# 1686
+typedef unsigned char __type; }; 
+# 1689
+template<> struct __make_unsigned< signed char>  { 
+# 1690
+typedef unsigned char __type; }; 
+# 1693
+template<> struct __make_unsigned< short>  { 
+# 1694
+typedef unsigned short __type; }; 
+# 1697
+template<> struct __make_unsigned< int>  { 
+# 1698
+typedef unsigned __type; }; 
+# 1701
+template<> struct __make_unsigned< long>  { 
 # 1702
-template< class _Tp> 
-# 1703
-struct remove_extent { 
-# 1704
-typedef _Tp type; }; 
+typedef unsigned long __type; }; 
+# 1705
+template<> struct __make_unsigned< long long>  { 
 # 1706
-template< class _Tp, size_t _Size> 
-# 1707
-struct remove_extent< _Tp [_Size]>  { 
-# 1708
-typedef _Tp type; }; 
+typedef unsigned long long __type; }; 
 # 1710
-template< class _Tp> 
+template<> struct __make_unsigned< __int128>  { 
 # 1711
-struct remove_extent< _Tp []>  { 
-# 1712
-typedef _Tp type; }; 
-# 1715
+typedef unsigned __int128 __type; }; 
+# 1730 "/usr/include/c++/10/type_traits" 3
+template< class _Tp, bool 
+# 1731
+_IsInt = is_integral< _Tp> ::value, bool 
+# 1732
+_IsEnum = is_enum< _Tp> ::value> class __make_unsigned_selector; 
+# 1735
 template< class _Tp> 
-# 1716
-struct remove_all_extents { 
-# 1717
-typedef _Tp type; }; 
-# 1719
-template< class _Tp, size_t _Size> 
-# 1720
-struct remove_all_extents< _Tp [_Size]>  { 
-# 1721
-typedef typename std::remove_all_extents< _Tp> ::type type; }; 
-# 1723
-template< class _Tp> 
-# 1724
-struct remove_all_extents< _Tp []>  { 
-# 1725
-typedef typename std::remove_all_extents< _Tp> ::type type; }; 
-# 1729
-template< class _Tp> using remove_extent_t = typename remove_extent< _Tp> ::type; 
-# 1733
-template< class _Tp> using remove_all_extents_t = typename remove_all_extents< _Tp> ::type; 
-# 1739
-template< class _Tp, class > 
-# 1740
-struct __remove_pointer_helper { 
-# 1741
-typedef _Tp type; }; 
-# 1743
-template< class _Tp, class _Up> 
+# 1736
+class __make_unsigned_selector< _Tp, true, false>  { 
+# 1738
+using __unsigned_type = typename __make_unsigned< __remove_cv_t< _Tp> > ::__type; 
+# 1742
+public: using __type = typename __match_cv_qualifiers< _Tp, __unsigned_type> ::__type; 
 # 1744
-struct __remove_pointer_helper< _Tp, _Up *>  { 
-# 1745
-typedef _Up type; }; 
-# 1748
-template< class _Tp> 
-# 1749
-struct remove_pointer : public __remove_pointer_helper< _Tp, typename remove_cv< _Tp> ::type>  { 
-# 1751
 }; 
-# 1754
-template< class _Tp, bool  = __or_< __is_referenceable< _Tp> , is_void< _Tp> > ::value> 
-# 1756
-struct __add_pointer_helper { 
-# 1757
-typedef _Tp type; }; 
+# 1746
+class __make_unsigned_selector_base { 
+# 1749
+protected: template< class ...> struct _List { }; 
+# 1751
+template< class _Tp, class ..._Up> 
+# 1752
+struct _List< _Tp, _Up...>  : public __make_unsigned_selector_base::template _List< _Up...>  { 
+# 1753
+static constexpr std::size_t __size = sizeof(_Tp); }; 
+# 1755
+template< size_t _Sz, class _Tp, bool  = _Sz <= _Tp::__size> struct __select; 
+# 1758
+template< size_t _Sz, class _Uint, class ..._UInts> 
 # 1759
-template< class _Tp> 
+struct __select< _Sz, _List< _Uint, _UInts...> , true>  { 
 # 1760
-struct __add_pointer_helper< _Tp, true>  { 
-# 1761
-typedef typename remove_reference< _Tp> ::type *type; }; 
+using __type = _Uint; }; 
+# 1762
+template< size_t _Sz, class _Uint, class ..._UInts> 
 # 1763
-template< class _Tp> 
-# 1764
-struct add_pointer : public __add_pointer_helper< _Tp>  { 
+struct __select< _Sz, _List< _Uint, _UInts...> , false>  : public __make_unsigned_selector_base::template __select< _Sz, _List< _UInts...> >  { 
+# 1765
+}; 
 # 1766
 }; 
+# 1769
+template< class _Tp> 
 # 1770
-template< class _Tp> using remove_pointer_t = typename remove_pointer< _Tp> ::type; 
+class __make_unsigned_selector< _Tp, false, true>  : private __make_unsigned_selector_base { 
 # 1774
-template< class _Tp> using add_pointer_t = typename add_pointer< _Tp> ::type; 
-# 1778
-template< size_t _Len> 
-# 1779
-struct __aligned_storage_msa { 
-# 1781
-union __type { 
-# 1783
-unsigned char __data[_Len]; 
-# 1784
-struct __attribute((__aligned__)) { } __align; 
-# 1785
+using _UInts = _List< unsigned char, unsigned short, unsigned, unsigned long, unsigned long long> ; 
+# 1777
+using __unsigned_type = typename __select< sizeof(_Tp), _List< unsigned char, unsigned short, unsigned, unsigned long, unsigned long long> > ::__type; 
+# 1780
+public: using __type = typename __match_cv_qualifiers< _Tp, __unsigned_type> ::__type; 
+# 1782
 }; 
-# 1786
-}; 
-# 1798 "/usr/include/c++/8/type_traits" 3
-template< size_t _Len, size_t _Align = __alignof__(typename __aligned_storage_msa< _Len> ::__type)> 
-# 1800
-struct aligned_storage { 
-# 1802
-union type { 
-# 1804
-unsigned char __data[_Len]; 
-# 1805
-struct __attribute((__aligned__(_Align))) { } __align; 
-# 1806
-}; 
-# 1807
-}; 
-# 1809
-template< class ..._Types> 
-# 1810
-struct __strictest_alignment { 
-# 1812
-static const size_t _S_alignment = (0); 
-# 1813
-static const size_t _S_size = (0); 
-# 1814
-}; 
-# 1816
-template< class _Tp, class ..._Types> 
-# 1817
-struct __strictest_alignment< _Tp, _Types...>  { 
-# 1819
-static const size_t _S_alignment = ((__alignof__(_Tp) > __strictest_alignment< _Types...> ::_S_alignment) ? __alignof__(_Tp) : __strictest_alignment< _Types...> ::_S_alignment); 
-# 1822
-static const size_t _S_size = ((sizeof(_Tp) > __strictest_alignment< _Types...> ::_S_size) ? sizeof(_Tp) : __strictest_alignment< _Types...> ::_S_size); 
-# 1825
-}; 
-# 1837 "/usr/include/c++/8/type_traits" 3
-template< size_t _Len, class ..._Types> 
-# 1838
-struct aligned_union { 
-# 1841
-static_assert((sizeof...(_Types) != (0)), "At least one type is required");
-# 1843
-private: using __strictest = __strictest_alignment< _Types...> ; 
-# 1844
-static const size_t _S_len = ((_Len > __strictest::_S_size) ? _Len : __strictest::_S_size); 
-# 1848
-public: static const size_t alignment_value = (__strictest::_S_alignment); 
-# 1850
-typedef typename aligned_storage< _S_len, alignment_value> ::type type; 
-# 1851
-}; 
-# 1853
-template< size_t _Len, class ..._Types> const size_t aligned_union< _Len, _Types...> ::alignment_value; 
-# 1858
-template< class _Up, bool 
-# 1859
-_IsArray = is_array< _Up> ::value, bool 
-# 1860
-_IsFunction = is_function< _Up> ::value> struct __decay_selector; 
-# 1864
-template< class _Up> 
-# 1865
-struct __decay_selector< _Up, false, false>  { 
-# 1866
-typedef typename remove_cv< _Up> ::type __type; }; 
-# 1868
-template< class _Up> 
-# 1869
-struct __decay_selector< _Up, true, false>  { 
-# 1870
-typedef typename remove_extent< _Up> ::type *__type; }; 
-# 1872
-template< class _Up> 
-# 1873
-struct __decay_selector< _Up, false, true>  { 
-# 1874
-typedef typename add_pointer< _Up> ::type __type; }; 
-# 1877
-template< class _Tp> 
-# 1878
-class decay { 
-# 1880
-typedef typename remove_reference< _Tp> ::type __remove_type; 
-# 1883
-public: typedef typename __decay_selector< __remove_type> ::__type type; 
-# 1884
-}; 
-# 1886
-template< class _Tp> class reference_wrapper; 
-# 1890
-template< class _Tp> 
-# 1891
-struct __strip_reference_wrapper { 
-# 1893
-typedef _Tp __type; 
-# 1894
-}; 
-# 1896
-template< class _Tp> 
-# 1897
-struct __strip_reference_wrapper< reference_wrapper< _Tp> >  { 
-# 1899
-typedef _Tp &__type; 
-# 1900
-}; 
-# 1902
-template< class _Tp> 
-# 1903
-struct __decay_and_strip { 
-# 1906
-typedef typename __strip_reference_wrapper< typename decay< _Tp> ::type> ::__type __type; 
-# 1907
-}; 
-# 1912
-template< bool , class _Tp = void> 
-# 1913
-struct enable_if { 
-# 1914
-}; 
-# 1917
-template< class _Tp> 
-# 1918
-struct enable_if< true, _Tp>  { 
-# 1919
-typedef _Tp type; }; 
-# 1921
-template< class ..._Cond> using _Require = typename enable_if< __and_< _Cond...> ::value> ::type; 
-# 1926
-template< bool _Cond, class _Iftrue, class _Iffalse> 
-# 1927
-struct conditional { 
-# 1928
-typedef _Iftrue type; }; 
-# 1931
-template< class _Iftrue, class _Iffalse> 
-# 1932
-struct conditional< false, _Iftrue, _Iffalse>  { 
-# 1933
-typedef _Iffalse type; }; 
-# 1936
-template< class ..._Tp> struct common_type; 
-# 1941
-struct __do_common_type_impl { 
-# 1943
-template< class _Tp, class _Up> static __success_type< typename decay< __decltype((true ? std::declval< _Tp> () : std::declval< _Up> ()))> ::type>  _S_test(int); 
-# 1948
-template< class , class > static __failure_type _S_test(...); 
-# 1950
-}; 
-# 1952
-template< class _Tp, class _Up> 
-# 1953
-struct __common_type_impl : private __do_common_type_impl { 
-# 1956
-typedef __decltype((_S_test< _Tp, _Up> (0))) type; 
-# 1957
-}; 
-# 1959
-struct __do_member_type_wrapper { 
-# 1961
-template< class _Tp> static __success_type< typename _Tp::type>  _S_test(int); 
-# 1964
-template< class > static __failure_type _S_test(...); 
-# 1966
-}; 
-# 1968
-template< class _Tp> 
-# 1969
-struct __member_type_wrapper : private __do_member_type_wrapper { 
-# 1972
-typedef __decltype((_S_test< _Tp> (0))) type; 
-# 1973
-}; 
-# 1975
-template< class _CTp, class ..._Args> 
-# 1976
-struct __expanded_common_type_wrapper { 
-# 1978
-typedef common_type< typename _CTp::type, _Args...>  type; 
-# 1979
-}; 
-# 1981
-template< class ..._Args> 
-# 1982
-struct __expanded_common_type_wrapper< __failure_type, _Args...>  { 
-# 1983
-typedef __failure_type type; }; 
-# 1986
-template<> struct common_type< >  { 
-# 1987
-}; 
-# 1989
-template< class _Tp> 
-# 1990
-struct common_type< _Tp>  : public std::common_type< _Tp, _Tp>  { 
-# 1992
-}; 
-# 1994
-template< class _Tp, class _Up> 
-# 1995
-struct common_type< _Tp, _Up>  : public __common_type_impl< _Tp, _Up> ::type { 
-# 1997
-}; 
-# 1999
-template< class _Tp, class _Up, class ..._Vp> 
-# 2000
-struct common_type< _Tp, _Up, _Vp...>  : public __expanded_common_type_wrapper< typename __member_type_wrapper< std::common_type< _Tp, _Up> > ::type, _Vp...> ::type { 
-# 2003
-}; 
-# 2006
-template< class _Tp> 
-# 2007
-struct underlying_type { 
-# 2009
-typedef __underlying_type(_Tp) type; 
-# 2010
-}; 
-# 2012
-template< class _Tp> 
-# 2013
-struct __declval_protector { 
-# 2015
-static const bool __stop = false; 
-# 2016
-}; 
-# 2018
-template< class _Tp> auto 
-# 2019
-declval() noexcept->__decltype((__declval< _Tp> (0))) 
-# 2020
-{ 
-# 2021
-static_assert((__declval_protector< _Tp> ::__stop), "declval() must not be used!");
-# 2023
-return __declval< _Tp> (0); 
-# 2024
-} 
-# 2036 "/usr/include/c++/8/type_traits" 3
+# 1790
 template<> struct __make_unsigned< wchar_t>  { 
-# 2038
+# 1792
 using __type = __make_unsigned_selector< wchar_t, false, true> ::__type; 
-# 2040
+# 1794
 }; 
-# 2043
-template<> struct __make_signed< wchar_t>  { 
-# 2045
-using __type = __make_signed_selector< wchar_t, false, true> ::__type; 
-# 2047
-}; 
-# 2051
+# 1807 "/usr/include/c++/10/type_traits" 3
 template<> struct __make_unsigned< char16_t>  { 
-# 2053
+# 1809
 using __type = __make_unsigned_selector< char16_t, false, true> ::__type; 
+# 1811
+}; 
+# 1814
+template<> struct __make_unsigned< char32_t>  { 
+# 1816
+using __type = __make_unsigned_selector< char32_t, false, true> ::__type; 
+# 1818
+}; 
+# 1824
+template< class _Tp> 
+# 1825
+struct make_unsigned { 
+# 1826
+typedef typename __make_unsigned_selector< _Tp> ::__type type; }; 
+# 1830
+template<> struct make_unsigned< bool> ; 
+# 1834
+template< class _Tp> 
+# 1835
+struct __make_signed { 
+# 1836
+typedef _Tp __type; }; 
+# 1839
+template<> struct __make_signed< char>  { 
+# 1840
+typedef signed char __type; }; 
+# 1843
+template<> struct __make_signed< unsigned char>  { 
+# 1844
+typedef signed char __type; }; 
+# 1847
+template<> struct __make_signed< unsigned short>  { 
+# 1848
+typedef signed short __type; }; 
+# 1851
+template<> struct __make_signed< unsigned>  { 
+# 1852
+typedef signed int __type; }; 
+# 1855
+template<> struct __make_signed< unsigned long>  { 
+# 1856
+typedef signed long __type; }; 
+# 1859
+template<> struct __make_signed< unsigned long long>  { 
+# 1860
+typedef signed long long __type; }; 
+# 1864
+template<> struct __make_signed< unsigned __int128>  { 
+# 1865
+typedef __int128 __type; }; 
+# 1884 "/usr/include/c++/10/type_traits" 3
+template< class _Tp, bool 
+# 1885
+_IsInt = is_integral< _Tp> ::value, bool 
+# 1886
+_IsEnum = is_enum< _Tp> ::value> class __make_signed_selector; 
+# 1889
+template< class _Tp> 
+# 1890
+class __make_signed_selector< _Tp, true, false>  { 
+# 1892
+using __signed_type = typename __make_signed< __remove_cv_t< _Tp> > ::__type; 
+# 1896
+public: using __type = typename __match_cv_qualifiers< _Tp, __signed_type> ::__type; 
+# 1898
+}; 
+# 1901
+template< class _Tp> 
+# 1902
+class __make_signed_selector< _Tp, false, true>  { 
+# 1904
+typedef typename __make_unsigned_selector< _Tp> ::__type __unsigned_type; 
+# 1907
+public: typedef typename std::__make_signed_selector< __unsigned_type> ::__type __type; 
+# 1908
+}; 
+# 1916
+template<> struct __make_signed< wchar_t>  { 
+# 1918
+using __type = __make_signed_selector< wchar_t, false, true> ::__type; 
+# 1920
+}; 
+# 1933 "/usr/include/c++/10/type_traits" 3
+template<> struct __make_signed< char16_t>  { 
+# 1935
+using __type = __make_signed_selector< char16_t, false, true> ::__type; 
+# 1937
+}; 
+# 1940
+template<> struct __make_signed< char32_t>  { 
+# 1942
+using __type = __make_signed_selector< char32_t, false, true> ::__type; 
+# 1944
+}; 
+# 1950
+template< class _Tp> 
+# 1951
+struct make_signed { 
+# 1952
+typedef typename __make_signed_selector< _Tp> ::__type type; }; 
+# 1956
+template<> struct make_signed< bool> ; 
+# 1960
+template< class _Tp> using make_signed_t = typename make_signed< _Tp> ::type; 
+# 1964
+template< class _Tp> using make_unsigned_t = typename make_unsigned< _Tp> ::type; 
+# 1971
+template< class _Tp> 
+# 1972
+struct remove_extent { 
+# 1973
+typedef _Tp type; }; 
+# 1975
+template< class _Tp, size_t _Size> 
+# 1976
+struct remove_extent< _Tp [_Size]>  { 
+# 1977
+typedef _Tp type; }; 
+# 1979
+template< class _Tp> 
+# 1980
+struct remove_extent< _Tp []>  { 
+# 1981
+typedef _Tp type; }; 
+# 1984
+template< class _Tp> 
+# 1985
+struct remove_all_extents { 
+# 1986
+typedef _Tp type; }; 
+# 1988
+template< class _Tp, size_t _Size> 
+# 1989
+struct remove_all_extents< _Tp [_Size]>  { 
+# 1990
+typedef typename std::remove_all_extents< _Tp> ::type type; }; 
+# 1992
+template< class _Tp> 
+# 1993
+struct remove_all_extents< _Tp []>  { 
+# 1994
+typedef typename std::remove_all_extents< _Tp> ::type type; }; 
+# 1998
+template< class _Tp> using remove_extent_t = typename remove_extent< _Tp> ::type; 
+# 2002
+template< class _Tp> using remove_all_extents_t = typename remove_all_extents< _Tp> ::type; 
+# 2008
+template< class _Tp, class > 
+# 2009
+struct __remove_pointer_helper { 
+# 2010
+typedef _Tp type; }; 
+# 2012
+template< class _Tp, class _Up> 
+# 2013
+struct __remove_pointer_helper< _Tp, _Up *>  { 
+# 2014
+typedef _Up type; }; 
+# 2017
+template< class _Tp> 
+# 2018
+struct remove_pointer : public __remove_pointer_helper< _Tp, __remove_cv_t< _Tp> >  { 
+# 2020
+}; 
+# 2023
+template< class _Tp, bool  = __or_< __is_referenceable< _Tp> , is_void< _Tp> > ::value> 
+# 2025
+struct __add_pointer_helper { 
+# 2026
+typedef _Tp type; }; 
+# 2028
+template< class _Tp> 
+# 2029
+struct __add_pointer_helper< _Tp, true>  { 
+# 2030
+typedef typename remove_reference< _Tp> ::type *type; }; 
+# 2032
+template< class _Tp> 
+# 2033
+struct add_pointer : public __add_pointer_helper< _Tp>  { 
+# 2035
+}; 
+# 2039
+template< class _Tp> using remove_pointer_t = typename remove_pointer< _Tp> ::type; 
+# 2043
+template< class _Tp> using add_pointer_t = typename add_pointer< _Tp> ::type; 
+# 2047
+template< size_t _Len> 
+# 2048
+struct __aligned_storage_msa { 
+# 2050
+union __type { 
+# 2052
+unsigned char __data[_Len]; 
+# 2053
+struct __attribute((__aligned__)) { } __align; 
+# 2054
+}; 
 # 2055
 }; 
-# 2058
-template<> struct __make_signed< char16_t>  { 
-# 2060
-using __type = __make_signed_selector< char16_t, false, true> ::__type; 
-# 2062
-}; 
-# 2065
-template<> struct __make_unsigned< char32_t>  { 
-# 2067
-using __type = __make_unsigned_selector< char32_t, false, true> ::__type; 
+# 2067 "/usr/include/c++/10/type_traits" 3
+template< size_t _Len, size_t _Align = __alignof__(typename __aligned_storage_msa< _Len> ::__type)> 
 # 2069
-}; 
-# 2072
-template<> struct __make_signed< char32_t>  { 
+struct aligned_storage { 
+# 2071
+union type { 
+# 2073
+unsigned char __data[_Len]; 
 # 2074
-using __type = __make_signed_selector< char32_t, false, true> ::__type; 
+struct __attribute((__aligned__(_Align))) { } __align; 
+# 2075
+}; 
 # 2076
 }; 
-# 2080
-template< class _Signature> class result_of; 
-# 2087
-struct __invoke_memfun_ref { }; 
+# 2078
+template< class ..._Types> 
+# 2079
+struct __strictest_alignment { 
+# 2081
+static const size_t _S_alignment = (0); 
+# 2082
+static const size_t _S_size = (0); 
+# 2083
+}; 
+# 2085
+template< class _Tp, class ..._Types> 
+# 2086
+struct __strictest_alignment< _Tp, _Types...>  { 
 # 2088
-struct __invoke_memfun_deref { }; 
-# 2089
-struct __invoke_memobj_ref { }; 
-# 2090
-struct __invoke_memobj_deref { }; 
+static const size_t _S_alignment = ((__alignof__(_Tp) > __strictest_alignment< _Types...> ::_S_alignment) ? __alignof__(_Tp) : __strictest_alignment< _Types...> ::_S_alignment); 
 # 2091
-struct __invoke_other { }; 
+static const size_t _S_size = ((sizeof(_Tp) > __strictest_alignment< _Types...> ::_S_size) ? sizeof(_Tp) : __strictest_alignment< _Types...> ::_S_size); 
 # 2094
-template< class _Tp, class _Tag> 
-# 2095
-struct __result_of_success : public __success_type< _Tp>  { 
-# 2096
-using __invoke_type = _Tag; }; 
-# 2099
-struct __result_of_memfun_ref_impl { 
-# 2101
-template< class _Fp, class _Tp1, class ..._Args> static __result_of_success< __decltype(((std::declval< _Tp1> ().*std::declval< _Fp> ())(std::declval< _Args> ()...))), __invoke_memfun_ref>  _S_test(int); 
-# 2106
-template< class ...> static __failure_type _S_test(...); 
-# 2108
 }; 
+# 2106 "/usr/include/c++/10/type_traits" 3
+template< size_t _Len, class ..._Types> 
+# 2107
+struct aligned_union { 
 # 2110
-template< class _MemPtr, class _Arg, class ..._Args> 
-# 2111
-struct __result_of_memfun_ref : private __result_of_memfun_ref_impl { 
-# 2114
-typedef __decltype((_S_test< _MemPtr, _Arg, _Args...> (0))) type; 
-# 2115
-}; 
-# 2118
-struct __result_of_memfun_deref_impl { 
+static_assert((sizeof...(_Types) != (0)), "At least one type is required");
+# 2112
+private: using __strictest = __strictest_alignment< _Types...> ; 
+# 2113
+static const size_t _S_len = ((_Len > __strictest::_S_size) ? _Len : __strictest::_S_size); 
+# 2117
+public: static const size_t alignment_value = (__strictest::_S_alignment); 
+# 2119
+typedef typename aligned_storage< _S_len, alignment_value> ::type type; 
 # 2120
-template< class _Fp, class _Tp1, class ..._Args> static __result_of_success< __decltype((((*std::declval< _Tp1> ()).*std::declval< _Fp> ())(std::declval< _Args> ()...))), __invoke_memfun_deref>  _S_test(int); 
-# 2125
-template< class ...> static __failure_type _S_test(...); 
+}; 
+# 2122
+template< size_t _Len, class ..._Types> const size_t aligned_union< _Len, _Types...> ::alignment_value; 
 # 2127
-}; 
+template< class _Up, bool 
+# 2128
+_IsArray = is_array< _Up> ::value, bool 
 # 2129
-template< class _MemPtr, class _Arg, class ..._Args> 
-# 2130
-struct __result_of_memfun_deref : private __result_of_memfun_deref_impl { 
+_IsFunction = is_function< _Up> ::value> struct __decay_selector; 
 # 2133
-typedef __decltype((_S_test< _MemPtr, _Arg, _Args...> (0))) type; 
+template< class _Up> 
 # 2134
-}; 
+struct __decay_selector< _Up, false, false>  { 
+# 2135
+typedef __remove_cv_t< _Up>  __type; }; 
 # 2137
-struct __result_of_memobj_ref_impl { 
+template< class _Up> 
+# 2138
+struct __decay_selector< _Up, true, false>  { 
 # 2139
-template< class _Fp, class _Tp1> static __result_of_success< __decltype((std::declval< _Tp1> ().*std::declval< _Fp> ())), __invoke_memobj_ref>  _S_test(int); 
-# 2144
-template< class , class > static __failure_type _S_test(...); 
+typedef typename remove_extent< _Up> ::type *__type; }; 
+# 2141
+template< class _Up> 
+# 2142
+struct __decay_selector< _Up, false, true>  { 
+# 2143
+typedef typename add_pointer< _Up> ::type __type; }; 
 # 2146
-}; 
-# 2148
-template< class _MemPtr, class _Arg> 
+template< class _Tp> 
+# 2147
+class decay { 
 # 2149
-struct __result_of_memobj_ref : private __result_of_memobj_ref_impl { 
+typedef typename remove_reference< _Tp> ::type __remove_type; 
 # 2152
-typedef __decltype((_S_test< _MemPtr, _Arg> (0))) type; 
+public: typedef typename __decay_selector< __remove_type> ::__type type; 
 # 2153
 }; 
 # 2156
-struct __result_of_memobj_deref_impl { 
-# 2158
-template< class _Fp, class _Tp1> static __result_of_success< __decltype(((*std::declval< _Tp1> ()).*std::declval< _Fp> ())), __invoke_memobj_deref>  _S_test(int); 
+template< class _Tp> using __decay_t = typename decay< _Tp> ::type; 
+# 2159
+template< class _Tp> class reference_wrapper; 
 # 2163
-template< class , class > static __failure_type _S_test(...); 
-# 2165
-}; 
+template< class _Tp> 
+# 2164
+struct __strip_reference_wrapper { 
+# 2166
+typedef _Tp __type; 
 # 2167
-template< class _MemPtr, class _Arg> 
-# 2168
-struct __result_of_memobj_deref : private __result_of_memobj_deref_impl { 
-# 2171
-typedef __decltype((_S_test< _MemPtr, _Arg> (0))) type; 
+}; 
+# 2169
+template< class _Tp> 
+# 2170
+struct __strip_reference_wrapper< reference_wrapper< _Tp> >  { 
 # 2172
+typedef _Tp &__type; 
+# 2173
 }; 
-# 2174
-template< class _MemPtr, class _Arg> struct __result_of_memobj; 
-# 2177
-template< class _Res, class _Class, class _Arg> 
-# 2178
-struct __result_of_memobj< _Res (_Class::*), _Arg>  { 
+# 2175
+template< class _Tp> using __decay_and_strip = __strip_reference_wrapper< __decay_t< _Tp> > ; 
 # 2181
-typedef typename remove_cv< typename remove_reference< _Arg> ::type> ::type _Argval; 
+template< bool , class _Tp = void> 
 # 2182
-typedef _Res (_Class::*_MemPtr); 
+struct enable_if { 
+# 2183
+}; 
+# 2186
+template< class _Tp> 
 # 2187
-typedef typename conditional< __or_< is_same< _Argval, _Class> , is_base_of< _Class, _Argval> > ::value, __result_of_memobj_ref< _MemPtr, _Arg> , __result_of_memobj_deref< _MemPtr, _Arg> > ::type::type type; 
+struct enable_if< true, _Tp>  { 
 # 2188
-}; 
-# 2190
-template< class _MemPtr, class _Arg, class ..._Args> struct __result_of_memfun; 
-# 2193
-template< class _Res, class _Class, class _Arg, class ..._Args> 
+typedef _Tp type; }; 
+# 2191
+template< bool _Cond, class _Tp = void> using __enable_if_t = typename enable_if< _Cond, _Tp> ::type; 
 # 2194
-struct __result_of_memfun< _Res (_Class::*), _Arg, _Args...>  { 
-# 2197
-typedef typename remove_cv< typename remove_reference< _Arg> ::type> ::type _Argval; 
-# 2198
-typedef _Res (_Class::*_MemPtr); 
-# 2203
-typedef typename conditional< __or_< is_same< _Argval, _Class> , is_base_of< _Class, _Argval> > ::value, __result_of_memfun_ref< _MemPtr, _Arg, _Args...> , __result_of_memfun_deref< _MemPtr, _Arg, _Args...> > ::type::type type; 
+template< class ..._Cond> using _Require = __enable_if_t< __and_< _Cond...> ::value> ; 
+# 2199
+template< bool _Cond, class _Iftrue, class _Iffalse> 
+# 2200
+struct conditional { 
+# 2201
+typedef _Iftrue type; }; 
 # 2204
-}; 
-# 2211
-template< class _Tp, class _Up = typename decay< _Tp> ::type> 
-# 2212
-struct __inv_unwrap { 
+template< class _Iftrue, class _Iffalse> 
+# 2205
+struct conditional< false, _Iftrue, _Iffalse>  { 
+# 2206
+typedef _Iffalse type; }; 
+# 2209
+template< class _Tp> using __remove_cvref_t = typename remove_cv< typename remove_reference< _Tp> ::type> ::type; 
 # 2214
-using type = _Tp; 
-# 2215
-}; 
-# 2217
-template< class _Tp, class _Up> 
-# 2218
-struct __inv_unwrap< _Tp, reference_wrapper< _Up> >  { 
-# 2220
-using type = _Up &; 
+template< class ..._Tp> struct common_type; 
+# 2219
+struct __do_common_type_impl { 
 # 2221
-}; 
-# 2223
-template< bool , bool , class _Functor, class ..._ArgTypes> 
-# 2224
-struct __result_of_impl { 
-# 2226
-typedef __failure_type type; 
+template< class _Tp, class _Up> using __cond_t = __decltype((true ? std::declval< _Tp> () : std::declval< _Up> ())); 
 # 2227
+template< class _Tp, class _Up> static __success_type< __decay_t< __cond_t< _Tp, _Up> > >  _S_test(int); 
+# 2239 "/usr/include/c++/10/type_traits" 3
+template< class , class > static __failure_type _S_test_2(...); 
+# 2243
+template< class _Tp, class _Up> static __decltype((_S_test_2< _Tp, _Up> (0))) _S_test(...); 
+# 2246
 }; 
-# 2229
-template< class _MemPtr, class _Arg> 
-# 2230
-struct __result_of_impl< true, false, _MemPtr, _Arg>  : public __result_of_memobj< typename decay< _MemPtr> ::type, typename __inv_unwrap< _Arg> ::type>  { 
-# 2233
-}; 
-# 2235
-template< class _MemPtr, class _Arg, class ..._Args> 
-# 2236
-struct __result_of_impl< false, true, _MemPtr, _Arg, _Args...>  : public __result_of_memfun< typename decay< _MemPtr> ::type, typename __inv_unwrap< _Arg> ::type, _Args...>  { 
-# 2239
-}; 
-# 2242
-struct __result_of_other_impl { 
-# 2244
-template< class _Fn, class ..._Args> static __result_of_success< __decltype((std::declval< _Fn> ()(std::declval< _Args> ()...))), __invoke_other>  _S_test(int); 
-# 2249
-template< class ...> static __failure_type _S_test(...); 
+# 2250
+template<> struct common_type< >  { 
 # 2251
 }; 
-# 2253
-template< class _Functor, class ..._ArgTypes> 
 # 2254
-struct __result_of_impl< false, false, _Functor, _ArgTypes...>  : private __result_of_other_impl { 
+template< class _Tp0> 
+# 2255
+struct common_type< _Tp0>  : public std::common_type< _Tp0, _Tp0>  { 
 # 2257
-typedef __decltype((_S_test< _Functor, _ArgTypes...> (0))) type; 
-# 2258
 }; 
+# 2260
+template< class _Tp1, class _Tp2, class 
 # 2261
-template< class _Functor, class ..._ArgTypes> 
+_Dp1 = __decay_t< _Tp1> , class _Dp2 = __decay_t< _Tp2> > 
 # 2262
-struct __invoke_result : public __result_of_impl< is_member_object_pointer< typename remove_reference< _Functor> ::type> ::value, is_member_function_pointer< typename remove_reference< _Functor> ::type> ::value, _Functor, _ArgTypes...> ::type { 
-# 2272
+struct __common_type_impl { 
+# 2266
+using type = common_type< _Dp1, _Dp2> ; 
+# 2267
 }; 
-# 2274
-template< class _Functor, class ..._ArgTypes> 
+# 2269
+template< class _Tp1, class _Tp2> 
+# 2270
+struct __common_type_impl< _Tp1, _Tp2, _Tp1, _Tp2>  : private __do_common_type_impl { 
 # 2275
-struct result_of< _Functor (_ArgTypes ...)>  : public __invoke_result< _Functor, _ArgTypes...>  { 
-# 2277
+using type = __decltype((_S_test< _Tp1, _Tp2> (0))); 
+# 2276
 }; 
-# 2281
-template< size_t _Len, size_t _Align = __alignof__(typename __aligned_storage_msa< _Len> ::__type)> using aligned_storage_t = typename aligned_storage< _Len, _Align> ::type; 
+# 2279
+template< class _Tp1, class _Tp2> 
+# 2280
+struct common_type< _Tp1, _Tp2>  : public __common_type_impl< _Tp1, _Tp2> ::type { 
+# 2282
+}; 
+# 2284
+template< class ...> 
 # 2285
-template< size_t _Len, class ..._Types> using aligned_union_t = typename aligned_union< _Len, _Types...> ::type; 
-# 2289
-template< class _Tp> using decay_t = typename decay< _Tp> ::type; 
+struct __common_type_pack { 
+# 2286
+}; 
+# 2288
+template< class , class , class  = void> struct __common_type_fold; 
+# 2292
+template< class _Tp1, class _Tp2, class ..._Rp> 
 # 2293
-template< bool _Cond, class _Tp = void> using enable_if_t = typename enable_if< _Cond, _Tp> ::type; 
-# 2297
-template< bool _Cond, class _Iftrue, class _Iffalse> using conditional_t = typename conditional< _Cond, _Iftrue, _Iffalse> ::type; 
+struct common_type< _Tp1, _Tp2, _Rp...>  : public __common_type_fold< std::common_type< _Tp1, _Tp2> , __common_type_pack< _Rp...> >  { 
+# 2296
+}; 
 # 2301
-template< class ..._Tp> using common_type_t = typename common_type< _Tp...> ::type; 
+template< class _CTp, class ..._Rp> 
+# 2302
+struct __common_type_fold< _CTp, __common_type_pack< _Rp...> , __void_t< typename _CTp::type> >  : public common_type< typename _CTp::type, _Rp...>  { 
 # 2305
-template< class _Tp> using underlying_type_t = typename underlying_type< _Tp> ::type; 
+}; 
+# 2308
+template< class _CTp, class _Rp> 
 # 2309
-template< class _Tp> using result_of_t = typename result_of< _Tp> ::type; 
-# 2314
-template< bool _Cond, class _Tp = void> using __enable_if_t = typename enable_if< _Cond, _Tp> ::type; 
+struct __common_type_fold< _CTp, _Rp, void>  { 
+# 2310
+}; 
+# 2312
+template< class _Tp, bool  = is_enum< _Tp> ::value> 
+# 2313
+struct __underlying_type_impl { 
+# 2315
+using type = __underlying_type(_Tp); 
+# 2316
+}; 
 # 2318
-template< class ...> using __void_t = void; 
+template< class _Tp> 
+# 2319
+struct __underlying_type_impl< _Tp, false>  { 
+# 2320
+}; 
 # 2323
-template< class ...> using void_t = void; 
-# 2327
-template< class _Default, class _AlwaysVoid, 
+template< class _Tp> 
+# 2324
+struct underlying_type : public __underlying_type_impl< _Tp>  { 
+# 2326
+}; 
 # 2328
-template< class ...>  class _Op, class ..._Args> 
+template< class _Tp> 
 # 2329
-struct __detector { 
+struct __declval_protector { 
 # 2331
-using value_t = false_type; 
+static const bool __stop = false; 
 # 2332
-using type = _Default; 
-# 2333
 }; 
+# 2334
+template< class _Tp> auto 
+# 2335
+declval() noexcept->__decltype((__declval< _Tp> (0))) 
 # 2336
-template< class _Default, template< class ...>  class _Op, class ...
+{ 
 # 2337
-_Args> 
-# 2338
-struct __detector< _Default, __void_t< _Op< _Args...> > , _Op, _Args...>  { 
+static_assert((__declval_protector< _Tp> ::__stop), "declval() must not be used!");
+# 2339
+return __declval< _Tp> (0); 
 # 2340
-using value_t = true_type; 
-# 2341
-using type = _Op< _Args...> ; 
-# 2342
-}; 
-# 2345
-template< class _Default, template< class ...>  class _Op, class ...
-# 2346
-_Args> using __detected_or = __detector< _Default, void, _Op, _Args...> ; 
+} 
+# 2343
+template< class _Signature> class result_of; 
 # 2350
-template< class _Default, template< class ...>  class _Op, class ...
+struct __invoke_memfun_ref { }; 
 # 2351
-_Args> using __detected_or_t = typename __detected_or< _Default, _Op, _Args...> ::type; 
-# 2371 "/usr/include/c++/8/type_traits" 3
-template< class _Tp> struct __is_swappable; 
+struct __invoke_memfun_deref { }; 
+# 2352
+struct __invoke_memobj_ref { }; 
+# 2353
+struct __invoke_memobj_deref { }; 
+# 2354
+struct __invoke_other { }; 
+# 2357
+template< class _Tp, class _Tag> 
+# 2358
+struct __result_of_success : public __success_type< _Tp>  { 
+# 2359
+using __invoke_type = _Tag; }; 
+# 2362
+struct __result_of_memfun_ref_impl { 
+# 2364
+template< class _Fp, class _Tp1, class ..._Args> static __result_of_success< __decltype(((std::declval< _Tp1> ().*std::declval< _Fp> ())(std::declval< _Args> ()...))), __invoke_memfun_ref>  _S_test(int); 
+# 2369
+template< class ...> static __failure_type _S_test(...); 
+# 2371
+}; 
+# 2373
+template< class _MemPtr, class _Arg, class ..._Args> 
 # 2374
-template< class _Tp> struct __is_nothrow_swappable; 
+struct __result_of_memfun_ref : private __result_of_memfun_ref_impl { 
 # 2377
-template< class ..._Elements> class tuple; 
-# 2380
-template< class > 
+typedef __decltype((_S_test< _MemPtr, _Arg, _Args...> (0))) type; 
+# 2378
+}; 
 # 2381
-struct __is_tuple_like_impl : public false_type { 
-# 2382
-}; 
-# 2384
-template< class ..._Tps> 
-# 2385
-struct __is_tuple_like_impl< tuple< _Tps...> >  : public true_type { 
-# 2386
-}; 
-# 2389
-template< class _Tp> 
+struct __result_of_memfun_deref_impl { 
+# 2383
+template< class _Fp, class _Tp1, class ..._Args> static __result_of_success< __decltype((((*std::declval< _Tp1> ()).*std::declval< _Fp> ())(std::declval< _Args> ()...))), __invoke_memfun_deref>  _S_test(int); 
+# 2388
+template< class ...> static __failure_type _S_test(...); 
 # 2390
-struct __is_tuple_like : public __is_tuple_like_impl< typename remove_cv< typename remove_reference< _Tp> ::type> ::type> ::type { 
+}; 
+# 2392
+template< class _MemPtr, class _Arg, class ..._Args> 
 # 2393
+struct __result_of_memfun_deref : private __result_of_memfun_deref_impl { 
+# 2396
+typedef __decltype((_S_test< _MemPtr, _Arg, _Args...> (0))) type; 
+# 2397
 }; 
-# 2395
-template< class _Tp> inline typename enable_if< __and_< __not_< __is_tuple_like< _Tp> > , is_move_constructible< _Tp> , is_move_assignable< _Tp> > ::value> ::type swap(_Tp &, _Tp &) noexcept(__and_< is_nothrow_move_constructible< _Tp> , is_nothrow_move_assignable< _Tp> > ::value); 
-# 2404
-template< class _Tp, size_t _Nm> inline typename enable_if< __is_swappable< _Tp> ::value> ::type swap(_Tp (& __a)[_Nm], _Tp (& __b)[_Nm]) noexcept(__is_nothrow_swappable< _Tp> ::value); 
-# 2410
-namespace __swappable_details { 
+# 2400
+struct __result_of_memobj_ref_impl { 
+# 2402
+template< class _Fp, class _Tp1> static __result_of_success< __decltype((std::declval< _Tp1> ().*std::declval< _Fp> ())), __invoke_memobj_ref>  _S_test(int); 
+# 2407
+template< class , class > static __failure_type _S_test(...); 
+# 2409
+}; 
 # 2411
-using std::swap;
-# 2413
-struct __do_is_swappable_impl { 
+template< class _MemPtr, class _Arg> 
+# 2412
+struct __result_of_memobj_ref : private __result_of_memobj_ref_impl { 
 # 2415
-template< class _Tp, class 
+typedef __decltype((_S_test< _MemPtr, _Arg> (0))) type; 
 # 2416
- = __decltype((swap(std::declval< _Tp &> (), std::declval< _Tp &> ())))> static true_type 
-# 2415
-__test(int); 
+}; 
 # 2419
-template< class > static false_type __test(...); 
+struct __result_of_memobj_deref_impl { 
 # 2421
+template< class _Fp, class _Tp1> static __result_of_success< __decltype(((*std::declval< _Tp1> ()).*std::declval< _Fp> ())), __invoke_memobj_deref>  _S_test(int); 
+# 2426
+template< class , class > static __failure_type _S_test(...); 
+# 2428
 }; 
-# 2423
-struct __do_is_nothrow_swappable_impl { 
-# 2425
-template< class _Tp> static __bool_constant< noexcept(swap(std::declval< _Tp &> (), std::declval< _Tp &> ()))>  __test(int); 
 # 2430
-template< class > static false_type __test(...); 
-# 2432
-}; 
+template< class _MemPtr, class _Arg> 
+# 2431
+struct __result_of_memobj_deref : private __result_of_memobj_deref_impl { 
 # 2434
-}
-# 2436
-template< class _Tp> 
+typedef __decltype((_S_test< _MemPtr, _Arg> (0))) type; 
+# 2435
+}; 
 # 2437
-struct __is_swappable_impl : public __swappable_details::__do_is_swappable_impl { 
+template< class _MemPtr, class _Arg> struct __result_of_memobj; 
 # 2440
-typedef __decltype((__test< _Tp> (0))) type; 
+template< class _Res, class _Class, class _Arg> 
 # 2441
-}; 
+struct __result_of_memobj< _Res (_Class::*), _Arg>  { 
 # 2443
-template< class _Tp> 
+typedef __remove_cvref_t< _Arg>  _Argval; 
 # 2444
-struct __is_nothrow_swappable_impl : public __swappable_details::__do_is_nothrow_swappable_impl { 
-# 2447
-typedef __decltype((__test< _Tp> (0))) type; 
-# 2448
-}; 
+typedef _Res (_Class::*_MemPtr); 
+# 2449
+typedef typename conditional< __or_< is_same< _Argval, _Class> , is_base_of< _Class, _Argval> > ::value, __result_of_memobj_ref< _MemPtr, _Arg> , __result_of_memobj_deref< _MemPtr, _Arg> > ::type::type type; 
 # 2450
-template< class _Tp> 
-# 2451
-struct __is_swappable : public __is_swappable_impl< _Tp> ::type { 
-# 2453
 }; 
+# 2452
+template< class _MemPtr, class _Arg, class ..._Args> struct __result_of_memfun; 
 # 2455
-template< class _Tp> 
+template< class _Res, class _Class, class _Arg, class ..._Args> 
 # 2456
-struct __is_nothrow_swappable : public __is_nothrow_swappable_impl< _Tp> ::type { 
+struct __result_of_memfun< _Res (_Class::*), _Arg, _Args...>  { 
 # 2458
-}; 
-# 2465
-template< class _Tp> 
-# 2466
-struct is_swappable : public __is_swappable_impl< _Tp> ::type { 
-# 2468
+typedef typename remove_reference< _Arg> ::type _Argval; 
+# 2459
+typedef _Res (_Class::*_MemPtr); 
+# 2463
+typedef typename conditional< is_base_of< _Class, _Argval> ::value, __result_of_memfun_ref< _MemPtr, _Arg, _Args...> , __result_of_memfun_deref< _MemPtr, _Arg, _Args...> > ::type::type type; 
+# 2464
 }; 
 # 2471
-template< class _Tp> 
+template< class _Tp, class _Up = __remove_cvref_t< _Tp> > 
 # 2472
-struct is_nothrow_swappable : public __is_nothrow_swappable_impl< _Tp> ::type { 
+struct __inv_unwrap { 
 # 2474
+using type = _Tp; 
+# 2475
 }; 
+# 2477
+template< class _Tp, class _Up> 
 # 2478
-template< class _Tp> constexpr bool 
-# 2479
-is_swappable_v = (is_swappable< _Tp> ::value); 
+struct __inv_unwrap< _Tp, reference_wrapper< _Up> >  { 
+# 2480
+using type = _Up &; 
+# 2481
+}; 
 # 2483
-template< class _Tp> constexpr bool 
+template< bool , bool , class _Functor, class ..._ArgTypes> 
 # 2484
-is_nothrow_swappable_v = (is_nothrow_swappable< _Tp> ::value); 
-# 2488
-namespace __swappable_with_details { 
+struct __result_of_impl { 
+# 2486
+typedef __failure_type type; 
+# 2487
+}; 
 # 2489
-using std::swap;
-# 2491
-struct __do_is_swappable_with_impl { 
+template< class _MemPtr, class _Arg> 
+# 2490
+struct __result_of_impl< true, false, _MemPtr, _Arg>  : public __result_of_memobj< __decay_t< _MemPtr> , typename __inv_unwrap< _Arg> ::type>  { 
 # 2493
-template< class _Tp, class _Up, class 
-# 2494
- = __decltype((swap(std::declval< _Tp> (), std::declval< _Up> ()))), class 
+}; 
+# 2495
+template< class _MemPtr, class _Arg, class ..._Args> 
 # 2496
- = __decltype((swap(std::declval< _Up> (), std::declval< _Tp> ())))> static true_type 
-# 2493
-__test(int); 
+struct __result_of_impl< false, true, _MemPtr, _Arg, _Args...>  : public __result_of_memfun< __decay_t< _MemPtr> , typename __inv_unwrap< _Arg> ::type, _Args...>  { 
 # 2499
-template< class , class > static false_type __test(...); 
-# 2501
 }; 
-# 2503
-struct __do_is_nothrow_swappable_with_impl { 
-# 2505
-template< class _Tp, class _Up> static __bool_constant< noexcept(swap(std::declval< _Tp> (), std::declval< _Up> ())) && noexcept(swap(std::declval< _Up> (), std::declval< _Tp> ()))>  __test(int); 
-# 2512
-template< class , class > static false_type __test(...); 
+# 2502
+struct __result_of_other_impl { 
+# 2504
+template< class _Fn, class ..._Args> static __result_of_success< __decltype((std::declval< _Fn> ()(std::declval< _Args> ()...))), __invoke_other>  _S_test(int); 
+# 2509
+template< class ...> static __failure_type _S_test(...); 
+# 2511
+}; 
+# 2513
+template< class _Functor, class ..._ArgTypes> 
 # 2514
-}; 
-# 2516
-}
+struct __result_of_impl< false, false, _Functor, _ArgTypes...>  : private __result_of_other_impl { 
+# 2517
+typedef __decltype((_S_test< _Functor, _ArgTypes...> (0))) type; 
 # 2518
-template< class _Tp, class _Up> 
-# 2519
-struct __is_swappable_with_impl : public __swappable_with_details::__do_is_swappable_with_impl { 
+}; 
+# 2521
+template< class _Functor, class ..._ArgTypes> 
 # 2522
-typedef __decltype((__test< _Tp, _Up> (0))) type; 
-# 2523
+struct __invoke_result : public __result_of_impl< is_member_object_pointer< typename remove_reference< _Functor> ::type> ::value, is_member_function_pointer< typename remove_reference< _Functor> ::type> ::value, _Functor, _ArgTypes...> ::type { 
+# 2532
 }; 
-# 2526
-template< class _Tp> 
-# 2527
-struct __is_swappable_with_impl< _Tp &, _Tp &>  : public __swappable_details::__do_is_swappable_impl { 
-# 2530
-typedef __decltype((__test< _Tp &> (0))) type; 
-# 2531
-}; 
-# 2533
-template< class _Tp, class _Up> 
 # 2534
-struct __is_nothrow_swappable_with_impl : public __swappable_with_details::__do_is_nothrow_swappable_with_impl { 
+template< class _Functor, class ..._ArgTypes> 
+# 2535
+struct result_of< _Functor (_ArgTypes ...)>  : public __invoke_result< _Functor, _ArgTypes...>  { 
 # 2537
-typedef __decltype((__test< _Tp, _Up> (0))) type; 
-# 2538
 }; 
 # 2541
-template< class _Tp> 
-# 2542
-struct __is_nothrow_swappable_with_impl< _Tp &, _Tp &>  : public __swappable_details::__do_is_nothrow_swappable_impl { 
+template< size_t _Len, size_t _Align = __alignof__(typename __aligned_storage_msa< _Len> ::__type)> using aligned_storage_t = typename aligned_storage< _Len, _Align> ::type; 
 # 2545
-typedef __decltype((__test< _Tp &> (0))) type; 
-# 2546
-}; 
+template< size_t _Len, class ..._Types> using aligned_union_t = typename aligned_union< _Len, _Types...> ::type; 
 # 2549
-template< class _Tp, class _Up> 
-# 2550
-struct is_swappable_with : public __is_swappable_with_impl< _Tp, _Up> ::type { 
-# 2552
-}; 
-# 2555
-template< class _Tp, class _Up> 
-# 2556
-struct is_nothrow_swappable_with : public __is_nothrow_swappable_with_impl< _Tp, _Up> ::type { 
-# 2558
-}; 
-# 2562
-template< class _Tp, class _Up> constexpr bool 
-# 2563
-is_swappable_with_v = (is_swappable_with< _Tp, _Up> ::value); 
-# 2567
-template< class _Tp, class _Up> constexpr bool 
-# 2568
-is_nothrow_swappable_with_v = (is_nothrow_swappable_with< _Tp, _Up> ::value); 
+template< class _Tp> using decay_t = typename decay< _Tp> ::type; 
+# 2553
+template< bool _Cond, class _Tp = void> using enable_if_t = typename enable_if< _Cond, _Tp> ::type; 
+# 2557
+template< bool _Cond, class _Iftrue, class _Iffalse> using conditional_t = typename conditional< _Cond, _Iftrue, _Iffalse> ::type; 
+# 2561
+template< class ..._Tp> using common_type_t = typename common_type< _Tp...> ::type; 
+# 2565
+template< class _Tp> using underlying_type_t = typename underlying_type< _Tp> ::type; 
+# 2569
+template< class _Tp> using result_of_t = typename result_of< _Tp> ::type; 
 # 2576
-template< class _Result, class _Ret, class  = void> 
-# 2577
-struct __is_invocable_impl : public false_type { }; 
-# 2579
-template< class _Result, class _Ret> 
+template< class ...> using void_t = void; 
 # 2580
-struct __is_invocable_impl< _Result, _Ret, __void_t< typename _Result::type> >  : public __or_< is_void< _Ret> , is_convertible< typename _Result::type, _Ret> > ::type { 
+template< class _Default, class _AlwaysVoid, 
+# 2581
+template< class ...>  class _Op, class ..._Args> 
 # 2582
-}; 
+struct __detector { 
 # 2584
-template< class _Fn, class ..._ArgTypes> 
+using value_t = false_type; 
 # 2585
-struct __is_invocable : public __is_invocable_impl< __invoke_result< _Fn, _ArgTypes...> , void> ::type { 
-# 2587
+using type = _Default; 
+# 2586
 }; 
 # 2589
-template< class _Fn, class _Tp, class ..._Args> constexpr bool 
+template< class _Default, template< class ...>  class _Op, class ...
 # 2590
-__call_is_nt(__invoke_memfun_ref) 
+_Args> 
 # 2591
-{ 
-# 2592
-using _Up = typename __inv_unwrap< _Tp> ::type; 
+struct __detector< _Default, __void_t< _Op< _Args...> > , _Op, _Args...>  { 
 # 2593
-return noexcept((std::declval< typename __inv_unwrap< _Tp> ::type> ().*std::declval< _Fn> ())(std::declval< _Args> ()...)); 
+using value_t = true_type; 
+# 2594
+using type = _Op< _Args...> ; 
 # 2595
-} 
-# 2597
-template< class _Fn, class _Tp, class ..._Args> constexpr bool 
-# 2598
-__call_is_nt(__invoke_memfun_deref) 
-# 2599
-{ 
-# 2600
-return noexcept(((*std::declval< _Tp> ()).*std::declval< _Fn> ())(std::declval< _Args> ()...)); 
-# 2602
-} 
-# 2604
-template< class _Fn, class _Tp> constexpr bool 
-# 2605
-__call_is_nt(__invoke_memobj_ref) 
-# 2606
-{ 
-# 2607
-using _Up = typename __inv_unwrap< _Tp> ::type; 
-# 2608
-return noexcept((std::declval< typename __inv_unwrap< _Tp> ::type> ().*std::declval< _Fn> ())); 
-# 2609
-} 
-# 2611
-template< class _Fn, class _Tp> constexpr bool 
-# 2612
-__call_is_nt(__invoke_memobj_deref) 
-# 2613
-{ 
-# 2614
-return noexcept(((*std::declval< _Tp> ()).*std::declval< _Fn> ())); 
-# 2615
-} 
-# 2617
-template< class _Fn, class ..._Args> constexpr bool 
-# 2618
-__call_is_nt(__invoke_other) 
-# 2619
-{ 
-# 2620
-return noexcept(std::declval< _Fn> ()(std::declval< _Args> ()...)); 
-# 2621
-} 
-# 2623
-template< class _Result, class _Fn, class ..._Args> 
-# 2624
-struct __call_is_nothrow : public __bool_constant< std::__call_is_nt< _Fn, _Args...> (typename _Result::__invoke_type{})>  { 
-# 2628
 }; 
+# 2598
+template< class _Default, template< class ...>  class _Op, class ...
+# 2599
+_Args> using __detected_or = __detector< _Default, void, _Op, _Args...> ; 
+# 2603
+template< class _Default, template< class ...>  class _Op, class ...
+# 2604
+_Args> using __detected_or_t = typename __detected_or< _Default, _Op, _Args...> ::type; 
+# 2624 "/usr/include/c++/10/type_traits" 3
+template< class _Tp> struct __is_swappable; 
+# 2627
+template< class _Tp> struct __is_nothrow_swappable; 
 # 2630
-template< class _Fn, class ..._Args> using __call_is_nothrow_ = __call_is_nothrow< __invoke_result< _Fn, _Args...> , _Fn, _Args...> ; 
+template< class ..._Elements> class tuple; 
+# 2633
+template< class > 
+# 2634
+struct __is_tuple_like_impl : public false_type { 
 # 2635
-template< class _Fn, class ..._Args> 
-# 2636
-struct __is_nothrow_invocable : public __and_< __is_invocable< _Fn, _Args...> , __call_is_nothrow_< _Fn, _Args...> > ::type { 
+}; 
+# 2637
+template< class ..._Tps> 
+# 2638
+struct __is_tuple_like_impl< tuple< _Tps...> >  : public true_type { 
 # 2639
 }; 
-# 2641
-struct __nonesuch { 
 # 2642
-__nonesuch() = delete;
-# 2643
-~__nonesuch() = delete;
-# 2644
-__nonesuch(const __nonesuch &) = delete;
-# 2645
-void operator=(const __nonesuch &) = delete;
-# 2646
-}; 
-# 2937 "/usr/include/c++/8/type_traits" 3
-}
-# 57 "/usr/include/c++/8/bits/move.h" 3
-namespace std __attribute((__visibility__("default"))) { 
-# 72 "/usr/include/c++/8/bits/move.h" 3
-template< class _Tp> constexpr _Tp &&
-# 74
-forward(typename remove_reference< _Tp> ::type &__t) noexcept 
-# 75
-{ return static_cast< _Tp &&>(__t); } 
-# 83
-template< class _Tp> constexpr _Tp &&
-# 85
-forward(typename remove_reference< _Tp> ::type &&__t) noexcept 
-# 86
-{ 
-# 87
-static_assert((!std::template is_lvalue_reference< _Tp> ::value), "template argument substituting _Tp is an lvalue reference type");
-# 89
-return static_cast< _Tp &&>(__t); 
-# 90
-} 
-# 97
-template< class _Tp> constexpr typename remove_reference< _Tp> ::type &&
-# 99
-move(_Tp &&__t) noexcept 
-# 100
-{ return static_cast< typename remove_reference< _Tp> ::type &&>(__t); } 
-# 103
 template< class _Tp> 
-# 104
-struct __move_if_noexcept_cond : public __and_< __not_< is_nothrow_move_constructible< _Tp> > , is_copy_constructible< _Tp> > ::type { 
-# 106
+# 2643
+struct __is_tuple_like : public __is_tuple_like_impl< __remove_cvref_t< _Tp> > ::type { 
+# 2645
 }; 
-# 116 "/usr/include/c++/8/bits/move.h" 3
+# 2647
+template< class _Tp> inline _Require< __not_< __is_tuple_like< _Tp> > , is_move_constructible< _Tp> , is_move_assignable< _Tp> >  swap(_Tp &, _Tp &) noexcept(__and_< is_nothrow_move_constructible< _Tp> , is_nothrow_move_assignable< _Tp> > ::value); 
+# 2657
+template< class _Tp, size_t _Nm> inline __enable_if_t< __is_swappable< _Tp> ::value>  swap(_Tp (& __a)[_Nm], _Tp (& __b)[_Nm]) noexcept(__is_nothrow_swappable< _Tp> ::value); 
+# 2664
+namespace __swappable_details { 
+# 2665
+using std::swap;
+# 2667
+struct __do_is_swappable_impl { 
+# 2669
+template< class _Tp, class 
+# 2670
+ = __decltype((swap(std::declval< _Tp &> (), std::declval< _Tp &> ())))> static true_type 
+# 2669
+__test(int); 
+# 2673
+template< class > static false_type __test(...); 
+# 2675
+}; 
+# 2677
+struct __do_is_nothrow_swappable_impl { 
+# 2679
+template< class _Tp> static __bool_constant< noexcept(swap(std::declval< _Tp &> (), std::declval< _Tp &> ()))>  __test(int); 
+# 2684
+template< class > static false_type __test(...); 
+# 2686
+}; 
+# 2688
+}
+# 2690
+template< class _Tp> 
+# 2691
+struct __is_swappable_impl : public __swappable_details::__do_is_swappable_impl { 
+# 2694
+typedef __decltype((__test< _Tp> (0))) type; 
+# 2695
+}; 
+# 2697
+template< class _Tp> 
+# 2698
+struct __is_nothrow_swappable_impl : public __swappable_details::__do_is_nothrow_swappable_impl { 
+# 2701
+typedef __decltype((__test< _Tp> (0))) type; 
+# 2702
+}; 
+# 2704
+template< class _Tp> 
+# 2705
+struct __is_swappable : public __is_swappable_impl< _Tp> ::type { 
+# 2707
+}; 
+# 2709
+template< class _Tp> 
+# 2710
+struct __is_nothrow_swappable : public __is_nothrow_swappable_impl< _Tp> ::type { 
+# 2712
+}; 
+# 2719
+template< class _Tp> 
+# 2720
+struct is_swappable : public __is_swappable_impl< _Tp> ::type { 
+# 2723
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 2725
+}; 
+# 2728
+template< class _Tp> 
+# 2729
+struct is_nothrow_swappable : public __is_nothrow_swappable_impl< _Tp> ::type { 
+# 2732
+static_assert((std::__is_complete_or_unbounded(__type_identity< _Tp> {})), "template argument must be a complete class or an unbounded array");
+# 2734
+}; 
+# 2738
+template< class _Tp> constexpr bool 
+# 2739
+is_swappable_v = (is_swappable< _Tp> ::value); 
+# 2743
+template< class _Tp> constexpr bool 
+# 2744
+is_nothrow_swappable_v = (is_nothrow_swappable< _Tp> ::value); 
+# 2748
+namespace __swappable_with_details { 
+# 2749
+using std::swap;
+# 2751
+struct __do_is_swappable_with_impl { 
+# 2753
+template< class _Tp, class _Up, class 
+# 2754
+ = __decltype((swap(std::declval< _Tp> (), std::declval< _Up> ()))), class 
+# 2756
+ = __decltype((swap(std::declval< _Up> (), std::declval< _Tp> ())))> static true_type 
+# 2753
+__test(int); 
+# 2759
+template< class , class > static false_type __test(...); 
+# 2761
+}; 
+# 2763
+struct __do_is_nothrow_swappable_with_impl { 
+# 2765
+template< class _Tp, class _Up> static __bool_constant< noexcept(swap(std::declval< _Tp> (), std::declval< _Up> ())) && noexcept(swap(std::declval< _Up> (), std::declval< _Tp> ()))>  __test(int); 
+# 2772
+template< class , class > static false_type __test(...); 
+# 2774
+}; 
+# 2776
+}
+# 2778
+template< class _Tp, class _Up> 
+# 2779
+struct __is_swappable_with_impl : public __swappable_with_details::__do_is_swappable_with_impl { 
+# 2782
+typedef __decltype((__test< _Tp, _Up> (0))) type; 
+# 2783
+}; 
+# 2786
+template< class _Tp> 
+# 2787
+struct __is_swappable_with_impl< _Tp &, _Tp &>  : public __swappable_details::__do_is_swappable_impl { 
+# 2790
+typedef __decltype((__test< _Tp &> (0))) type; 
+# 2791
+}; 
+# 2793
+template< class _Tp, class _Up> 
+# 2794
+struct __is_nothrow_swappable_with_impl : public __swappable_with_details::__do_is_nothrow_swappable_with_impl { 
+# 2797
+typedef __decltype((__test< _Tp, _Up> (0))) type; 
+# 2798
+}; 
+# 2801
+template< class _Tp> 
+# 2802
+struct __is_nothrow_swappable_with_impl< _Tp &, _Tp &>  : public __swappable_details::__do_is_nothrow_swappable_impl { 
+# 2805
+typedef __decltype((__test< _Tp &> (0))) type; 
+# 2806
+}; 
+# 2809
+template< class _Tp, class _Up> 
+# 2810
+struct is_swappable_with : public __is_swappable_with_impl< _Tp, _Up> ::type { 
+# 2812
+}; 
+# 2815
+template< class _Tp, class _Up> 
+# 2816
+struct is_nothrow_swappable_with : public __is_nothrow_swappable_with_impl< _Tp, _Up> ::type { 
+# 2818
+}; 
+# 2822
+template< class _Tp, class _Up> constexpr bool 
+# 2823
+is_swappable_with_v = (is_swappable_with< _Tp, _Up> ::value); 
+# 2827
+template< class _Tp, class _Up> constexpr bool 
+# 2828
+is_nothrow_swappable_with_v = (is_nothrow_swappable_with< _Tp, _Up> ::value); 
+# 2837
+template< class _Result, class _Ret, bool 
+# 2838
+ = is_void< _Ret> ::value, class  = void> 
+# 2839
+struct __is_invocable_impl : public false_type { }; 
+# 2842
+template< class _Result, class _Ret> 
+# 2843
+struct __is_invocable_impl< _Result, _Ret, true, __void_t< typename _Result::type> >  : public true_type { 
+# 2847
+}; 
+# 2849
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wctor-dtor-privacy"
+# 2852
+template< class _Result, class _Ret> 
+# 2853
+struct __is_invocable_impl< _Result, _Ret, false, __void_t< typename _Result::type> >  { 
+# 2860
+private: static typename _Result::type _S_get(); 
+# 2862
+template< class _Tp> static void _S_conv(_Tp); 
+# 2866
+template< class _Tp, class  = __decltype((_S_conv< _Tp> ((_S_get)())))> static true_type _S_test(int); 
+# 2870
+template< class _Tp> static false_type _S_test(...); 
+# 2875
+public: using type = __decltype((_S_test< _Ret> (1))); 
+# 2876
+}; 
+#pragma GCC diagnostic pop
+# 2879
+template< class _Fn, class ..._ArgTypes> 
+# 2880
+struct __is_invocable : public __is_invocable_impl< __invoke_result< _Fn, _ArgTypes...> , void> ::type { 
+# 2882
+}; 
+# 2884
+template< class _Fn, class _Tp, class ..._Args> constexpr bool 
+# 2885
+__call_is_nt(__invoke_memfun_ref) 
+# 2886
+{ 
+# 2887
+using _Up = typename __inv_unwrap< _Tp> ::type; 
+# 2888
+return noexcept((std::declval< typename __inv_unwrap< _Tp> ::type> ().*std::declval< _Fn> ())(std::declval< _Args> ()...)); 
+# 2890
+} 
+# 2892
+template< class _Fn, class _Tp, class ..._Args> constexpr bool 
+# 2893
+__call_is_nt(__invoke_memfun_deref) 
+# 2894
+{ 
+# 2895
+return noexcept(((*std::declval< _Tp> ()).*std::declval< _Fn> ())(std::declval< _Args> ()...)); 
+# 2897
+} 
+# 2899
+template< class _Fn, class _Tp> constexpr bool 
+# 2900
+__call_is_nt(__invoke_memobj_ref) 
+# 2901
+{ 
+# 2902
+using _Up = typename __inv_unwrap< _Tp> ::type; 
+# 2903
+return noexcept((std::declval< typename __inv_unwrap< _Tp> ::type> ().*std::declval< _Fn> ())); 
+# 2904
+} 
+# 2906
+template< class _Fn, class _Tp> constexpr bool 
+# 2907
+__call_is_nt(__invoke_memobj_deref) 
+# 2908
+{ 
+# 2909
+return noexcept(((*std::declval< _Tp> ()).*std::declval< _Fn> ())); 
+# 2910
+} 
+# 2912
+template< class _Fn, class ..._Args> constexpr bool 
+# 2913
+__call_is_nt(__invoke_other) 
+# 2914
+{ 
+# 2915
+return noexcept(std::declval< _Fn> ()(std::declval< _Args> ()...)); 
+# 2916
+} 
+# 2918
+template< class _Result, class _Fn, class ..._Args> 
+# 2919
+struct __call_is_nothrow : public __bool_constant< std::__call_is_nt< _Fn, _Args...> (typename _Result::__invoke_type{})>  { 
+# 2923
+}; 
+# 2925
+template< class _Fn, class ..._Args> using __call_is_nothrow_ = __call_is_nothrow< __invoke_result< _Fn, _Args...> , _Fn, _Args...> ; 
+# 2930
+template< class _Fn, class ..._Args> 
+# 2931
+struct __is_nothrow_invocable : public __and_< __is_invocable< _Fn, _Args...> , __call_is_nothrow_< _Fn, _Args...> > ::type { 
+# 2934
+}; 
+# 2936
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wctor-dtor-privacy"
+struct __nonesuchbase { }; 
+# 2939
+struct __nonesuch : private __nonesuchbase { 
+# 2940
+~__nonesuch() = delete;
+# 2941
+__nonesuch(const __nonesuch &) = delete;
+# 2942
+void operator=(const __nonesuch &) = delete;
+# 2943
+}; 
+#pragma GCC diagnostic pop
+# 3462 "/usr/include/c++/10/type_traits" 3
+}
+# 59 "/usr/include/c++/10/bits/move.h" 3
+namespace std __attribute((__visibility__("default"))) { 
+# 74 "/usr/include/c++/10/bits/move.h" 3
+template< class _Tp> constexpr _Tp &&
+# 76
+forward(typename remove_reference< _Tp> ::type &__t) noexcept 
+# 77
+{ return static_cast< _Tp &&>(__t); } 
+# 85
+template< class _Tp> constexpr _Tp &&
+# 87
+forward(typename remove_reference< _Tp> ::type &&__t) noexcept 
+# 88
+{ 
+# 89
+static_assert((!std::template is_lvalue_reference< _Tp> ::value), "std::forward must not be used to convert an rvalue to an lvalue");
+# 91
+return static_cast< _Tp &&>(__t); 
+# 92
+} 
+# 99
+template< class _Tp> constexpr typename remove_reference< _Tp> ::type &&
+# 101
+move(_Tp &&__t) noexcept 
+# 102
+{ return static_cast< typename remove_reference< _Tp> ::type &&>(__t); } 
+# 105
+template< class _Tp> 
+# 106
+struct __move_if_noexcept_cond : public __and_< __not_< is_nothrow_move_constructible< _Tp> > , is_copy_constructible< _Tp> > ::type { 
+# 108
+}; 
+# 118 "/usr/include/c++/10/bits/move.h" 3
 template< class _Tp> constexpr typename conditional< __move_if_noexcept_cond< _Tp> ::value, const _Tp &, _Tp &&> ::type 
-# 119
+# 121
 move_if_noexcept(_Tp &__x) noexcept 
-# 120
+# 122
 { return std::move(__x); } 
-# 136 "/usr/include/c++/8/bits/move.h" 3
+# 138 "/usr/include/c++/10/bits/move.h" 3
 template< class _Tp> inline _Tp *
-# 138
+# 140
 addressof(_Tp &__r) noexcept 
-# 139
+# 141
 { return std::__addressof(__r); } 
-# 143
+# 145
 template < typename _Tp >
     const _Tp * addressof ( const _Tp && ) = delete;
-# 147
-template< class _Tp, class _Up = _Tp> inline _Tp 
 # 149
+template< class _Tp, class _Up = _Tp> inline _Tp 
+# 152
 __exchange(_Tp &__obj, _Up &&__new_val) 
-# 150
-{ 
-# 151
-_Tp __old_val = std::move(__obj); 
-# 152
-__obj = std::forward< _Up> (__new_val); 
 # 153
-return __old_val; 
+{ 
 # 154
-} 
-# 176 "/usr/include/c++/8/bits/move.h" 3
-template< class _Tp> inline typename enable_if< __and_< __not_< __is_tuple_like< _Tp> > , is_move_constructible< _Tp> , is_move_assignable< _Tp> > ::value> ::type 
-# 182
-swap(_Tp &__a, _Tp &__b) noexcept(__and_< is_nothrow_move_constructible< _Tp> , is_nothrow_move_assignable< _Tp> > ::value) 
-# 189
-{ 
-# 193
-_Tp __tmp = std::move(__a); 
-# 194
-__a = std::move(__b); 
-# 195
-__b = std::move(__tmp); 
-# 196
-} 
-# 201
-template< class _Tp, size_t _Nm> inline typename enable_if< __is_swappable< _Tp> ::value> ::type 
-# 205
-swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm]) noexcept(__is_nothrow_swappable< _Tp> ::value) 
-# 211
-{ 
-# 212
-for (size_t __n = (0); __n < _Nm; ++__n) { 
-# 213
-swap(__a[__n], __b[__n]); }  
-# 214
-} 
-# 218
-}
-# 65 "/usr/include/c++/8/bits/stl_pair.h" 3
-namespace std __attribute((__visibility__("default"))) { 
-# 76 "/usr/include/c++/8/bits/stl_pair.h" 3
-struct piecewise_construct_t { explicit piecewise_construct_t() = default;}; 
-# 79
-constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t(); 
-# 83
-template< class ...> class tuple; 
-# 86
-template< size_t ...> struct _Index_tuple; 
-# 94
-template< bool , class _T1, class _T2> 
-# 95
-struct _PCC { 
-# 97
-template< class _U1, class _U2> static constexpr bool 
-# 98
-_ConstructiblePair() 
-# 99
-{ 
-# 100
-return __and_< is_constructible< _T1, const _U1 &> , is_constructible< _T2, const _U2 &> > ::value; 
-# 102
-} 
-# 104
-template< class _U1, class _U2> static constexpr bool 
-# 105
-_ImplicitlyConvertiblePair() 
-# 106
-{ 
-# 107
-return __and_< is_convertible< const _U1 &, _T1> , is_convertible< const _U2 &, _T2> > ::value; 
-# 109
-} 
-# 111
-template< class _U1, class _U2> static constexpr bool 
-# 112
-_MoveConstructiblePair() 
-# 113
-{ 
-# 114
-return __and_< is_constructible< _T1, _U1 &&> , is_constructible< _T2, _U2 &&> > ::value; 
-# 116
-} 
-# 118
-template< class _U1, class _U2> static constexpr bool 
-# 119
-_ImplicitlyMoveConvertiblePair() 
-# 120
-{ 
-# 121
-return __and_< is_convertible< _U1 &&, _T1> , is_convertible< _U2 &&, _T2> > ::value; 
-# 123
-} 
-# 125
-template< bool __implicit, class _U1, class _U2> static constexpr bool 
-# 126
-_CopyMovePair() 
-# 127
-{ 
-# 128
-using __do_converts = __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > ; 
-# 130
-using __converts = typename conditional< __implicit, __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > , __not_< __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > > > ::type; 
-# 133
-return __and_< is_constructible< _T1, const _U1 &> , is_constructible< _T2, _U2 &&> , typename conditional< __implicit, __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > , __not_< __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > > > ::type> ::value; 
-# 137
-} 
-# 139
-template< bool __implicit, class _U1, class _U2> static constexpr bool 
-# 140
-_MoveCopyPair() 
-# 141
-{ 
-# 142
-using __do_converts = __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > ; 
-# 144
-using __converts = typename conditional< __implicit, __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > , __not_< __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > > > ::type; 
-# 147
-return __and_< is_constructible< _T1, _U1 &&> , is_constructible< _T2, const _U2 &&> , typename conditional< __implicit, __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > , __not_< __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > > > ::type> ::value; 
-# 151
-} 
-# 152
-}; 
-# 154
-template< class _T1, class _T2> 
+_Tp __old_val = std::move(__obj); 
 # 155
-struct _PCC< false, _T1, _T2>  { 
+__obj = std::forward< _Up> (__new_val); 
+# 156
+return __old_val; 
 # 157
-template< class _U1, class _U2> static constexpr bool 
-# 158
-_ConstructiblePair() 
-# 159
-{ 
-# 160
-return false; 
-# 161
 } 
+# 179 "/usr/include/c++/10/bits/move.h" 3
+template< class _Tp> inline typename enable_if< __and_< __not_< __is_tuple_like< _Tp> > , is_move_constructible< _Tp> , is_move_assignable< _Tp> > ::value> ::type 
+# 189
+swap(_Tp &__a, _Tp &__b) noexcept(__and_< is_nothrow_move_constructible< _Tp> , is_nothrow_move_assignable< _Tp> > ::value) 
+# 192
+{ 
+# 197
+_Tp __tmp = std::move(__a); 
+# 198
+__a = std::move(__b); 
+# 199
+__b = std::move(__tmp); 
+# 200
+} 
+# 205
+template< class _Tp, size_t _Nm> inline typename enable_if< __is_swappable< _Tp> ::value> ::type 
+# 213
+swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm]) noexcept(__is_nothrow_swappable< _Tp> ::value) 
+# 215
+{ 
+# 216
+for (size_t __n = (0); __n < _Nm; ++__n) { 
+# 217
+swap(__a[__n], __b[__n]); }  
+# 218
+} 
+# 222
+}
+# 69 "/usr/include/c++/10/bits/stl_pair.h" 3
+namespace std __attribute((__visibility__("default"))) { 
+# 80 "/usr/include/c++/10/bits/stl_pair.h" 3
+struct piecewise_construct_t { explicit piecewise_construct_t() = default;}; 
+# 83
+constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t(); 
+# 89
+template< class ...> class tuple; 
+# 92
+template< size_t ...> struct _Index_tuple; 
+# 100
+template< bool , class _T1, class _T2> 
+# 101
+struct _PCC { 
+# 103
+template< class _U1, class _U2> static constexpr bool 
+# 104
+_ConstructiblePair() 
+# 105
+{ 
+# 106
+return __and_< is_constructible< _T1, const _U1 &> , is_constructible< _T2, const _U2 &> > ::value; 
+# 108
+} 
+# 110
+template< class _U1, class _U2> static constexpr bool 
+# 111
+_ImplicitlyConvertiblePair() 
+# 112
+{ 
+# 113
+return __and_< is_convertible< const _U1 &, _T1> , is_convertible< const _U2 &, _T2> > ::value; 
+# 115
+} 
+# 117
+template< class _U1, class _U2> static constexpr bool 
+# 118
+_MoveConstructiblePair() 
+# 119
+{ 
+# 120
+return __and_< is_constructible< _T1, _U1 &&> , is_constructible< _T2, _U2 &&> > ::value; 
+# 122
+} 
+# 124
+template< class _U1, class _U2> static constexpr bool 
+# 125
+_ImplicitlyMoveConvertiblePair() 
+# 126
+{ 
+# 127
+return __and_< is_convertible< _U1 &&, _T1> , is_convertible< _U2 &&, _T2> > ::value; 
+# 129
+} 
+# 131
+template< bool __implicit, class _U1, class _U2> static constexpr bool 
+# 132
+_CopyMovePair() 
+# 133
+{ 
+# 134
+using __do_converts = __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > ; 
+# 136
+using __converts = typename conditional< __implicit, __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > , __not_< __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > > > ::type; 
+# 139
+return __and_< is_constructible< _T1, const _U1 &> , is_constructible< _T2, _U2 &&> , typename conditional< __implicit, __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > , __not_< __and_< is_convertible< const _U1 &, _T1> , is_convertible< _U2 &&, _T2> > > > ::type> ::value; 
+# 143
+} 
+# 145
+template< bool __implicit, class _U1, class _U2> static constexpr bool 
+# 146
+_MoveCopyPair() 
+# 147
+{ 
+# 148
+using __do_converts = __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > ; 
+# 150
+using __converts = typename conditional< __implicit, __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > , __not_< __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > > > ::type; 
+# 153
+return __and_< is_constructible< _T1, _U1 &&> , is_constructible< _T2, const _U2 &&> , typename conditional< __implicit, __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > , __not_< __and_< is_convertible< _U1 &&, _T1> , is_convertible< const _U2 &, _T2> > > > ::type> ::value; 
+# 157
+} 
+# 158
+}; 
+# 160
+template< class _T1, class _T2> 
+# 161
+struct _PCC< false, _T1, _T2>  { 
 # 163
 template< class _U1, class _U2> static constexpr bool 
 # 164
-_ImplicitlyConvertiblePair() 
+_ConstructiblePair() 
 # 165
 { 
 # 166
@@ -21773,7 +21918,7 @@ return false;
 # 169
 template< class _U1, class _U2> static constexpr bool 
 # 170
-_MoveConstructiblePair() 
+_ImplicitlyConvertiblePair() 
 # 171
 { 
 # 172
@@ -21783,317 +21928,321 @@ return false;
 # 175
 template< class _U1, class _U2> static constexpr bool 
 # 176
-_ImplicitlyMoveConvertiblePair() 
+_MoveConstructiblePair() 
 # 177
 { 
 # 178
 return false; 
 # 179
 } 
-# 180
-}; 
+# 181
+template< class _U1, class _U2> static constexpr bool 
+# 182
+_ImplicitlyMoveConvertiblePair() 
+# 183
+{ 
+# 184
+return false; 
 # 185
-struct __nonesuch_no_braces : public __nonesuch { 
+} 
 # 186
-explicit __nonesuch_no_braces(const __nonesuch &) = delete;
-# 187
 }; 
-# 190
+# 189
 template< class _U1, class _U2> class __pair_base { 
-# 193
+# 192
 template< class _T1, class _T2> friend struct pair; 
-# 194
+# 193
 __pair_base() = default;
-# 195
+# 194
 ~__pair_base() = default;
-# 196
+# 195
 __pair_base(const __pair_base &) = default;
-# 197
+# 196
 __pair_base &operator=(const __pair_base &) = delete;
-# 199
+# 198
 }; 
-# 207
+# 210 "/usr/include/c++/10/bits/stl_pair.h" 3
 template< class _T1, class _T2> 
-# 208
-struct pair : private __pair_base< _T1, _T2>  { 
 # 211
-typedef _T1 first_type; 
-# 212
-typedef _T2 second_type; 
+struct pair : private __pair_base< _T1, _T2>  { 
 # 214
-_T1 first; 
+typedef _T1 first_type; 
 # 215
+typedef _T2 second_type; 
+# 217
+_T1 first; 
+# 218
 _T2 second; 
-# 222
+# 225
 template< class _U1 = _T1, class 
-# 223
+# 226
 _U2 = _T2, typename enable_if< __and_< __is_implicitly_default_constructible< _U1> , __is_implicitly_default_constructible< _U2> > ::value, bool> ::type 
-# 227
- = true> constexpr 
-# 229
-pair() : first(), second() 
 # 230
-{ } 
-# 233
-template< class _U1 = _T1, class 
-# 234
-_U2 = _T2, typename enable_if< __and_< is_default_constructible< _U1> , is_default_constructible< _U2> , __not_< __and_< __is_implicitly_default_constructible< _U1> , __is_implicitly_default_constructible< _U2> > > > ::value, bool> ::type 
-# 241
- = false> constexpr explicit 
-# 242
+ = true> constexpr 
+# 232
 pair() : first(), second() 
-# 243
+# 233
 { } 
-# 252 "/usr/include/c++/8/bits/stl_pair.h" 3
+# 236
+template< class _U1 = _T1, class 
+# 237
+_U2 = _T2, typename enable_if< __and_< is_default_constructible< _U1> , is_default_constructible< _U2> , __not_< __and_< __is_implicitly_default_constructible< _U1> , __is_implicitly_default_constructible< _U2> > > > ::value, bool> ::type 
+# 244
+ = false> constexpr explicit 
+# 245
+pair() : first(), second() 
+# 246
+{ } 
+# 256 "/usr/include/c++/10/bits/stl_pair.h" 3
 using _PCCP = _PCC< true, _T1, _T2> ; 
-# 254
-template< class _U1 = _T1, class _U2 = _T2, typename enable_if< _PCC< true, _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && _PCC< true, _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> (), bool> ::type 
-# 259
- = true> constexpr 
 # 260
-pair(const _T1 &__a, const _T2 &__b) : first(__a), second(__b) 
-# 261
-{ } 
-# 263
-template< class _U1 = _T1, class _U2 = _T2, typename enable_if< _PCC< true, _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && (!_PCC< true, _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> ()), bool> ::type 
-# 268
- = false> constexpr explicit 
-# 269
-pair(const _T1 &__a, const _T2 &__b) : first(__a), second(__b) 
-# 270
-{ } 
-# 280 "/usr/include/c++/8/bits/stl_pair.h" 3
-template< class _U1, class _U2> using _PCCFP = _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ; 
-# 285
-template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> (), bool> ::type 
-# 290
+template< class _U1 = _T1, class _U2 = _T2, typename enable_if< _PCC< true, _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && _PCC< true, _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> (), bool> ::type 
+# 265
  = true> constexpr 
-# 291
-pair(const pair< _U1, _U2>  &__p) : first((__p.first)), second((__p.second)) 
-# 292
+# 266
+pair(const _T1 &__a, const _T2 &__b) : first(__a), second(__b) 
+# 267
 { } 
-# 294
-template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && (!_PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> ()), bool> ::type 
-# 299
+# 270
+template< class _U1 = _T1, class _U2 = _T2, typename enable_if< _PCC< true, _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && (!_PCC< true, _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> ()), bool> ::type 
+# 275
  = false> constexpr explicit 
+# 276
+pair(const _T1 &__a, const _T2 &__b) : first(__a), second(__b) 
+# 277
+{ } 
+# 288 "/usr/include/c++/10/bits/stl_pair.h" 3
+template< class _U1, class _U2> using _PCCFP = _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ; 
+# 294
+template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> (), bool> ::type 
+# 299
+ = true> constexpr 
 # 300
 pair(const pair< _U1, _U2>  &__p) : first((__p.first)), second((__p.second)) 
 # 301
 { } 
 # 303
-constexpr pair(const pair &) = default;
-# 304
-constexpr pair(pair &&) = default;
-# 307
-template< class _U1, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveCopyPair< true, _U1, _T2> (), bool> ::type 
+template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ConstructiblePair< _U1, _U2> () && (!_PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyConvertiblePair< _U1, _U2> ()), bool> ::type 
+# 308
+ = false> constexpr explicit 
+# 309
+pair(const pair< _U1, _U2>  &__p) : first((__p.first)), second((__p.second)) 
 # 310
- = true> constexpr 
-# 311
-pair(_U1 &&__x, const _T2 &__y) : first(std::forward< _U1> (__x)), second(__y) 
-# 312
 { } 
 # 314
-template< class _U1, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveCopyPair< false, _U1, _T2> (), bool> ::type 
-# 317
- = false> constexpr explicit 
+constexpr pair(const pair &) = default;
+# 315
+constexpr pair(pair &&) = default;
 # 318
-pair(_U1 &&__x, const _T2 &__y) : first(std::forward< _U1> (__x)), second(__y) 
-# 319
-{ } 
+template< class _U1, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveCopyPair< true, _U1, _T2> (), bool> ::type 
 # 321
-template< class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _CopyMovePair< true, _T1, _U2> (), bool> ::type 
-# 324
  = true> constexpr 
+# 322
+pair(_U1 &&__x, const _T2 &__y) : first(std::forward< _U1> (__x)), second(__y) 
+# 323
+{ } 
 # 325
-pair(const _T1 &__x, _U2 &&__y) : first(__x), second(std::forward< _U2> (__y)) 
-# 326
-{ } 
+template< class _U1, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveCopyPair< false, _U1, _T2> (), bool> ::type 
 # 328
-template< class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _CopyMovePair< false, _T1, _U2> (), bool> ::type 
-# 331
- = false> explicit 
-# 332
-pair(const _T1 &__x, _U2 &&__y) : first(__x), second(std::forward< _U2> (__y)) 
-# 333
-{ } 
-# 335
-template< class _U1, class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && _PCC< true, _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> (), bool> ::type 
-# 340
- = true> constexpr 
-# 341
-pair(_U1 &&__x, _U2 &&__y) : first(std::forward< _U1> (__x)), second(std::forward< _U2> (__y)) 
-# 342
-{ } 
-# 344
-template< class _U1, class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && (!_PCC< true, _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> ()), bool> ::type 
-# 349
  = false> constexpr explicit 
-# 350
-pair(_U1 &&__x, _U2 &&__y) : first(std::forward< _U1> (__x)), second(std::forward< _U2> (__y)) 
-# 351
+# 329
+pair(_U1 &&__x, const _T2 &__y) : first(std::forward< _U1> (__x)), second(__y) 
+# 330
 { } 
-# 354
-template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> (), bool> ::type 
-# 359
+# 332
+template< class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _CopyMovePair< true, _T1, _U2> (), bool> ::type 
+# 335
  = true> constexpr 
+# 336
+pair(const _T1 &__x, _U2 &&__y) : first(__x), second(std::forward< _U2> (__y)) 
+# 337
+{ } 
+# 339
+template< class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _CopyMovePair< false, _T1, _U2> (), bool> ::type 
+# 342
+ = false> explicit 
+# 343
+pair(const _T1 &__x, _U2 &&__y) : first(__x), second(std::forward< _U2> (__y)) 
+# 344
+{ } 
+# 346
+template< class _U1, class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && _PCC< true, _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> (), bool> ::type 
+# 351
+ = true> constexpr 
+# 352
+pair(_U1 &&__x, _U2 &&__y) : first(std::forward< _U1> (__x)), second(std::forward< _U2> (__y)) 
+# 353
+{ } 
+# 355
+template< class _U1, class _U2, typename enable_if< _PCC< true, _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && (!_PCC< true, _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> ()), bool> ::type 
 # 360
-pair(pair< _U1, _U2>  &&__p) : first(std::forward< _U1> ((__p.first))), second(std::forward< _U2> ((__p.second))) 
+ = false> constexpr explicit 
+# 361
+pair(_U1 &&__x, _U2 &&__y) : first(std::forward< _U1> (__x)), second(std::forward< _U2> (__y)) 
 # 362
 { } 
-# 364
-template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && (!_PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> ()), bool> ::type 
-# 369
- = false> constexpr explicit 
+# 365
+template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> (), bool> ::type 
 # 370
+ = true> constexpr 
+# 371
 pair(pair< _U1, _U2>  &&__p) : first(std::forward< _U1> ((__p.first))), second(std::forward< _U2> ((__p.second))) 
-# 372
+# 373
 { } 
-# 374
-template< class ..._Args1, class ..._Args2> pair(std::piecewise_construct_t, tuple< _Args1...> , tuple< _Args2...> ); 
-# 378
-pair &operator=(typename conditional< __and_< is_copy_assignable< _T1> , is_copy_assignable< _T2> > ::value, const pair &, const std::__nonesuch_no_braces &> ::type 
+# 375
+template< class _U1, class _U2, typename enable_if< _PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _MoveConstructiblePair< _U1, _U2> () && (!_PCC< (!is_same< _T1, _U1> ::value) || (!is_same< _T2, _U2> ::value), _T1, _T2> ::template _ImplicitlyMoveConvertiblePair< _U1, _U2> ()), bool> ::type 
+# 380
+ = false> constexpr explicit 
 # 381
-__p) 
-# 382
-{ 
+pair(pair< _U1, _U2>  &&__p) : first(std::forward< _U1> ((__p.first))), second(std::forward< _U2> ((__p.second))) 
 # 383
-(first) = (__p.first); 
-# 384
-(second) = (__p.second); 
+{ } 
 # 385
-return *this; 
-# 386
-} 
-# 389
-pair &operator=(typename conditional< __and_< is_move_assignable< _T1> , is_move_assignable< _T2> > ::value, pair &&, std::__nonesuch_no_braces &&> ::type 
-# 392
-__p) noexcept(__and_< is_nothrow_move_assignable< _T1> , is_nothrow_move_assignable< _T2> > ::value) 
-# 395
+template< class ..._Args1, class ..._Args2> pair(std::piecewise_construct_t, tuple< _Args1...> , tuple< _Args2...> ); 
+# 390
+pair &operator=(typename conditional< __and_< is_copy_assignable< _T1> , is_copy_assignable< _T2> > ::value, const pair &, const std::__nonesuch &> ::type 
+# 393
+__p) 
+# 394
 { 
+# 395
+(first) = (__p.first); 
 # 396
-(first) = std::forward< first_type> ((__p.first)); 
+(second) = (__p.second); 
 # 397
-(second) = std::forward< second_type> ((__p.second)); 
-# 398
 return *this; 
-# 399
+# 398
 } 
 # 401
-template< class _U1, class _U2> typename enable_if< __and_< is_assignable< _T1 &, const _U1 &> , is_assignable< _T2 &, const _U2 &> > ::value, pair &> ::type 
-# 405
-operator=(const pair< _U1, _U2>  &__p) 
-# 406
-{ 
+pair &operator=(typename conditional< __and_< is_move_assignable< _T1> , is_move_assignable< _T2> > ::value, pair &&, std::__nonesuch &&> ::type 
+# 404
+__p) noexcept(__and_< is_nothrow_move_assignable< _T1> , is_nothrow_move_assignable< _T2> > ::value) 
 # 407
-(first) = (__p.first); 
+{ 
 # 408
-(second) = (__p.second); 
+(first) = std::forward< first_type> ((__p.first)); 
 # 409
-return *this; 
+(second) = std::forward< second_type> ((__p.second)); 
 # 410
-} 
-# 412
-template< class _U1, class _U2> typename enable_if< __and_< is_assignable< _T1 &, _U1 &&> , is_assignable< _T2 &, _U2 &&> > ::value, pair &> ::type 
-# 416
-operator=(pair< _U1, _U2>  &&__p) 
-# 417
-{ 
-# 418
-(first) = std::forward< _U1> ((__p.first)); 
-# 419
-(second) = std::forward< _U2> ((__p.second)); 
-# 420
 return *this; 
-# 421
+# 411
 } 
-# 424
-void swap(pair &__p) noexcept(__and_< __is_nothrow_swappable< _T1> , __is_nothrow_swappable< _T2> > ::value) 
-# 427
+# 413
+template< class _U1, class _U2> typename enable_if< __and_< is_assignable< _T1 &, const _U1 &> , is_assignable< _T2 &, const _U2 &> > ::value, pair &> ::type 
+# 418
+operator=(const pair< _U1, _U2>  &__p) 
+# 419
 { 
-# 428
-using std::swap;
-# 429
-swap(first, __p.first); 
+# 420
+(first) = (__p.first); 
+# 421
+(second) = (__p.second); 
+# 422
+return *this; 
+# 423
+} 
+# 425
+template< class _U1, class _U2> typename enable_if< __and_< is_assignable< _T1 &, _U1 &&> , is_assignable< _T2 &, _U2 &&> > ::value, pair &> ::type 
 # 430
-swap(second, __p.second); 
+operator=(pair< _U1, _U2>  &&__p) 
 # 431
-} 
+{ 
+# 432
+(first) = std::forward< _U1> ((__p.first)); 
+# 433
+(second) = std::forward< _U2> ((__p.second)); 
 # 434
-private: template< class ..._Args1, std::size_t ..._Indexes1, class ...
+return *this; 
 # 435
-_Args2, std::size_t ..._Indexes2> 
-# 434
-pair(tuple< _Args1...>  &, tuple< _Args2...>  &, _Index_tuple< _Indexes1...> , _Index_tuple< _Indexes2...> ); 
-# 439
-}; 
-# 446
-template< class _T1, class _T2> constexpr bool 
-# 448
-operator==(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 449
-{ return ((__x.first) == (__y.first)) && ((__x.second) == (__y.second)); } 
-# 452
-template< class _T1, class _T2> constexpr bool 
-# 454
-operator<(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 455
-{ return ((__x.first) < (__y.first)) || ((!((__y.first) < (__x.first))) && ((__x.second) < (__y.second))); 
-# 456
 } 
-# 459
+# 439
+void swap(pair &__p) noexcept(__and_< __is_nothrow_swappable< _T1> , __is_nothrow_swappable< _T2> > ::value) 
+# 442
+{ 
+# 443
+using std::swap;
+# 444
+swap(first, __p.first); 
+# 445
+swap(second, __p.second); 
+# 446
+} 
+# 449
+private: template< class ..._Args1, std::size_t ..._Indexes1, class ...
+# 450
+_Args2, std::size_t ..._Indexes2> 
+# 449
+pair(tuple< _Args1...>  &, tuple< _Args2...>  &, _Index_tuple< _Indexes1...> , _Index_tuple< _Indexes2...> ); 
+# 455
+}; 
+# 464 "/usr/include/c++/10/bits/stl_pair.h" 3
 template< class _T1, class _T2> constexpr bool 
-# 461
-operator!=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 462
-{ return !(__x == __y); } 
-# 465
-template< class _T1, class _T2> constexpr bool 
+# 466
+operator==(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
 # 467
-operator>(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 468
-{ return __y < __x; } 
-# 471
+{ return ((__x.first) == (__y.first)) && ((__x.second) == (__y.second)); } 
+# 487 "/usr/include/c++/10/bits/stl_pair.h" 3
 template< class _T1, class _T2> constexpr bool 
-# 473
-operator<=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 474
-{ return !(__y < __x); } 
-# 477
+# 489
+operator<(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
+# 490
+{ return ((__x.first) < (__y.first)) || ((!((__y.first) < (__x.first))) && ((__x.second) < (__y.second))); 
+# 491
+} 
+# 494
 template< class _T1, class _T2> constexpr bool 
-# 479
-operator>=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
-# 480
-{ return !(__x < __y); } 
-# 486
-template< class _T1, class _T2> inline typename enable_if< __and_< __is_swappable< _T1> , __is_swappable< _T2> > ::value> ::type 
-# 495
-swap(pair< _T1, _T2>  &__x, pair< _T1, _T2>  &__y) noexcept(noexcept(__x.swap(__y))) 
+# 496
+operator!=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
 # 497
-{ __x.swap(__y); } 
+{ return !(__x == __y); } 
 # 500
+template< class _T1, class _T2> constexpr bool 
+# 502
+operator>(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
+# 503
+{ return __y < __x; } 
+# 506
+template< class _T1, class _T2> constexpr bool 
+# 508
+operator<=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
+# 509
+{ return !(__y < __x); } 
+# 512
+template< class _T1, class _T2> constexpr bool 
+# 514
+operator>=(const pair< _T1, _T2>  &__x, const pair< _T1, _T2>  &__y) 
+# 515
+{ return !(__x < __y); } 
+# 524 "/usr/include/c++/10/bits/stl_pair.h" 3
+template< class _T1, class _T2> inline typename enable_if< __and_< __is_swappable< _T1> , __is_swappable< _T2> > ::value> ::type 
+# 533
+swap(pair< _T1, _T2>  &__x, pair< _T1, _T2>  &__y) noexcept(noexcept(__x.swap(__y))) 
+# 535
+{ __x.swap(__y); } 
+# 538
 template < typename _T1, typename _T2 >
     typename enable_if < ! __and_ < __is_swappable < _T1 >,
           __is_swappable < _T2 > > :: value > :: type
     swap ( pair < _T1, _T2 > &, pair < _T1, _T2 > & ) = delete;
-# 521 "/usr/include/c++/8/bits/stl_pair.h" 3
+# 564 "/usr/include/c++/10/bits/stl_pair.h" 3
 template< class _T1, class _T2> constexpr pair< typename __decay_and_strip< _T1> ::__type, typename __decay_and_strip< _T2> ::__type>  
-# 524
+# 567
 make_pair(_T1 &&__x, _T2 &&__y) 
-# 525
+# 568
 { 
-# 526
+# 569
 typedef typename __decay_and_strip< _T1> ::__type __ds_type1; 
-# 527
+# 570
 typedef typename __decay_and_strip< _T2> ::__type __ds_type2; 
-# 528
+# 571
 typedef pair< typename __decay_and_strip< _T1> ::__type, typename __decay_and_strip< _T2> ::__type>  __pair_type; 
-# 529
+# 572
 return __pair_type(std::forward< _T1> (__x), std::forward< _T2> (__y)); 
-# 530
+# 573
 } 
-# 541 "/usr/include/c++/8/bits/stl_pair.h" 3
+# 584 "/usr/include/c++/10/bits/stl_pair.h" 3
 }
-# 39 "/usr/include/c++/8/initializer_list" 3
+# 39 "/usr/include/c++/10/initializer_list" 3
 #pragma GCC visibility push ( default )
 # 43
 namespace std { 
@@ -22133,271 +22282,271 @@ constexpr const_iterator begin() const noexcept { return _M_array; }
 constexpr const_iterator end() const noexcept { return begin() + size(); } 
 # 80
 }; 
-# 87
+# 88
 template< class _Tp> constexpr const _Tp *
-# 89
+# 90
 begin(initializer_list< _Tp>  __ils) noexcept 
-# 90
-{ return __ils.begin(); } 
-# 97
-template< class _Tp> constexpr const _Tp *
-# 99
-end(initializer_list< _Tp>  __ils) noexcept 
-# 100
-{ return __ils.end(); } 
-# 101
-}
-# 103
-#pragma GCC visibility pop
-# 78 "/usr/include/c++/8/utility" 3
-namespace std __attribute((__visibility__("default"))) { 
-# 83
-template< class _Tp> struct tuple_size; 
-# 90
-template< class _Tp, class 
 # 91
+{ return __ils.begin(); } 
+# 99
+template< class _Tp> constexpr const _Tp *
+# 101
+end(initializer_list< _Tp>  __ils) noexcept 
+# 102
+{ return __ils.end(); } 
+# 103
+}
+# 105
+#pragma GCC visibility pop
+# 82 "/usr/include/c++/10/utility" 3
+namespace std __attribute((__visibility__("default"))) { 
+# 87
+template< class _Tp> struct tuple_size; 
+# 94
+template< class _Tp, class 
+# 95
 _Up = typename remove_cv< _Tp> ::type, class 
-# 92
- = typename enable_if< is_same< _Tp, _Up> ::value> ::type, size_t 
-# 93
- = tuple_size< _Tp> ::value> using __enable_if_has_tuple_size = _Tp; 
 # 96
-template< class _Tp> 
+ = typename enable_if< is_same< _Tp, _Up> ::value> ::type, size_t 
 # 97
-struct tuple_size< const __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
-# 98
-}; 
+ = tuple_size< _Tp> ::value> using __enable_if_has_tuple_size = _Tp; 
 # 100
 template< class _Tp> 
 # 101
-struct tuple_size< volatile __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
+struct tuple_size< const __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
 # 102
 }; 
 # 104
 template< class _Tp> 
 # 105
-struct tuple_size< const volatile __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
+struct tuple_size< volatile __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
 # 106
 }; 
+# 108
+template< class _Tp> 
 # 109
-template< size_t __i, class _Tp> struct tuple_element; 
+struct tuple_size< const volatile __enable_if_has_tuple_size< _Tp> >  : public std::tuple_size< _Tp>  { 
+# 110
+}; 
 # 113
-template< size_t __i, class _Tp> using __tuple_element_t = typename tuple_element< __i, _Tp> ::type; 
-# 116
-template< size_t __i, class _Tp> 
+template< size_t __i, class _Tp> struct tuple_element; 
 # 117
-struct tuple_element< __i, const _Tp>  { 
-# 119
-typedef typename add_const< __tuple_element_t< __i, _Tp> > ::type type; 
+template< size_t __i, class _Tp> using __tuple_element_t = typename tuple_element< __i, _Tp> ::type; 
 # 120
-}; 
-# 122
 template< size_t __i, class _Tp> 
+# 121
+struct tuple_element< __i, const _Tp>  { 
 # 123
-struct tuple_element< __i, volatile _Tp>  { 
-# 125
-typedef typename add_volatile< __tuple_element_t< __i, _Tp> > ::type type; 
+typedef typename add_const< __tuple_element_t< __i, _Tp> > ::type type; 
+# 124
+}; 
 # 126
-}; 
-# 128
 template< size_t __i, class _Tp> 
+# 127
+struct tuple_element< __i, volatile _Tp>  { 
 # 129
-struct tuple_element< __i, const volatile _Tp>  { 
-# 131
-typedef typename add_cv< __tuple_element_t< __i, _Tp> > ::type type; 
+typedef typename add_volatile< __tuple_element_t< __i, _Tp> > ::type type; 
+# 130
+}; 
 # 132
+template< size_t __i, class _Tp> 
+# 133
+struct tuple_element< __i, const volatile _Tp>  { 
+# 135
+typedef typename add_cv< __tuple_element_t< __i, _Tp> > ::type type; 
+# 136
 }; 
-# 137
-template< size_t __i, class _Tp> using tuple_element_t = typename tuple_element< __i, _Tp> ::type; 
 # 144
-template< class _T1, class _T2> 
-# 145
-struct __is_tuple_like_impl< pair< _T1, _T2> >  : public true_type { 
-# 146
-}; 
-# 149
-template< class _Tp1, class _Tp2> 
-# 150
-struct tuple_size< pair< _Tp1, _Tp2> >  : public integral_constant< unsigned long, 2UL>  { 
+template< size_t __i, class _Tp> using tuple_element_t = typename tuple_element< __i, _Tp> ::type; 
 # 151
+template< class _T1, class _T2> 
+# 152
+struct __is_tuple_like_impl< pair< _T1, _T2> >  : public true_type { 
+# 153
 }; 
-# 154
-template< class _Tp1, class _Tp2> 
-# 155
-struct tuple_element< 0, pair< _Tp1, _Tp2> >  { 
 # 156
-typedef _Tp1 type; }; 
-# 159
 template< class _Tp1, class _Tp2> 
-# 160
-struct tuple_element< 1, pair< _Tp1, _Tp2> >  { 
+# 157
+struct tuple_size< pair< _Tp1, _Tp2> >  : public integral_constant< unsigned long, 2UL>  { 
+# 158
+}; 
 # 161
-typedef _Tp2 type; }; 
+template< class _Tp1, class _Tp2> 
+# 162
+struct tuple_element< 0, pair< _Tp1, _Tp2> >  { 
 # 163
-template< size_t _Int> struct __pair_get; 
+typedef _Tp1 type; }; 
+# 166
+template< class _Tp1, class _Tp2> 
 # 167
-template<> struct __pair_get< 0UL>  { 
-# 169
-template< class _Tp1, class _Tp2> static constexpr _Tp1 &
-# 171
-__get(pair< _Tp1, _Tp2>  &__pair) noexcept 
-# 172
-{ return __pair.first; } 
+struct tuple_element< 1, pair< _Tp1, _Tp2> >  { 
+# 168
+typedef _Tp2 type; }; 
+# 170
+template< size_t _Int> struct __pair_get; 
 # 174
-template< class _Tp1, class _Tp2> static constexpr _Tp1 &&
+template<> struct __pair_get< 0UL>  { 
 # 176
-__move_get(pair< _Tp1, _Tp2>  &&__pair) noexcept 
-# 177
-{ return std::forward< _Tp1> ((__pair.first)); } 
-# 179
-template< class _Tp1, class _Tp2> static constexpr const _Tp1 &
-# 181
-__const_get(const pair< _Tp1, _Tp2>  &__pair) noexcept 
-# 182
-{ return __pair.first; } 
-# 184
-template< class _Tp1, class _Tp2> static constexpr const _Tp1 &&
-# 186
-__const_move_get(const pair< _Tp1, _Tp2>  &&__pair) noexcept 
-# 187
-{ return std::forward< const _Tp1> ((__pair.first)); } 
-# 188
-}; 
-# 191
-template<> struct __pair_get< 1UL>  { 
-# 193
-template< class _Tp1, class _Tp2> static constexpr _Tp2 &
-# 195
+template< class _Tp1, class _Tp2> static constexpr _Tp1 &
+# 178
 __get(pair< _Tp1, _Tp2>  &__pair) noexcept 
-# 196
-{ return __pair.second; } 
-# 198
-template< class _Tp1, class _Tp2> static constexpr _Tp2 &&
-# 200
+# 179
+{ return __pair.first; } 
+# 181
+template< class _Tp1, class _Tp2> static constexpr _Tp1 &&
+# 183
 __move_get(pair< _Tp1, _Tp2>  &&__pair) noexcept 
-# 201
-{ return std::forward< _Tp2> ((__pair.second)); } 
-# 203
-template< class _Tp1, class _Tp2> static constexpr const _Tp2 &
-# 205
+# 184
+{ return std::forward< _Tp1> ((__pair.first)); } 
+# 186
+template< class _Tp1, class _Tp2> static constexpr const _Tp1 &
+# 188
 __const_get(const pair< _Tp1, _Tp2>  &__pair) noexcept 
-# 206
-{ return __pair.second; } 
-# 208
-template< class _Tp1, class _Tp2> static constexpr const _Tp2 &&
-# 210
+# 189
+{ return __pair.first; } 
+# 191
+template< class _Tp1, class _Tp2> static constexpr const _Tp1 &&
+# 193
 __const_move_get(const pair< _Tp1, _Tp2>  &&__pair) noexcept 
-# 211
-{ return std::forward< const _Tp2> ((__pair.second)); } 
+# 194
+{ return std::forward< const _Tp1> ((__pair.first)); } 
+# 195
+}; 
+# 198
+template<> struct __pair_get< 1UL>  { 
+# 200
+template< class _Tp1, class _Tp2> static constexpr _Tp2 &
+# 202
+__get(pair< _Tp1, _Tp2>  &__pair) noexcept 
+# 203
+{ return __pair.second; } 
+# 205
+template< class _Tp1, class _Tp2> static constexpr _Tp2 &&
+# 207
+__move_get(pair< _Tp1, _Tp2>  &&__pair) noexcept 
+# 208
+{ return std::forward< _Tp2> ((__pair.second)); } 
+# 210
+template< class _Tp1, class _Tp2> static constexpr const _Tp2 &
 # 212
-}; 
-# 214
-template< size_t _Int, class _Tp1, class _Tp2> constexpr typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &
-# 216
-get(pair< _Tp1, _Tp2>  &__in) noexcept 
+__const_get(const pair< _Tp1, _Tp2>  &__pair) noexcept 
+# 213
+{ return __pair.second; } 
+# 215
+template< class _Tp1, class _Tp2> static constexpr const _Tp2 &&
 # 217
-{ return __pair_get< _Int> ::__get(__in); } 
+__const_move_get(const pair< _Tp1, _Tp2>  &&__pair) noexcept 
+# 218
+{ return std::forward< const _Tp2> ((__pair.second)); } 
 # 219
-template< size_t _Int, class _Tp1, class _Tp2> constexpr typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &&
+}; 
 # 221
-get(pair< _Tp1, _Tp2>  &&__in) noexcept 
-# 222
-{ return __pair_get< _Int> ::__move_get(std::move(__in)); } 
+template< size_t _Int, class _Tp1, class _Tp2> constexpr typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &
+# 223
+get(pair< _Tp1, _Tp2>  &__in) noexcept 
 # 224
-template< size_t _Int, class _Tp1, class _Tp2> constexpr const typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &
+{ return __pair_get< _Int> ::__get(__in); } 
 # 226
-get(const pair< _Tp1, _Tp2>  &__in) noexcept 
-# 227
-{ return __pair_get< _Int> ::__const_get(__in); } 
+template< size_t _Int, class _Tp1, class _Tp2> constexpr typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &&
+# 228
+get(pair< _Tp1, _Tp2>  &&__in) noexcept 
 # 229
-template< size_t _Int, class _Tp1, class _Tp2> constexpr const typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &&
+{ return __pair_get< _Int> ::__move_get(std::move(__in)); } 
 # 231
-get(const pair< _Tp1, _Tp2>  &&__in) noexcept 
-# 232
-{ return __pair_get< _Int> ::__const_move_get(std::move(__in)); } 
+template< size_t _Int, class _Tp1, class _Tp2> constexpr const typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &
+# 233
+get(const pair< _Tp1, _Tp2>  &__in) noexcept 
+# 234
+{ return __pair_get< _Int> ::__const_get(__in); } 
+# 236
+template< size_t _Int, class _Tp1, class _Tp2> constexpr const typename tuple_element< _Int, pair< _Tp1, _Tp2> > ::type &&
 # 238
-template< class _Tp, class _Up> constexpr _Tp &
-# 240
-get(pair< _Tp, _Up>  &__p) noexcept 
-# 241
-{ return __p.first; } 
-# 243
-template< class _Tp, class _Up> constexpr const _Tp &
+get(const pair< _Tp1, _Tp2>  &&__in) noexcept 
+# 239
+{ return __pair_get< _Int> ::__const_move_get(std::move(__in)); } 
 # 245
-get(const pair< _Tp, _Up>  &__p) noexcept 
-# 246
-{ return __p.first; } 
-# 248
-template< class _Tp, class _Up> constexpr _Tp &&
-# 250
-get(pair< _Tp, _Up>  &&__p) noexcept 
-# 251
-{ return std::move((__p.first)); } 
-# 253
-template< class _Tp, class _Up> constexpr const _Tp &&
-# 255
-get(const pair< _Tp, _Up>  &&__p) noexcept 
-# 256
-{ return std::move((__p.first)); } 
-# 258
 template< class _Tp, class _Up> constexpr _Tp &
-# 260
-get(pair< _Up, _Tp>  &__p) noexcept 
-# 261
-{ return __p.second; } 
-# 263
+# 247
+get(pair< _Tp, _Up>  &__p) noexcept 
+# 248
+{ return __p.first; } 
+# 250
 template< class _Tp, class _Up> constexpr const _Tp &
-# 265
-get(const pair< _Up, _Tp>  &__p) noexcept 
-# 266
-{ return __p.second; } 
-# 268
+# 252
+get(const pair< _Tp, _Up>  &__p) noexcept 
+# 253
+{ return __p.first; } 
+# 255
 template< class _Tp, class _Up> constexpr _Tp &&
-# 270
-get(pair< _Up, _Tp>  &&__p) noexcept 
-# 271
-{ return std::move((__p.second)); } 
-# 273
+# 257
+get(pair< _Tp, _Up>  &&__p) noexcept 
+# 258
+{ return std::move((__p.first)); } 
+# 260
 template< class _Tp, class _Up> constexpr const _Tp &&
+# 262
+get(const pair< _Tp, _Up>  &&__p) noexcept 
+# 263
+{ return std::move((__p.first)); } 
+# 265
+template< class _Tp, class _Up> constexpr _Tp &
+# 267
+get(pair< _Up, _Tp>  &__p) noexcept 
+# 268
+{ return __p.second; } 
+# 270
+template< class _Tp, class _Up> constexpr const _Tp &
+# 272
+get(const pair< _Up, _Tp>  &__p) noexcept 
+# 273
+{ return __p.second; } 
 # 275
-get(const pair< _Up, _Tp>  &&__p) noexcept 
-# 276
+template< class _Tp, class _Up> constexpr _Tp &&
+# 277
+get(pair< _Up, _Tp>  &&__p) noexcept 
+# 278
 { return std::move((__p.second)); } 
-# 281
-template< class _Tp, class _Up = _Tp> inline _Tp 
+# 280
+template< class _Tp, class _Up> constexpr const _Tp &&
+# 282
+get(const pair< _Up, _Tp>  &&__p) noexcept 
 # 283
+{ return std::move((__p.second)); } 
+# 288
+template< class _Tp, class _Up = _Tp> inline _Tp 
+# 291
 exchange(_Tp &__obj, _Up &&__new_val) 
-# 284
+# 292
 { return std::__exchange(__obj, std::forward< _Up> (__new_val)); } 
-# 289
+# 298
 template< size_t ..._Indexes> struct _Index_tuple { }; 
-# 298 "/usr/include/c++/8/utility" 3
+# 307 "/usr/include/c++/10/utility" 3
 template< size_t _Num> 
-# 299
+# 308
 struct _Build_index_tuple { 
-# 307
-using __type = _Index_tuple< __integer_pack(_Num)...> ; 
-# 309
-}; 
 # 316
-template< class _Tp, _Tp ..._Idx> 
-# 317
-struct integer_sequence { 
-# 319
-typedef _Tp value_type; 
-# 320
-static constexpr size_t size() noexcept { return sizeof...(_Idx); } 
-# 321
+using __type = _Index_tuple< __integer_pack(_Num)...> ; 
+# 318
 }; 
-# 324
+# 325
+template< class _Tp, _Tp ..._Idx> 
+# 326
+struct integer_sequence { 
+# 328
+typedef _Tp value_type; 
+# 329
+static constexpr size_t size() noexcept { return sizeof...(_Idx); } 
+# 330
+}; 
+# 333
 template< class _Tp, _Tp _Num> using make_integer_sequence = integer_sequence< _Tp, __integer_pack(_Num)...> ; 
-# 335
+# 344
 template< size_t ..._Idx> using index_sequence = integer_sequence< unsigned long, _Idx...> ; 
-# 339
+# 348
 template< size_t _Num> using make_index_sequence = make_integer_sequence< unsigned long, _Num> ; 
-# 343
+# 352
 template< class ..._Types> using index_sequence_for = make_index_sequence< sizeof...(_Types)> ; 
-# 394 "/usr/include/c++/8/utility" 3
+# 474 "/usr/include/c++/10/utility" 3
 }
 # 206 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h"
 template< class T> static inline cudaError_t 
@@ -23511,7 +23660,7 @@ const char *info_simulate = ("INFO:simulate[GNU]");
 # 789 "CMakeCUDACompilerId.cu"
 const char info_version[] = {'I', 'N', 'F', 'O', ':', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'r', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[', (('0') + ((12 / 10000000) % 10)), (('0') + ((12 / 1000000) % 10)), (('0') + ((12 / 100000) % 10)), (('0') + ((12 / 10000) % 10)), (('0') + ((12 / 1000) % 10)), (('0') + ((12 / 100) % 10)), (('0') + ((12 / 10) % 10)), (('0') + (12 % 10)), '.', (('0') + ((6 / 10000000) % 10)), (('0') + ((6 / 1000000) % 10)), (('0') + ((6 / 100000) % 10)), (('0') + ((6 / 10000) % 10)), (('0') + ((6 / 1000) % 10)), (('0') + ((6 / 100) % 10)), (('0') + ((6 / 10) % 10)), (('0') + (6 % 10)), '.', (('0') + ((85 / 10000000) % 10)), (('0') + ((85 / 1000000) % 10)), (('0') + ((85 / 100000) % 10)), (('0') + ((85 / 10000) % 10)), (('0') + ((85 / 1000) % 10)), (('0') + ((85 / 100) % 10)), (('0') + ((85 / 10) % 10)), (('0') + (85 % 10)), ']', '\000'}; 
 # 818 "CMakeCUDACompilerId.cu"
-const char info_simulate_version[] = {'I', 'N', 'F', 'O', ':', 's', 'i', 'm', 'u', 'l', 'a', 't', 'e', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[', (('0') + ((8 / 10000000) % 10)), (('0') + ((8 / 1000000) % 10)), (('0') + ((8 / 100000) % 10)), (('0') + ((8 / 10000) % 10)), (('0') + ((8 / 1000) % 10)), (('0') + ((8 / 100) % 10)), (('0') + ((8 / 10) % 10)), (('0') + (8 % 10)), '.', (('0') + ((4 / 10000000) % 10)), (('0') + ((4 / 1000000) % 10)), (('0') + ((4 / 100000) % 10)), (('0') + ((4 / 10000) % 10)), (('0') + ((4 / 1000) % 10)), (('0') + ((4 / 100) % 10)), (('0') + ((4 / 10) % 10)), (('0') + (4 % 10)), ']', '\000'}; 
+const char info_simulate_version[] = {'I', 'N', 'F', 'O', ':', 's', 'i', 'm', 'u', 'l', 'a', 't', 'e', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[', (('0') + ((10 / 10000000) % 10)), (('0') + ((10 / 1000000) % 10)), (('0') + ((10 / 100000) % 10)), (('0') + ((10 / 10000) % 10)), (('0') + ((10 / 1000) % 10)), (('0') + ((10 / 100) % 10)), (('0') + ((10 / 10) % 10)), (('0') + (10 % 10)), '.', (('0') + ((5 / 10000000) % 10)), (('0') + ((5 / 1000000) % 10)), (('0') + ((5 / 100000) % 10)), (('0') + ((5 / 10000) % 10)), (('0') + ((5 / 1000) % 10)), (('0') + ((5 / 100) % 10)), (('0') + ((5 / 10) % 10)), (('0') + (5 % 10)), ']', '\000'}; 
 # 838
 const char *info_platform = ("INFO:platform[Linux]"); 
 # 839
@@ -23519,7 +23668,7 @@ const char *info_arch = ("INFO:arch[]");
 # 844
 const char *info_host_compiler = ("INFO:host_compiler[GNU]"); 
 # 849
-const char info_host_compiler_version[] = {'I', 'N', 'F', 'O', ':', 'h', 'o', 's', 't', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'r', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[', (('0') + ((8 / 10000000) % 10)), (('0') + ((8 / 1000000) % 10)), (('0') + ((8 / 100000) % 10)), (('0') + ((8 / 10000) % 10)), (('0') + ((8 / 1000) % 10)), (('0') + ((8 / 100) % 10)), (('0') + ((8 / 10) % 10)), (('0') + (8 % 10)), '.', (('0') + ((4 / 10000000) % 10)), (('0') + ((4 / 1000000) % 10)), (('0') + ((4 / 100000) % 10)), (('0') + ((4 / 10000) % 10)), (('0') + ((4 / 1000) % 10)), (('0') + ((4 / 100) % 10)), (('0') + ((4 / 10) % 10)), (('0') + (4 % 10)), '.', (('0') + ((0 / 10000000) % 10)), (('0') + ((0 / 1000000) % 10)), (('0') + ((0 / 100000) % 10)), (('0') + ((0 / 10000) % 10)), (('0') + ((0 / 1000) % 10)), (('0') + ((0 / 100) % 10)), (('0') + ((0 / 10) % 10)), (('0') + (0 % 10)), ']', '\000'}; 
+const char info_host_compiler_version[] = {'I', 'N', 'F', 'O', ':', 'h', 'o', 's', 't', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'r', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[', (('0') + ((10 / 10000000) % 10)), (('0') + ((10 / 1000000) % 10)), (('0') + ((10 / 100000) % 10)), (('0') + ((10 / 10000) % 10)), (('0') + ((10 / 1000) % 10)), (('0') + ((10 / 100) % 10)), (('0') + ((10 / 10) % 10)), (('0') + (10 % 10)), '.', (('0') + ((5 / 10000000) % 10)), (('0') + ((5 / 1000000) % 10)), (('0') + ((5 / 100000) % 10)), (('0') + ((5 / 10000) % 10)), (('0') + ((5 / 1000) % 10)), (('0') + ((5 / 100) % 10)), (('0') + ((5 / 10) % 10)), (('0') + (5 % 10)), '.', (('0') + ((0 / 10000000) % 10)), (('0') + ((0 / 1000000) % 10)), (('0') + ((0 / 100000) % 10)), (('0') + ((0 / 10000) % 10)), (('0') + ((0 / 1000) % 10)), (('0') + ((0 / 100) % 10)), (('0') + ((0 / 10) % 10)), (('0') + (0 % 10)), ']', '\000'}; 
 # 881 "CMakeCUDACompilerId.cu"
 const char *info_language_standard_default = ("INFO:standard_default[14]"); 
 # 899 "CMakeCUDACompilerId.cu"
@@ -23556,7 +23705,7 @@ return require;
 } 
 
 # 1 "CMakeCUDACompilerId.cudafe1.stub.c"
-#define _NV_ANON_NAMESPACE _GLOBAL__N__b275171d_22_CMakeCUDACompilerId_cu_bd57c623
+#define _NV_ANON_NAMESPACE _GLOBAL__N__11132366_22_CMakeCUDACompilerId_cu_bd57c623
 #ifdef _NV_ANON_NAMESPACE
 #endif
 # 1 "CMakeCUDACompilerId.cudafe1.stub.c"

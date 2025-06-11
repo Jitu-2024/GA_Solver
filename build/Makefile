@@ -57,13 +57,23 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/harish/GRA_development/GA_Solver
+CMAKE_SOURCE_DIR = /home/harish/ga_tspj_experiments/GA_Solver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/harish/GRA_development/GA_Solver/build
+CMAKE_BINARY_DIR = /home/harish/ga_tspj_experiments/GA_Solver/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -85,11 +95,56 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/GRA_development/GA_Solver/build/CMakeFiles /home/harish/GRA_development/GA_Solver/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/ga_tspj_experiments/GA_Solver/build/CMakeFiles /home/harish/ga_tspj_experiments/GA_Solver/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/GRA_development/GA_Solver/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harish/ga_tspj_experiments/GA_Solver/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +197,58 @@ ga_solver/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver.dir/build.make CMakeFiles/ga_solver.dir/build
 .PHONY : ga_solver/fast
 
+#=============================================================================
+# Target rules for targets named ga_solver_enhanced
+
+# Build rule for target.
+ga_solver_enhanced: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ga_solver_enhanced
+.PHONY : ga_solver_enhanced
+
+# fast build rule for target.
+ga_solver_enhanced/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_enhanced.dir/build.make CMakeFiles/ga_solver_enhanced.dir/build
+.PHONY : ga_solver_enhanced/fast
+
+#=============================================================================
+# Target rules for targets named quick_experiment
+
+# Build rule for target.
+quick_experiment: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 quick_experiment
+.PHONY : quick_experiment
+
+# fast build rule for target.
+quick_experiment/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quick_experiment.dir/build.make CMakeFiles/quick_experiment.dir/build
+.PHONY : quick_experiment/fast
+
+#=============================================================================
+# Target rules for targets named full_experiment
+
+# Build rule for target.
+full_experiment: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 full_experiment
+.PHONY : full_experiment
+
+# fast build rule for target.
+full_experiment/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/full_experiment.dir/build.make CMakeFiles/full_experiment.dir/build
+.PHONY : full_experiment/fast
+
+#=============================================================================
+# Target rules for targets named clean_experiments
+
+# Build rule for target.
+clean_experiments: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean_experiments
+.PHONY : clean_experiments
+
+# fast build rule for target.
+clean_experiments/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clean_experiments.dir/build.make CMakeFiles/clean_experiments.dir/build
+.PHONY : clean_experiments/fast
+
 src/cost_matrix.o: src/cost_matrix.cu.o
 .PHONY : src/cost_matrix.o
 
@@ -189,6 +296,30 @@ src/crossover.s: src/crossover.cu.s
 src/crossover.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_lib.dir/build.make CMakeFiles/ga_solver_lib.dir/src/crossover.cu.s
 .PHONY : src/crossover.cu.s
+
+src/enhanced_ga_solver_main.o: src/enhanced_ga_solver_main.cu.o
+.PHONY : src/enhanced_ga_solver_main.o
+
+# target to build an object file
+src/enhanced_ga_solver_main.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_enhanced.dir/build.make CMakeFiles/ga_solver_enhanced.dir/src/enhanced_ga_solver_main.cu.o
+.PHONY : src/enhanced_ga_solver_main.cu.o
+
+src/enhanced_ga_solver_main.i: src/enhanced_ga_solver_main.cu.i
+.PHONY : src/enhanced_ga_solver_main.i
+
+# target to preprocess a source file
+src/enhanced_ga_solver_main.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_enhanced.dir/build.make CMakeFiles/ga_solver_enhanced.dir/src/enhanced_ga_solver_main.cu.i
+.PHONY : src/enhanced_ga_solver_main.cu.i
+
+src/enhanced_ga_solver_main.s: src/enhanced_ga_solver_main.cu.s
+.PHONY : src/enhanced_ga_solver_main.s
+
+# target to generate assembly for a file
+src/enhanced_ga_solver_main.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ga_solver_enhanced.dir/build.make CMakeFiles/ga_solver_enhanced.dir/src/enhanced_ga_solver_main.cu.s
+.PHONY : src/enhanced_ga_solver_main.cu.s
 
 src/fitness_evaluator.o: src/fitness_evaluator.cu.o
 .PHONY : src/fitness_evaluator.o
@@ -341,8 +472,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... clean_experiments"
+	@echo "... full_experiment"
+	@echo "... quick_experiment"
 	@echo "... ga_solver"
+	@echo "... ga_solver_enhanced"
 	@echo "... ga_solver_lib"
 	@echo "... src/cost_matrix.o"
 	@echo "... src/cost_matrix.i"
@@ -350,6 +490,9 @@ help:
 	@echo "... src/crossover.o"
 	@echo "... src/crossover.i"
 	@echo "... src/crossover.s"
+	@echo "... src/enhanced_ga_solver_main.o"
+	@echo "... src/enhanced_ga_solver_main.i"
+	@echo "... src/enhanced_ga_solver_main.s"
 	@echo "... src/fitness_evaluator.o"
 	@echo "... src/fitness_evaluator.i"
 	@echo "... src/fitness_evaluator.s"
