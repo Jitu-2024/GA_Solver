@@ -2,13 +2,15 @@ import subprocess
 import tempfile
 import os
 from typing import List, Tuple, Optional, Dict, Any
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 # --- Robust Path to Executable ---
-# Assumes this script is in ga-solver-simple/backend/tools
-# and the executable is in a 'build' directory in the project root.
+# Corrected path logic for the 'ga-solver-adk' structure.
 try:
-    # This constructs an absolute path to the project's root directory
-    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+    # This script is in 'ga-solver-adk', the root is one level up.
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     BUILD_DIR = os.path.join(PROJECT_ROOT, "build")
 except NameError:
     # Fallback for environments where __file__ is not defined
@@ -24,11 +26,11 @@ def find_default_solver_path() -> Optional[str]:
     # 1. Prioritize Environment Variable for explicit path setting
     env_path = os.environ.get("GA_SOLVER_EXECUTABLE_PATH")
     if env_path:
-        if os.path.exists(env_path):
+        if os.path.isfile(env_path):
             print(f"Found solver executable from environment variable 'GA_SOLVER_EXECUTABLE_PATH': {env_path}")
             return env_path
         else:
-            print(f"Warning: Environment variable 'GA_SOLVER_EXECUTABLE_PATH' is set to '{env_path}', but the file does not exist.")
+            print(f"Warning: Environment variable 'GA_SOLVER_EXECUTABLE_PATH' is set to '{env_path}', but this is not a valid file.")
             # Continue to search default paths in case the env var is stale.
 
     # 2. Fallback to searching the build directory
@@ -46,7 +48,7 @@ def find_default_solver_path() -> Optional[str]:
         os.path.join(BUILD_DIR, "ga_solver_executable"), # For non-windows builds
     ]
     for path in search_paths:
-        if os.path.exists(path):
+        if os.path.isfile(path):
             print(f"Found solver executable at: {path}")
             return path
             
@@ -192,13 +194,6 @@ def run_gpu_ga_solver_background(
     def update_status(status: str, message: str, details: Any = None):
         task_store[task_id] = {"status": status, "message": message, "details": details}
     
-    # --- PERMISSION DIAGNOSTICS ---
-    print("\n--- PERMISSION DEBUGGER ---")
-    print(f"Current Working Directory: {os.getcwd()}")
-    print(f"Attempting to use solver path: {solver_path}")
-    print(f"Solver path exists: {os.path.exists(solver_path) if solver_path else False}")
-    print("--- END PERMISSION DEBUGGER ---\n")
-
     # Verify the executable path was found or provided
     if not solver_path or not os.path.exists(solver_path):
         error_message = (f"CUDA solver executable not found at the specified path: {cuda_solver_executable_path}. "
@@ -281,12 +276,13 @@ def run_gpu_ga_solver_background(
         cmd.extend(["--initialGenomesFile", initial_genomes_file])
     
     # Convert the command list to a single, properly-quoted string.
-    # This is more robust for shell=True on Windows and helps prevent permission errors.
+    # This is the most robust way to use shell=True on Windows.
     cmd_str = subprocess.list2cmdline(cmd)
     
     solver_log_lines = []
     try:
         update_status("running", f"Starting GA solver with command: {cmd_str}")
+        # Execute the command string with shell=True
         process = subprocess.Popen(cmd_str, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, universal_newlines=True, shell=True)
         
         # Stream stdout and update progress
