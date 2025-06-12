@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Simplified TSP-J GA Experiment Script
-====================================
+Fixed Hyperparameters TSP-J GA Experiment Script
+================================================
 
-This script runs experiments with:
-- 4 seeds for each configuration
-- 4 identical hyperparameter sets for all datasets
-- All 10 datasets
+This script runs experiments using the EXACT hyperparameters defined in the
+configuration dictionary without any dataset-specific scaling.
+
+MODIFICATION: Removed dataset-specific parameter scaling to use identical
+hyperparameters across all datasets and seeds.
 """
 
 import sys
@@ -17,14 +18,23 @@ from datetime import datetime
 import json
 import pandas as pd
 import numpy as np
-import subprocess
 
-class SimplifiedExperimentSuite:
+# Add the current directory to path to import the framework
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from ga_experiment_framework import GAExperimentRunner, GAExperimentLogger
+except ImportError:
+    print("Error: ga_experiment_framework.py not found!")
+    print("Please ensure ga_experiment_framework.py is in the same directory.")
+    sys.exit(1)
+
+class FixedHyperparametersExperimentSuite:
     """
-    Simplified experiment suite for TSP-J GA solver
+    Experiment suite that uses EXACT hyperparameters without dataset scaling
     """
     
-    def __init__(self, ga_executable="./ga_solver_enhanced"):
+    def __init__(self, ga_executable="./build/ga_solver"):
         self.ga_executable = ga_executable
         
         # All 10 datasets
@@ -33,296 +43,342 @@ class SimplifiedExperimentSuite:
             "fri26", "gr17", "gr21", "gr24", "gr48"
         ]
         
-        # Fixed 4 seeds for all experiments
-        self.seeds = [42, 123, 456, 789]
+        # Multiple random seeds for statistical validity
+        self.seeds = [42, 123, 456, 789, 1024, 2048, 4096]
         
-        # 4 hyperparameter configurations (same for all datasets)
-        self.hyperparameter_sets = self._define_hyperparameter_sets()
+        # Fixed hyperparameter configurations (NO SCALING APPLIED)
+        self.hyperparameter_configs = self._define_hyperparameter_configs()
         
-    def _define_hyperparameter_sets(self):
-        """Define 4 hyperparameter configurations with large population sizes (1000-2000)"""
+    def _define_hyperparameter_configs(self):
+        """Define the 6 hyperparameter configurations - EXACT VALUES"""
         
         configs = {
-            # Configuration 1: Medium Large Population
-            "config1_medium_large": {
-                'population_size': 1000,
+            # Configuration 1: Balanced (default parameters)
+            "balanced": {
+                'population_size': 500,
                 'generations': 3000,
                 'mutation_rate': 0.3,
                 'tournament_size': 5,
-                'stagnation_limit': 1000,
+                'mode': 0,
+                'stagnation_limit': 800,
                 'diversity_percent': 20.0,
-                'mode': 0
+                'config_name': 'balanced'
             },
             
             # Configuration 2: Large Population
-            "config2_large": {
-                'population_size': 1500,
+            "large_pop": {
+                'population_size': 800,
                 'generations': 3000,
                 'mutation_rate': 0.3,
-                'tournament_size': 7,
-                'stagnation_limit': 1200,
-                'diversity_percent': 18.0,
-                'mode': 0
-            },
-            
-            # Configuration 3: Very Large Population + High Mutation
-            "config3_very_large_high_mut": {
-                'population_size': 2000,
-                'generations': 2500,
-                'mutation_rate': 0.4,
-                'tournament_size': 8,
+                'tournament_size': 5,
+                'mode': 0,
                 'stagnation_limit': 1000,
-                'diversity_percent': 25.0,
-                'mode': 0
+                'diversity_percent': 18.0,
+                'config_name': 'large_pop'
             },
             
-            # Configuration 4: Large Population + Long Run
-            "config4_large_long_run": {
-                'population_size': 1200,
-                'generations': 4000,
+            # Configuration 3: Long Run (more generations)
+            "long_run": {
+                'population_size': 600,
+                'generations': 5000,
                 'mutation_rate': 0.25,
                 'tournament_size': 6,
-                'stagnation_limit': 1500,
+                'mode': 0,
+                'stagnation_limit': 1200,
                 'diversity_percent': 22.0,
-                'mode': 0
+                'config_name': 'long_run'
+            },
+            
+            # Configuration 4: Aggressive (high mutation)
+            "aggressive": {
+                'population_size': 500,
+                'generations': 3000,
+                'mutation_rate': 0.5,
+                'tournament_size': 7,
+                'mode': 0,
+                'stagnation_limit': 800,
+                'diversity_percent': 25.0,
+                'config_name': 'aggressive'
+            },
+            
+            # Configuration 5: Conservative (low mutation)
+            "conservative": {
+                'population_size': 500,
+                'generations': 3000,
+                'mutation_rate': 0.2,
+                'tournament_size': 3,
+                'mode': 0,
+                'stagnation_limit': 800,
+                'diversity_percent': 15.0,
+                'config_name': 'conservative'
+            },
+            
+            # Configuration 6: High Diversity
+            "high_diversity": {
+                'population_size': 500,
+                'generations': 3000,
+                'mutation_rate': 0.4,
+                'tournament_size': 4,
+                'mode': 0,
+                'stagnation_limit': 600,
+                'diversity_percent': 35.0,
+                'config_name': 'high_diversity'
             }
         }
         
         return configs
     
-    def run_single_experiment(self, dataset, seed, hyperparams, timeout=3600):
-        """Run a single GA experiment"""
+    def run_all_configs_all_datasets(self, selected_datasets=None, selected_seeds=None):
+        """
+        Run ALL 6 configurations on ALL datasets with ALL seeds
+        No parameter scaling - uses exact hyperparameters
+        """
+        print("🎯 Running All Configurations on All Datasets (Fixed Hyperparameters)")
+        print("=" * 70)
         
-        cmd = [
-            self.ga_executable,
-            "--datasets", dataset,
-            "--population-size", str(hyperparams['population_size']),
-            "--generations", str(hyperparams['generations']),
-            "--mutation-rate", str(hyperparams['mutation_rate']),
-            "--tournament-size", str(hyperparams['tournament_size']),
-            "--mode", str(hyperparams['mode']),
-            "--stagnation-limit", str(hyperparams['stagnation_limit']),
-            "--diversity-percent", str(hyperparams['diversity_percent']),
-            "--num-runs", "1",  # Single run per call
-            "--seed", str(seed),
-            "--logs-folder", "logs"
-        ]
+        # Use provided selections or defaults
+        datasets = selected_datasets if selected_datasets else self.all_datasets
+        seeds = selected_seeds if selected_seeds else self.seeds
+        config_names = list(self.hyperparameter_configs.keys())
+        
+        return self._run_experiment_suite(
+            datasets=datasets,
+            config_names=config_names,
+            seeds=seeds,
+            experiment_name="fixed_hyperparams_all_configs"
+        )
+    
+    def run_single_config_all_datasets(self, config_name, selected_datasets=None, selected_seeds=None):
+        """
+        Run a SINGLE configuration on ALL datasets with ALL seeds
+        """
+        if config_name not in self.hyperparameter_configs:
+            raise ValueError(f"Configuration '{config_name}' not found. Available: {list(self.hyperparameter_configs.keys())}")
+        
+        print(f"🎯 Running '{config_name}' Configuration on All Datasets")
+        print("=" * 70)
+        
+        # Use provided selections or defaults
+        datasets = selected_datasets if selected_datasets else self.all_datasets
+        seeds = selected_seeds if selected_seeds else self.seeds
+        
+        return self._run_experiment_suite(
+            datasets=datasets,
+            config_names=[config_name],
+            seeds=seeds,
+            experiment_name=f"fixed_hyperparams_{config_name}"
+        )
+    
+    def run_quick_test(self):
+        """Run a quick test with subset of datasets and configurations"""
+        print("🚀 Running Quick Test (Fixed Hyperparameters)")
+        print("=" * 50)
+        
+        # Use small subset for quick testing
+        test_datasets = ["gr17", "gr21", "gr24"]
+        test_config_names = ["balanced", "aggressive"]
+        test_seeds = [42, 123, 456]
+        
+        return self._run_experiment_suite(
+            datasets=test_datasets,
+            config_names=test_config_names,
+            seeds=test_seeds,
+            experiment_name="quick_test_fixed_hyperparams"
+        )
+    
+    def run_custom_experiment(self, datasets, config_names, seeds):
+        """Run custom experiment with specified parameters"""
+        print("🎨 Running Custom Experiment (Fixed Hyperparameters)")
+        print("=" * 50)
+        
+        # Validate inputs
+        invalid_configs = [c for c in config_names if c not in self.hyperparameter_configs]
+        if invalid_configs:
+            raise ValueError(f"Invalid configurations: {invalid_configs}. Available: {list(self.hyperparameter_configs.keys())}")
+        
+        return self._run_experiment_suite(
+            datasets=datasets,
+            config_names=config_names,
+            seeds=seeds,
+            experiment_name="custom_fixed_hyperparams"
+        )
+    
+    def _run_experiment_suite(self, datasets, config_names, seeds, experiment_name):
+        """Internal method to run experiments with FIXED hyperparameters"""
+        
+        start_time = time.time()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        full_experiment_name = f"{experiment_name}_{timestamp}"
+        
+        # Calculate total runs
+        total_runs = len(datasets) * len(config_names) * len(seeds)
+        
+        print(f"📋 Experiment Details:")
+        print(f"   Name: {full_experiment_name}")
+        print(f"   Datasets: {len(datasets)} ({', '.join(datasets)})")
+        print(f"   Configurations: {len(config_names)} ({', '.join(config_names)})")
+        print(f"   Seeds per config: {len(seeds)}")
+        print(f"   Total runs: {total_runs}")
+        print(f"   🔒 Using FIXED hyperparameters (no dataset scaling)")
+        print()
+        
+        # Display configuration details
+        print("📊 Configuration Details:")
+        for config_name in config_names:
+            config = self.hyperparameter_configs[config_name]
+            print(f"   {config_name}: pop={config['population_size']}, "
+                  f"gen={config['generations']}, mut={config['mutation_rate']}, "
+                  f"tour={config['tournament_size']}, div={config['diversity_percent']}%")
+        print()
+        
+        # Create experiment runner
+        runner = GAExperimentRunner(ga_executable_path=self.ga_executable)
         
         try:
-            start_time = time.time()
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
-            total_time = time.time() - start_time
+            logger = self._run_experiments_fixed_hyperparams(
+                runner, datasets, config_names, seeds, full_experiment_name
+            )
             
-            if result.returncode == 0:
-                return True, total_time, result.stdout
-            else:
-                return False, total_time, result.stderr
-                
-        except subprocess.TimeoutExpired:
-            return False, timeout, "Timeout"
+            elapsed_time = time.time() - start_time
+            print(f"\n✅ Experiment Suite Completed!")
+            print(f"   Total time: {elapsed_time/3600:.2f} hours")
+            print(f"   Results saved in: experiments/{full_experiment_name}/")
+            
+            return logger
+            
         except Exception as e:
-            return False, 0, str(e)
+            print(f"❌ Experiment failed: {e}")
+            import traceback
+            traceback.print_exc()
+            return None
     
-    def run_experiments(self, datasets=None, quick_test=False):
-        """Run the complete experiment suite"""
+    def _run_experiments_fixed_hyperparams(self, runner, datasets, config_names, seeds, experiment_name):
+        """Run experiments with FIXED hyperparameters (no scaling)"""
         
-        if datasets is None:
-            datasets = self.all_datasets
-            
-        if quick_test:
-            # Quick test: only 2 datasets, 2 configs, 2 seeds
-            datasets = ["gr17", "gr21"]
-            configs_to_run = ["config1_medium_large", "config2_large"]
-            seeds_to_use = [42, 123]
-        else:
-            # Full test: all datasets, all configs, all seeds
-            configs_to_run = list(self.hyperparameter_sets.keys())
-            seeds_to_use = self.seeds
+        # Initialize logger
+        logger = GAExperimentLogger(experiment_name)
         
-        total_experiments = len(datasets) * len(configs_to_run) * len(seeds_to_use)
+        total_experiments = len(datasets) * len(config_names) * len(seeds)
         current_experiment = 0
         successful_runs = 0
         
-        print(f"🧬 TSP-J GA Experiment Suite")
-        print(f"📅 Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print("=" * 60)
-        print(f"📊 Datasets: {len(datasets)} ({', '.join(datasets)})")
-        print(f"⚙️  Configurations: {len(configs_to_run)}")
-        print(f"🎲 Seeds: {len(seeds_to_use)} ({seeds_to_use})")
-        print(f"🎯 Total Experiments: {total_experiments}")
-        print("=" * 60)
+        print(f"Starting {total_experiments} experiments with FIXED hyperparameters...")
+        print("=" * 70)
         
-        # Show hyperparameter configurations
-        print("📋 Hyperparameter Configurations:")
-        for config_name in configs_to_run:
-            config = self.hyperparameter_sets[config_name]
-            print(f"  {config_name}:")
-            print(f"    Population: {config['population_size']}")
-            print(f"    Generations: {config['generations']}")
-            print(f"    Mutation Rate: {config['mutation_rate']}")
-            print(f"    Tournament Size: {config['tournament_size']}")
-            print(f"    Stagnation Limit: {config['stagnation_limit']}")
-            print(f"    Diversity %: {config['diversity_percent']}")
-        print("=" * 60)
-        
-        start_time = time.time()
-        
-        for dataset in datasets:
-            print(f"\n📊 Processing Dataset: {dataset}")
-            print("-" * 40)
+        for config_name in config_names:
+            print(f"\n🔧 Configuration: {config_name}")
             
-            for config_name in configs_to_run:
-                config = self.hyperparameter_sets[config_name]
-                print(f"  ⚙️  Configuration: {config_name}")
+            # Use EXACT configuration - NO SCALING
+            config = self.hyperparameter_configs[config_name].copy()
+            
+            print(f"     Fixed params: pop={config['population_size']}, "
+                  f"gen={config['generations']}, "
+                  f"mut={config['mutation_rate']}, "
+                  f"tour={config['tournament_size']}, "
+                  f"div={config['diversity_percent']}%")
+            
+            for dataset in datasets:
+                print(f"\n  📊 Dataset: {dataset}")
                 
-                for seed in seeds_to_use:
+                for run_id, seed in enumerate(seeds):
                     current_experiment += 1
                     
-                    print(f"    🎲 Seed {seed} [{current_experiment}/{total_experiments}]", end=" ")
+                    print(f"    🎯 Run {run_id + 1}/{len(seeds)} (Seed: {seed}) "
+                          f"[{current_experiment}/{total_experiments}]", end=" ")
                     
-                    success, runtime, output = self.run_single_experiment(
-                        dataset, seed, config, timeout=3600
-                    )
+                    # Run single experiment with FIXED hyperparameters
+                    result = runner.run_single_experiment(dataset, seed, config)
                     
-                    if success:
+                    if result and result['success']:
+                        # Log the result
+                        logger.log_run(
+                            dataset=dataset,
+                            run_id=run_id,
+                            seed=seed,
+                            hyperparams=config,
+                            fitness_score=result['fitness_score'],
+                            solution_generation=result['solution_generation'],
+                            total_time=result['total_time'],
+                            convergence_history=result['convergence_history'],
+                            best_solution=result['best_solution']
+                        )
+                        
                         successful_runs += 1
-                        print(f"✅ ({runtime:.1f}s)")
+                        print(f"✅ Fitness: {result['fitness_score']:.2f}, "
+                              f"Gen: {result['solution_generation']}, "
+                              f"Time: {result['total_time']:.1f}s")
                     else:
-                        print(f"❌ Failed ({runtime:.1f}s)")
-                        if "Timeout" not in output:
-                            print(f"      Error: {output[:100]}...")
+                        print("❌ Failed")
         
-        elapsed_time = time.time() - start_time
+        print(f"\n📊 Experiment Summary:")
+        print(f"   Successful runs: {successful_runs}/{total_experiments}")
+        print(f"   Success rate: {successful_runs/total_experiments*100:.1f}%")
         
-        print("\n" + "=" * 60)
-        print("📊 EXPERIMENT SUMMARY")
-        print("=" * 60)
-        print(f"✅ Successful runs: {successful_runs}/{total_experiments}")
-        print(f"📈 Success rate: {successful_runs/total_experiments*100:.1f}%")
-        print(f"⏱️  Total time: {elapsed_time/3600:.2f} hours")
-        print(f"📁 Results saved in: logs/")
-        print("=" * 60)
+        # Save results and generate plots
+        logger.save_results()
         
-        return successful_runs, total_experiments
-    
-    def generate_experiment_summary(self):
-        """Generate a summary of experiment parameters"""
+        try:
+            logger.plot_convergence(datasets)
+            logger.plot_comparison()
+            print("📈 Plots generated successfully")
+        except Exception as e:
+            print(f"⚠️  Warning: Could not generate plots: {e}")
         
-        summary = {
-            "experiment_info": {
-                "total_datasets": len(self.all_datasets),
-                "datasets": self.all_datasets,
-                "seeds": self.seeds,
-                "total_configs": len(self.hyperparameter_sets),
-                "total_runs_per_dataset": len(self.hyperparameter_sets) * len(self.seeds),
-                "total_experiments": len(self.all_datasets) * len(self.hyperparameter_sets) * len(self.seeds)
-            },
-            "hyperparameter_configurations": self.hyperparameter_sets
-        }
-        
-        # Save to JSON file
-        with open("logs/experiment_summary.json", "w") as f:
-            json.dump(summary, f, indent=2)
-        
-        return summary
-
-
-def load_and_analyze_results():
-    """Load and analyze the experimental results"""
-    
-    try:
-        # Try to load individual results first
-        individual_file = "logs/individual_results.csv"
-        aggregated_file = "logs/aggregated_results.csv"
-        
-        if os.path.exists(individual_file):
-            df = pd.read_csv(individual_file)
-            print(f"📊 Loaded {len(df)} individual results")
-            
-            # Basic statistics
-            print("\n📈 Basic Statistics:")
-            print(f"  Datasets tested: {df['Dataset'].nunique()}")
-            print(f"  Unique seeds: {sorted(df['Seed'].unique())}")
-            print(f"  Configuration variations: {df[['Population_Size', 'Mutation_Rate', 'Tournament_Size']].drop_duplicates().shape[0]}")
-            
-            # Best results per dataset
-            print("\n🏆 Best Results per Dataset:")
-            best_per_dataset = df.loc[df.groupby('Dataset')['Fitness_Score'].idxmin()]
-            for _, row in best_per_dataset.iterrows():
-                print(f"  {row['Dataset']}: {row['Fitness_Score']:.2f} "
-                      f"(Config: pop={row['Population_Size']}, mut={row['Mutation_Rate']}, "
-                      f"seed={row['Seed']})")
-            
-            # Average performance by configuration
-            print("\n⚙️  Average Performance by Configuration:")
-            config_perf = df.groupby(['Population_Size', 'Mutation_Rate', 'Tournament_Size'])['Fitness_Score'].agg(['mean', 'std', 'count']).round(2)
-            print(config_perf)
-            
-        elif os.path.exists(aggregated_file):
-            df = pd.read_csv(aggregated_file)
-            print(f"📊 Loaded {len(df)} aggregated results")
-            
-            print("\n🏆 Best Results per Dataset:")
-            for _, row in df.iterrows():
-                print(f"  {row['Dataset']}: {row['Best_Fitness']:.2f} "
-                      f"(Mean: {row['Mean_Fitness']:.2f} ± {row['Std_Fitness']:.2f})")
-        else:
-            print("❌ No results files found. Run experiments first.")
-            
-    except Exception as e:
-        print(f"❌ Error analyzing results: {e}")
+        return logger
 
 
 def main():
     """Main function with command-line interface"""
     
     parser = argparse.ArgumentParser(
-        description="Simplified TSP-J GA Experiment Suite",
+        description="Fixed Hyperparameters TSP-J GA Experiment Suite",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-This script runs experiments with:
-- 4 seeds: [42, 123, 456, 789]
-- 4 hyperparameter configurations (same for all datasets)
-- All 10 datasets
-
-Total experiments: 10 datasets × 4 configs × 4 seeds = 160 runs
+Experiment Modes:
+  all-configs    - All 6 configs on all datasets with all seeds (420 runs)
+  single-config  - Single config on all datasets with all seeds (70 runs)
+  quick          - Quick test: 3 datasets, 2 configs, 3 seeds (18 runs)
+  custom         - Custom selection of datasets, configs, and seeds
 
 Examples:
-  python3 simplified_experiments.py --run              # Run all experiments
-  python3 simplified_experiments.py --quick            # Quick test (8 runs)
-  python3 simplified_experiments.py --analyze          # Analyze existing results
+  # Run all configurations on all datasets
+  python3 fixed_hyperparams_experiments.py --mode all-configs
+  
+  # Run only 'balanced' configuration on all datasets  
+  python3 fixed_hyperparams_experiments.py --mode single-config --config balanced
+  
+  # Quick test
+  python3 fixed_hyperparams_experiments.py --mode quick
+  
+  # Custom: specific datasets and configs
+  python3 fixed_hyperparams_experiments.py --mode custom \\
+    --datasets gr17,gr21,bays29 --configs balanced,aggressive --seeds 42,123,456
         """
     )
     
-    parser.add_argument('--run', action='store_true',
-                       help='Run the full experiment suite')
+    parser.add_argument('--mode', 
+                       choices=['all-configs', 'single-config', 'quick', 'custom'],
+                       default='quick',
+                       help='Experiment mode to run')
     
-    parser.add_argument('--quick', action='store_true',
-                       help='Run quick test (2 datasets, 2 configs, 2 seeds)')
+    parser.add_argument('--config',
+                       choices=['balanced', 'large_pop', 'long_run', 'aggressive', 'conservative', 'high_diversity'],
+                       help='Configuration to use (required for single-config mode)')
     
-    parser.add_argument('--analyze', action='store_true',
-                       help='Analyze existing results')
+    parser.add_argument('--datasets',
+                       help='Comma-separated list of datasets (for custom mode)')
     
-    parser.add_argument('--datasets', nargs='+',
-                       help='Specific datasets to run (default: all)')
+    parser.add_argument('--configs',
+                       help='Comma-separated list of configurations (for custom mode)')
+    
+    parser.add_argument('--seeds',
+                       help='Comma-separated list of seeds (for custom mode)')
     
     parser.add_argument('--ga-executable',
-                       default='./ga_solver_enhanced',
+                       default='./build/ga_solver',
                        help='Path to GA executable')
     
     args = parser.parse_args()
-    
-    # Setup directories
-    os.makedirs("logs", exist_ok=True)
-    os.makedirs("plots", exist_ok=True)
-    
-    if args.analyze:
-        load_and_analyze_results()
-        return 0
-    
-    if not (args.run or args.quick):
-        parser.print_help()
-        return 0
     
     # Check if GA executable exists
     if not os.path.exists(args.ga_executable):
@@ -331,24 +387,44 @@ Examples:
         return 1
     
     # Create experiment suite
-    suite = SimplifiedExperimentSuite(ga_executable=args.ga_executable)
+    suite = FixedHyperparametersExperimentSuite(ga_executable=args.ga_executable)
     
-    # Generate experiment summary
-    summary = suite.generate_experiment_summary()
-    print(f"📋 Experiment summary saved to: logs/experiment_summary.json")
+    # Run selected experiment mode
+    print(f"🧬 TSP-J GA Fixed Hyperparameters Experiment Suite")
+    print(f"📅 Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🎯 Mode: {args.mode}")
+    print(f"⚡ GA Executable: {args.ga_executable}")
+    print("=" * 60)
     
-    # Run experiments
-    if args.quick:
-        print("🚀 Running Quick Test...")
-        successful, total = suite.run_experiments(quick_test=True)
+    logger = None
+    
+    if args.mode == 'all-configs':
+        logger = suite.run_all_configs_all_datasets()
+        
+    elif args.mode == 'single-config':
+        if not args.config:
+            print("❌ --config is required for single-config mode")
+            return 1
+        logger = suite.run_single_config_all_datasets(args.config)
+        
+    elif args.mode == 'quick':
+        logger = suite.run_quick_test()
+        
+    elif args.mode == 'custom':
+        # Parse custom parameters
+        datasets = args.datasets.split(',') if args.datasets else suite.all_datasets
+        configs = args.configs.split(',') if args.configs else ['balanced']
+        seeds = [int(s) for s in args.seeds.split(',')] if args.seeds else suite.seeds
+        
+        print(f"Custom experiment: {len(datasets)} datasets, {len(configs)} configs, {len(seeds)} seeds")
+        logger = suite.run_custom_experiment(datasets, configs, seeds)
+    
+    if logger:
+        print(f"\n🎉 All experiments completed successfully!")
+        print(f"📊 Check the experiments/ directory for detailed results and analysis.")
     else:
-        datasets_to_run = args.datasets if args.datasets else None
-        print("🚀 Running Full Experiment Suite...")
-        successful, total = suite.run_experiments(datasets=datasets_to_run)
-    
-    if successful > 0:
-        print(f"\n📊 Analyzing results...")
-        load_and_analyze_results()
+        print(f"\n❌ Experiments failed or were cancelled.")
+        return 1
     
     return 0
 
