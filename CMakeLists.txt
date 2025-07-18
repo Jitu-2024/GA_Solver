@@ -19,18 +19,22 @@ set(CMAKE_CUDA_STANDARD 17)
 # Enable CUDA
 enable_language(CUDA)
 
-# Enable debug flags for host and device code
-set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_CUDA_FLAGS_DEBUG "-G -g")
+# Set build type to Release by default (fixes ptxas debug issue)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
-# Set A100 CUDA architecture (compute capability 8.0)
-set(CMAKE_CUDA_ARCHITECTURES 80)
-
-# Add additional CUDA flags for compatibility with Colab
-set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Wno-deprecated-gpu-targets")
-
-# Force PTX JIT compilation
-add_compile_definitions(CUDA_FORCE_PTX_JIT=1)
+# Separate debug flags for host and device code
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    # Host debug flags
+    set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+    # Device debug flags (no -G flag to avoid ptxas error)
+    set(CMAKE_CUDA_FLAGS_DEBUG "-g -O0")
+else()
+    # Release optimization flags
+    set(CMAKE_CUDA_FLAGS_RELEASE "-O3 --use_fast_math -DNDEBUG")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+endif()
 
 # Define data directories
 set(DATA_SOURCE_DIR "${CMAKE_SOURCE_DIR}/data")
@@ -53,21 +57,18 @@ file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/logs")
 
 # Define DATA_DIR for the source code
 add_compile_definitions(DATA_DIR="${DATA_BINARY_DIR}")
-
-add_compile_definitions(DATA_DIR="${CMAKE_BINARY_DIR}/data")
-
 add_compile_definitions(LOGS_DIR="${CMAKE_SOURCE_DIR}/logs")
 
-# Add source files
+# Add source files - Updated for EAX implementation
 set(SRC_FILES
     src/genome.cu
     src/population.cu
     src/cost_matrix.cu
     src/fitness_evaluator.cu
     src/parent_selection.cu
-    src/crossover.cu
+    src/crossover.cu                # Now contains EAX implementation
+    src/eax_cost_integration.cu     # New: Cost-aware EAX utilities
     src/mutation.cu
-    # Add other source files as needed
 )
 
 # Include header files
@@ -76,47 +77,74 @@ include_directories(include)
 # Create a library for shared logic
 add_library(ga_solver_lib ${SRC_FILES})
 target_include_directories(ga_solver_lib PRIVATE include)
-target_link_libraries(ga_solver_lib PRIVATE ${CMAKE_CUDA_LIBRARIES})
+
+# Link CUDA libraries and required dependencies
+target_link_libraries(ga_solver_lib PRIVATE 
+    CUDA::cudart
+    CUDA::curand
+)
+
+# Set CUDA architectures for better performance (auto-detect)
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+    set(CMAKE_CUDA_ARCHITECTURES "60;70;75;80;86")
+endif()
+set_property(TARGET ga_solver_lib PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
+
+# Add compiler-specific optimizations (safe flags only)
+target_compile_options(ga_solver_lib PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:
+        --extended-lambda
+        --expt-relaxed-constexpr
+        --maxrregcount=64
+    >
+)
+
+# Add release-specific optimizations
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    target_compile_options(ga_solver_lib PRIVATE
+        $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas -O3>
+    )
+endif()
 
 # Add executable for the main application
 add_executable(ga_solver src/ga_solver_main.cu)
 target_link_libraries(ga_solver PUBLIC ga_solver_lib)
 
-# # Enable testing
+# Set CUDA architectures for the executable
+set_property(TARGET ga_solver PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
+
+# Add memory optimization flags
+target_compile_definitions(ga_solver_lib PRIVATE
+    MAX_CITIES=256
+    MAX_CYCLES=64
+    MAX_CYCLE_LENGTH=64
+)
+
+# Optional: Add performance profiling support
+option(ENABLE_PROFILING "Enable CUDA profiling" OFF)
+if(ENABLE_PROFILING)
+    target_compile_definitions(ga_solver_lib PRIVATE ENABLE_PROFILING=1)
+    target_compile_options(ga_solver_lib PRIVATE
+        $<$<COMPILE_LANGUAGE:CUDA>:--generate-line-info>
+    )
+endif()
+
+# Optional: Add memory debugging (only in debug mode)
+option(ENABLE_CUDA_MEMCHECK "Enable CUDA memory checking" OFF)
+if(ENABLE_CUDA_MEMCHECK AND CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_definitions(ga_solver_lib PRIVATE CUDA_MEMCHECK=1)
+endif()
+
+# Print configuration information
+message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "CUDA Architectures: ${CMAKE_CUDA_ARCHITECTURES}")
+message(STATUS "CUDA Compiler: ${CMAKE_CUDA_COMPILER}")
+message(STATUS "CUDA Version: ${CUDAToolkit_VERSION}")
+
+# Enable testing (commented out as in original)
 # enable_testing()
 
-# # Add test for Genome
-# add_executable(test_genome tests/test_genome.cu)
-# target_link_libraries(test_genome PRIVATE ga_solver_lib)
-# add_test(NAME GenomeTest COMMAND test_genome)
-
-
-# # Add test for Population
-# add_executable(test_population tests/test_population.cu)
-# target_link_libraries(test_population PRIVATE ga_solver_lib)
-# add_test(NAME PopulationTest COMMAND test_population)
-
-# # Add test for Cost_Matrix
-# add_executable(test_cost_matrix tests/test_cost_matrix.cu)
-# target_link_libraries(test_cost_matrix PRIVATE ga_solver_lib)
-# add_test(NAME CostMatrix COMMAND test_cost_matrix)
-
-# # Add test for FitnessEvaluator
-# add_executable(test_fitness_evaluator tests/test_fitness_evaluator.cu)
-# target_link_libraries(test_fitness_evaluator PRIVATE ga_solver_lib)
-# add_test(NAME FitnessEvaluatorTest COMMAND test_fitness_evaluator)
-
-# # Add test for Parent Selection
-# add_executable(test_parent_selection tests/test_parent_selection.cu)
-# target_link_libraries(test_parent_selection PRIVATE ga_solver_lib)
-# add_test(NAME ParentSelectionTest COMMAND test_parent_selection)
-
-# # Add test for Crossover
-# add_executable(test_crossover tests/test_crossover.cu)
-# target_link_libraries(test_crossover PRIVATE ga_solver_lib)
-# add_test(NAME CrossoverTest COMMAND test_crossover)
-
-# # Add test for Mutation
-# add_executable(test_mutation tests/test_mutation.cu)
-# target_link_libraries(test_mutation PRIVATE ga_solver_lib)
-# add_test(NAME MutationTest COMMAND test_mutation)
+# Add test for EAX Crossover
+# add_executable(test_eax_crossover tests/test_eax_crossover.cu)
+# target_link_libraries(test_eax_crossover PRIVATE ga_solver_lib)
+# add_test(NAME EAXCrossoverTest COMMAND test_eax_crossover)

@@ -1,10 +1,11 @@
-// ga_solver_main.cu: Main solver for TSPJ genetic algorithm
+// ga_solver_main.cu: Main solver for TSPJ genetic algorithm with EAX crossover
 
 #include "genome.h"
 #include "population.h"
 #include "fitness_evaluator.h"
 #include "parent_selection.h"
 #include "crossover.h"
+#include "eax_cost_integration.h"
 #include "mutation.h"
 #include <iostream>
 #include <vector>
@@ -80,6 +81,7 @@ void displayHelp() {
     std::cout << "  -s, --stagnation-limit    Max generations without improvement before stopping (default: 1500)" << std::endl;
     std::cout << "  -v, --diversity-percent   Percentage of population to replace with random genomes (default: 20)" << std::endl;
     std::cout << "  -l, --logs-folder         Folder for logs (default: ../logs)" << std::endl;
+    std::cout << "  -c, --use-cost-aware      Use cost-aware EAX crossover (default: false)" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -93,6 +95,7 @@ int main(int argc, char* argv[]) {
     int mode = 2;
     size_t maxStagnationGenerations = 1500;
     float diversityPercent = 20.0f;
+    bool useCostAware = false;
 
     // Parse command line arguments
     for (int i = 1; i < argc; i++) {
@@ -137,6 +140,8 @@ int main(int argc, char* argv[]) {
             if (i + 1 < argc) {
                 logsFolder = argv[++i];
             }
+        } else if (arg == "-c" || arg == "--use-cost-aware") {
+            useCostAware = true;
         }
     }
 
@@ -159,6 +164,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Max Stagnation Generations: " << maxStagnationGenerations << std::endl;
     std::cout << "Diversity Percentage: " << diversityPercent << "%" << std::endl;
     std::cout << "Logs Folder: " << logsFolder << std::endl;
+    std::cout << "Crossover Type: " << (useCostAware ? "Cost-Aware EAX" : "Standard EAX") << std::endl;
     std::cout << "=========================================================================" << std::endl;
 
     // Calculate diversity count based on percentage
@@ -182,16 +188,22 @@ int main(int argc, char* argv[]) {
             std::cout << "Number of Cities: " << numCities << std::endl;
             std::cout << "Number of Jobs: " << numJobs << std::endl;
 
+            // Initialize cost matrices for EAX if using cost-aware mode
+            if (useCostAware) {
+                std::cout << "Initializing cost-aware EAX..." << std::endl;
+                initializeEAXCostMatrices(travelTimes, jobTimes);
+            }
+
             // Initialize population
             std::vector<Genome> population;
             initializePopulation(population, populationSize, numCities, numJobs, mode);
 
             auto startTime = std::chrono::high_resolution_clock::now();
 
-            // Main GA loop
+            // Main GA loop with EAX crossover
             float bestFitness = std::numeric_limits<float>::max();
             size_t solutionGeneration = 0;
-            size_t stagnationCount = 0; // Counter for generations without fitness improvement
+            size_t stagnationCount = 0;
 
             for (size_t generation = 0; generation < generations; ++generation) {
                 std::cout << "=============================== GENERATION " << generation << " ===============================" << std::endl;
@@ -203,38 +215,87 @@ int main(int argc, char* argv[]) {
                 // Sort by fitness
                 sortPopulationByFitness(population);
 
-                // Select parents
-                std::vector<Genome> parents = selectParents(population, populationSize / 8, tournamentSize);
+                // Select parents (increased number for EAX)
+                std::vector<Genome> parents = selectParents(population, populationSize / 2, tournamentSize);
                 
-                // Generate offspring via crossover and mutation
+                // OPTIMIZED EAX CROSSOVER SECTION
                 std::vector<Genome> offspring;
-                for (size_t i = 0; i < parents.size(); i += 2) {
-                    Genome parent1 = parents[i];
-                    Genome parent2 = parents[(i + 1) % parents.size()];
+                
+                // Method 1: Batch processing for maximum GPU utilization
+                if (parents.size() >= 32) { // Use batch processing for larger parent sets
+                    std::cout << "Using batch EAX processing for " << parents.size() << " parents" << std::endl;
+                    
+                    // Prepare parent pairs for batch processing
+                    std::vector<Genome> parents1, parents2;
+                    for (size_t i = 0; i < parents.size(); i += 2) {
+                        parents1.push_back(parents[i]);
+                        parents2.push_back(parents[(i + 1) % parents.size()]);
+                    }
+                    
+                    // Generate offspring using batch EAX
+                    std::vector<Genome> batchOffspring;
+                    if (useCostAware) {
+                        batchOffspring = performBatchCostAwareEAXCrossover(parents1, parents2, mode);
+                    } else {
+                        batchOffspring = performBatchEAXCrossover(parents1, parents2, mode);
+                    }
+                    
+                    offspring.insert(offspring.end(), batchOffspring.begin(), batchOffspring.end());
+                    
+                    // Apply mutation to all offspring
+                    for (auto& child : offspring) {
+                        performMutation(child, mutationRate, mode);
+                    }
+                    
+                } else { // Method 2: Sequential processing for smaller parent sets
+                    std::cout << "Using sequential EAX processing" << std::endl;
+                    
+                    for (size_t i = 0; i < parents.size(); i += 2) {
+                        Genome parent1 = parents[i];
+                        Genome parent2 = parents[(i + 1) % parents.size()];
 
-                    // Generate multiple children per parent pair
-                    for (size_t j = 0; j < 3; ++j) {
-                        auto [child1, child2] = performCrossover(parent1, parent2, mode);
-                        performMutation(child1, mutationRate, mode);
-                        performMutation(child2, mutationRate, mode);
-
-                        offspring.push_back(child1);
-                        offspring.push_back(child2);
+                        // Generate single high-quality offspring using EAX
+                        Genome child;
+                        if (useCostAware) {
+                            child = performCostAwareEAXCrossover(parent1, parent2, mode);
+                        } else {
+                            child = performCrossover(parent1, parent2, mode);
+                        }
+                        
+                        performMutation(child, mutationRate, mode);
+                        offspring.push_back(child);
+                        
+                        // Generate additional offspring if needed by varying parent selection
+                        if (offspring.size() < populationSize / 2) {
+                            // Use different parent combinations for diversity
+                            size_t altIdx = (i + parents.size() / 2) % parents.size();
+                            Genome child2;
+                            if (useCostAware) {
+                                child2 = performCostAwareEAXCrossover(parent1, parents[altIdx], mode);
+                            } else {
+                                child2 = performCrossover(parent1, parents[altIdx], mode);
+                            }
+                            performMutation(child2, mutationRate, mode);
+                            offspring.push_back(child2);
+                        }
                     }
                 }
 
-                // Generate random genomes for diversity
+                std::cout << "Generated " << offspring.size() << " offspring using EAX" << std::endl;
+
+                // Generate random genomes for diversity (unchanged)
                 std::vector<Genome> diversityGenomes;
                 initializePopulation(diversityGenomes, diversityCount, numCities, numJobs, mode);
-
-                // Combine offspring and diversity genomes
                 offspring.insert(offspring.end(), diversityGenomes.begin(), diversityGenomes.end());
 
-                // Replace worst genomes with offspring and diversity
+                std::cout << "Added " << diversityCount << " diversity genomes" << std::endl;
+
+                // Ensure we don't exceed population size
                 if (offspring.size() > population.size()) {
                     offspring.resize(population.size());
                 }
 
+                // Replace worst genomes with offspring
                 replaceWorst(population, offspring);
 
                 // Output best fitness of current generation
@@ -245,6 +306,7 @@ int main(int argc, char* argv[]) {
                     bestFitness = bestGenome.fitness;
                     solutionGeneration = generation;
                     stagnationCount = 0; // Reset stagnation count
+                    std::cout << "*** NEW BEST FITNESS: " << bestFitness << " ***" << std::endl;
                 } else {
                     stagnationCount++; // Increment stagnation count
                 }
@@ -267,7 +329,8 @@ int main(int argc, char* argv[]) {
             // Create a string with the experiment parameters
             std::stringstream extraInfoSS;
             extraInfoSS << "pop=" << populationSize << ",mut=" << mutationRate 
-                      << ",tour=" << tournamentSize << ",div=" << diversityPercent << "%";
+                      << ",tour=" << tournamentSize << ",div=" << diversityPercent << "%"
+                      << ",crossover=" << (useCostAware ? "CostEAX" : "EAX");
             std::string extraInfo = extraInfoSS.str();
 
             // Print the best solution in the final population
@@ -282,8 +345,18 @@ int main(int argc, char* argv[]) {
                        totalTime, timePerGeneration, mode, extraInfo);
             std::cout << "Log written successfully for dataset " << datasetName << "\n";
 
+            // Cleanup cost matrices if using cost-aware mode
+            if (useCostAware) {
+                cleanupEAXCostMatrices();
+            }
+
         } catch (const std::exception& e) {
             std::cerr << "Error processing dataset " << datasetName << ": " << e.what() << std::endl;
+            
+            // Cleanup on error
+            if (useCostAware) {
+                cleanupEAXCostMatrices();
+            }
         }
     }
 
