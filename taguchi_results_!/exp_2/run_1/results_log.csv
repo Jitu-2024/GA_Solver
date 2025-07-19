@@ -1,3 +1,0 @@
-Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
-berlin52,11887.9,4079,5000,72.3281,0.0177275,0,pop=1000,mut=0.2,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
-eil101,1045.1,4382,5000,82.0061,0.01871,0,pop=1000,mut=0.2,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
