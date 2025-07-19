@@ -52,3 +52,43 @@ Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),T
 gr17,2858,96,10000,11.1726,0.00111726,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX
 Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
 gr17,2760,81,10000,10.9243,0.00109243,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3055,71,72,16.7698,0.232914,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2921,121,122,17.214,0.141098,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2986,166,167,16.1182,0.096516,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2873,226,227,16.7078,0.0736028,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2945,679,680,21.1786,0.0311451,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2870,116,10000,10.3438,0.0884086,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2821,55,10000,9.94547,0.177598,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2994,44,10000,9.92622,0.220583,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2831,71,10000,10.1341,0.140752,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2996,102,10000,20.1444,0.195577,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3110,98,10000,20.1085,0.203117,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,599,10000,28.3993,0.0473321,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,340,10000,25.0122,0.0733496,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2858,508,10000,27.3461,0.0537251,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,637,10000,28.963,0.0453965,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2996,231,10000,23.5613,0.101558,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2858,157,10000,22.5993,0.143034,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,468,10000,26.7374,0.0570094,2,pop=1000,mut=0.3,tour=5,div=20%,crossover=CostEAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,387,1000,40.5622,0.104542,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2760,613,1000,14.4783,0.0235802,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX,mutation=Batch2opt

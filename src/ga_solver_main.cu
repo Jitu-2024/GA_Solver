@@ -1,4 +1,4 @@
-// ga_solver_main.cu: Main solver for TSPJ genetic algorithm with EAX crossover
+// ga_solver_main.cu: Main solver for TSPJ genetic algorithm with EAX crossover and 2-opt mutation
 
 #include "genome.h"
 #include "population.h"
@@ -82,6 +82,7 @@ void displayHelp() {
     std::cout << "  -v, --diversity-percent   Percentage of population to replace with random genomes (default: 20)" << std::endl;
     std::cout << "  -l, --logs-folder         Folder for logs (default: ../logs)" << std::endl;
     std::cout << "  -c, --use-cost-aware      Use cost-aware EAX crossover (default: false)" << std::endl;
+    std::cout << "  -b, --batch-mutation      Use batch 2-opt mutation (default: true)" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -96,6 +97,7 @@ int main(int argc, char* argv[]) {
     size_t maxStagnationGenerations = 1500;
     float diversityPercent = 20.0f;
     bool useCostAware = false;
+    bool useBatchMutation = true;
 
     // Parse command line arguments
     for (int i = 1; i < argc; i++) {
@@ -142,6 +144,11 @@ int main(int argc, char* argv[]) {
             }
         } else if (arg == "-c" || arg == "--use-cost-aware") {
             useCostAware = true;
+        } else if (arg == "-b" || arg == "--batch-mutation") {
+            if (i + 1 < argc) {
+                std::string val = argv[++i];
+                useBatchMutation = (val == "true" || val == "1");
+            }
         }
     }
 
@@ -165,6 +172,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Diversity Percentage: " << diversityPercent << "%" << std::endl;
     std::cout << "Logs Folder: " << logsFolder << std::endl;
     std::cout << "Crossover Type: " << (useCostAware ? "Cost-Aware EAX" : "Standard EAX") << std::endl;
+    std::cout << "Mutation Type: 2-opt/Swap" << std::endl;
     std::cout << "=========================================================================" << std::endl;
 
     // Calculate diversity count based on percentage
@@ -193,6 +201,10 @@ int main(int argc, char* argv[]) {
                 std::cout << "Initializing cost-aware EAX..." << std::endl;
                 initializeEAXCostMatrices(travelTimes, jobTimes);
             }
+            
+            // Initialize cost matrix for 2-opt mutation
+            std::cout << "Initializing 2-opt mutation cost matrix..." << std::endl;
+            initializeMutationCostMatrix(travelTimes);
 
             // Initialize population
             std::vector<Genome> population;
@@ -200,10 +212,12 @@ int main(int argc, char* argv[]) {
 
             auto startTime = std::chrono::high_resolution_clock::now();
 
-            // Main GA loop with EAX crossover
+            // Main GA loop with EAX crossover and 2-opt mutation
             float bestFitness = std::numeric_limits<float>::max();
             size_t solutionGeneration = 0;
             size_t stagnationCount = 0;
+            size_t lastImprovementGen = 0;
+            float baseMutationRate = mutationRate;  // Store original mutation rate
 
             for (size_t generation = 0; generation < generations; ++generation) {
                 std::cout << "=============================== GENERATION " << generation << " ===============================" << std::endl;
@@ -214,6 +228,47 @@ int main(int argc, char* argv[]) {
 
                 // Sort by fitness
                 sortPopulationByFitness(population);
+
+                // Adaptive mutation rate based on stagnation
+                float adaptiveMutationRate = baseMutationRate;
+                if (stagnationCount > 50) {
+                    // Gradually increase mutation rate with stagnation
+                    float stagnationFactor = std::min(3.0f, 1.0f + (stagnationCount - 50) / 200.0f);
+                    adaptiveMutationRate = std::min(0.9f, baseMutationRate * stagnationFactor);
+                    
+                    if (stagnationCount % 100 == 0) {
+                        std::cout << "Increased mutation rate to " << adaptiveMutationRate 
+                                  << " due to " << stagnationCount << " generations of stagnation" << std::endl;
+                    }
+                }
+                
+                // Partial restart mechanism for severe stagnation
+                if (stagnationCount > 300 && stagnationCount % 300 == 0) {
+                    std::cout << "*** PARTIAL RESTART: Replacing bottom 40% of population due to long stagnation ***" << std::endl;
+                    
+                    size_t restartCount = static_cast<size_t>(populationSize * 0.4);
+                    std::vector<Genome> newGenomes;
+                    initializePopulation(newGenomes, restartCount, numCities, numJobs, mode);
+                    
+                    // Also apply heavy mutation to middle 20% to create variation
+                    size_t middleStart = static_cast<size_t>(populationSize * 0.4);
+                    size_t middleEnd = static_cast<size_t>(populationSize * 0.6);
+                    
+                    for (size_t i = middleStart; i < middleEnd; i++) {
+                        // Apply multiple mutations to create more diversity
+                        for (int m = 0; m < 3; m++) {
+                            performMutation(population[i], 0.8f, mode, stagnationCount);  // High mutation rate
+                        }
+                    }
+                    
+                    // Replace worst individuals with new random ones
+                    for (size_t i = 0; i < restartCount; i++) {
+                        population[populationSize - 1 - i] = newGenomes[i];
+                    }
+                    
+                    std::cout << "Restart complete: " << restartCount << " new individuals added, "
+                              << (middleEnd - middleStart) << " heavily mutated" << std::endl;
+                }
 
                 // Select parents (increased number for EAX)
                 std::vector<Genome> parents = selectParents(population, populationSize / 2, tournamentSize);
@@ -242,11 +297,6 @@ int main(int argc, char* argv[]) {
                     
                     offspring.insert(offspring.end(), batchOffspring.begin(), batchOffspring.end());
                     
-                    // Apply mutation to all offspring
-                    for (auto& child : offspring) {
-                        performMutation(child, mutationRate, mode);
-                    }
-                    
                 } else { // Method 2: Sequential processing for smaller parent sets
                     std::cout << "Using sequential EAX processing" << std::endl;
                     
@@ -262,7 +312,6 @@ int main(int argc, char* argv[]) {
                             child = performCrossover(parent1, parent2, mode);
                         }
                         
-                        performMutation(child, mutationRate, mode);
                         offspring.push_back(child);
                         
                         // Generate additional offspring if needed by varying parent selection
@@ -275,7 +324,6 @@ int main(int argc, char* argv[]) {
                             } else {
                                 child2 = performCrossover(parent1, parents[altIdx], mode);
                             }
-                            performMutation(child2, mutationRate, mode);
                             offspring.push_back(child2);
                         }
                     }
@@ -283,9 +331,40 @@ int main(int argc, char* argv[]) {
 
                 std::cout << "Generated " << offspring.size() << " offspring using EAX" << std::endl;
 
+                // Apply mutation to all offspring and track successful mutations
+                int mutationCount = 0;
+                for (auto& child : offspring) {
+                    // Store original sequences to check if mutation occurred
+                    auto originalCity = child.citySequence;
+                    auto originalJob = child.jobSequence;
+                    auto originalPickup = child.pickupSequence;
+                    
+                    performMutation(child, adaptiveMutationRate, mode, stagnationCount);
+                    
+                    // Check if any sequence changed
+                    bool mutated = (child.citySequence != originalCity) || 
+                                  (child.jobSequence != originalJob);
+                    if (mode == 1) {
+                        mutated = mutated || (child.pickupSequence != originalPickup);
+                    }
+                    
+                    if (mutated) {
+                        mutationCount++;
+                    }
+                }
+                std::cout << "Applied " << mutationCount << " successful mutations to " 
+                          << offspring.size() << " offspring ("
+                          << (100.0 * mutationCount / offspring.size()) << "%)" << std::endl;
+
                 // Generate random genomes for diversity (unchanged)
                 std::vector<Genome> diversityGenomes;
                 initializePopulation(diversityGenomes, diversityCount, numCities, numJobs, mode);
+                
+                // Apply light mutation to some diversity genomes for better integration
+                for (size_t i = 0; i < diversityCount / 2; i++) {
+                    performMutation(diversityGenomes[i], 0.5f, mode, stagnationCount);
+                }
+                
                 offspring.insert(offspring.end(), diversityGenomes.begin(), diversityGenomes.end());
 
                 std::cout << "Added " << diversityCount << " diversity genomes" << std::endl;
@@ -303,14 +382,26 @@ int main(int argc, char* argv[]) {
                 std::cout << "Best Fitness of Generation " << generation << ": " << bestGenome.fitness << "\n";
 
                 if (bestGenome.fitness < bestFitness) {
+                    float improvement = bestFitness - bestGenome.fitness;
+                    float improvementPercent = (bestFitness != std::numeric_limits<float>::max()) 
+                                               ? (improvement / bestFitness) * 100.0f : 0.0f;
+                    
                     bestFitness = bestGenome.fitness;
                     solutionGeneration = generation;
                     stagnationCount = 0; // Reset stagnation count
-                    std::cout << "*** NEW BEST FITNESS: " << bestFitness << " ***" << std::endl;
+                    lastImprovementGen = generation;
+                    
+                    std::cout << "*** NEW BEST FITNESS: " << bestFitness;
+                    if (improvementPercent > 0) {
+                        std::cout << " (improvement: " << improvement 
+                                  << ", " << improvementPercent << "%)";
+                    }
+                    std::cout << " ***" << std::endl;
                 } else {
                     stagnationCount++; // Increment stagnation count
                 }
 
+                // Early stopping check
                 if (stagnationCount >= maxStagnationGenerations) {
                     std::cout << "Stopping early due to no improvement in best fitness for " 
                             << maxStagnationGenerations << " generations.\n";
@@ -320,20 +411,36 @@ int main(int argc, char* argv[]) {
                 auto generationEnd = std::chrono::high_resolution_clock::now();
                 double generationTime = std::chrono::duration<double>(generationEnd - generationStart).count();
                 std::cout << "Time for Generation " << generation << ": " << generationTime << " seconds\n";
+                
+                // Population diversity monitoring every 100 generations
+                if (generation % 100 == 0 || stagnationCount == 100) {
+                    float minFit = population.front().fitness;
+                    float maxFit = population.back().fitness;
+                    float avgFit = 0.0f;
+                    for (const auto& genome : population) {
+                        avgFit += genome.fitness;
+                    }
+                    avgFit /= population.size();
+                    
+                    std::cout << "=== Population Statistics ===" << std::endl;
+                    std::cout << "Min Fitness: " << minFit << ", Avg: " << avgFit 
+                              << ", Max: " << maxFit << ", Spread: " << (maxFit - minFit) 
+                              << ", Stagnation: " << stagnationCount << " generations" << std::endl;
+                }
             }
 
             auto endTime = std::chrono::high_resolution_clock::now();
             double totalTime = std::chrono::duration<double>(endTime - startTime).count();
-            double timePerGeneration = totalTime / generations;
+            double timePerGeneration = totalTime / (solutionGeneration + 1);
 
             // Create a string with the experiment parameters
             std::stringstream extraInfoSS;
             extraInfoSS << "pop=" << populationSize << ",mut=" << mutationRate 
                       << ",tour=" << tournamentSize << ",div=" << diversityPercent << "%"
-                      << ",crossover=" << (useCostAware ? "CostEAX" : "EAX");
+                      << ",crossover=" << (useCostAware ? "CostEAX" : "EAX")
+                      << ",mutation=" << (useBatchMutation ? "Batch2opt" : "2opt");
             std::string extraInfo = extraInfoSS.str();
 
-            // Print the best solution in the final population
             std::cout << "\n============================ BEST SOLUTION ============================" << std::endl;
             std::cout << "Best solution found:" << std::endl;
             Genome bestGenome = getBestGenome(population);
@@ -341,14 +448,15 @@ int main(int argc, char* argv[]) {
             std::cout << "=========================================================================" << std::endl;
 
             // Log results to CSV
-            logResults(logsFolder, datasetName, bestFitness, solutionGeneration, generations, 
-                       totalTime, timePerGeneration, mode, extraInfo);
+            logResults(logsFolder, datasetName, bestFitness, solutionGeneration, 
+                       generations, totalTime, timePerGeneration, mode, extraInfo);
             std::cout << "Log written successfully for dataset " << datasetName << "\n";
 
             // Cleanup cost matrices if using cost-aware mode
             if (useCostAware) {
                 cleanupEAXCostMatrices();
             }
+            cleanupMutationCostMatrix();
 
         } catch (const std::exception& e) {
             std::cerr << "Error processing dataset " << datasetName << ": " << e.what() << std::endl;
@@ -357,6 +465,7 @@ int main(int argc, char* argv[]) {
             if (useCostAware) {
                 cleanupEAXCostMatrices();
             }
+            cleanupMutationCostMatrix();
         }
     }
 
