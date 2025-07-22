@@ -86,7 +86,7 @@ target_link_libraries(ga_solver_lib PRIVATE
 
 # Set CUDA architectures for better performance (auto-detect)
 if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
-    set(CMAKE_CUDA_ARCHITECTURES "60;70;75;80;86")
+    set(CMAKE_CUDA_ARCHITECTURES "80;86;89;90")
 endif()
 set_property(TARGET ga_solver_lib PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
 
