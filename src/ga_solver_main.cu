@@ -1,4 +1,4 @@
-// ga_solver_main.cu: Main solver for TSPJ genetic algorithm with EAX crossover and 2-opt mutation
+// ga_solver_main.cu: Complete main solver for TSPJ genetic algorithm with hybrid crossover
 
 #include "genome.h"
 #include "population.h"
@@ -82,7 +82,6 @@ void displayHelp() {
     std::cout << "  -v, --diversity-percent   Percentage of population to replace with random genomes (default: 20)" << std::endl;
     std::cout << "  -l, --logs-folder         Folder for logs (default: ../logs)" << std::endl;
     std::cout << "  -c, --use-cost-aware      Use cost-aware EAX crossover (default: false)" << std::endl;
-    std::cout << "  -b, --batch-mutation      Use batch 2-opt mutation (default: true)" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -97,7 +96,6 @@ int main(int argc, char* argv[]) {
     size_t maxStagnationGenerations = 1500;
     float diversityPercent = 20.0f;
     bool useCostAware = false;
-    bool useBatchMutation = true;
 
     // Parse command line arguments
     for (int i = 1; i < argc; i++) {
@@ -144,11 +142,6 @@ int main(int argc, char* argv[]) {
             }
         } else if (arg == "-c" || arg == "--use-cost-aware") {
             useCostAware = true;
-        } else if (arg == "-b" || arg == "--batch-mutation") {
-            if (i + 1 < argc) {
-                std::string val = argv[++i];
-                useBatchMutation = (val == "true" || val == "1");
-            }
         }
     }
 
@@ -171,7 +164,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Max Stagnation Generations: " << maxStagnationGenerations << std::endl;
     std::cout << "Diversity Percentage: " << diversityPercent << "%" << std::endl;
     std::cout << "Logs Folder: " << logsFolder << std::endl;
-    std::cout << "Crossover Type: " << (useCostAware ? "Cost-Aware EAX" : "Standard EAX") << std::endl;
+    std::cout << "Crossover Type: " << (useCostAware ? "Cost-Aware EAX+Uniform" : "EAX+Uniform") << std::endl;
     std::cout << "Mutation Type: 2-opt/Swap" << std::endl;
     std::cout << "=========================================================================" << std::endl;
 
@@ -212,7 +205,7 @@ int main(int argc, char* argv[]) {
 
             auto startTime = std::chrono::high_resolution_clock::now();
 
-            // Main GA loop with EAX crossover and 2-opt mutation
+            // Main GA loop with hybrid crossover (EAX+Uniform) and 2-opt mutation
             float bestFitness = std::numeric_limits<float>::max();
             size_t solutionGeneration = 0;
             size_t stagnationCount = 0;
@@ -270,15 +263,15 @@ int main(int argc, char* argv[]) {
                               << (middleEnd - middleStart) << " heavily mutated" << std::endl;
                 }
 
-                // Select parents (increased number for EAX)
+                // Select parents (increased number for crossover)
                 std::vector<Genome> parents = selectParents(population, populationSize / 2, tournamentSize);
                 
-                // OPTIMIZED EAX CROSSOVER SECTION
+                // HYBRID CROSSOVER SECTION (EAX + Uniform)
                 std::vector<Genome> offspring;
                 
                 // Method 1: Batch processing for maximum GPU utilization
                 if (parents.size() >= 32) { // Use batch processing for larger parent sets
-                    std::cout << "Using batch EAX processing for " << parents.size() << " parents" << std::endl;
+                    std::cout << "Using batch hybrid processing (EAX+Uniform) for " << parents.size() << " parents" << std::endl;
                     
                     // Prepare parent pairs for batch processing
                     std::vector<Genome> parents1, parents2;
@@ -287,7 +280,7 @@ int main(int argc, char* argv[]) {
                         parents2.push_back(parents[(i + 1) % parents.size()]);
                     }
                     
-                    // Generate offspring using batch EAX
+                    // Generate offspring using batch hybrid crossover
                     std::vector<Genome> batchOffspring;
                     if (useCostAware) {
                         batchOffspring = performBatchCostAwareEAXCrossover(parents1, parents2, mode);
@@ -298,18 +291,18 @@ int main(int argc, char* argv[]) {
                     offspring.insert(offspring.end(), batchOffspring.begin(), batchOffspring.end());
                     
                 } else { // Method 2: Sequential processing for smaller parent sets
-                    std::cout << "Using sequential EAX processing" << std::endl;
+                    std::cout << "Using sequential hybrid processing (EAX+Uniform)" << std::endl;
                     
                     for (size_t i = 0; i < parents.size(); i += 2) {
                         Genome parent1 = parents[i];
                         Genome parent2 = parents[(i + 1) % parents.size()];
 
-                        // Generate single high-quality offspring using EAX
+                        // Generate single high-quality offspring using hybrid crossover
                         Genome child;
                         if (useCostAware) {
                             child = performCostAwareEAXCrossover(parent1, parent2, mode);
                         } else {
-                            child = performCrossover(parent1, parent2, mode);
+                            child = performCrossover(parent1, parent2, mode); // Now uses EAX+Uniform
                         }
                         
                         offspring.push_back(child);
@@ -329,45 +322,94 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
-                std::cout << "Generated " << offspring.size() << " offspring using EAX" << std::endl;
+                std::cout << "Generated " << offspring.size() << " offspring using hybrid crossover (EAX for routing, Uniform for jobs)" << std::endl;
 
-                // Apply mutation to all offspring and track successful mutations
-                int mutationCount = 0;
-                for (auto& child : offspring) {
-                    // Store original sequences to check if mutation occurred
-                    auto originalCity = child.citySequence;
-                    auto originalJob = child.jobSequence;
-                    auto originalPickup = child.pickupSequence;
+                std::cout << "Generated " << offspring.size() << " offspring using hybrid crossover (EAX for routing, Uniform for jobs)" << std::endl;
+
+                // DEBUG: Check offspring before mutation
+                std::cout << "DEBUG: Starting mutation phase for " << offspring.size() << " offspring..." << std::endl;
+                std::cout.flush();
+
+                // Apply BATCH mutation to all offspring for efficiency
+                if (offspring.size() > 0) {
+                    std::cout << "DEBUG: Using batch GPU mutation for " << offspring.size() << " offspring" << std::endl;
+                    std::cout.flush();
                     
-                    performMutation(child, adaptiveMutationRate, mode, stagnationCount);
+                    // Store original sequences to check mutation effectiveness
+                    std::vector<std::vector<size_t>> originalCitySeqs(offspring.size());
+                    std::vector<std::vector<size_t>> originalJobSeqs(offspring.size());
+                    std::vector<std::vector<size_t>> originalPickupSeqs(offspring.size());
                     
-                    // Check if any sequence changed
-                    bool mutated = (child.citySequence != originalCity) || 
-                                  (child.jobSequence != originalJob);
-                    if (mode == 1) {
-                        mutated = mutated || (child.pickupSequence != originalPickup);
+                    for (size_t i = 0; i < offspring.size(); i++) {
+                        originalCitySeqs[i] = offspring[i].citySequence;
+                        originalJobSeqs[i] = offspring[i].jobSequence;
+                        if (mode == 1) {
+                            originalPickupSeqs[i] = offspring[i].pickupSequence;
+                        }
                     }
                     
-                    if (mutated) {
-                        mutationCount++;
+                    // Apply batch mutation
+                    performBatchMutation(offspring, adaptiveMutationRate, mode, travelTimes, stagnationCount);
+                    
+                    std::cout << "DEBUG: Batch mutation completed, checking changes..." << std::endl;
+                    std::cout.flush();
+                    
+                    // Count actual mutations
+                    int mutationCount = 0;
+                    for (size_t i = 0; i < offspring.size(); i++) {
+                        bool mutated = (offspring[i].citySequence != originalCitySeqs[i]) || 
+                                      (offspring[i].jobSequence != originalJobSeqs[i]);
+                        if (mode == 1) {
+                            mutated = mutated || (offspring[i].pickupSequence != originalPickupSeqs[i]);
+                        }
+                        
+                        if (mutated) {
+                            mutationCount++;
+                        }
                     }
+                    
+                    std::cout << "Applied " << mutationCount << " successful mutations to " 
+                              << offspring.size() << " offspring ("
+                              << (100.0 * mutationCount / offspring.size()) << "%)" << std::endl;
+                } else {
+                    std::cout << "DEBUG: No offspring to mutate" << std::endl;
                 }
-                std::cout << "Applied " << mutationCount << " successful mutations to " 
-                          << offspring.size() << " offspring ("
-                          << (100.0 * mutationCount / offspring.size()) << "%)" << std::endl;
 
-                // Generate random genomes for diversity (unchanged)
+                std::cout << "DEBUG: Mutation phase completed successfully" << std::endl;
+                std::cout.flush();
+
+                // Generate random genomes for diversity
+                std::cout << "DEBUG: Starting diversity generation..." << std::endl;
+                std::cout.flush();
+                
                 std::vector<Genome> diversityGenomes;
                 initializePopulation(diversityGenomes, diversityCount, numCities, numJobs, mode);
                 
+                std::cout << "DEBUG: Diversity population created, applying light mutations..." << std::endl;
+                std::cout.flush();
+                
                 // Apply light mutation to some diversity genomes for better integration
-                for (size_t i = 0; i < diversityCount / 2; i++) {
-                    performMutation(diversityGenomes[i], 0.5f, mode, stagnationCount);
+                if (diversityCount > 0) {
+                    std::vector<Genome> diversityToMutate;
+                    for (size_t i = 0; i < diversityCount / 2; i++) {
+                        diversityToMutate.push_back(diversityGenomes[i]);
+                    }
+                    
+                    if (!diversityToMutate.empty()) {
+                        performBatchMutation(diversityToMutate, 0.5f, mode, travelTimes, stagnationCount);
+                        
+                        // Copy mutated diversity genomes back
+                        for (size_t i = 0; i < diversityToMutate.size(); i++) {
+                            diversityGenomes[i] = diversityToMutate[i];
+                        }
+                    }
                 }
                 
                 offspring.insert(offspring.end(), diversityGenomes.begin(), diversityGenomes.end());
 
                 std::cout << "Added " << diversityCount << " diversity genomes" << std::endl;
+                std::cout << "DEBUG: Diversity phase completed" << std::endl;
+                std::cout.flush();
 
                 // Ensure we don't exceed population size
                 if (offspring.size() > population.size()) {
@@ -437,8 +479,8 @@ int main(int argc, char* argv[]) {
             std::stringstream extraInfoSS;
             extraInfoSS << "pop=" << populationSize << ",mut=" << mutationRate 
                       << ",tour=" << tournamentSize << ",div=" << diversityPercent << "%"
-                      << ",crossover=" << (useCostAware ? "CostEAX" : "EAX")
-                      << ",mutation=" << (useBatchMutation ? "Batch2opt" : "2opt");
+                      << ",crossover=" << (useCostAware ? "CostEAX+Uniform" : "EAX+Uniform")
+                      << ",mutation=2opt";
             std::string extraInfo = extraInfoSS.str();
 
             std::cout << "\n============================ BEST SOLUTION ============================" << std::endl;

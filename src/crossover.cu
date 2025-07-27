@@ -1,4 +1,4 @@
-// crossover.cu: GPU-based Edge Assembly Crossover implementation (Fixed - No Atomics)
+// crossover.cu: Complete GPU-based Hybrid Crossover (EAX + Uniform) implementation
 
 #include "crossover.h"
 #include <cuda_runtime.h>
@@ -6,11 +6,15 @@
 #include <thrust/copy.h>
 #include <thrust/fill.h>
 #include <thrust/extrema.h>
+#include <curand_kernel.h>
 #include <algorithm>
 #include <iostream>
 #include <cstdio>
 
-// Device utility functions
+// =============================================================================
+// DEVICE UTILITY FUNCTIONS
+// =============================================================================
+
 __device__ inline uint16_t getEdgeKey(uint16_t from, uint16_t to) {
     return (from < to) ? (from * MAX_CITIES + to) : (to * MAX_CITIES + from);
 }
@@ -35,6 +39,35 @@ __device__ inline bool hasEdgeFromParent(const uint8_t* adjacencyMatrix,
     uint32_t idx = from * tourLength + to;
     return (adjacencyMatrix[idx] & (1 << parentId)) != 0;
 }
+
+// =============================================================================
+// JOB CROSSOVER KERNEL
+// =============================================================================
+
+__global__ void uniformJobCrossoverKernel(const size_t* parent1Jobs, const size_t* parent2Jobs,
+                                         size_t* childJobs, uint32_t numPairs, uint16_t jobLength,
+                                         unsigned long seed) {
+    uint32_t pairIdx = blockIdx.x;
+    uint32_t jobIdx = threadIdx.x;
+    
+    if (pairIdx < numPairs && jobIdx < jobLength) {
+        curandState state;
+        curand_init(seed + pairIdx * jobLength + jobIdx, 0, 0, &state);
+        
+        uint32_t baseIdx = pairIdx * jobLength;
+        
+        // 50% chance to inherit from each parent
+        if (curand_uniform(&state) < 0.5f) {
+            childJobs[baseIdx + jobIdx] = parent1Jobs[baseIdx + jobIdx];
+        } else {
+            childJobs[baseIdx + jobIdx] = parent2Jobs[baseIdx + jobIdx];
+        }
+    }
+}
+
+// =============================================================================
+// EAX KERNELS IMPLEMENTATION
+// =============================================================================
 
 // Kernel 1: Extract edges from tours in parallel
 __global__ void extractEdgesKernel(const size_t* tour1, const size_t* tour2,
@@ -333,12 +366,11 @@ __global__ void constructOffspringKernel(const Cycle* cycles, const uint16_t* nu
     }
 }
 
-// Host function for single crossover (interface compatibility)
-Genome performCrossover(const Genome& parent1, const Genome& parent2, int mode) {
-    return performEAXCrossover(parent1, parent2, mode);
-}
+// =============================================================================
+// HOST FUNCTION IMPLEMENTATIONS
+// =============================================================================
 
-// Host function implementation for single pair
+// Internal EAX implementation for single pair
 Genome performEAXCrossover(const Genome& parent1, const Genome& parent2, int mode) {
     uint16_t tourLength = static_cast<uint16_t>(parent1.citySequence.size());
     uint32_t numPairs = 1;
@@ -418,23 +450,22 @@ Genome performEAXCrossover(const Genome& parent1, const Genome& parent2, int mod
     Genome child(tourLength, tourLength, mode);
     thrust::copy(d_childCity.begin(), d_childCity.end(), child.citySequence.begin());
     
-    // Apply same process to job sequence
+    // Apply same process to job sequence with uniform crossover
     thrust::device_vector<size_t> d_parent1Job(parent1.jobSequence);
     thrust::device_vector<size_t> d_parent2Job(parent2.jobSequence);
     thrust::device_vector<size_t> d_childJob(tourLength);
     
-    constructOffspringKernel<<<gridDim, blockDim>>>(
-        thrust::raw_pointer_cast(d_cycles.data()),
-        thrust::raw_pointer_cast(d_numCycles.data()),
-        thrust::raw_pointer_cast(d_bestAssemblies.data()),
+    // Use uniform crossover for job sequence
+    unsigned long seed = time(NULL);
+    uniformJobCrossoverKernel<<<gridDim, blockDim>>>(
         thrust::raw_pointer_cast(d_parent1Job.data()),
         thrust::raw_pointer_cast(d_parent2Job.data()),
         thrust::raw_pointer_cast(d_childJob.data()),
-        tourLength, numPairs);
+        1, tourLength, seed);
     
     thrust::copy(d_childJob.begin(), d_childJob.end(), child.jobSequence.begin());
     
-    // Handle pickup sequence if mode == 1
+    // Handle pickup sequence if mode == 1 (use EAX assembly decisions)
     if (mode == 1) {
         thrust::device_vector<size_t> d_parent1Pickup(parent1.pickupSequence);
         thrust::device_vector<size_t> d_parent2Pickup(parent2.pickupSequence);
@@ -455,7 +486,12 @@ Genome performEAXCrossover(const Genome& parent1, const Genome& parent2, int mod
     return child;
 }
 
-// Optimized batch processing version
+// Main crossover function - uses EAX for routing + uniform for job assignment
+Genome performCrossover(const Genome& parent1, const Genome& parent2, int mode) {
+    return performEAXCrossover(parent1, parent2, mode);
+}
+
+// Batch processing version for multiple parent pairs
 std::vector<Genome> performBatchEAXCrossover(const std::vector<Genome>& parents1,
                                             const std::vector<Genome>& parents2, 
                                             int mode) {
@@ -537,7 +573,7 @@ std::vector<Genome> performBatchEAXCrossover(const std::vector<Genome>& parents1
         thrust::raw_pointer_cast(d_allChildrenCity.data()),
         tourLength, numPairs);
     
-    // Process job sequences
+    // Process job sequences with uniform crossover
     thrust::device_vector<size_t> d_allParents1Job(numPairs * tourLength);
     thrust::device_vector<size_t> d_allParents2Job(numPairs * tourLength);
     thrust::device_vector<size_t> d_allChildrenJob(numPairs * tourLength);
@@ -549,14 +585,12 @@ std::vector<Genome> performBatchEAXCrossover(const std::vector<Genome>& parents1
                     d_allParents2Job.begin() + i * tourLength);
     }
     
-    constructOffspringKernel<<<gridDim, blockDim>>>(
-        thrust::raw_pointer_cast(d_cycles.data()),
-        thrust::raw_pointer_cast(d_numCycles.data()),
-        thrust::raw_pointer_cast(d_bestAssemblies.data()),
+    unsigned long seed = time(NULL);
+    uniformJobCrossoverKernel<<<gridDim, blockDim>>>(
         thrust::raw_pointer_cast(d_allParents1Job.data()),
         thrust::raw_pointer_cast(d_allParents2Job.data()),
         thrust::raw_pointer_cast(d_allChildrenJob.data()),
-        tourLength, numPairs);
+        numPairs, tourLength, seed);
     
     // Handle pickup sequences if mode == 1
     thrust::device_vector<size_t> d_allParents1Pickup, d_allParents2Pickup, d_allChildrenPickup;
@@ -613,4 +647,25 @@ std::vector<Genome> performBatchEAXCrossover(const std::vector<Genome>& parents1
     }
     
     return children;
+}
+
+// =============================================================================
+// COST-AWARE CROSSOVER FUNCTIONS (Interface to eax_cost_integration.cu)
+// =============================================================================
+
+// Forward declarations of internal cost-aware functions from eax_cost_integration.cu
+extern Genome performCostAwareEAXCrossoverInternal(const Genome& parent1, const Genome& parent2, int mode);
+extern std::vector<Genome> performBatchCostAwareEAXCrossoverInternal(const std::vector<Genome>& parents1,
+                                                                      const std::vector<Genome>& parents2, 
+                                                                      int mode);
+
+// Cost-aware crossover interface functions
+Genome performCostAwareEAXCrossover(const Genome& parent1, const Genome& parent2, int mode) {
+    return performCostAwareEAXCrossoverInternal(parent1, parent2, mode);
+}
+
+std::vector<Genome> performBatchCostAwareEAXCrossover(const std::vector<Genome>& parents1,
+                                                      const std::vector<Genome>& parents2, 
+                                                      int mode) {
+    return performBatchCostAwareEAXCrossoverInternal(parents1, parents2, mode);
 }
