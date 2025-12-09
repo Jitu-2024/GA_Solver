@@ -1,10 +1,9 @@
-// eax_cost_integration.h: Integration of cost matrix with EAX crossover (Updated for Hybrid)
+// eax_cost_integration.h: Cost matrix management for GA operations
 
 #ifndef EAX_COST_INTEGRATION_H
 #define EAX_COST_INTEGRATION_H
 
 #include "genome.h"
-#include "crossover.h"  // Include crossover.h to get Cycle definition and main interface
 #include <vector>
 
 // =============================================================================
@@ -12,8 +11,8 @@
 // =============================================================================
 
 /**
- * Initialize EAX with proper cost matrices for cost-aware evaluation
- * Should be called once at the start of the GA if using cost-aware mode
+ * Initialize cost matrices on GPU for cost-aware operations
+ * Should be called once at the start of the GA
  * @param travelTimes Travel time/cost matrix between cities
  * @param jobTimes Job execution time matrix for each city-job combination
  */
@@ -26,78 +25,45 @@ void initializeEAXCostMatrices(const std::vector<std::vector<float>>& travelTime
 void cleanupEAXCostMatrices();
 
 // =============================================================================
-// COST-AWARE CROSSOVER FUNCTIONS
+// COST-AWARE CROSSOVER FUNCTIONS (Internal implementations)
 // =============================================================================
 
-// Note: The main cost-aware functions are now declared in crossover.h
-// These are kept here for backward compatibility and internal implementation
-
 /**
- * Internal cost-aware EAX implementation for single pair
- * Uses actual travel and job costs for assembly evaluation
- * @param parent1 First parent genome
- * @param parent2 Second parent genome
- * @param mode 0=no pickup, 1=sequential, 2=interleaved
- * @return Child genome
+ * Internal cost-aware crossover implementation for single pair
+ * Note: Now delegates to OX crossover since EAX was broken
  */
 Genome performCostAwareEAXCrossoverInternal(const Genome& parent1, const Genome& parent2, int mode);
 
 /**
- * Internal batch cost-aware EAX implementation
- * @param parents1 Vector of first parents
- * @param parents2 Vector of second parents
- * @param mode 0=no pickup, 1=sequential, 2=interleaved
- * @return Vector of child genomes
+ * Internal batch cost-aware crossover implementation
+ * Note: Now delegates to batch OX crossover since EAX was broken
  */
 std::vector<Genome> performBatchCostAwareEAXCrossoverInternal(const std::vector<Genome>& parents1,
-                                                              const std::vector<Genome>& parents2, 
+                                                              const std::vector<Genome>& parents2,
                                                               int mode);
 
 // =============================================================================
-// COST-AWARE GPU KERNELS (internal use)
+// COST MATRIX ACCESS (for other kernels)
 // =============================================================================
 
 /**
- * Calculate total tour cost using actual travel cost matrix
- * @param tour Tour sequence
- * @param travelCosts Flattened travel cost matrix
- * @param tourLength Length of tour
- * @param totalCost Output total cost
+ * Get pointer to device travel costs matrix
  */
-__global__ void calculateTourCostKernel(const size_t* tour, const float* travelCosts, 
-                                        size_t tourLength, float* totalCost);
+const float* getDeviceTravelCosts();
 
 /**
- * Enhanced assembly evaluation kernel using actual travel and job costs
- * Replaces simple cost estimation with real cost calculation
- * @param cycles Available cycles from EAX
- * @param numCycles Number of cycles for each pair
- * @param travelCosts Travel cost matrix (flattened)
- * @param jobCosts Job execution cost matrix (flattened)
- * @param assemblyCosts Output costs for best assemblies
- * @param bestAssemblies Output best assembly selections
- * @param tourLength Length of tours
- * @param numPairs Number of parent pairs
+ * Get pointer to device job costs matrix
  */
-__global__ void evaluateAssembliesWithCostsKernel(const Cycle* cycles, const uint16_t* numCycles,
-                                                   const float* travelCosts, const float* jobCosts,
-                                                   float* assemblyCosts, uint32_t* bestAssemblies,
-                                                   uint16_t tourLength, uint32_t numPairs);
+const float* getDeviceJobCosts();
 
 /**
- * Job-cost aware uniform crossover kernel
- * Could incorporate job-city compatibility costs in the future
- * @param parent1Jobs First parent's job sequence
- * @param parent2Jobs Second parent's job sequence
- * @param childJobs Output child's job sequence
- * @param jobCosts Job execution costs (for future cost-aware job selection)
- * @param numPairs Number of parent pairs
- * @param jobLength Length of job sequences
- * @param seed Random seed
+ * Get number of cities in cost matrices
  */
-__global__ void costAwareUniformJobCrossoverKernel(const size_t* parent1Jobs, const size_t* parent2Jobs,
-                                                   size_t* childJobs, const float* jobCosts,
-                                                   uint32_t numPairs, uint16_t jobLength,
-                                                   unsigned long seed);
+size_t getNumCities();
+
+/**
+ * Get number of jobs in cost matrices
+ */
+size_t getNumJobs();
 
 #endif // EAX_COST_INTEGRATION_H
