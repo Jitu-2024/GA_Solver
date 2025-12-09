@@ -10,7 +10,7 @@
 
 // Maximum cities constraint for GPU memory allocation
 #ifndef MAX_CITIES
-#define MAX_CITIES 256
+#define MAX_CITIES 1200
 #endif
 
 /**
@@ -54,6 +54,57 @@ void performMutation(Genome& genome, float mutationRate, int mode, size_t stagna
 void performBatchMutation(std::vector<Genome>& genomes, float mutationRate, int mode,
                          const std::vector<std::vector<float>>& travelTimes,
                          size_t stagnationCount = 0);
+
+/**
+ * GPU-parallelized systematic 2-opt local search
+ * Iterates until no improvement found for each genome
+ * This is a LOCAL SEARCH operator, not mutation
+ *
+ * @param genomes Vector of genomes to optimize (modified in-place)
+ * @param maxIterations Maximum iterations per genome (0 = until convergence)
+ * @return Number of improvements made across all genomes
+ */
+size_t performBatch2OptLocalSearch(std::vector<Genome>& genomes, size_t maxIterations = 0);
+
+/**
+ * Double-bridge mutation for diversification (4-opt move)
+ * Breaks tour into 4 segments and reconnects them differently
+ * Used to escape local optima that 2-opt cannot
+ *
+ * @param genomes Vector of genomes to mutate (modified in-place)
+ * @param mutationRate Probability of applying double-bridge to each genome
+ */
+void performDoubleBridgeMutation(std::vector<Genome>& genomes, float mutationRate);
+
+/**
+ * GPU-parallelized Or-opt local search
+ * Relocates segments of 1-3 consecutive cities to better positions
+ *
+ * @param genomes Vector of genomes to optimize (modified in-place)
+ * @param maxIterations Maximum iterations per genome (0 = until convergence)
+ * @return Number of improvements made across all genomes
+ */
+size_t performBatchOrOptLocalSearch(std::vector<Genome>& genomes, size_t maxIterations = 0);
+
+/**
+ * GPU-parallelized 3-opt local search
+ * More powerful than 2-opt, considers reconnecting 3 edges
+ *
+ * @param genomes Vector of genomes to optimize (modified in-place)
+ * @param maxIterations Maximum iterations per genome (0 = until convergence)
+ * @return Number of improvements made across all genomes
+ */
+size_t performBatch3OptLocalSearch(std::vector<Genome>& genomes, size_t maxIterations = 0);
+
+/**
+ * Combined local search: 2-opt + Or-opt + 3-opt
+ * Most thorough local search, runs all operators in sequence
+ *
+ * @param genomes Vector of genomes to optimize (modified in-place)
+ * @param maxIterations Maximum iterations per operator (0 = until convergence)
+ * @return Total number of improvements made
+ */
+size_t performCombinedLocalSearch(std::vector<Genome>& genomes, size_t maxIterations = 0);
 
 // Simplified GPU kernels (internal use)
 __global__ void setupRandomStates(curandState* states, unsigned long seed, size_t n);

@@ -7,9 +7,15 @@
 #include <vector>
 
 // Maximum problem size constraints for GPU memory allocation
-#define MAX_CITIES 256
+#ifndef MAX_CITIES
+#define MAX_CITIES 1200
+#endif
+#ifndef MAX_CYCLES
 #define MAX_CYCLES 64
-#define MAX_CYCLE_LENGTH 64
+#endif
+#ifndef MAX_CYCLE_LENGTH
+#define MAX_CYCLE_LENGTH 256
+#endif
 
 // Edge structure for EAX
 struct Edge {

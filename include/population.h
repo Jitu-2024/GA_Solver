@@ -10,6 +10,23 @@
 void initializePopulation(std::vector<Genome>& population, size_t populationSize,
                           size_t numCities, size_t numJobs, int mode);
 
+/**
+ * Initialize population with a mix of nearest-neighbor and random genomes
+ * This provides better starting solutions for the TSP component
+ *
+ * @param population Output vector of genomes
+ * @param populationSize Total population size
+ * @param numCities Number of cities (excluding depot)
+ * @param numJobs Number of jobs
+ * @param mode 0=no pickup, 1=with pickup sequence
+ * @param travelTimes Cost matrix for nearest-neighbor construction
+ * @param nnPercent Percentage of population to initialize with nearest-neighbor (0-100)
+ */
+void initializePopulationWithNN(std::vector<Genome>& population, size_t populationSize,
+                                 size_t numCities, size_t numJobs, int mode,
+                                 const std::vector<std::vector<float>>& travelTimes,
+                                 float nnPercent = 30.0f);
+
 // Evaluate fitness of the entire population
 void evaluatePopulation(std::vector<Genome>& population,
                         const std::vector<std::vector<float>>& travelTimes,

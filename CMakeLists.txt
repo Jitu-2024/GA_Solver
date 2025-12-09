@@ -114,10 +114,11 @@ target_link_libraries(ga_solver PUBLIC ga_solver_lib)
 set_property(TARGET ga_solver PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
 
 # Add memory optimization flags
+# MAX_CITIES=1200 supports large problems up to ~1200 cities
 target_compile_definitions(ga_solver_lib PRIVATE
-    MAX_CITIES=256
+    MAX_CITIES=1200
     MAX_CYCLES=64
-    MAX_CYCLE_LENGTH=64
+    MAX_CYCLE_LENGTH=256
 )
 
 # Optional: Add performance profiling support

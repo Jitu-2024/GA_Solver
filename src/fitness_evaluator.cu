@@ -6,6 +6,11 @@
 #include <cuda_runtime.h>
 #include <iostream>
 
+// Maximum cities for fitness evaluation local arrays
+#ifndef MAX_CITIES
+#define MAX_CITIES 1200
+#endif
+
 // Kernel to evaluate fitness for a flattened population
 __global__ void evaluateFitnessKernel(const size_t* flatArray, float* fitnessArray, size_t numGenomes,
                                        size_t chromosomeLength, const float* travelTimes, size_t numCities,
@@ -22,7 +27,12 @@ __global__ void evaluateFitnessKernel(const size_t* flatArray, float* fitnessArr
         size_t prevCity = 0; // Start at depot
 
         // Array to store job completion times for each city
-        float jobCompletionTimes[256] = {0.0f};
+        // Use MAX_CITIES to support large problems
+        float jobCompletionTimes[MAX_CITIES];
+        // Initialize to 0 (only need to init up to numCities)
+        for (size_t k = 0; k < numCities && k < MAX_CITIES; k++) {
+            jobCompletionTimes[k] = 0.0f;
+        }
 
         // Job starting phase
         for (size_t i = 0; i < chromosomeLength; ++i) {
@@ -32,9 +42,11 @@ __global__ void evaluateFitnessKernel(const size_t* flatArray, float* fitnessArr
             // Add travel time to the next city
             currentTime += travelTimes[prevCity * numCities + city];
 
-            if (city > 0) { // Exclude depot from job calculations
+            if (city > 0 && job > 0) { // Exclude depot and ensure valid job index
                 // Compute job completion time and update maxCompletionTime
-                float jobCompletionTime = currentTime + jobTimes[(city - 1) * (numJobs) + (job - 1)];
+                // jobTimes layout: (city-1) * numJobs + (job-1) where city and job are 1-indexed
+                size_t jobIdx = (city - 1) * numJobs + (job - 1);
+                float jobCompletionTime = currentTime + jobTimes[jobIdx];
                 jobCompletionTimes[city] = jobCompletionTime; // Record job completion time
                 maxCompletionTime = fmaxf(maxCompletionTime, jobCompletionTime);
             }
@@ -93,16 +105,12 @@ void evaluateFitnessCPU(const std::vector<size_t>& flatArray, std::vector<float>
             // Add travel time to the next city
             currentTime += travelTimes[prevCity * numCities + city];
 
-            if (city > 0) { // Exclude depot from job calculations
+            if (city > 0 && job > 0) { // Exclude depot and ensure valid job index
                 // Compute job completion time
-                float jobCompletionTime = currentTime + jobTimes[(city - 1) * (numJobs) + job - 1];
+                size_t jobIdx = (city - 1) * numJobs + (job - 1);
+                float jobCompletionTime = currentTime + jobTimes[jobIdx];
                 jobCompletionTimes[city] = jobCompletionTime; // Record job completion time
                 maxCompletionTime = std::fmax(maxCompletionTime, jobCompletionTime);
-                // Debugging output
-                std::cout << "Genome " << genomeIdx << ", City: " << city << ", Job: " << job
-                          << ", Current Time: " << currentTime
-                          << ", Job Completion Time: " << jobCompletionTime
-                          << ", Max Completion Time: " << maxCompletionTime << std::endl;
             }
 
             prevCity = city;
@@ -173,7 +181,8 @@ void evaluatePopulationFitness(std::vector<Genome>& population,
     size_t numGenomes = population.size();
     size_t chromosomeLength = population[0].citySequence.size();
     size_t numCities = travelTimes.size();
-    size_t numJobs = jobTimes[0].size();
+    // numJobs is the actual number of jobs (column 0 is placeholder with value 0)
+    size_t numJobs = jobTimes[0].size() - 1;
 
     // Flatten travelTimes and jobTimes
     std::vector<float> flatTravelTimes(numCities * numCities);
@@ -185,7 +194,9 @@ void evaluatePopulationFitness(std::vector<Genome>& population,
         }
         if (i > 0) { // Skip depot row for job times
             for (size_t k = 0; k < numJobs; ++k) {
-                flatJobTimes[(i - 1) * (numJobs) + (k - 1)] = jobTimes[i][k];;
+                // jobTimes[i][k+1] because column 0 is placeholder (always 0)
+                // flatJobTimes index: (city-1) * numJobs + k maps to job (k+1)
+                flatJobTimes[(i - 1) * numJobs + k] = jobTimes[i][k + 1];
             }
         }
     }
