@@ -1,0 +1,1047 @@
+Discovering problems...
+Found 200 problems
+
+======================================================================
+Running GA Solver on 200 problems
+Configuration:
+  Population: 200
+  Max Generations: 3000
+  Stagnation Limit: 50
+  Mode: 0
+  Mutation Rate: 0.3
+  Tournament Size: 5
+  Diversity: 20%
+
+Results will be saved to:
+  CSV: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058.csv
+  JSON: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058.json
+  Solutions: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058_solutions.json
+======================================================================
+
+
+[1/200] TSPJ_1M (Medium, 422 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 18357.00 (improved 42.50%)
+    Time: 4.6s, Generations: 655, Solution at gen 604
+
+[2/200] TSPJ_2M (Medium, 405 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 17127.00 (improved 48.38%)
+    Time: 5.2s, Generations: 832, Solution at gen 781
+
+[3/200] TSPJ_3M (Medium, 453 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 18440.00 (improved 47.60%)
+    Time: 6.3s, Generations: 911, Solution at gen 860
+
+[4/200] TSPJ_4M (Medium, 421 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19298.00 (improved 43.45%)
+    Time: 5.2s, Generations: 796, Solution at gen 745
+
+[5/200] TSPJ_5M (Medium, 498 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 21340.00 (improved 44.81%)
+    Time: 6.2s, Generations: 846, Solution at gen 795
+
+[6/200] TSPJ_6M (Medium, 416 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 16967.00 (improved 46.03%)
+    Time: 5.3s, Generations: 829, Solution at gen 778
+
+[7/200] TSPJ_7M (Medium, 470 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 21500.00 (improved 40.81%)
+    Time: 4.6s, Generations: 622, Solution at gen 571
+
+[8/200] TSPJ_8M (Medium, 495 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 18959.00 (improved 49.82%)
+    Time: 7.9s, Generations: 1119, Solution at gen 1068
+
+[9/200] TSPJ_9M (Medium, 418 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 16919.00 (improved 46.76%)
+    Time: 5.4s, Generations: 845, Solution at gen 794
+
+[10/200] TSPJ_10M (Medium, 475 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19425.00 (improved 49.80%)
+    Time: 7.3s, Generations: 1058, Solution at gen 1007
+
+[11/200] TSPJ_11M (Medium, 428 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19689.00 (improved 42.67%)
+    Time: 4.0s, Generations: 558, Solution at gen 507
+
+[12/200] TSPJ_12M (Medium, 425 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19407.00 (improved 43.44%)
+    Time: 4.1s, Generations: 587, Solution at gen 536
+
+[13/200] TSPJ_13M (Medium, 491 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 22834.00 (improved 41.31%)
+    Time: 4.7s, Generations: 622, Solution at gen 571
+
+[14/200] TSPJ_14M (Medium, 431 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 17884.00 (improved 48.76%)
+    Time: 6.0s, Generations: 891, Solution at gen 840
+
+[15/200] TSPJ_15M (Medium, 456 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 21065.00 (improved 39.68%)
+    Time: 5.9s, Generations: 862, Solution at gen 811
+
+[16/200] TSPJ_16M (Medium, 479 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 23575.00 (improved 38.25%)
+    Time: 4.8s, Generations: 647, Solution at gen 596
+
+[17/200] TSPJ_17M (Medium, 458 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 23024.00 (improved 38.53%)
+    Time: 5.2s, Generations: 735, Solution at gen 684
+
+[18/200] TSPJ_18M (Medium, 460 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 21807.00 (improved 40.09%)
+    Time: 4.0s, Generations: 533, Solution at gen 482
+
+[19/200] TSPJ_19M (Medium, 426 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 20590.00 (improved 38.71%)
+    Time: 3.4s, Generations: 453, Solution at gen 402
+
+[20/200] TSPJ_20M (Medium, 438 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19733.00 (improved 41.59%)
+    Time: 4.0s, Generations: 547, Solution at gen 496
+
+[21/200] TSPJ_21M (Medium, 454 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 22761.00 (improved 38.12%)
+    Time: 3.8s, Generations: 505, Solution at gen 454
+
+[22/200] TSPJ_22M (Medium, 490 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 24205.00 (improved 38.19%)
+    Time: 4.7s, Generations: 621, Solution at gen 570
+
+[23/200] TSPJ_23M (Medium, 406 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19141.00 (improved 40.35%)
+    Time: 3.7s, Generations: 553, Solution at gen 502
+
+[24/200] TSPJ_24M (Medium, 471 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 19980.00 (improved 45.10%)
+    Time: 5.1s, Generations: 697, Solution at gen 646
+
+[25/200] TSPJ_25M (Medium, 492 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 22550.00 (improved 42.10%)
+    Time: 6.3s, Generations: 869, Solution at gen 818
+
+[26/200] TSPJ_26M (Medium, 427 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 21505.00 (improved 37.22%)
+    Time: 3.8s, Generations: 517, Solution at gen 466
+
+[27/200] TSPJ_27M (Medium, 454 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 22479.00 (improved 37.70%)
+    Time: 3.6s, Generations: 473, Solution at gen 422
+
+[28/200] TSPJ_28M (Medium, 445 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 21561.00 (improved 39.57%)
+    Time: 4.1s, Generations: 563, Solution at gen 512
+
+[29/200] TSPJ_29M (Medium, 404 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18558.00 (improved 42.46%)
+    Time: 3.3s, Generations: 474, Solution at gen 423
+
+[30/200] TSPJ_30M (Medium, 426 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 19444.00 (improved 40.87%)
+    Time: 4.0s, Generations: 567, Solution at gen 516
+
+[31/200] TSPJ_31M (Medium, 402 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18166.00 (improved 41.83%)
+    Time: 3.4s, Generations: 500, Solution at gen 449
+
+[32/200] TSPJ_32M (Medium, 460 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 1347.00 (improved 81.09%)
+    Time: 1.4s, Generations: 94, Solution at gen 43
+
+[33/200] TSPJ_33M (Medium, 480 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 22249.00 (improved 41.37%)
+    Time: 4.8s, Generations: 635, Solution at gen 584
+
+[34/200] TSPJ_34M (Medium, 446 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 20299.00 (improved 42.43%)
+    Time: 4.7s, Generations: 659, Solution at gen 608
+
+[35/200] TSPJ_35M (Medium, 451 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 21136.00 (improved 38.95%)
+    Time: 4.4s, Generations: 600, Solution at gen 549
+
+[36/200] TSPJ_36M (Medium, 419 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 19932.00 (improved 39.78%)
+    Time: 3.1s, Generations: 429, Solution at gen 378
+
+[37/200] TSPJ_37M (Medium, 495 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 21374.00 (improved 43.37%)
+    Time: 7.8s, Generations: 1110, Solution at gen 1059
+
+[38/200] TSPJ_38M (Medium, 464 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 22569.00 (improved 40.11%)
+    Time: 4.0s, Generations: 523, Solution at gen 472
+
+[39/200] TSPJ_39M (Medium, 457 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 20473.00 (improved 43.07%)
+    Time: 4.6s, Generations: 634, Solution at gen 583
+
+[40/200] TSPJ_40M (Medium, 403 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 20018.00 (improved 36.13%)
+    Time: 3.1s, Generations: 430, Solution at gen 379
+
+[41/200] TSPJ_41M (Medium, 451 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18780.00 (improved 47.93%)
+    Time: 6.8s, Generations: 1001, Solution at gen 950
+
+[42/200] TSPJ_42M (Medium, 462 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18839.00 (improved 47.01%)
+    Time: 7.3s, Generations: 1068, Solution at gen 1017
+
+[43/200] TSPJ_43M (Medium, 438 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 19494.00 (improved 44.37%)
+    Time: 4.4s, Generations: 609, Solution at gen 558
+
+[44/200] TSPJ_44M (Medium, 459 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 20095.00 (improved 45.07%)
+    Time: 5.4s, Generations: 753, Solution at gen 702
+
+[45/200] TSPJ_45M (Medium, 440 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 21102.00 (improved 41.97%)
+    Time: 4.1s, Generations: 568, Solution at gen 517
+
+[46/200] TSPJ_46M (Medium, 417 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 19361.00 (improved 42.38%)
+    Time: 4.1s, Generations: 612, Solution at gen 561
+
+[47/200] TSPJ_47M (Medium, 423 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18772.00 (improved 42.87%)
+    Time: 4.8s, Generations: 731, Solution at gen 680
+
+[48/200] TSPJ_48M (Medium, 441 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 18559.00 (improved 48.27%)
+    Time: 5.9s, Generations: 861, Solution at gen 810
+
+[49/200] TSPJ_49M (Medium, 451 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 19869.00 (improved 44.32%)
+    Time: 4.8s, Generations: 680, Solution at gen 629
+
+[50/200] TSPJ_50M (Medium, 469 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 20587.00 (improved 44.16%)
+    Time: 4.8s, Generations: 665, Solution at gen 614
+
+[51/200] TSPJ_51M (Medium, 404 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 1297.00 (improved 61.66%)
+    Time: 1.2s, Generations: 73, Solution at gen 22
+
+[52/200] TSPJ_52M (Medium, 450 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 18777.00 (improved 45.54%)
+    Time: 4.6s, Generations: 636, Solution at gen 585
+
+[53/200] TSPJ_53M (Medium, 428 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 18524.00 (improved 45.33%)
+    Time: 4.8s, Generations: 688, Solution at gen 637
+
+[54/200] TSPJ_54M (Medium, 435 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 19510.00 (improved 43.32%)
+    Time: 16.9s, Generations: 792, Solution at gen 741
+
+[55/200] TSPJ_55M (Medium, 475 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 22470.00 (improved 41.42%)
+    Time: 23.9s, Generations: 781, Solution at gen 730
+
+[56/200] TSPJ_56M (Medium, 459 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 20569.00 (improved 45.58%)
+    Time: 18.6s, Generations: 738, Solution at gen 687
+
+[57/200] TSPJ_57M (Medium, 493 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 21070.00 (improved 44.53%)
+    Time: 26.4s, Generations: 849, Solution at gen 798
+
+[58/200] TSPJ_58M (Medium, 485 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 21506.00 (improved 45.22%)
+    Time: 25.5s, Generations: 816, Solution at gen 765
+
+[59/200] TSPJ_59M (Medium, 413 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 21450.00 (improved 33.90%)
+    Time: 8.9s, Generations: 406, Solution at gen 355
+
+[60/200] TSPJ_60M (Medium, 426 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 18891.00 (improved 43.31%)
+    Time: 12.4s, Generations: 600, Solution at gen 549
+
+[61/200] TSPJ_61M (Medium, 443 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 19464.00 (improved 43.80%)
+    Time: 16.3s, Generations: 765, Solution at gen 714
+
+[62/200] TSPJ_62M (Medium, 438 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 22214.00 (improved 36.62%)
+    Time: 8.0s, Generations: 375, Solution at gen 324
+
+[63/200] TSPJ_63M (Medium, 479 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 25496.00 (improved 33.29%)
+    Time: 15.7s, Generations: 499, Solution at gen 448
+
+[64/200] TSPJ_64M (Medium, 443 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 24778.00 (improved 26.73%)
+    Time: 9.3s, Generations: 432, Solution at gen 381
+
+[65/200] TSPJ_65M (Medium, 499 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 24239.00 (improved 36.86%)
+    Time: 20.1s, Generations: 657, Solution at gen 606
+
+[66/200] TSPJ_66M (Medium, 462 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 21274.00 (improved 42.58%)
+    Time: 15.4s, Generations: 611, Solution at gen 560
+
+[67/200] TSPJ_67M (Medium, 411 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 16694.00 (improved 48.09%)
+    Time: 17.3s, Generations: 800, Solution at gen 749
+
+[68/200] TSPJ_68M (Medium, 433 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 16742.00 (improved 48.96%)
+    Time: 22.2s, Generations: 1078, Solution at gen 1027
+
+[69/200] TSPJ_69M (Medium, 464 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 22301.00 (improved 39.44%)
+    Time: 12.2s, Generations: 477, Solution at gen 426
+
+[70/200] TSPJ_70M (Medium, 467 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 21484.00 (improved 38.47%)
+    Time: 17.3s, Generations: 586, Solution at gen 535
+
+[71/200] TSPJ_71M (Medium, 439 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 20394.00 (improved 42.90%)
+    Time: 19.6s, Generations: 749, Solution at gen 698
+
+[72/200] TSPJ_72M (Medium, 491 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 20591.00 (improved 46.32%)
+    Time: 26.0s, Generations: 959, Solution at gen 908
+
+[73/200] TSPJ_73M (Medium, 434 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 18026.00 (improved 46.38%)
+    Time: 21.1s, Generations: 856, Solution at gen 805
+
+[74/200] TSPJ_74M (Medium, 409 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 15864.00 (improved 51.14%)
+    Time: 21.2s, Generations: 972, Solution at gen 921
+
+[75/200] TSPJ_75M (Medium, 418 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 19180.00 (improved 42.40%)
+    Time: 14.6s, Generations: 690, Solution at gen 639
+
+[76/200] TSPJ_76M (Medium, 466 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 19509.00 (improved 47.34%)
+    Time: 28.8s, Generations: 945, Solution at gen 894
+
+[77/200] TSPJ_77M (Medium, 466 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 20146.00 (improved 45.13%)
+    Time: 22.6s, Generations: 723, Solution at gen 672
+
+[78/200] TSPJ_78M (Medium, 403 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 17925.00 (improved 45.83%)
+    Time: 14.1s, Generations: 651, Solution at gen 600
+
+[79/200] TSPJ_79M (Medium, 495 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 23132.00 (improved 41.24%)
+    Time: 14.3s, Generations: 532, Solution at gen 481
+
+[80/200] TSPJ_80M (Medium, 446 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 21358.00 (improved 36.96%)
+    Time: 15.2s, Generations: 494, Solution at gen 443
+
+[81/200] TSPJ_81M (Medium, 400 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 18119.00 (improved 43.86%)
+    Time: 13.3s, Generations: 601, Solution at gen 550
+
+[82/200] TSPJ_82M (Medium, 441 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 19248.00 (improved 44.54%)
+    Time: 22.9s, Generations: 748, Solution at gen 697
+
+[83/200] TSPJ_83M (Medium, 426 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 19263.00 (improved 45.51%)
+    Time: 16.6s, Generations: 804, Solution at gen 753
+
+[84/200] TSPJ_84M (Medium, 441 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 20924.00 (improved 41.92%)
+    Time: 12.5s, Generations: 504, Solution at gen 453
+
+[85/200] TSPJ_85M (Medium, 456 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 1323.00 (improved 90.37%)
+    Time: 2.1s, Generations: 64, Solution at gen 13
+
+[86/200] TSPJ_86M (Medium, 420 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 22890.00 (improved 31.63%)
+    Time: 8.7s, Generations: 447, Solution at gen 396
+
+[87/200] TSPJ_87M (Medium, 485 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 25301.00 (improved 31.99%)
+    Time: 15.4s, Generations: 583, Solution at gen 532
+
+[88/200] TSPJ_88M (Medium, 420 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 20900.00 (improved 35.77%)
+    Time: 13.7s, Generations: 621, Solution at gen 570
+
+[89/200] TSPJ_89M (Medium, 412 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 1436.00 (improved 83.11%)
+    Time: 1.9s, Generations: 67, Solution at gen 16
+
+[90/200] TSPJ_90M (Medium, 496 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 28861.00 (improved 27.43%)
+    Time: 15.3s, Generations: 481, Solution at gen 430
+
+[91/200] TSPJ_91M (Medium, 413 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 22472.00 (improved 28.91%)
+    Time: 8.2s, Generations: 356, Solution at gen 305
+
+[92/200] TSPJ_92M (Medium, 458 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 23994.00 (improved 33.24%)
+    Time: 16.2s, Generations: 803, Solution at gen 752
+
+[93/200] TSPJ_93M (Medium, 418 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 21442.00 (improved 33.61%)
+    Time: 16.4s, Generations: 723, Solution at gen 672
+
+[94/200] TSPJ_94M (Medium, 404 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 19019.00 (improved 42.47%)
+    Time: 9.9s, Generations: 438, Solution at gen 387
+
+[95/200] TSPJ_95M (Medium, 473 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 19053.00 (improved 49.11%)
+    Time: 26.4s, Generations: 1295, Solution at gen 1244
+
+[96/200] TSPJ_96M (Medium, 424 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 1376.00 (improved 92.52%)
+    Time: 2.1s, Generations: 81, Solution at gen 30
+
+[97/200] TSPJ_97M (Medium, 474 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 20301.00 (improved 46.81%)
+    Time: 17.1s, Generations: 833, Solution at gen 782
+
+[98/200] TSPJ_98M (Medium, 423 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 16975.00 (improved 48.76%)
+    Time: 19.3s, Generations: 892, Solution at gen 841
+
+[99/200] TSPJ_99M (Medium, 469 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 23150.00 (improved 39.52%)
+    Time: 8.7s, Generations: 403, Solution at gen 352
+
+[100/200] TSPJ_100M (Medium, 478 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 21577.00 (improved 42.84%)
+    Time: 15.1s, Generations: 647, Solution at gen 596
+
+[101/200] TSPJ_1L (Large, 1141 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 130359.00 (improved 43.43%)
+    Time: 63.1s, Generations: 1649, Solution at gen 1598
+
+[102/200] TSPJ_2L (Large, 1182 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 134314.00 (improved 43.09%)
+    Time: 50.3s, Generations: 1467, Solution at gen 1416
+
+[103/200] TSPJ_3L (Large, 1064 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 135737.00 (improved 36.24%)
+    Time: 30.5s, Generations: 798, Solution at gen 747
+
+[104/200] TSPJ_4L (Large, 1080 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 5207.00 (improved 97.55%)
+    Time: 5.4s, Generations: 130, Solution at gen 79
+
+[105/200] TSPJ_5L (Large, 1140 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 136627.00 (improved 39.68%)
+    Time: 37.6s, Generations: 1056, Solution at gen 1005
+
+[106/200] TSPJ_6L (Large, 1163 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 135076.00 (improved 41.04%)
+    Time: 43.0s, Generations: 1222, Solution at gen 1171
+
+[107/200] TSPJ_7L (Large, 1111 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 129497.00 (improved 40.09%)
+    Time: 39.3s, Generations: 1092, Solution at gen 1041
+
+[108/200] TSPJ_8L (Large, 1070 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 134064.00 (improved 38.32%)
+    Time: 27.3s, Generations: 1040, Solution at gen 989
+
+[109/200] TSPJ_9L (Large, 1131 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 133043.00 (improved 41.51%)
+    Time: 49.4s, Generations: 1273, Solution at gen 1222
+
+[110/200] TSPJ_10L (Large, 1068 cities, Batch_01)
+  Error preparing data files: PosixPath('/home/harish/large_problem_tspj/GA_Solver/data/Large_problems/Batch_01/TSPJ_10L_cost_table_by_coordinates.csv') and PosixPath('/home/harish/large_problem_tspj/GA_Solver/build_test/data/TSPJ_10L_TSPJ_TT.csv') are the same file
+
+[111/200] TSPJ_11L (Large, 1014 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 115039.00 (improved 42.61%)
+    Time: 30.4s, Generations: 1236, Solution at gen 1185
+
+[112/200] TSPJ_12L (Large, 1113 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 124539.00 (improved 43.73%)
+    Time: 62.8s, Generations: 1637, Solution at gen 1586
+
+[113/200] TSPJ_13L (Large, 1010 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 110712.00 (improved 44.42%)
+    Time: 50.0s, Generations: 1543, Solution at gen 1492
+
+[114/200] TSPJ_14L (Large, 1171 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 123305.00 (improved 47.07%)
+    Time: 66.6s, Generations: 1840, Solution at gen 1789
+
+[115/200] TSPJ_15L (Large, 1054 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 120604.00 (improved 42.69%)
+    Time: 36.3s, Generations: 1301, Solution at gen 1250
+
+[116/200] TSPJ_16L (Large, 999 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 116142.00 (improved 41.82%)
+    Time: 31.3s, Generations: 1242, Solution at gen 1191
+
+[117/200] TSPJ_17L (Large, 1005 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 115863.00 (improved 41.04%)
+    Time: 28.4s, Generations: 1123, Solution at gen 1072
+
+[118/200] TSPJ_18L (Large, 1099 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 121423.00 (improved 44.56%)
+    Time: 59.5s, Generations: 1557, Solution at gen 1506
+
+[119/200] TSPJ_19L (Large, 1175 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 142028.00 (improved 39.99%)
+    Time: 39.7s, Generations: 1007, Solution at gen 956
+
+[120/200] TSPJ_20L (Large, 1191 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 145116.00 (improved 37.29%)
+    Time: 39.4s, Generations: 993, Solution at gen 942
+
+[121/200] TSPJ_21L (Large, 1083 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 125963.00 (improved 39.72%)
+    Time: 35.0s, Generations: 1121, Solution at gen 1070
+
+[122/200] TSPJ_22L (Large, 1082 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 144595.00 (improved 33.54%)
+    Time: 22.4s, Generations: 813, Solution at gen 762
+
+[123/200] TSPJ_23L (Large, 1050 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 129300.00 (improved 38.36%)
+    Time: 34.3s, Generations: 1050, Solution at gen 999
+
+[124/200] TSPJ_24L (Large, 1102 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 151825.00 (improved 31.15%)
+    Time: 24.6s, Generations: 678, Solution at gen 627
+
+[125/200] TSPJ_25L (Large, 1198 cities, Batch_01)
+  Running solver... Done!
+    Fitness: 131397.00 (improved 45.10%)
+    Time: 49.0s, Generations: 1519, Solution at gen 1468
+
+[126/200] TSPJ_26L (Large, 1151 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 120362.00 (improved 47.87%)
+    Time: 66.2s, Generations: 1954, Solution at gen 1903
+
+[127/200] TSPJ_27L (Large, 1008 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 123035.00 (improved 38.53%)
+    Time: 29.0s, Generations: 904, Solution at gen 853
+
+[128/200] TSPJ_28L (Large, 1050 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 127196.00 (improved 39.13%)
+    Time: 27.3s, Generations: 1047, Solution at gen 996
+
+[129/200] TSPJ_29L (Large, 1043 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 121607.00 (improved 40.49%)
+    Time: 31.7s, Generations: 1212, Solution at gen 1161
+
+[130/200] TSPJ_30L (Large, 1028 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 118506.00 (improved 41.49%)
+    Time: 30.1s, Generations: 1176, Solution at gen 1125
+
+[131/200] TSPJ_31L (Large, 1061 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 131832.00 (improved 39.33%)
+    Time: 34.9s, Generations: 918, Solution at gen 867
+
+[132/200] TSPJ_32L (Large, 1106 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 126242.00 (improved 40.44%)
+    Time: 47.4s, Generations: 1246, Solution at gen 1195
+
+[133/200] TSPJ_33L (Large, 1124 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 130096.00 (improved 40.99%)
+    Time: 49.4s, Generations: 1399, Solution at gen 1348
+
+[134/200] TSPJ_34L (Large, 1170 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 170852.00 (improved 26.83%)
+    Time: 18.1s, Generations: 524, Solution at gen 473
+
+[135/200] TSPJ_35L (Large, 1006 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 132257.00 (improved 32.95%)
+    Time: 18.3s, Generations: 710, Solution at gen 659
+
+[136/200] TSPJ_36L (Large, 1080 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 156324.00 (improved 28.24%)
+    Time: 24.9s, Generations: 649, Solution at gen 598
+
+[137/200] TSPJ_37L (Large, 1117 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 154491.00 (improved 30.37%)
+    Time: 22.3s, Generations: 623, Solution at gen 572
+
+[138/200] TSPJ_38L (Large, 1151 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 157335.00 (improved 30.34%)
+    Time: 22.5s, Generations: 627, Solution at gen 576
+
+[139/200] TSPJ_39L (Large, 1199 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 141629.00 (improved 40.63%)
+    Time: 42.4s, Generations: 1281, Solution at gen 1230
+
+[140/200] TSPJ_40L (Large, 1144 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 131123.00 (improved 40.73%)
+    Time: 42.7s, Generations: 1182, Solution at gen 1131
+
+[141/200] TSPJ_41L (Large, 1118 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 130143.00 (improved 41.56%)
+    Time: 38.5s, Generations: 1084, Solution at gen 1033
+
+[142/200] TSPJ_42L (Large, 1116 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 135886.00 (improved 39.21%)
+    Time: 41.0s, Generations: 1148, Solution at gen 1097
+
+[143/200] TSPJ_43L (Large, 1050 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 123164.00 (improved 40.82%)
+    Time: 42.8s, Generations: 1134, Solution at gen 1083
+
+[144/200] TSPJ_44L (Large, 1018 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 135322.00 (improved 31.26%)
+    Time: 18.7s, Generations: 696, Solution at gen 645
+
+[145/200] TSPJ_45L (Large, 1013 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 131673.00 (improved 32.54%)
+    Time: 21.6s, Generations: 854, Solution at gen 803
+
+[146/200] TSPJ_46L (Large, 1128 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 128299.00 (improved 41.55%)
+    Time: 50.5s, Generations: 1314, Solution at gen 1263
+
+[147/200] TSPJ_47L (Large, 1164 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 5548.00 (improved 94.13%)
+    Time: 4.3s, Generations: 95, Solution at gen 44
+
+[148/200] TSPJ_48L (Large, 1154 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 128709.00 (improved 44.20%)
+    Time: 50.6s, Generations: 1297, Solution at gen 1246
+
+[149/200] TSPJ_49L (Large, 1172 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 139847.00 (improved 39.89%)
+    Time: 44.9s, Generations: 1143, Solution at gen 1092
+
+[150/200] TSPJ_50L (Large, 1143 cities, Batch_02)
+  Running solver... Done!
+    Fitness: 137919.00 (improved 38.37%)
+    Time: 30.4s, Generations: 789, Solution at gen 738
+
+[151/200] TSPJ_51L (Large, 1174 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 126346.00 (improved 44.68%)
+    Time: 52.9s, Generations: 1558, Solution at gen 1507
+
+[152/200] TSPJ_52L (Large, 1191 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 126986.00 (improved 45.83%)
+    Time: 64.4s, Generations: 1861, Solution at gen 1810
+
+[153/200] TSPJ_53L (Large, 1147 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 133964.00 (improved 40.91%)
+    Time: 39.9s, Generations: 1096, Solution at gen 1045
+
+[154/200] TSPJ_54L (Large, 1103 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 129812.00 (improved 41.22%)
+    Time: 46.9s, Generations: 1253, Solution at gen 1202
+
+[155/200] TSPJ_55L (Large, 1120 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 143759.00 (improved 34.45%)
+    Time: 31.4s, Generations: 811, Solution at gen 760
+
+[156/200] TSPJ_56L (Large, 1087 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 135036.00 (improved 38.06%)
+    Time: 35.7s, Generations: 929, Solution at gen 878
+
+[157/200] TSPJ_57L (Large, 1099 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 125173.00 (improved 42.68%)
+    Time: 51.3s, Generations: 1334, Solution at gen 1283
+
+[158/200] TSPJ_58L (Large, 1146 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 135506.00 (improved 41.10%)
+    Time: 49.4s, Generations: 1325, Solution at gen 1274
+
+[159/200] TSPJ_59L (Large, 1050 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 130517.00 (improved 38.75%)
+    Time: 24.6s, Generations: 918, Solution at gen 867
+
+[160/200] TSPJ_60L (Large, 1091 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 136055.00 (improved 38.10%)
+    Time: 38.5s, Generations: 992, Solution at gen 941
+
+[161/200] TSPJ_61L (Large, 1048 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 126283.00 (improved 41.12%)
+    Time: 29.8s, Generations: 1148, Solution at gen 1097
+
+[162/200] TSPJ_62L (Large, 1034 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 115875.00 (improved 42.13%)
+    Time: 32.1s, Generations: 1241, Solution at gen 1190
+
+[163/200] TSPJ_63L (Large, 1147 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 132595.00 (improved 41.74%)
+    Time: 53.3s, Generations: 1369, Solution at gen 1318
+
+[164/200] TSPJ_64L (Large, 1012 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 113026.00 (improved 44.02%)
+    Time: 34.6s, Generations: 1374, Solution at gen 1323
+
+[165/200] TSPJ_65L (Large, 1102 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 119210.00 (improved 46.07%)
+    Time: 74.9s, Generations: 1959, Solution at gen 1908
+
+[166/200] TSPJ_66L (Large, 1194 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 143630.00 (improved 40.60%)
+    Time: 37.9s, Generations: 1073, Solution at gen 1022
+
+[167/200] TSPJ_67L (Large, 1086 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 122147.00 (improved 43.31%)
+    Time: 49.1s, Generations: 1284, Solution at gen 1233
+
+[168/200] TSPJ_68L (Large, 1027 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 116753.00 (improved 43.40%)
+    Time: 31.4s, Generations: 1222, Solution at gen 1171
+
+[169/200] TSPJ_69L (Large, 1104 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 126897.00 (improved 43.66%)
+    Time: 47.7s, Generations: 1241, Solution at gen 1190
+
+[170/200] TSPJ_70L (Large, 1130 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 141595.00 (improved 36.19%)
+    Time: 31.5s, Generations: 807, Solution at gen 756
+
+[171/200] TSPJ_71L (Large, 1052 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 125702.00 (improved 39.77%)
+    Time: 29.3s, Generations: 870, Solution at gen 819
+
+[172/200] TSPJ_72L (Large, 1138 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 122523.00 (improved 45.95%)
+    Time: 66.3s, Generations: 1711, Solution at gen 1660
+
+[173/200] TSPJ_73L (Large, 1091 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 143779.00 (improved 34.42%)
+    Time: 29.7s, Generations: 769, Solution at gen 718
+
+[174/200] TSPJ_74L (Large, 1125 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 130707.00 (improved 42.61%)
+    Time: 47.6s, Generations: 1362, Solution at gen 1311
+
+[175/200] TSPJ_75L (Large, 1095 cities, Batch_03)
+  Running solver... Done!
+    Fitness: 121827.00 (improved 43.96%)
+    Time: 58.6s, Generations: 1541, Solution at gen 1490
+
+[176/200] TSPJ_76L (Large, 1155 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 166877.00 (improved 27.15%)
+    Time: 17.8s, Generations: 501, Solution at gen 450
+
+[177/200] TSPJ_77L (Large, 1018 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 131075.00 (improved 34.86%)
+    Time: 28.4s, Generations: 749, Solution at gen 698
+
+[178/200] TSPJ_78L (Large, 1168 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 161372.00 (improved 30.74%)
+    Time: 20.7s, Generations: 603, Solution at gen 552
+
+[179/200] TSPJ_79L (Large, 1084 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 137080.00 (improved 36.94%)
+    Time: 33.0s, Generations: 862, Solution at gen 811
+
+[180/200] TSPJ_80L (Large, 1081 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 120028.00 (improved 44.29%)
+    Time: 57.9s, Generations: 1519, Solution at gen 1468
+
+[181/200] TSPJ_81L (Large, 1013 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 116556.00 (improved 42.51%)
+    Time: 29.4s, Generations: 1151, Solution at gen 1100
+
+[182/200] TSPJ_82L (Large, 1161 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 130639.00 (improved 44.03%)
+    Time: 50.6s, Generations: 1403, Solution at gen 1352
+
+[183/200] TSPJ_83L (Large, 1034 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 117249.00 (improved 42.56%)
+    Time: 32.5s, Generations: 1169, Solution at gen 1118
+
+[184/200] TSPJ_84L (Large, 1104 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 129763.00 (improved 40.97%)
+    Time: 42.3s, Generations: 1099, Solution at gen 1048
+
+[185/200] TSPJ_85L (Large, 1021 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 130355.00 (improved 35.00%)
+    Time: 20.2s, Generations: 783, Solution at gen 732
+
+[186/200] TSPJ_86L (Large, 1171 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 137341.00 (improved 42.80%)
+    Time: 54.7s, Generations: 1509, Solution at gen 1458
+
+[187/200] TSPJ_87L (Large, 1020 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 119329.00 (improved 41.85%)
+    Time: 30.0s, Generations: 1183, Solution at gen 1132
+
+[188/200] TSPJ_88L (Large, 1045 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 125383.00 (improved 40.97%)
+    Time: 28.2s, Generations: 1027, Solution at gen 976
+
+[189/200] TSPJ_89L (Large, 1048 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 133973.00 (improved 35.72%)
+    Time: 21.0s, Generations: 799, Solution at gen 748
+
+[190/200] TSPJ_90L (Large, 1098 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 139421.00 (improved 34.90%)
+    Time: 37.5s, Generations: 966, Solution at gen 915
+
+[191/200] TSPJ_91L (Large, 1183 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 166576.00 (improved 28.89%)
+    Time: 23.6s, Generations: 590, Solution at gen 539
+
+[192/200] TSPJ_92L (Large, 1096 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 127607.00 (improved 41.86%)
+    Time: 52.1s, Generations: 1474, Solution at gen 1423
+
+[193/200] TSPJ_93L (Large, 1064 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 5197.00 (improved 97.28%)
+    Time: 4.5s, Generations: 147, Solution at gen 96
+
+[194/200] TSPJ_94L (Large, 1111 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 134462.00 (improved 40.67%)
+    Time: 36.5s, Generations: 941, Solution at gen 890
+
+[195/200] TSPJ_95L (Large, 1087 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 120857.00 (improved 44.06%)
+    Time: 48.9s, Generations: 1396, Solution at gen 1345
+
+[196/200] TSPJ_96L (Large, 999 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 116548.00 (improved 41.53%)
+    Time: 39.0s, Generations: 1070, Solution at gen 1019
+
+[197/200] TSPJ_97L (Large, 1052 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 171140.00 (improved 18.71%)
+    Time: 39.7s, Generations: 1050, Solution at gen 999
+
+[198/200] TSPJ_98L (Large, 1063 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 176548.00 (improved 16.91%)
+    Time: 67.6s, Generations: 1887, Solution at gen 1836
+
+[199/200] TSPJ_99L (Large, 1192 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 221936.00 (improved 8.73%)
+    Time: 20.0s, Generations: 581, Solution at gen 530
+
+[200/200] TSPJ_100L (Large, 1004 cities, Batch_04)
+  Running solver... Done!
+    Fitness: 173710.00 (improved 12.62%)
+    Time: 21.3s, Generations: 841, Solution at gen 790
+
+======================================================================
+Experiments completed!
+Results saved to:
+  CSV: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058.csv
+  JSON: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058.json
+  Solutions: /home/harish/large_problem_tspj/GA_Solver/experiment_results/all_problems_20251207_180058_solutions.json
+======================================================================
+
+
+Summary:
+  Total problems: 200
+  Successful: 199
+  Failed: 1
+
+  Medium problems (100):
+    Avg cities: 447
+    Avg fitness: 19556.44
+    Avg improvement: 43.95%
+    Avg time: 10.0s
+
+  Large problems (99):
+    Avg cities: 1097
+    Avg fitness: 129978.76
+    Avg improvement: 40.38%
+    Avg time: 37.9s
+
+  Failed problems:
+    - TSPJ_10L: Data preparation failed: PosixPath('/home/harish/large_problem_tspj/GA_Solver/data/Large_problems/Batch_01/TSPJ_10L_cost_table_by_coordinates.csv') and PosixPath('/home/harish/large_problem_tspj/GA_Solver/build_test/data/TSPJ_10L_TSPJ_TT.csv') are the same file

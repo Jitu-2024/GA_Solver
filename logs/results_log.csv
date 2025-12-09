@@ -106,3 +106,785 @@ Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),T
 gr17,2840,36,2000,4.00595,0.108269,0,pop=1000,mut=0.4,tour=7,div=25%,crossover=EAX+Uniform,mutation=2opt
 Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
 gr17,2760,1133,2000,24.3216,0.0214476,0,pop=1000,mut=0.4,tour=7,div=25%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,14361.1,184,200,1.21618,0.00657396,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,13957.5,192,200,1.6284,0.00843729,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12267.8,466,500,7.3956,0.0158364,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12362.5,497,500,7.20337,0.0144646,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11425.3,3505,5000,36.6945,0.0104662,2,pop=2000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12488.8,279,300,4.55403,0.0162644,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12776.1,286,300,4.41044,0.0153674,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12300.7,235,300,4.61412,0.0195513,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11487.6,2856,5000,31.0927,0.010883,2,pop=2000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11388.5,844,6000,31.9309,0.0377881,2,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11433.3,1346,6000,37.0337,0.0274934,2,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,23215,18,20,0.0486183,0.00255886,2,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,22788.2,19,20,0.0472934,0.00236467,2,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,12443.1,3,30,0.152108,0.0380271,2,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11800.4,22,100,0.511025,0.0222185,2,pop=200,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11232.5,1545,6000,172.039,0.11128,2,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3000,5,100,0.485576,0.0809294,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr48,7625,43,200,1.77108,0.0402517,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11372.2,3196,6000,228.295,0.071409,2,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11566.5,2411,6000,189.727,0.0786597,2,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11328.8,4081,6000,346.611,0.0849119,2,pop=4000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3000,4,30,0.379417,0.0758835,2,pop=300,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr48,7392,53,100,1.26281,0.0233853,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11485,3923,6000,421.043,0.1073,2,pop=5000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+berlin52,11270.2,3358,6000,377.61,0.112417,2,pop=5000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2864,0,30,3.26383,3.26383,2,pop=64,mut=0.2,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1L,18699,0,5,13.582,13.582,2,pop=32,mut=0.2,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2835,0,10000,7.99594,7.99594,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2925,0,10000,8.02367,8.02367,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2835,0,10000,8.20034,8.20034,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2942,0,10000,8.01406,8.01406,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3000,0,10000,33.7482,33.7482,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2784,0,10000,40.1394,40.1394,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2953,0,10000,14.3963,14.3963,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2809,0,10000,8.17784,8.17784,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3040,40,10000,8.36513,0.204028,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3060,0,10000,8.03537,8.03537,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2939,0,10000,7.92741,7.92741,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2981,0,10000,8.12284,8.12284,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2931,0,10000,7.95393,7.95393,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3005,3,10000,8.06462,2.01615,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2884,0,10000,7.9862,7.9862,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3000,0,10000,8.10743,8.10743,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3089,0,10000,8.23432,8.23432,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2931,0,10000,8.02764,8.02764,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,3000,3,10000,8.12759,2.0319,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2862,0,10000,8.1521,8.1521,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+gr17,2935,0,10000,8.1035,8.1035,2,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2792,0,50,8.41365,8.41365,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2702,71,200,22.3714,0.310714,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,3056,0,200,6.71855,6.71855,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,3180,31,200,15.1822,0.474444,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2866,12,100,13.9227,1.07097,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2646,25,2000,98.512,3.78892,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2709,76,2000,122.42,1.58988,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,2732,33,500,45.1496,1.32793,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4214,0,100,7.35869,7.35869,0,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4235,4,10,1.28678,0.257355,0,pop=50,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4332,4,5,0.690368,0.138074,0,pop=50,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4189,1,5,0.43378,0.21689,0,pop=50,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4212,4,5,0.542489,0.108498,0,pop=50,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4118,10,50,0.233419,0.0212199,0,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4067,43,100,14.3026,0.32506,0,pop=100,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3783,74,2000,106.093,1.41457,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3945,28,1000,1.14702,0.0395525,0,pop=200,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3923,44,2000,12.2535,0.272301,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4021,6,50,0.913325,0.130475,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3985,33,50,1.2151,0.0357383,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4075,15,20,0.500996,0.0313122,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3947,168,2000,18.3156,0.108376,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3930,842,2000,95.8874,0.113745,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3989,316,4000,81.6102,0.257446,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3964,303,2000,21.3017,0.0700715,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3968,130,200,13.8426,0.105668,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3926,65,200,8.08227,0.122459,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4282,94,200,10.1699,0.107052,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4239,132,200,15.7644,0.118529,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4338,0,200,3.98443,3.98443,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4484,54,200,10.3482,0.188149,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,3978,26,200,5.94855,0.220316,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4395,194,200,18.6671,0.095729,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4521,0,200,5.20789,5.20789,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,4259,43,200,7.28561,0.165582,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4298,53,200,9.41877,0.174422,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3956,172,200,15.123,0.0874163,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4369,143,200,13.282,0.0922358,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4247,0,200,4.53731,4.53731,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4231,50,200,7.66769,0.150347,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4524,98,200,15.2312,0.15385,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,4003,70,200,9.26257,0.130459,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4467,121,200,15.2813,0.125257,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4540,0,200,5.20858,5.20858,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,4143,96,200,11.3091,0.116588,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4289,101,200,13.8182,0.135472,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4019,43,200,7.08084,0.160928,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4469,0,200,3.89225,3.89225,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4351,0,200,4.46944,4.46944,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4174,152,200,14.806,0.096771,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4664,0,200,5.22108,5.22108,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,4077,0,200,3.95138,3.95138,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4570,34,200,7.92942,0.226555,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4461,141,200,18.0935,0.127419,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,4226,0,200,4.00815,4.00815,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4255,196,200,18.5531,0.0941782,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3983,76,200,9.54949,0.124019,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4394,104,200,11.1378,0.106074,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4004,143,200,14.449,0.10034,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3952,174,200,14.3583,0.0820475,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4469,0,200,3.87493,3.87493,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4281,72,200,10.7515,0.147281,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4207,71,200,9.14251,0.126979,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4069,0,200,4.0564,4.0564,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4330,193,200,14.0169,0.0722522,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4331,0,200,4.51301,4.51301,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4149,199,200,14.7541,0.0737707,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4571,33,200,8.69237,0.255658,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,4101,66,200,8.98528,0.134109,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4619,54,200,10.1795,0.185081,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4488,70,200,11.9248,0.167955,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,4305,0,200,4.00522,4.00522,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4292,83,200,11.9419,0.142166,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3982,157,200,15.1524,0.0959014,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4520,51,200,7.6136,0.146415,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4323,67,200,10.3419,0.152087,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4030,66,200,9.09025,0.135675,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4514,0,200,3.89522,3.89522,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4278,0,200,4.54452,4.54452,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4287,148,200,15.1318,0.101555,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4598,76,200,13.1178,0.17036,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,4012,136,200,14.053,0.102577,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4544,0,200,4.94191,4.94191,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4536,0,200,5.18547,5.18547,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,4174,20,200,5.37333,0.255873,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4278,113,200,14.9303,0.130968,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_11M,4087,141,200,14.8624,0.104665,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_12M,4363,53,200,8.14296,0.150796,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_13M,4360,93,200,13.5344,0.143983,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_14M,4330,98,200,11.775,0.11894,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_15M,4342,0,200,4.79224,4.79224,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_16M,4690,66,200,11.1518,0.166444,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_17M,4410,53,200,9.51908,0.176279,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_18M,4598,20,200,6.54051,0.311453,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_19M,4354,98,200,11.8315,0.11951,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_20M,4427,0,200,4.34053,4.34053,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_21M,4479,164,200,17.4676,0.105864,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_22M,4549,24,200,7.52461,0.300985,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_23M,4202,49,200,7.31405,0.146281,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_24M,4451,0,200,4.89596,4.89596,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3885,312,2000,44.4143,0.141899,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3946,256,2000,18.9969,0.0739179,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4013,81,200,10.084,0.122975,0,pop=500,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4074,8,50,2.00413,0.222681,0,pop=1000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3910,234,2000,51.4147,0.218786,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3966,215,2000,48.6471,0.225218,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3856,207,2000,47.5156,0.22844,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3925,174,2000,44.402,0.253726,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4035,135,2000,39.6034,0.291202,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3929,373,2000,70.848,0.189433,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3964,59,2000,28.175,0.469583,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3853,433,2000,77.1902,0.177858,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3993,89,2000,33.17,0.368555,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3939,323,2000,64.9158,0.200357,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3951,365,2000,67.9629,0.185691,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3973,132,2000,37.8419,0.284526,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4310,0,2000,19.4074,19.4074,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4276,0,2000,22.0558,22.0558,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4110,87,2000,31.5584,0.358619,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4438,223,2000,58.8949,0.262924,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3845,484,2000,84.7247,0.17469,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3880,468,2000,81.9644,0.174764,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3850,538,2000,117.895,0.218729,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3869,396,2000,72.0419,0.181466,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3868,153,2000,40.3398,0.261947,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4367,83,2000,29.6459,0.352928,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3922,216,2000,48.6569,0.224225,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4192,303,2000,56.9624,0.187376,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4157,273,2000,60.6398,0.221313,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4092,458,2000,79.8389,0.173941,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4484,132,2000,45.1419,0.339413,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3854,649,2000,132.222,0.203418,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4222,502,2000,81.151,0.161334,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4194,235,2000,54.5754,0.231252,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3948,103,2000,33.8155,0.325149,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4185,620,2000,122.268,0.196889,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3M,4132,315,2000,66.1208,0.209243,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4M,4283,49,2000,26.6164,0.532328,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5M,4497,60,2000,33.1849,0.544014,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6M,3826,433,2000,75.4154,0.173768,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7M,4305,144,2000,43.2328,0.298157,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8M,4424,163,2000,49.4988,0.301822,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9M,3980,205,2000,46.7754,0.227065,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10M,4184,497,2000,94.9014,0.190565,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_11M,4057,260,2000,55.1261,0.211211,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_12M,4255,215,2000,49.5038,0.229184,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_13M,4264,374,2000,80.8649,0.21564,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_14M,4264,31,2000,24.7488,0.773401,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_15M,4248,283,2000,62.4869,0.220024,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_16M,4601,181,2000,50.081,0.275171,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_17M,4252,372,2000,75.4349,0.202238,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_18M,4427,448,2000,87.0145,0.193796,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_19M,4308,261,2000,55.1446,0.210476,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_20M,4348,156,2000,42.3619,0.269821,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_21M,4401,319,2000,67.4104,0.210657,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_22M,4631,0,2000,23.3884,23.3884,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_23M,4093,264,2000,52.3076,0.197387,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_24M,4417,66,2000,32.0752,0.478735,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_25M,4420,84,2000,36.4975,0.429383,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_26M,4208,259,2000,54.3241,0.208939,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_27M,4533,0,2000,21.6742,21.6742,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_28M,4419,0,2000,21.3007,21.3007,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_29M,3982,168,2000,40.2051,0.2379,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_30M,4024,53,2000,27.3679,0.506814,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_31M,4062,273,2000,53.1792,0.194085,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_32M,4442,270,2000,60.8083,0.224385,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_33M,4399,536,2000,141.691,0.263857,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_34M,4238,297,2000,62.5592,0.20993,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_35M,4232,315,2000,65.7945,0.20821,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_36M,4254,498,2000,85.3099,0.170962,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_37M,4516,166,2000,49.2087,0.294663,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_38M,4368,219,2000,53.7517,0.244326,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_39M,4139,249,2000,57.6136,0.230454,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_40M,4085,113,2000,33.2971,0.29208,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_41M,4219,274,2000,60.0551,0.218382,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_42M,4344,128,2000,40.6058,0.314774,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_43M,4155,111,2000,36.0393,0.32178,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_44M,4361,498,2000,92.1835,0.184737,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_45M,4345,323,2000,65.3728,0.201768,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_46M,4194,293,2000,57.9443,0.197089,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_47M,4085,77,2000,30.2339,0.387615,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_48M,4311,353,2000,69.1794,0.195422,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_49M,4548,119,2000,38.5547,0.321289,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_50M,4335,406,2000,81.835,0.201069,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_51M,3997,72,2000,27.8063,0.380908,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_52M,4062,307,2000,64.9881,0.211,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_53M,4442,0,2000,20.54,20.54,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_54M,4154,207,2000,48.6245,0.233771,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_55M,4529,123,2000,40.5978,0.327402,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_56M,4394,652,2000,115.594,0.17702,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_57M,4632,269,2000,65.2826,0.241787,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_58M,4406,301,2000,68.6746,0.227399,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_59M,4037,160,2000,39.7813,0.247089,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_60M,4072,262,2000,54.8925,0.208717,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_61M,4158,74,2000,31.1119,0.414825,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_62M,4448,81,2000,31.9743,0.38993,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_63M,4190,112,2000,39.4301,0.348939,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_64M,4187,245,2000,55.0516,0.223787,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_65M,4315,446,2000,94.426,0.211244,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_66M,4535,3,2000,22.5726,5.64314,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_67M,4332,0,2000,19.5822,19.5822,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_68M,4127,267,2000,56.5752,0.211101,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_69M,4540,0,2000,22.389,22.389,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_70M,4263,134,2000,41.8282,0.309839,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_71M,4361,201,2000,48.5223,0.24021,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_72M,4419,361,2000,79.6996,0.220165,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3821,149,2000,41.4569,0.276379,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_73M,4040,592,2000,135.358,0.228259,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3824,162,2000,48.3533,0.296646,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_74M,3924,178,2000,46.6067,0.260373,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3830,185,2000,50.9728,0.274047,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_75M,4137,427,2000,76.6459,0.179079,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3841,205,2000,50.7127,0.246178,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_76M,4409,334,2000,75.0785,0.224115,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_77M,4081,279,2000,58.7208,0.209717,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_78M,4026,256,2000,56.0946,0.218267,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_79M,4345,147,2000,53.867,0.363966,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_80M,4246,408,2000,70.735,0.172946,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_81M,3980,297,2000,58.913,0.197695,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_82M,3971,199,2000,53.0205,0.265102,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_83M,4109,238,2000,35.575,0.148849,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_84M,4258,256,2000,55.9995,0.217897,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_85M,4136,291,2000,63.6193,0.217874,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_86M,4406,248,2000,36.3082,0.145816,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_87M,4296,257,2000,54.7031,0.212028,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_88M,3963,219,2000,49.916,0.226891,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_89M,4052,262,2000,47.9177,0.182196,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_90M,4610,200,2000,55.3509,0.275378,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_91M,4115,218,2000,53.8361,0.245827,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_92M,4059,220,2000,54.2097,0.245293,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_93M,3916,262,2000,54.3932,0.206818,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_94M,4176,274,2000,52.8231,0.192084,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_95M,4506,104,2000,26.3857,0.251292,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_96M,4086,269,2000,59.6675,0.220991,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_97M,4473,370,2000,72.2718,0.194803,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_98M,3827,206,2000,48.7486,0.235501,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_99M,4457,162,2000,49.6211,0.304424,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_100M,4187,332,2000,61.6734,0.185205,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1L,17044,156,2000,117.767,0.750105,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2L,17473,243,2000,108.758,0.445728,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_3L,16723,202,2000,134.428,0.662204,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_4L,17293,0,2000,39.4409,39.4409,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_5L,17678,22,2000,46.8966,2.03898,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_6L,17062,264,2000,160.007,0.603799,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_7L,16497,382,2000,184.984,0.482986,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_8L,16920,323,2000,157.161,0.485063,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_9L,17175,253,2000,146.582,0.577096,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_10L,16988,395,2000,161.314,0.407358,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_11L,15922,300,2000,113.152,0.375919,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_12L,16860,269,2000,151.3,0.560371,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_13L,15712,251,2000,131.83,0.523136,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_14L,17801,0,2000,44.1079,44.1079,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_15L,16800,315,2000,153.031,0.484275,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_16L,16723,16,2000,40.7555,2.39738,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_17L,16037,306,2000,150.043,0.488741,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_18L,16710,332,2000,181.989,0.546515,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_19L,17260,232,2000,149.616,0.642131,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_20L,17163,302,2000,169.921,0.560794,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_21L,16806,226,2000,124.061,0.546525,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_22L,16838,233,2000,137.716,0.588528,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_23L,16461,284,2000,153.151,0.537371,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_24L,17567,194,2000,93.0215,0.477033,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_25L,18038,28,2000,52.4864,1.80988,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_26L,17281,272,2000,160.966,0.589619,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_27L,15805,256,2000,145.49,0.566109,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_28L,16621,225,2000,125.366,0.554716,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_29L,16358,174,2000,123.626,0.706433,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_30L,16556,289,2000,134.26,0.462967,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_31L,16460,330,2000,147.802,0.446531,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_32L,17291,305,2000,158.852,0.519123,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_33L,17383,342,2000,175.786,0.512495,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_34L,18090,224,2000,120.887,0.537277,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_35L,15558,248,2000,131.177,0.526817,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_36L,16914,351,2000,168.484,0.478647,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_37L,16469,257,2000,124.743,0.483499,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_38L,16549,349,2000,141.183,0.403381,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_39L,17380,482,2000,181.087,0.374921,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_40L,16985,306,2000,182.919,0.595827,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_41L,16296,199,2000,102.976,0.514878,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_42L,16959,360,2000,141.253,0.391281,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_43L,17196,325,2000,124.407,0.381616,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_44L,16140,298,2000,112.038,0.374709,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_45L,16001,287,2000,133.228,0.462596,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_46L,16768,258,2000,146.648,0.566209,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_47L,18032,233,2000,108.45,0.463462,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_48L,17998,0,2000,43.1071,43.1071,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_49L,17243,213,2000,141.693,0.662119,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_50L,17345,226,2000,144.639,0.637178,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_51L,17960,0,2000,43.5262,43.5262,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_52L,16917,470,2000,214.408,0.45522,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_53L,16744,290,2000,120.562,0.414302,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_54L,17145,230,2000,103.306,0.44721,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_55L,16454,474,2000,178.19,0.375136,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_56L,16944,287,2000,120.466,0.418285,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_57L,17097,242,2000,108.302,0.445689,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_58L,17555,210,2000,100.683,0.477172,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_59L,17077,371,2000,133.598,0.359133,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_60L,16537,292,2000,121.237,0.41378,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_61L,16954,309,2000,120.819,0.389738,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_62L,16934,172,2000,85.2529,0.492791,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_63L,17838,0,2000,43.7253,43.7253,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_64L,16060,236,2000,94.6618,0.399417,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_65L,16858,215,2000,99.5044,0.460668,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_66L,17553,356,2000,141.986,0.397721,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_67L,17437,0,2000,40.7097,40.7097,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_68L,15997,196,2000,85.7086,0.435069,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_69L,17362,23,2000,48.3708,2.01545,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_70L,16643,221,2000,102.471,0.461582,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_71L,16149,295,2000,112.257,0.379247,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_72L,17298,141,2000,79.8561,0.562367,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_73L,17568,255,2000,110.745,0.432596,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_74L,17096,542,2000,190.349,0.350551,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_75L,16392,317,2000,127.672,0.401486,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_76L,17074,278,2000,118.549,0.424906,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_77L,16494,184,2000,82.9003,0.44811,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_78L,17170,124,2000,76.2879,0.610303,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_79L,16710,221,2000,100.685,0.453534,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_80L,16779,185,2000,89.697,0.482242,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_81L,15942,179,2000,80.6224,0.447902,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_82L,17597,0,2000,42.5722,42.5722,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_83L,16319,177,2000,84.9473,0.477232,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_84L,16726,303,2000,119.919,0.39447,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_85L,16691,20,2000,42.5775,2.0275,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_86L,17327,415,2000,166.813,0.400993,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_87L,16156,323,2000,116.766,0.360389,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_88L,16998,237,2000,98.8722,0.41543,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_89L,16561,327,2000,124.651,0.380032,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_90L,17327,369,2000,139.293,0.376468,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_91L,17376,331,2000,136,0.409639,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_92L,16523,334,2000,128.689,0.384148,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_93L,17187,313,2000,123.93,0.394681,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_94L,16716,332,2000,130.025,0.390467,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_95L,17258,615,2000,206.661,0.335489,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_96L,16108,277,2000,103.149,0.371039,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_97L,16467,260,2000,105.594,0.404576,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_98L,16471,242,2000,102.403,0.42141,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_99L,18060,317,2000,132.913,0.417966,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_100L,16618,269,2000,103.333,0.382715,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3896,177,2000,30.6068,0.171948,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_2M,4158,209,2000,31.9496,0.152141,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,4005,110,2000,34.8325,0.313806,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3878,561,2000,93.8804,0.167047,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt
+Dataset Name,Best Fitness,Solution Generation,Total Generations,Total Time (s),Time Per Generation (s),Mode,Extra Info
+TSPJ_1M,3956,163,2000,42.3859,0.258451,0,pop=3000,mut=0.3,tour=5,div=20%,crossover=EAX+Uniform,mutation=2opt

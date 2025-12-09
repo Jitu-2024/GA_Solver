@@ -1,0 +1,1 @@
+-I/home/harish/large_problem_tspj/GA_Solver/include -isystem "/usr/local/cuda/targets/x86_64-linux/include"

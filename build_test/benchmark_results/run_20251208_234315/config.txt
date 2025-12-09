@@ -1,0 +1,11 @@
+Benchmark Configuration
+=======================
+Timestamp: 20251208_234315
+Problem Type: medium
+Limit: 5
+Population: 3000
+Generations: 2000
+Stagnation: 150
+Local Search: 0
+Mode: 0
+Timeout: 600s

@@ -1,0 +1,6 @@
+name,problem_type,status,best_fitness,num_cities,elapsed_time,time_per_generation,solution_generation,return_code
+TSPJ_1M,medium,success,4031.0,422,39.05077624320984,,0,0
+TSPJ_2M,medium,success,4310.0,405,20.47235083580017,,0,0
+TSPJ_3M,medium,success,4276.0,453,23.196491956710815,,0,0
+TSPJ_4M,medium,success,4323.0,421,32.64016914367676,,0,0
+TSPJ_5M,medium,success,4710.0,498,60.117244720458984,,0,0

@@ -1,0 +1,11 @@
+name,status,best_fitness,num_cities,elapsed_time,time_per_generation,solution_generation,return_code
+TSPJ_1M,success,,,8.870104551315308,,,0
+TSPJ_2M,success,,,8.799105882644653,,,0
+TSPJ_3M,success,,,8.993824481964111,,,0
+TSPJ_4M,success,,,8.800047159194946,,,0
+TSPJ_5M,success,,,34.365427017211914,,,0
+TSPJ_6M,success,,,14.894716024398804,,,0
+TSPJ_7M,success,,,8.955491781234741,,,0
+TSPJ_8M,success,,,9.143812417984009,,,0
+TSPJ_9M,success,,,8.81905722618103,,,0
+TSPJ_10M,success,,,8.723970413208008,,,0

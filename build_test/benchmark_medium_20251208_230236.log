@@ -1,0 +1,519 @@
+
+================================================================================
+TSPJ_1M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_1M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_1M
+Number of Cities: 422
+Number of Jobs: 422
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 423 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 19/750 better than both parents, 133/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1692 total improvements across 375 genomes
+Local search: 0/375 improved, 1692 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4038
+*** NEW BEST FITNESS: 4038 ***
+Time for Generation 0: 0.344625 seconds
+=== Population Statistics ===
+Min Fitness: 4038, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.9792, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_2M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_2M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_2M
+Number of Cities: 405
+Number of Jobs: 405
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 406 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 22/750 better than both parents, 147/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1928 total improvements across 375 genomes
+Local search: 0/375 improved, 1928 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4363
+*** NEW BEST FITNESS: 4363 ***
+Time for Generation 0: 0.307163 seconds
+=== Population Statistics ===
+Min Fitness: 4363, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.86867, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_3M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_3M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_3M
+Number of Cities: 453
+Number of Jobs: 453
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 454 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 18/750 better than both parents, 120/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1883 total improvements across 375 genomes
+Local search: 158/375 improved, 1883 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 750 genomes...
+2-opt local search completed: 2496 total improvements across 750 genomes
+Double-bridge mutation (rate 0.15): 2/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4316
+*** NEW BEST FITNESS: 4316 ***
+Time for Generation 0: 0.438931 seconds
+=== Population Statistics ===
+Min Fitness: 4316, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 8.35519, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_4M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_4M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_4M
+Number of Cities: 421
+Number of Jobs: 421
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 422 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 19/750 better than both parents, 146/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1589 total improvements across 375 genomes
+Local search: 0/375 improved, 1589 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4308
+*** NEW BEST FITNESS: 4308 ***
+Time for Generation 0: 0.2813 seconds
+=== Population Statistics ===
+Min Fitness: 4308, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.93042, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_5M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_5M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_5M
+Number of Cities: 498
+Number of Jobs: 498
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 499 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 32/750 better than both parents, 112/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1944 total improvements across 375 genomes
+Local search: 0/375 improved, 1944 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4616
+*** NEW BEST FITNESS: 4616 ***
+Time for Generation 0: 0.385577 seconds
+=== Population Statistics ===
+Min Fitness: 4616, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 8.42851, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_6M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_6M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_6M
+Number of Cities: 416
+Number of Jobs: 416
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 417 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 16/750 better than both parents, 107/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1599 total improvements across 375 genomes
+Local search: 0/375 improved, 1599 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4082
+*** NEW BEST FITNESS: 4082 ***
+Time for Generation 0: 0.281048 seconds
+=== Population Statistics ===
+Min Fitness: 4082, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.9243, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_7M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_7M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_7M
+Number of Cities: 470
+Number of Jobs: 470
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 471 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 17/750 better than both parents, 116/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1417 total improvements across 375 genomes
+Local search: 0/375 improved, 1417 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4479
+*** NEW BEST FITNESS: 4479 ***
+Time for Generation 0: 0.354425 seconds
+=== Population Statistics ===
+Min Fitness: 4479, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 8.25965, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_8M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_8M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_8M
+Number of Cities: 495
+Number of Jobs: 495
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 496 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 21/750 better than both parents, 101/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1788 total improvements across 375 genomes
+Local search: 0/375 improved, 1788 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4537
+*** NEW BEST FITNESS: 4537 ***
+Time for Generation 0: 0.367275 seconds
+=== Population Statistics ===
+Min Fitness: 4537, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 8.34648, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_9M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_9M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_9M
+Number of Cities: 418
+Number of Jobs: 418
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 419 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 12/750 better than both parents, 125/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1822 total improvements across 375 genomes
+Local search: 0/375 improved, 1822 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4253
+*** NEW BEST FITNESS: 4253 ***
+Time for Generation 0: 0.290341 seconds
+=== Population Statistics ===
+Min Fitness: 4253, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.54973, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+
+================================================================================
+TSPJ_10M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_10M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_10M
+Number of Cities: 475
+Number of Jobs: 475
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 476 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 11/750 better than both parents, 107/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 2025 total improvements across 375 genomes
+Local search: 0/375 improved, 2025 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4509
+*** NEW BEST FITNESS: 4509 ***
+Time for Generation 0: 0.373604 seconds
+=== Population Statistics ===
+Min Fitness: 4509, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 8.70082, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered

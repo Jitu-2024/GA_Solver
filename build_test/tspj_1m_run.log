@@ -1,0 +1,2959 @@
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_1M
+Population Size: 500
+Generations: 2000
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 500
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_1M
+Number of Cities: 422
+Number of Jobs: 422
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 423 cities
+Initializing population with 150 nearest-neighbor and 350 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 89/125 better than both parents, 91/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 152 total improvements across 62 genomes
+Local search: 0/62 improved, 152 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 2160 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 0: 2876
+*** NEW BEST FITNESS: 2876 ***
+Time for Generation 0: 0.160234 seconds
+=== Population Statistics ===
+Min Fitness: 2876, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.55159, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 6/125 better than both parents, 15/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 1613 total improvements across 62 genomes
+Local search: 0/62 improved, 1613 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 3033 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 1: 2876
+Time for Generation 1: 0.20115 seconds
+=============================== GENERATION 2 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 3/125 better than both parents, 12/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2158 total improvements across 62 genomes
+Local search: 0/62 improved, 2158 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 3732 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 2: 2876
+Time for Generation 2: 0.166387 seconds
+=============================== GENERATION 3 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 4/125 better than both parents, 12/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2174 total improvements across 62 genomes
+Local search: 0/62 improved, 2174 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4367 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 3: 2876
+Time for Generation 3: 0.20964 seconds
+=============================== GENERATION 4 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 4/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2113 total improvements across 62 genomes
+Local search: 0/62 improved, 2113 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4386 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 4: 2876
+Time for Generation 4: 0.182545 seconds
+=============================== GENERATION 5 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 7/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2098 total improvements across 62 genomes
+Local search: 0/62 improved, 2098 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4450 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 4/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 5: 2876
+Time for Generation 5: 0.205213 seconds
+=============================== GENERATION 6 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 3/125 better than both parents, 16/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2207 total improvements across 62 genomes
+Local search: 0/62 improved, 2207 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4500 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 4/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 6: 2876
+Time for Generation 6: 0.252565 seconds
+=============================== GENERATION 7 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 11/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2131 total improvements across 62 genomes
+Local search: 0/62 improved, 2131 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4545 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 7: 2876
+Time for Generation 7: 0.209267 seconds
+=============================== GENERATION 8 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 3/125 better than both parents, 30/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2220 total improvements across 62 genomes
+Local search: 1/62 improved, 2220 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4520 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 8: 2873
+*** NEW BEST FITNESS: 2873 (improvement: 3, 0.104312%) ***
+Time for Generation 8: 0.232944 seconds
+=============================== GENERATION 9 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 5/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2171 total improvements across 62 genomes
+Local search: 0/62 improved, 2171 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 847 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 9: 2873
+Time for Generation 9: 0.182353 seconds
+=============================== GENERATION 10 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 2/125 better than both parents, 3/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 555 total improvements across 62 genomes
+Local search: 0/62 improved, 555 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1372 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 10: 2853
+*** NEW BEST FITNESS: 2853 (improvement: 20, 0.696136%) ***
+Time for Generation 10: 0.148249 seconds
+=============================== GENERATION 11 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 2/125 better than both parents, 9/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 1774 total improvements across 62 genomes
+Local search: 0/62 improved, 1774 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 3614 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 15/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 11: 2853
+Time for Generation 11: 0.177889 seconds
+=============================== GENERATION 12 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 16/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2092 total improvements across 62 genomes
+Local search: 0/62 improved, 2092 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 3834 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 12: 2853
+Time for Generation 12: 0.152177 seconds
+=============================== GENERATION 13 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 11/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2303 total improvements across 62 genomes
+Local search: 0/62 improved, 2303 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4426 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 13: 2853
+Time for Generation 13: 0.342605 seconds
+=============================== GENERATION 14 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 7/125 better than both parents, 17/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2234 total improvements across 62 genomes
+Local search: 0/62 improved, 2234 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4422 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 14: 2853
+Time for Generation 14: 0.219602 seconds
+=============================== GENERATION 15 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 5/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2255 total improvements across 62 genomes
+Local search: 0/62 improved, 2255 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4416 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 15: 2853
+Time for Generation 15: 0.26221 seconds
+=============================== GENERATION 16 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 7/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2208 total improvements across 62 genomes
+Local search: 0/62 improved, 2208 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4455 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 16: 2836
+*** NEW BEST FITNESS: 2836 (improvement: 17, 0.595864%) ***
+Time for Generation 16: 0.220832 seconds
+=============================== GENERATION 17 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 8/125 better than both parents, 28/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2135 total improvements across 62 genomes
+Local search: 0/62 improved, 2135 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4437 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 17: 2836
+Time for Generation 17: 0.246948 seconds
+=============================== GENERATION 18 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 1/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2270 total improvements across 62 genomes
+Local search: 0/62 improved, 2270 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4402 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 18: 2836
+Time for Generation 18: 0.201333 seconds
+=============================== GENERATION 19 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 1/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2172 total improvements across 62 genomes
+Local search: 0/62 improved, 2172 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4442 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 19: 2836
+Time for Generation 19: 0.206789 seconds
+=============================== GENERATION 20 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 1/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2105 total improvements across 62 genomes
+Local search: 0/62 improved, 2105 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4412 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 20: 2836
+Time for Generation 20: 0.192088 seconds
+=============================== GENERATION 21 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 3/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 1975 total improvements across 62 genomes
+Local search: 0/62 improved, 1975 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4356 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 21: 2836
+Time for Generation 21: 0.199854 seconds
+=============================== GENERATION 22 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 5/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2060 total improvements across 62 genomes
+Local search: 0/62 improved, 2060 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4409 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 22: 2836
+Time for Generation 22: 0.234353 seconds
+=============================== GENERATION 23 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 3/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2107 total improvements across 62 genomes
+Local search: 0/62 improved, 2107 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4499 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 23: 2834
+*** NEW BEST FITNESS: 2834 (improvement: 2, 0.0705219%) ***
+Time for Generation 23: 0.262609 seconds
+=============================== GENERATION 24 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 4/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2119 total improvements across 62 genomes
+Local search: 0/62 improved, 2119 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4507 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 8/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 24: 2834
+Time for Generation 24: 0.208467 seconds
+=============================== GENERATION 25 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 1/125 better than both parents, 6/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2194 total improvements across 62 genomes
+Local search: 0/62 improved, 2194 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4620 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 25: 2834
+Time for Generation 25: 0.194584 seconds
+=============================== GENERATION 26 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 8/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2201 total improvements across 62 genomes
+Local search: 0/62 improved, 2201 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4551 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 26: 2834
+Time for Generation 26: 0.191584 seconds
+=============================== GENERATION 27 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 48/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2149 total improvements across 62 genomes
+Local search: 0/62 improved, 2149 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4466 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 27: 2834
+Time for Generation 27: 0.205699 seconds
+=============================== GENERATION 28 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2209 total improvements across 62 genomes
+Local search: 0/62 improved, 2209 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4485 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 28: 2834
+Time for Generation 28: 0.197825 seconds
+=============================== GENERATION 29 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2089 total improvements across 62 genomes
+Local search: 0/62 improved, 2089 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4497 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 29: 2834
+Time for Generation 29: 0.196898 seconds
+=============================== GENERATION 30 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2122 total improvements across 62 genomes
+Local search: 0/62 improved, 2122 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4373 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 30: 2834
+Time for Generation 30: 0.205599 seconds
+=============================== GENERATION 31 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2178 total improvements across 62 genomes
+Local search: 0/62 improved, 2178 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4468 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 31: 2834
+Time for Generation 31: 0.219808 seconds
+=============================== GENERATION 32 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 10/125 better than both parents, 22/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2088 total improvements across 62 genomes
+Local search: 0/62 improved, 2088 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4300 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 32: 2800
+*** NEW BEST FITNESS: 2800 (improvement: 34, 1.19972%) ***
+Time for Generation 32: 0.193063 seconds
+=============================== GENERATION 33 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 19/125 better than both parents, 47/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2033 total improvements across 62 genomes
+Local search: 0/62 improved, 2033 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4228 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 33: 2789
+*** NEW BEST FITNESS: 2789 (improvement: 11, 0.392857%) ***
+Time for Generation 33: 0.1764 seconds
+=============================== GENERATION 34 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 43/125 better than both parents, 51/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2042 total improvements across 62 genomes
+Local search: 0/62 improved, 2042 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4225 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 34: 2789
+Time for Generation 34: 0.177035 seconds
+=============================== GENERATION 35 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 26/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2030 total improvements across 62 genomes
+Local search: 0/62 improved, 2030 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4097 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 35: 2789
+Time for Generation 35: 0.180522 seconds
+=============================== GENERATION 36 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2057 total improvements across 62 genomes
+Local search: 0/62 improved, 2057 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4118 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 36: 2789
+Time for Generation 36: 0.181118 seconds
+=============================== GENERATION 37 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2088 total improvements across 62 genomes
+Local search: 0/62 improved, 2088 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4212 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 37: 2789
+Time for Generation 37: 0.218851 seconds
+=============================== GENERATION 38 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2148 total improvements across 62 genomes
+Local search: 0/62 improved, 2148 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4227 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 38: 2789
+Time for Generation 38: 0.236751 seconds
+=============================== GENERATION 39 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2074 total improvements across 62 genomes
+Local search: 0/62 improved, 2074 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4192 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 39: 2789
+Time for Generation 39: 0.197057 seconds
+=============================== GENERATION 40 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2063 total improvements across 62 genomes
+Local search: 0/62 improved, 2063 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4203 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 40: 2789
+Time for Generation 40: 0.207549 seconds
+=============================== GENERATION 41 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2020 total improvements across 62 genomes
+Local search: 0/62 improved, 2020 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4134 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 41: 2764
+*** NEW BEST FITNESS: 2764 (improvement: 25, 0.896379%) ***
+Time for Generation 41: 0.225645 seconds
+=============================== GENERATION 42 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2099 total improvements across 62 genomes
+Local search: 0/62 improved, 2099 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4171 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 42: 2764
+Time for Generation 42: 0.217841 seconds
+=============================== GENERATION 43 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 2092 total improvements across 62 genomes
+Local search: 0/62 improved, 2092 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 4094 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 3/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 43: 2764
+Time for Generation 43: 0.171154 seconds
+=============================== GENERATION 44 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 0 total improvements across 62 genomes
+Local search: 0/62 improved, 0 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 79 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 44: 2764
+Time for Generation 44: 0.0809828 seconds
+=============================== GENERATION 45 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 61 total improvements across 62 genomes
+Local search: 0/62 improved, 61 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 160 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 45: 2764
+Time for Generation 45: 0.0986926 seconds
+=============================== GENERATION 46 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 80 total improvements across 62 genomes
+Local search: 0/62 improved, 80 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 156 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 46: 2764
+Time for Generation 46: 0.0967207 seconds
+=============================== GENERATION 47 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 65 total improvements across 62 genomes
+Local search: 0/62 improved, 65 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 98 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 47: 2764
+Time for Generation 47: 0.149381 seconds
+=============================== GENERATION 48 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 40 total improvements across 62 genomes
+Local search: 0/62 improved, 40 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 120 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 48: 2764
+Time for Generation 48: 0.140852 seconds
+=============================== GENERATION 49 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 40 total improvements across 62 genomes
+Local search: 0/62 improved, 40 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 103 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 49: 2764
+Time for Generation 49: 0.100076 seconds
+=============================== GENERATION 50 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 40 total improvements across 62 genomes
+Local search: 0/62 improved, 40 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 103 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 50: 2764
+Time for Generation 50: 0.097805 seconds
+=============================== GENERATION 51 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 40 total improvements across 62 genomes
+Local search: 0/62 improved, 40 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 103 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 51: 2764
+Time for Generation 51: 0.095811 seconds
+=============================== GENERATION 52 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 40 total improvements across 62 genomes
+Local search: 0/62 improved, 40 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 93 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 52: 2764
+Time for Generation 52: 0.0934235 seconds
+=============================== GENERATION 53 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 32 total improvements across 62 genomes
+Local search: 0/62 improved, 32 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 112 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 53: 2764
+Time for Generation 53: 0.133887 seconds
+=============================== GENERATION 54 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 29 total improvements across 62 genomes
+Local search: 0/62 improved, 29 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 188 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 54: 2764
+Time for Generation 54: 0.139149 seconds
+=============================== GENERATION 55 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 102 total improvements across 62 genomes
+Local search: 0/62 improved, 102 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 200 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 55: 2764
+Time for Generation 55: 0.133559 seconds
+=============================== GENERATION 56 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 120 total improvements across 62 genomes
+Local search: 0/62 improved, 120 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 195 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 56: 2764
+Time for Generation 56: 0.123733 seconds
+=============================== GENERATION 57 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 82 total improvements across 62 genomes
+Local search: 0/62 improved, 82 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 200 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 57: 2764
+Time for Generation 57: 0.118227 seconds
+=============================== GENERATION 58 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 120 total improvements across 62 genomes
+Local search: 0/62 improved, 120 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 200 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 58: 2764
+Time for Generation 58: 0.113045 seconds
+=============================== GENERATION 59 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 120 total improvements across 62 genomes
+Local search: 0/62 improved, 120 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 192 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 59: 2764
+Time for Generation 59: 0.107564 seconds
+=============================== GENERATION 60 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 88 total improvements across 62 genomes
+Local search: 0/62 improved, 88 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 200 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 60: 2764
+Time for Generation 60: 0.14154 seconds
+=============================== GENERATION 61 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 92 total improvements across 62 genomes
+Local search: 0/62 improved, 92 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 177 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 61: 2764
+Time for Generation 61: 0.117346 seconds
+=============================== GENERATION 62 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 94 total improvements across 62 genomes
+Local search: 0/62 improved, 94 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 348 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 62: 2764
+Time for Generation 62: 0.134861 seconds
+=============================== GENERATION 63 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 175 total improvements across 62 genomes
+Local search: 0/62 improved, 175 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 372 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 63: 2764
+Time for Generation 63: 0.179069 seconds
+=============================== GENERATION 64 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 154 total improvements across 62 genomes
+Local search: 0/62 improved, 154 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 386 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 64: 2764
+Time for Generation 64: 0.183425 seconds
+=============================== GENERATION 65 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 165 total improvements across 62 genomes
+Local search: 0/62 improved, 165 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 403 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 65: 2764
+Time for Generation 65: 0.125342 seconds
+=============================== GENERATION 66 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 179 total improvements across 62 genomes
+Local search: 0/62 improved, 179 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 357 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 66: 2764
+Time for Generation 66: 0.112279 seconds
+=============================== GENERATION 67 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 151 total improvements across 62 genomes
+Local search: 0/62 improved, 151 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 344 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 67: 2764
+Time for Generation 67: 0.135766 seconds
+=============================== GENERATION 68 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 150 total improvements across 62 genomes
+Local search: 0/62 improved, 150 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 362 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 68: 2764
+Time for Generation 68: 0.15744 seconds
+=============================== GENERATION 69 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 160 total improvements across 62 genomes
+Local search: 0/62 improved, 160 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 401 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 69: 2764
+Time for Generation 69: 0.147845 seconds
+=============================== GENERATION 70 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 160 total improvements across 62 genomes
+Local search: 0/62 improved, 160 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 409 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 70: 2764
+Time for Generation 70: 0.109613 seconds
+=============================== GENERATION 71 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 160 total improvements across 62 genomes
+Local search: 0/62 improved, 160 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 418 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 71: 2764
+Time for Generation 71: 0.118451 seconds
+=============================== GENERATION 72 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 133 total improvements across 62 genomes
+Local search: 0/62 improved, 133 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 379 total improvements across 125 genomes
+Double-bridge mutation (rate 0.15): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 72: 2764
+Time for Generation 72: 0.196141 seconds
+=============================== GENERATION 73 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 155 total improvements across 62 genomes
+Local search: 0/62 improved, 155 total moves
+Applying double-bridge mutation (rate: 0.253333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 561 total improvements across 125 genomes
+Double-bridge mutation (rate 0.253333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 73: 2764
+Time for Generation 73: 0.145004 seconds
+=============================== GENERATION 74 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 253 total improvements across 62 genomes
+Local search: 0/62 improved, 253 total moves
+Applying double-bridge mutation (rate: 0.256667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 515 total improvements across 125 genomes
+Double-bridge mutation (rate 0.256667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 74: 2764
+Time for Generation 74: 0.210328 seconds
+=============================== GENERATION 75 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 228 total improvements across 62 genomes
+Local search: 0/62 improved, 228 total moves
+Applying double-bridge mutation (rate: 0.26)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 482 total improvements across 125 genomes
+Double-bridge mutation (rate 0.26): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 75: 2764
+Time for Generation 75: 0.161841 seconds
+=============================== GENERATION 76 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 248 total improvements across 62 genomes
+Local search: 0/62 improved, 248 total moves
+Applying double-bridge mutation (rate: 0.263333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 845 total improvements across 125 genomes
+Double-bridge mutation (rate 0.263333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 76: 2764
+Time for Generation 76: 0.148872 seconds
+=============================== GENERATION 77 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 328 total improvements across 62 genomes
+Local search: 0/62 improved, 328 total moves
+Applying double-bridge mutation (rate: 0.266667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 869 total improvements across 125 genomes
+Double-bridge mutation (rate 0.266667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 77: 2764
+Time for Generation 77: 0.164727 seconds
+=============================== GENERATION 78 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 386 total improvements across 62 genomes
+Local search: 0/62 improved, 386 total moves
+Applying double-bridge mutation (rate: 0.27)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 871 total improvements across 125 genomes
+Double-bridge mutation (rate 0.27): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 78: 2764
+Time for Generation 78: 0.197066 seconds
+=============================== GENERATION 79 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 409 total improvements across 62 genomes
+Local search: 0/62 improved, 409 total moves
+Applying double-bridge mutation (rate: 0.273333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 911 total improvements across 125 genomes
+Double-bridge mutation (rate 0.273333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 79: 2764
+Time for Generation 79: 0.161295 seconds
+=============================== GENERATION 80 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 407 total improvements across 62 genomes
+Local search: 0/62 improved, 407 total moves
+Applying double-bridge mutation (rate: 0.276667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 861 total improvements across 125 genomes
+Double-bridge mutation (rate 0.276667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 80: 2764
+Time for Generation 80: 0.163347 seconds
+=============================== GENERATION 81 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 366 total improvements across 62 genomes
+Local search: 0/62 improved, 366 total moves
+Applying double-bridge mutation (rate: 0.28)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1103 total improvements across 125 genomes
+Double-bridge mutation (rate 0.28): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 81: 2764
+Time for Generation 81: 0.211536 seconds
+=============================== GENERATION 82 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 552 total improvements across 62 genomes
+Local search: 0/62 improved, 552 total moves
+Applying double-bridge mutation (rate: 0.283333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1080 total improvements across 125 genomes
+Double-bridge mutation (rate 0.283333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 82: 2764
+Time for Generation 82: 0.180483 seconds
+=============================== GENERATION 83 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 532 total improvements across 62 genomes
+Local search: 0/62 improved, 532 total moves
+Applying double-bridge mutation (rate: 0.286667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1118 total improvements across 125 genomes
+Double-bridge mutation (rate 0.286667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 83: 2764
+Time for Generation 83: 0.172839 seconds
+=============================== GENERATION 84 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 509 total improvements across 62 genomes
+Local search: 0/62 improved, 509 total moves
+Applying double-bridge mutation (rate: 0.29)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1145 total improvements across 125 genomes
+Double-bridge mutation (rate 0.29): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 84: 2764
+Time for Generation 84: 0.209317 seconds
+=============================== GENERATION 85 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 483 total improvements across 62 genomes
+Local search: 0/62 improved, 483 total moves
+Applying double-bridge mutation (rate: 0.293333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1233 total improvements across 125 genomes
+Double-bridge mutation (rate 0.293333): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 85: 2764
+Time for Generation 85: 0.197275 seconds
+=============================== GENERATION 86 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 505 total improvements across 62 genomes
+Local search: 0/62 improved, 505 total moves
+Applying double-bridge mutation (rate: 0.296667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1180 total improvements across 125 genomes
+Double-bridge mutation (rate 0.296667): 2/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 86: 2764
+Time for Generation 86: 0.170311 seconds
+=============================== GENERATION 87 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 508 total improvements across 62 genomes
+Local search: 0/62 improved, 508 total moves
+Applying double-bridge mutation (rate: 0.3)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1503 total improvements across 125 genomes
+Double-bridge mutation (rate 0.3): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 87: 2764
+Time for Generation 87: 0.247508 seconds
+=============================== GENERATION 88 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 741 total improvements across 62 genomes
+Local search: 0/62 improved, 741 total moves
+Applying double-bridge mutation (rate: 0.303333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1568 total improvements across 125 genomes
+Double-bridge mutation (rate 0.303333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 88: 2764
+Time for Generation 88: 0.172157 seconds
+=============================== GENERATION 89 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 729 total improvements across 62 genomes
+Local search: 0/62 improved, 729 total moves
+Applying double-bridge mutation (rate: 0.306667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1491 total improvements across 125 genomes
+Double-bridge mutation (rate 0.306667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 89: 2764
+Time for Generation 89: 0.188203 seconds
+=============================== GENERATION 90 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 676 total improvements across 62 genomes
+Local search: 0/62 improved, 676 total moves
+Applying double-bridge mutation (rate: 0.31)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1523 total improvements across 125 genomes
+Double-bridge mutation (rate 0.31): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 90: 2764
+Time for Generation 90: 0.189919 seconds
+=============================== GENERATION 91 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 685 total improvements across 62 genomes
+Local search: 0/62 improved, 685 total moves
+Applying double-bridge mutation (rate: 0.313333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 1455 total improvements across 125 genomes
+Double-bridge mutation (rate 0.313333): 1/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 91: 2764
+Time for Generation 91: 0.245667 seconds
+=============================== GENERATION 92 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 68 total improvements across 62 genomes
+Local search: 0/62 improved, 68 total moves
+Applying double-bridge mutation (rate: 0.316667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 244 total improvements across 125 genomes
+Double-bridge mutation (rate 0.316667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 92: 2764
+Time for Generation 92: 0.557629 seconds
+=============================== GENERATION 93 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 184 total improvements across 62 genomes
+Local search: 0/62 improved, 184 total moves
+Applying double-bridge mutation (rate: 0.32)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 271 total improvements across 125 genomes
+Double-bridge mutation (rate 0.32): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 93: 2764
+Time for Generation 93: 0.556506 seconds
+=============================== GENERATION 94 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 189 total improvements across 62 genomes
+Local search: 0/62 improved, 189 total moves
+Applying double-bridge mutation (rate: 0.323333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 544 total improvements across 125 genomes
+Double-bridge mutation (rate 0.323333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 94: 2764
+Time for Generation 94: 0.557535 seconds
+=============================== GENERATION 95 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 318 total improvements across 62 genomes
+Local search: 0/62 improved, 318 total moves
+Applying double-bridge mutation (rate: 0.326667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 836 total improvements across 125 genomes
+Double-bridge mutation (rate 0.326667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 95: 2764
+Time for Generation 95: 0.335527 seconds
+=============================== GENERATION 96 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 449 total improvements across 62 genomes
+Local search: 0/62 improved, 449 total moves
+Applying double-bridge mutation (rate: 0.33)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 886 total improvements across 125 genomes
+Double-bridge mutation (rate 0.33): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 96: 2764
+Time for Generation 96: 0.13811 seconds
+=============================== GENERATION 97 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 437 total improvements across 62 genomes
+Local search: 0/62 improved, 437 total moves
+Applying double-bridge mutation (rate: 0.333333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 857 total improvements across 125 genomes
+Double-bridge mutation (rate 0.333333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 97: 2764
+Time for Generation 97: 0.151676 seconds
+=============================== GENERATION 98 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 347 total improvements across 62 genomes
+Local search: 0/62 improved, 347 total moves
+Applying double-bridge mutation (rate: 0.336667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 833 total improvements across 125 genomes
+Double-bridge mutation (rate 0.336667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 98: 2764
+Time for Generation 98: 0.146853 seconds
+=============================== GENERATION 99 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 411 total improvements across 62 genomes
+Local search: 0/62 improved, 411 total moves
+Applying double-bridge mutation (rate: 0.34)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 838 total improvements across 125 genomes
+Double-bridge mutation (rate 0.34): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 99: 2764
+Time for Generation 99: 0.137818 seconds
+=============================== GENERATION 100 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 385 total improvements across 62 genomes
+Local search: 0/62 improved, 385 total moves
+Applying double-bridge mutation (rate: 0.343333)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 899 total improvements across 125 genomes
+Double-bridge mutation (rate 0.343333): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 100: 2764
+Time for Generation 100: 0.141716 seconds
+=== Population Statistics ===
+Min Fitness: 2764, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 11.8332, Low Diversity Count: 0, Stagnation: 59 generations
+=============================== GENERATION 101 ===============================
+Using batch hybrid processing (EAX+Uniform) for 250 parents
+Warning: 125 parent pairs were too similar (convergence)
+Generated 125 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 0/125 better than both parents, 0/125 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 62 genomes...
+2-opt local search completed: 374 total improvements across 62 genomes
+Local search: 0/62 improved, 374 total moves
+Applying double-bridge mutation (rate: 0.346667)...
+Double-bridge mutation completed
+Starting 2-opt local search for 125 genomes...
+2-opt local search completed: 948 total improvements across 125 genomes
+Double-bridge mutation (rate 0.346667): 0/125 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 50 genomes
+DEBUG: Data flattened, allocating GPU memory
+DEBUG: GPU memory allocated, setting up random states
+DEBUG: Launching setupRandomStates with 1 blocks, 50 threads
+DEBUG: Random states initialized successfully
+DEBUG: Launching city sequence mutation
+DEBUG: City sequence mutation completed
+DEBUG: Launching job sequence mutation
+DEBUG: Job sequence mutation completed
+DEBUG: All GPU mutations completed, copying back to host
+DEBUG: GPU batch mutation completed successfully
+Added 100 diversity genomes
+Best Fitness of Generation 101: 2764
+Time for Generation 101: 0.128349 seconds
+=============================== GENERATION 102 ===============================

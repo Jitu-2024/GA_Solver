@@ -1,0 +1,2 @@
+problem_name,problem_type,batch,timestamp,num_cities,num_jobs,population_size,max_generations,stagnation_limit,mode,mutation_rate,tournament_size,diversity_percent,success,initial_fitness,final_fitness,improvement_percent,solution_generation,total_generations,elapsed_time_seconds,avg_time_per_generation,crossover_method,crossover_type,early_stopped,final_stagnation,error
+TSPJ_1M,Medium,Batch_01,2025-12-07T17:54:23.648706,422,422,100,30,15,0,0.3,5,20,True,32221.0,32221.0,0.0,0,30,1.0163428783416748,0.0037065556666666666,Batch (Auto EAX/OX),OX (Order Crossover),False,0,

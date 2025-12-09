@@ -1,0 +1,30 @@
+[
+  {
+    "problem_name": "TSPJ_1M",
+    "problem_type": "Medium",
+    "batch": "Batch_01",
+    "timestamp": "2025-12-08T02:32:12.988188",
+    "num_cities": 422,
+    "num_jobs": 422,
+    "population_size": 1000,
+    "max_generations": 6000,
+    "stagnation_limit": 500,
+    "mode": 0,
+    "mutation_rate": 0.3,
+    "tournament_size": 5,
+    "diversity_percent": 20,
+    "success": true,
+    "initial_fitness": 31238.0,
+    "final_fitness": 11382.0,
+    "improvement_percent": 63.563608425635444,
+    "solution_generation": 5962,
+    "total_generations": 6000,
+    "elapsed_time_seconds": 149.94249367713928,
+    "avg_time_per_generation": 0.024722397433333376,
+    "crossover_method": "Batch (Auto EAX/OX)",
+    "crossover_type": "OX (Order Crossover)",
+    "early_stopped": false,
+    "final_stagnation": 62,
+    "error": null
+  }
+]

@@ -1,0 +1,51 @@
+
+================================================================================
+TSPJ_1M
+================================================================================
+=============================== CONFIGURATION ===============================
+Datasets: TSPJ_1M
+Population Size: 3000
+Generations: 200
+Mutation Rate: 0.3
+Tournament Size: 5
+Mode: 0
+Max Stagnation Generations: 50
+Diversity Percentage: 20%
+Logs Folder: ../logs
+Crossover Type: EAX+Uniform
+Mutation Type: 2-opt/Swap
+Local Search: light (1)
+=========================================================================
+Dataset: TSPJ_1M
+Number of Cities: 422
+Number of Jobs: 422
+Initializing 2-opt mutation cost matrix...
+Mutation cost matrix initialized: 423 cities
+Initializing population with 900 nearest-neighbor and 2100 random genomes
+Population initialization completed
+=============================== GENERATION 0 ===============================
+Using batch hybrid processing (EAX+Uniform) for 1500 parents
+Generated 750 offspring using hybrid crossover (EAX for routing, Uniform for jobs)
+Crossover stats this gen: 14/750 better than both parents, 165/750 better than at least one parent
+Starting local search (intensity=1)...
+Starting 2-opt local search for 375 genomes...
+2-opt local search completed: 1536 total improvements across 375 genomes
+Local search: 0/375 improved, 1536 total moves
+Applying double-bridge mutation (rate: 0.15)...
+Starting 2-opt local search for 750 genomes...
+Double-bridge mutation (rate 0.15): 0/750 improved after recovery
+Local search and mutation phase completed
+DEBUG: Starting GPU batch mutation for 300 genomes
+DEBUG: Data flattened, allocating GPU memory
+Falling back to CPU mutation
+Added 600 diversity genomes
+Best Fitness of Generation 0: 4080
+*** NEW BEST FITNESS: 4080 ***
+Time for Generation 0: 0.329281 seconds
+=== Population Statistics ===
+Min Fitness: 4080, Avg: inf, Max: 3.40282e+38, Spread: 3.40282e+38
+Diversity Score: 7.99534, Low Diversity Count: 0, Stagnation: 0 generations
+=============================== GENERATION 1 ===============================
+Exception in double-bridge mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in 2-opt local search: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered
+Exception in GPU mutation: std::bad_alloc: cudaErrorIllegalAddress: an illegal memory access was encountered

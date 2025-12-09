@@ -1,0 +1,2 @@
+name,problem_type,status,best_fitness,num_cities,elapsed_time,time_per_generation,solution_generation,return_code
+TSPJ_1M,medium,success,4113.0,422,71.52242469787598,,0,0
