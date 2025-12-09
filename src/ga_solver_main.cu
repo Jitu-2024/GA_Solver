@@ -640,6 +640,11 @@ int main(int argc, char* argv[]) {
                     }
                 }
                 
+                // Evaluate fitness of diversity genomes before adding to offspring
+                if (!diversityGenomes.empty()) {
+                    evaluatePopulation(diversityGenomes, travelTimes, jobTimes, mode);
+                }
+
                 offspring.insert(offspring.end(), diversityGenomes.begin(), diversityGenomes.end());
 
                 std::cout << "Added " << diversityCount << " diversity genomes" << std::endl;
