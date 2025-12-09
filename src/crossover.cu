@@ -432,13 +432,11 @@ Genome performCrossover(const Genome& parent1, const Genome& parent2, int mode) 
     // Order Crossover (OX) for city sequence - reliable permutation crossover
     orderCrossover(parent1.citySequence, parent2.citySequence, child.citySequence, rng);
 
-    // Simple job crossover - faster than OX, sufficient for job assignment
-    // Job assignment is less critical than city ordering; last positions matter most
-    simpleJobCrossover(parent1.jobSequence, parent2.jobSequence, child.jobSequence, rng);
+    // Order Crossover for job sequence - jobs are also a permutation (each job once)
+    orderCrossover(parent1.jobSequence, parent2.jobSequence, child.jobSequence, rng);
 
     // Handle pickup sequence if mode == 1
     if (mode == 1) {
-        // Pickup sequence uses same logic as city sequence
         orderCrossover(parent1.pickupSequence, parent2.pickupSequence, child.pickupSequence, rng);
     }
 
@@ -514,8 +512,8 @@ std::vector<Genome> performBatchGPUCrossover(const std::vector<Genome>& parents1
         orderCrossover(parents1[i].citySequence, parents2[i].citySequence,
                     child.citySequence, rng);
 
-        // Simple job crossover - faster than OX, sufficient for job assignment
-        simpleJobCrossover(parents1[i].jobSequence, parents2[i].jobSequence,
+        // Order Crossover for job sequence - jobs are also a permutation
+        orderCrossover(parents1[i].jobSequence, parents2[i].jobSequence,
                     child.jobSequence, rng);
 
         if (mode == 1) {
