@@ -59,6 +59,9 @@ file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/logs")
 add_compile_definitions(DATA_DIR="${DATA_BINARY_DIR}")
 add_compile_definitions(LOGS_DIR="${CMAKE_SOURCE_DIR}/logs")
 
+# Option to use GPU-resident solver (scales to 1500+ cities)
+option(USE_GPU_RESIDENT "Use GPU-resident solver for large instances" ON)
+
 # Add source files - Updated for EAX implementation
 set(SRC_FILES
     src/genome.cu
@@ -69,6 +72,15 @@ set(SRC_FILES
     src/crossover.cu                # Now contains EAX implementation
     src/eax_cost_integration.cu     # New: Cost-aware EAX utilities
     src/mutation.cu
+)
+
+# GPU-resident solver source files (scalable to 1500+ cities)
+set(GPU_RESIDENT_SRC_FILES
+    src/gpu_memory_manager.cu
+    src/eax_gpu.cu
+    src/job_assignment_gpu.cu
+    src/mutation_gpu.cu
+    src/gpu_solver.cu
 )
 
 # Include header files
@@ -113,12 +125,49 @@ target_link_libraries(ga_solver PUBLIC ga_solver_lib)
 # Set CUDA architectures for the executable
 set_property(TARGET ga_solver PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
 
-# Add memory optimization flags
+# Add memory optimization flags for legacy solver
 target_compile_definitions(ga_solver_lib PRIVATE
     MAX_CITIES=256
     MAX_CYCLES=64
     MAX_CYCLE_LENGTH=64
 )
+
+# GPU-resident solver library (scales to 2048 cities)
+if(USE_GPU_RESIDENT)
+    add_library(gpu_solver_lib ${GPU_RESIDENT_SRC_FILES})
+    target_include_directories(gpu_solver_lib PRIVATE include)
+    target_link_libraries(gpu_solver_lib PRIVATE
+        CUDA::cudart
+        CUDA::curand
+    )
+    set_property(TARGET gpu_solver_lib PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
+
+    # GPU-resident solver can handle larger problems
+    target_compile_definitions(gpu_solver_lib PRIVATE
+        GPU_MAX_CITIES=2048
+        GPU_MAX_POPULATION=2048
+        GPU_MAX_CYCLES=128
+        GPU_MAX_CYCLE_LENGTH=512
+    )
+
+    target_compile_options(gpu_solver_lib PRIVATE
+        $<$<COMPILE_LANGUAGE:CUDA>:
+            --extended-lambda
+            --expt-relaxed-constexpr
+            --maxrregcount=64
+        >
+    )
+
+    if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        target_compile_options(gpu_solver_lib PRIVATE
+            $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas -O3>
+        )
+    endif()
+
+    # Link GPU solver to main executable
+    target_link_libraries(ga_solver PUBLIC gpu_solver_lib)
+    target_compile_definitions(ga_solver PRIVATE USE_GPU_RESIDENT=1)
+endif()
 
 # Optional: Add performance profiling support
 option(ENABLE_PROFILING "Enable CUDA profiling" OFF)

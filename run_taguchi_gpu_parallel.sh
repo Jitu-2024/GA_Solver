@@ -9,7 +9,7 @@ if [ ! -f "build/ga_solver" ]; then
 fi
 
 # Configuration
-NUM_GPUS=8
+NUM_GPUS=7
 CLEAN_START=false
 if [ "$1" == "--clean" ]; then
     CLEAN_START=true
@@ -25,7 +25,8 @@ mkdir -p taguchi_results
 mkdir -p taguchi_results/logs
 
 # Datasets to test
-DATASETS="bays29,berlin52,eil101,eil51,eil76,fri26,gr17,gr21,gr24,gr48"
+# DATASETS="bays29,berlin52,eil101,eil51,eil76,fri26,gr17,gr21,gr24,gr48"
+DATASETS="gr21"
 
 # L18 Orthogonal Array Parameters
 EXPERIMENTS=(
@@ -67,6 +68,18 @@ if [ "$CLEAN_START" = true ] || [ ! -f "$SUMMARY_FILE" ]; then
     echo "Experiment,Run,Pop_Size,Mut_Rate,Tour_Size,Div_Perc,Stag_Lim,Cost_Aware,Dataset,Best_Fitness,Solution_Gen,Total_Gens,Total_Time,Time_Per_Gen" > $SUMMARY_FILE
 fi
 
+# Best solutions file for each dataset
+BEST_SOLUTIONS_FILE="taguchi_results/best_solutions.csv"
+if [ "$CLEAN_START" = true ] || [ ! -f "$BEST_SOLUTIONS_FILE" ]; then
+    echo "Dataset,Best_Fitness,Experiment,Run,City_Sequence,Job_Sequence" > $BEST_SOLUTIONS_FILE
+fi
+
+# All solutions tracking file (used to find best across all experiments)
+ALL_SOLUTIONS_FILE="taguchi_results/all_solutions.csv"
+if [ "$CLEAN_START" = true ]; then
+    rm -f "$ALL_SOLUTIONS_FILE"
+fi
+
 # Function to run a single experiment on a specific GPU
 run_experiment_on_gpu() {
     local exp_params=$1
@@ -98,7 +111,8 @@ run_experiment_on_gpu() {
     cmd="$cmd -o 0"
     cmd="$cmd -g 5000"
     cmd="$cmd -l $run_dir"
-    
+    cmd="$cmd -r"  # Use GPU-resident solver (scales to 1500+ cities)
+
     if [ "$cost" -eq 1 ]; then
         cmd="$cmd -c"
     fi
@@ -122,6 +136,29 @@ run_experiment_on_gpu() {
         echo "[GPU $gpu_id] Exp $exp_num Run $run completed successfully"
     else
         echo "[GPU $gpu_id] WARNING: No results for Exp $exp_num Run $run"
+    fi
+
+    # Extract and save best solution sequences from output
+    if [ -f "$log_file" ]; then
+        # Extract fitness
+        best_fitness=$(grep "Best Fitness:" "$log_file" | tail -1 | awk '{print $NF}')
+
+        # Extract sequences
+        city_seq=$(grep "BEST_CITY_SEQ:" "$log_file" | tail -1 | sed 's/BEST_CITY_SEQ: //')
+        job_seq=$(grep "BEST_JOB_SEQ:" "$log_file" | tail -1 | sed 's/BEST_JOB_SEQ: //')
+
+        # Save to run directory
+        if [ -n "$city_seq" ] && [ -n "$job_seq" ]; then
+            echo "Best Fitness: $best_fitness" > "$run_dir/best_solution.txt"
+            echo "City Sequence: $city_seq" >> "$run_dir/best_solution.txt"
+            echo "Job Sequence: $job_seq" >> "$run_dir/best_solution.txt"
+
+            # Extract dataset name from output
+            dataset_name=$(grep "^Dataset:" "$log_file" | tail -1 | awk '{print $2}')
+
+            # Save to solutions tracking file (will be processed later to find overall best)
+            echo "$dataset_name,$best_fitness,$exp_num,$run,\"$city_seq\",\"$job_seq\"" >> "taguchi_results/all_solutions.csv"
+        fi
     fi
 }
 
@@ -186,6 +223,51 @@ echo "=================================================="
 echo "All experiments completed!"
 echo "Results saved to: $SUMMARY_FILE"
 echo "=================================================="
+
+# Post-process to find the best solution for each dataset
+echo ""
+echo "Finding best solutions for each dataset..."
+
+if [ -f "taguchi_results/all_solutions.csv" ]; then
+    # Get unique datasets
+    datasets=$(cut -d',' -f1 "taguchi_results/all_solutions.csv" | sort -u)
+
+    # Recreate best solutions file with header
+    echo "Dataset,Best_Fitness,Experiment,Run,City_Sequence,Job_Sequence" > "$BEST_SOLUTIONS_FILE"
+
+    for dataset in $datasets; do
+        # Find the line with minimum fitness for this dataset
+        # Sort by fitness (field 2) numerically and take the first line
+        best_line=$(grep "^$dataset," "taguchi_results/all_solutions.csv" | sort -t',' -k2 -n | head -1)
+
+        if [ -n "$best_line" ]; then
+            echo "$best_line" >> "$BEST_SOLUTIONS_FILE"
+
+            # Also save as a separate file for easy access
+            fitness=$(echo "$best_line" | cut -d',' -f2)
+            exp_num=$(echo "$best_line" | cut -d',' -f3)
+            run_num=$(echo "$best_line" | cut -d',' -f4)
+            city_seq=$(echo "$best_line" | cut -d',' -f5 | tr -d '"')
+            job_seq=$(echo "$best_line" | cut -d',' -f6 | tr -d '"')
+
+            echo "Dataset: $dataset" > "taguchi_results/best_${dataset}.txt"
+            echo "Best Fitness: $fitness" >> "taguchi_results/best_${dataset}.txt"
+            echo "Found in: Experiment $exp_num, Run $run_num" >> "taguchi_results/best_${dataset}.txt"
+            echo "" >> "taguchi_results/best_${dataset}.txt"
+            echo "City Sequence (with depot 0 at start/end):" >> "taguchi_results/best_${dataset}.txt"
+            echo "$city_seq" >> "taguchi_results/best_${dataset}.txt"
+            echo "" >> "taguchi_results/best_${dataset}.txt"
+            echo "Job Sequence:" >> "taguchi_results/best_${dataset}.txt"
+            echo "$job_seq" >> "taguchi_results/best_${dataset}.txt"
+
+            echo "  $dataset: Best = $fitness (Exp $exp_num, Run $run_num)"
+        fi
+    done
+
+    echo ""
+    echo "Best solutions saved to: $BEST_SOLUTIONS_FILE"
+    echo "Individual best solution files: taguchi_results/best_<dataset>.txt"
+fi
 
 # Summary statistics
 echo ""

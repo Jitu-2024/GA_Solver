@@ -15,6 +15,10 @@
 #include <string>
 #include <cstring>
 
+#ifdef USE_GPU_RESIDENT
+#include "gpu_solver.cuh"
+#endif
+
 // Function to parse a CSV file into a 2D vector
 std::vector<std::vector<float>> parseCSV(const std::string &filename) {
     std::vector<std::vector<float>> data;
@@ -83,6 +87,9 @@ void displayHelp() {
     std::cout << "  -l, --logs-folder         Folder for logs (default: ../logs)" << std::endl;
     std::cout << "  -c, --use-cost-aware      Use cost-aware EAX crossover (default: false)" << std::endl;
     std::cout << "  -b, --batch-mutation      Use batch 2-opt mutation (default: true)" << std::endl;
+#ifdef USE_GPU_RESIDENT
+    std::cout << "  -r, --gpu-resident        Use GPU-resident solver (scales to 1500+ cities)" << std::endl;
+#endif
 }
 
 int main(int argc, char* argv[]) {
@@ -98,6 +105,9 @@ int main(int argc, char* argv[]) {
     float diversityPercent = 20.0f;
     bool useCostAware = false;
     bool useBatchMutation = true;
+#ifdef USE_GPU_RESIDENT
+    bool useGpuResident = false;
+#endif
 
     // Parse command line arguments
     for (int i = 1; i < argc; i++) {
@@ -149,6 +159,10 @@ int main(int argc, char* argv[]) {
                 std::string val = argv[++i];
                 useBatchMutation = (val == "true" || val == "1");
             }
+#ifdef USE_GPU_RESIDENT
+        } else if (arg == "-r" || arg == "--gpu-resident") {
+            useGpuResident = true;
+#endif
         }
     }
 
@@ -173,6 +187,9 @@ int main(int argc, char* argv[]) {
     std::cout << "Logs Folder: " << logsFolder << std::endl;
     std::cout << "Crossover Type: " << (useCostAware ? "Cost-Aware EAX" : "Standard EAX") << std::endl;
     std::cout << "Mutation Type: 2-opt/Swap" << std::endl;
+#ifdef USE_GPU_RESIDENT
+    std::cout << "GPU-Resident Solver: " << (useGpuResident ? "Enabled" : "Disabled") << std::endl;
+#endif
     std::cout << "=========================================================================" << std::endl;
 
     // Calculate diversity count based on percentage
@@ -196,12 +213,71 @@ int main(int argc, char* argv[]) {
             std::cout << "Number of Cities: " << numCities << std::endl;
             std::cout << "Number of Jobs: " << numJobs << std::endl;
 
+#ifdef USE_GPU_RESIDENT
+            // Use GPU-resident solver if requested
+            if (useGpuResident) {
+                std::cout << "Using GPU-resident solver (scales to 1500+ cities)" << std::endl;
+
+                GPUSolverParams params;
+                params.populationSize = populationSize;
+                params.maxGenerations = generations;
+                params.maxStagnationGenerations = maxStagnationGenerations;
+                params.baseMutationRate = mutationRate;
+                params.tournamentSize = tournamentSize;
+                params.loggingInterval = 100;
+                params.verbose = true;
+                // Use time-based random seed for varied results
+                params.rngSeed = std::chrono::steady_clock::now().time_since_epoch().count();
+                params.useCostAware = useCostAware;
+
+                if (useCostAware) {
+                    std::cout << "Using cost-aware EAX assembly selection" << std::endl;
+                }
+
+                GPUSolverResult result = runGPUSolver(travelTimes, jobTimes, mode, params);
+
+                std::cout << "Best Fitness: " << result.bestFitness << std::endl;
+                std::cout << "Solution found at generation: " << result.solutionGeneration << std::endl;
+                std::cout << "Total time: " << result.elapsedTimeSeconds << " seconds" << std::endl;
+
+                // Print best solution sequences (with depot 0 at start and end for city sequence)
+                std::cout << "BEST_CITY_SEQ: 0 ";
+                for (const auto& city : result.bestCitySequence) {
+                    std::cout << city << " ";
+                }
+                std::cout << "0" << std::endl;
+
+                std::cout << "BEST_JOB_SEQ: ";
+                for (const auto& job : result.bestJobSequence) {
+                    std::cout << job << " ";
+                }
+                std::cout << std::endl;
+
+                if (mode == 1 && !result.bestPickupSequence.empty()) {
+                    std::cout << "BEST_PICKUP_SEQ: 0 ";
+                    for (const auto& pickup : result.bestPickupSequence) {
+                        std::cout << pickup << " ";
+                    }
+                    std::cout << "0" << std::endl;
+                }
+
+                // Log results to CSV (may throw if folder doesn't exist)
+                logResults(logsFolder, datasetName, result.bestFitness,
+                          result.solutionGeneration, result.generationsRun,
+                          result.elapsedTimeSeconds,
+                          result.elapsedTimeSeconds / result.generationsRun,
+                          mode, "GPU-Resident");
+
+                continue;  // Skip legacy solver for this dataset
+            }
+#endif
+
             // Initialize cost matrices for EAX if using cost-aware mode
             if (useCostAware) {
                 std::cout << "Initializing cost-aware EAX..." << std::endl;
                 initializeEAXCostMatrices(travelTimes, jobTimes);
             }
-            
+
             // Initialize cost matrix for 2-opt mutation
             std::cout << "Initializing 2-opt mutation cost matrix..." << std::endl;
             initializeMutationCostMatrix(travelTimes);
